@@ -1,0 +1,93 @@
+
+/* -------------------------------------------------------------------------- */
+/*                                 Universals                                 */
+/* -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+--blue: blue;
+--light-grey: #666;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 Card Styles                                */
+/* -------------------------------------------------------------------------- */
+.item-card { 
+    padding: 10px;
+    width: 30em;
+    height: 9em;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    background-color: #fff;
+    font-family: "Montserrat", sans-serif;
+    
+
+}
+
+.item-card:hover{
+    box-shadow: 0 0 0 0 50px rgba(0, 0, 0, 0.2);
+
+}
+
+.item-info { 
+  display: flex;  
+  flex-direction: column;
+  margin-top: .5em;
+
+}
+
+.menu-add {
+    margin-top: 2.5em;
+    margin-left:3em;
+}
+
+.btn:hover {
+    cursor: pointer; 
+    transform: scale(1.05);
+
+}
+
+.price {
+    margin-top: 1em;
+  
+
+}
+
+.item-description { 
+    color: var(--light-grey)
+
+}
+
+.item-img { 
+    float: right;
+    transform: translatey(-120%);
+
+}
+
+.item-img img { 
+    height: 5em;
+    float: right;
+    width: 100%;
+    object-fit: cover;
+    border-left: .75px solid rgb(226, 224, 224);
+}
+
+.item-info {
+   display: flex;
+}
+
+.btn { 
+    padding: 10px;
+    border-radius: 6px;
+    border-style: none;
+
+  
+}
