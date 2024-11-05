@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+#logo{
+    width:100px
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: #F20530;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: space-around;
+}
+.header a{
+    color:white;
+    text-decoration: none;
+}
+.userNav,.nav,.logo{
+    display: flex;
+    width:20%;
+    align-items: center;
+    gap:20px
+}
+#UserProf{
+    font-size:30px;
+}
+.btnLink{
+    color:hsl(0, 0%, 0%);
+    background-color: #F2E205;
+    border-radius: 10px;
+    width:100px;
+    height: 40px;
+    padding:2%;
+}
+/* --------------------------------------------End Of Header--------------------------- */
+.video{
+    width:100%;
+   background-size: contain;
+}
+.back-vid{
+display:flex;
+width:100%;
+/* position: fixed; */
+z-index: 0;
+
+justify-content: center;
+}
+.exploreMenu{
+    height:100%;
+}
+.MenuCard{
+    display: flex;
+    background-color: #F2E205;
+    width:90%;
+    height: 100px;
+    border-radius: 10px;
+}
+.MenuCard img{
+    height:100px
+}
