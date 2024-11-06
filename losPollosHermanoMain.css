@@ -13,14 +13,19 @@ p {
   font-weight: 400;
   font-style: normal;
 }
-a{
-    font-family: "Lato", serif;
-    font-weight: 600;
-    font-style: normal;  
+a {
+  font-family: "Lato", serif;
+  font-weight: 600;
+  font-style: normal;
 }
-@keyframes fadein {         /* animation*/
-    from {opacity: 0;}
-    to{opacity: 1;}
+@keyframes fadein {
+  /* animation*/
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 #logo {
   width: 100px;
@@ -47,33 +52,33 @@ a{
 
 .nav a:hover,
 .userNav a:hover {
-    color:#f2e205;
+  color: #f2e205;
 }
-#Set-a-location ion-icon{
-    color: #f2e205;
+#Set-a-location ion-icon {
+  color: #f2e205;
 }
-#Searchbar{
-    border-radius: 20px;
-    background-color: hsl(349, 96%, 45%);
-    border:none;
-    color:white;
-    padding:10px
+#Searchbar {
+  border-radius: 20px;
+  background-color: hsl(349, 96%, 45%);
+  border: none;
+  color: white;
+  padding: 10px;
 }
-#Searchbar::placeholder{
-    color:hsl(0, 0%, 70%)
+#Searchbar::placeholder {
+  color: hsl(0, 0%, 70%);
 }
-#Searchbar:focus{
-    outline:none;
-    border:none;
-    /* background-color: none; */
-
+#Searchbar:focus {
+  outline: none;
+  border: none;
+  /* background-color: none; */
 }
-#UserProf, #Cart {
+#UserProf,
+#Cart {
   font-size: 30px;
-  color:#f2e205
+  color: #f2e205;
 }
-#Navbtn{
-    display: flex;
+#Navbtn {
+  display: flex;
   color: hsl(100, 100%, 100%);
   background-color: #f2e205;
   justify-content: center;
@@ -81,19 +86,19 @@ a{
   width: 120px;
   padding: 3%;
 }
-#Navbtn:hover{
-    color:black;
-    transform: scale(1.2);
-    box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015 ;
-    transition:.9s;
+#Navbtn:hover {
+  color: black;
+  transform: scale(1.2);
+  box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+  transition: 0.9s;
 }
 /* --------------------------------------------End Of Header--------------------------- */
 
 .Deal {
-    display:flex;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
   /* width: 100%;
   height: 500px; */
 }
@@ -104,8 +109,6 @@ a{
   align-items: center;
   justify-content: center;
   height: 100%;
-  
-
 }
 .video img {
   width: 500px;
@@ -133,19 +136,18 @@ a{
   width: 100%;
   height: 300px;
   border-radius: 20px;
-  
+
   box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
   --border-radius: 20px;
 }
-.Card:nth-of-type(2){
-    overflow: hidden;
-    display: flex;
-    
+.Card:nth-of-type(2) {
+  overflow: hidden;
+  display: flex;
 }
-.MenuCard-Container{
-    display: flex;
-    flex-direction: column;
-    row-gap:30px;
+.MenuCard-Container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
 }
 .MenuCardInfo {
   display: flex;
@@ -155,24 +157,23 @@ a{
   height: 5%;
   flex-direction: column;
   justify-content: center;
-  padding:2%;
+  padding: 2%;
 }
-.MenuCardInfo h3{
-    color:#f20530
+.MenuCardInfo h3 {
+  color: #f20530;
 }
 .Card img {
   height: 300px;
-  
+
   border-radius: var(--border-radius);
   padding-right: 20px;
-  
 }
-#Image2{
-    transform: translateY(150px);
-    height:650px;
-    /* width:80%; */
-    padding-right:0px;
-    /* padding-left: 20px; */
+#Image2 {
+  transform: translateY(150px);
+  height: 650px;
+  /* width:80%; */
+  padding-right: 0px;
+  /* padding-left: 20px; */
 }
 .btn {
   display: flex;
@@ -184,104 +185,102 @@ a{
   padding: 3%;
   border-radius: 20px;
 }
-.btn:hover{
-    transform: scale(1.05);
-    box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
-    transition: .9s;
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+  transition: 0.9s;
 }
 /* ------------------------------------------End of Explore Section--------------------------------------------------------- */
 
-.cater-container{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background-image:url("LosPollosImages-gif/LPH-Cater.png");
-    background-size: 1650px;
-    background-position: center;
-    height:500px;
+.cater-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url("LosPollosImages-gif/LPH-Cater.png");
+  background-size: 1650px;
+  background-position: center;
+  height: 500px;
 }
-.Catercard{
-    width:40%;
-    padding:3%;
-    flex-direction:column;
-    gap:20px;
+.Catercard {
+  width: 40%;
+  padding: 3%;
+  flex-direction: column;
+  gap: 20px;
 }
-.Catercard h3{
-    color:#f20530}
-.Catercard .btn{
-    width:300px;
+.Catercard h3 {
+  color: #f20530;
+}
+.Catercard .btn {
+  width: 300px;
 }
 /* --------------------------------- End of Cater Section------------------------------------------ */
-.explore2{
-    padding:3% 0%;
+.explore2 {
+  padding: 3% 0%;
 }
-.card-containers{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap:5%;
+.card-containers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5%;
 }
 .Square h3 {
-    color: #f20530
+  color: #f20530;
 }
-.square-info{
-    display: flex;
-    flex-direction: column;
-    row-gap:15px;
-    padding:3% 5%;
+.square-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  padding: 3% 5%;
 }
-.image{
-    overflow: hidden;
-    height:200px
+.image {
+  overflow: hidden;
+  height: 200px;
 }
-.Square img{
-    
-    position:relative;
-    bottom:120px;
-    left:20px;
-    height:385px;
-    
+.Square img {
+  position: relative;
+  bottom: 120px;
+  left: 20px;
+  height: 385px;
 }
-.Square p{
-    text-align: justify;
+.Square p {
+  text-align: justify;
 }
-.Square{
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
-    width:350px;
-    height:450px;
+.Square {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  width: 350px;
+  height: 450px;
 }
-.btn-container{
-    display: flex;
-    flex-direction: row;
-    gap:2%;
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
 }
-#takeOut{
-    height:465px
+#takeOut {
+  height: 465px;
 }
 
-footer a{
-    color:hsl(100, 100%, 100%) ;
-    text-decoration: none;
+footer a {
+  color: hsl(100, 100%, 100%);
+  text-decoration: none;
 }
-footer ion-icon{
-    font-size:30px;
-    color:hsl(349, 96%, 28%);
+footer ion-icon {
+  font-size: 30px;
+  color: hsl(349, 96%, 28%);
 }
-.footer-container{
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color:hsl(349, 96%, 44%);
-    height:200px;
+.footer-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: hsl(349, 96%, 44%);
+  height: 200px;
 }
-.about{
-    display:flex;
-    gap:20px;
+.about {
+  display: flex;
+  gap: 20px;
 }
-.icon-footer{
-    display:flex;
-    gap:20px;
+.icon-footer {
+  display: flex;
+  gap: 20px;
 }
-
