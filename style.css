@@ -13,10 +13,94 @@
 --light-grey: #666;
 }
 
+.menu-body { 
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vh;
+    align-items: center; */
+    overflow: auto;
+    margin-top: 5%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Sticky header                               */
+/* -------------------------------------------------------------------------- */
+
+#logo{
+    width:100px
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: #F20530;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: space-around;
+}
+.header a{
+    color:white;
+    text-decoration: none;
+}
+.userNav,.nav,.logo{
+    display: flex;
+    width:20%;
+    align-items: center;
+    gap:20px
+}
+#UserProf{
+    font-size:30px;
+}
+.btnLink{
+    color:hsl(0, 0%, 0%);
+    background-color: #F2E205;
+    border-radius: 10px;
+    width:100px;
+    height: 40px;
+    padding:2%;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 Nav Styles                                 */
+/* -------------------------------------------------------------------------- */
+.menu-nav { 
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0 1.25rem;
+    border-style: 1px solid #333;
+    place-content: center;
+    position: sticky;
+   
+
+}
+
+.menu-nav li { 
+    margin-right: 2rem;
+
+}
+
+.menu-nav li:hover {
+    cursor: pointer;
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                                 Card Styles                                */
 /* -------------------------------------------------------------------------- */
+
+
+.items-container {
+    display: flex;
+    flex: 2;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 5%;
+    background-color: rgb(155, 35, 35);
+
+}
+
 .item-card { 
     padding: 10px;
     width: 30em;
@@ -90,4 +174,17 @@
     border-style: none;
 
   
+}
+/* -------------------------------------------------------------------------- */
+/*                             Breakfast container                            */
+/* -------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Media Queries                               */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .item-card {
+        width: 150%; 
+    }
 }
