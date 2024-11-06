@@ -140,7 +140,7 @@ a{
 .Card:nth-of-type(2){
     overflow: hidden;
     display: flex;
-    justify-content: flex-end;
+    
 }
 .MenuCard-Container{
     display: flex;
@@ -190,18 +190,13 @@ a{
     transition: .9s;
 }
 /* ------------------------------------------End of Explore Section--------------------------------------------------------- */
-/* .Cater{
-background-image:url("LosPollosImages-gif/LPH-Cater.png");
-background-size: 1500px;
-background-position: center;
 
-} */
 .cater-container{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-image:url("LosPollosImages-gif/LPH-Cater.png");
-    background-size: 1500px;
+    background-size: 1650px;
     background-position: center;
     height:500px;
 }
@@ -216,6 +211,56 @@ background-position: center;
 .Catercard .btn{
     width:300px;
 }
+/* --------------------------------- End of Cater Section------------------------------------------ */
+.explore2{
+    padding:3% 0%;
+}
+.card-containers{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:5%;
+}
+.Square h3 {
+    color: #f20530
+}
+.square-info{
+    display: flex;
+    flex-direction: column;
+    row-gap:15px;
+    padding:3% 5%;
+}
+.image{
+    overflow: hidden;
+    height:200px
+}
+.Square img{
+    
+    position:relative;
+    bottom:120px;
+    left:20px;
+    height:385px;
+    
+}
+.Square p{
+    text-align: justify;
+}
+.Square{
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    width:350px;
+    height:450px;
+}
+.btn-container{
+    display: flex;
+    flex-direction: row;
+    gap:2%;
+}
+#takeOut{
+    height:465px
+}
+
 footer a{
     color:hsl(100, 100%, 100%) ;
     text-decoration: none;
@@ -239,3 +284,4 @@ footer ion-icon{
     display:flex;
     gap:20px;
 }
+
