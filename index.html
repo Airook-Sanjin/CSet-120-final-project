@@ -27,7 +27,11 @@
         />
       </div>
       <div class="nav">
-        <a id="Menu" href="MenuPage.html" target="_blank" rel="noopener noreferrer"
+        <a
+          id="Menu"
+          href="MenuPage.html"
+          target="_blank"
+          rel="noopener noreferrer"
           >Menu</a
         >
         <a
@@ -48,18 +52,14 @@
         />
       </div>
       <div class="userNav">
-        <a
-          id="Set-a-location"
-          href="http://"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <ion-icon name="location"></ion-icon>Set a Location</a
-        >
+        <button class = "Modalbutton Main">
+          <ion-icon name="location"></ion-icon>Set a Location
+        </button>
+
         <a href="Sign-in.html"
           ><ion-icon id="UserProf" name="person-circle-outline"></ion-icon
         ></a>
-        <ion-icon id="Cart" name="cart"></ion-icon>
+        <a href=""><ion-icon id="Cart" name="cart"></ion-icon></a>
         <a id="Navbtn" href="http://" target="_blank" rel="noopener noreferrer"
           >Order Now</a
         >
@@ -83,7 +83,7 @@
           <div class="MenuCardInfo">
             <h3>Discover Our Delicious Menu</h3>
             <p>
-              From our Signature Fried Chicken Sandwhich to mouth-watering sides
+              From our Signature Fried Chicken Sandwich to mouth-watering sides
               and drinks, there's something for everyone. Click here to explore
               our full Menu!
             </p>
@@ -193,7 +193,9 @@
               door.
             </p>
             <div class="btn-container">
-              <a id ="deliver"class="btn" href="Pickup-Takeout.html">Take Home</a>
+              <a id="deliver" class="btn" href="Pickup-Takeout.html"
+                >Take Home</a
+              >
             </div>
           </div>
         </div>
@@ -216,10 +218,59 @@
           ></a>
         </div>
         <section class="secret">
-            <img  id ="SecretGus"src="LosPollosImages-gif/Gus Frank Icon.svg" alt="GusSecret">
+          <img
+            id="SecretGus"
+            src="LosPollosImages-gif/Gus Frank Icon.svg"
+            alt="GusSecret"
+          />
         </section>
       </div>
     </footer>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                Modal Boxes                                -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <section class="modal Main">
+      <div class="popup-container">
+        <div id="Main-Delivery-modal" class="popup-card">
+          <div class="popup-head">
+            <h5>Order details</h5>
+            <button class="Closebtn Main">&times;</button>
+          </div>
+
+          <div class="P-D-btns-container">
+            <button class="P-D-btns Delivery-Main" id="Main-Deliverybtn">Delivery</button>
+            <button class="P-D-btns Pickup-Main" id="Main-Pickupbtn">Pickup</button>
+          </div>
+          <p>Place you Scheduled order right now</p>
+          <div class="form-container">
+            <div class="Main-in-container">
+              <label for="Location"><h4>Deliver To:</h4></label>
+              <input name="location" type="text" placeholder="Enter Location" />
+            </div>
+            <div class="Main-in-container">
+              <label for="Date"><h4>Choose Date:</h4></label>
+              <select name="Date" id="Date-Dropdown">
+                <option value="option1">Today</option>
+                <option value="option2">tomorrow</option>
+                <option value="option3">11/10</option>
+                <option value="option4">11/11</option>
+              </select>
+            </div>
+            <div class="Main-in-container">
+              <label for="Time"><h4>Choose Time:</h4></label>
+              <select name="Date" id="time-Dropdown">
+                <option value="option1">12:00pm</option>
+                <option value="option2">12:30pm</option>
+                <option value="option3">1:00pm</option>
+                <option value="option4">1:30pm</option>
+              </select>
+            </div>
+          </div>
+          <button class="Update-btn">Update</button>
+        </div>
+      </div>
+    </section>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

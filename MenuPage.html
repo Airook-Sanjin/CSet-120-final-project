@@ -4,6 +4,11 @@
     <title>Menu</title>
     <link rel="stylesheet" href="MenuPageStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      rel="icon"
+      type="Image/x-icon"
+      href="LosPollosImages-gif/LosPollosHermanosLogo1.png"
+    />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
@@ -22,9 +27,14 @@
         <a id ="Menu"href="http://" target="_blank" rel="noopener noreferrer">Menu</a>
     </div>
     <div class="userNav">
-        <button id ="Modalbutton"><ion-icon name="location"></ion-icon>Set a Location</button>
-        <ion-icon  id="UserProf"name="person-circle-outline"></ion-icon>
-        <a class= "btnLink" href="http://" target="_blank" rel="noopener noreferrer">Order Now</a>
+        <button class="Modalbutton Menu"><ion-icon name="location"></ion-icon>Set a Location</button>
+        <a href="Sign-in.html"
+          ><ion-icon id="UserProf" name="person-circle-outline"></ion-icon
+        ></a>
+        <a href=""><ion-icon id="Cart" name="cart"></ion-icon></a>
+        <a id="Navbtn" href="http://" target="_blank" rel="noopener noreferrer"
+          >Order Now</a
+        >
     </div>
 </header>
 
@@ -36,7 +46,7 @@
     <div class = "menu-body">
     <nav class = "menu-section">
         <ul class="menu-nav">
-            <li a href="#breakfast-specialties">Breakfast Specialties</a></li>
+            <li> <a href="#breakfast-specialties">Breakfast Specialties</a></li>
             <li>Pollos Burritos</li>
             <li>Pollo Platters</li>
             <li>Chicken Specialties</li>
@@ -100,7 +110,6 @@
                     <img src = "LosPollosImages-gif/chicken-tenders.webp" alt = "chicken-tenders">
                 </div>
             </div> 
-                   
         </section>
             
 <!-- --------------------------- Pollos Burritos --------------------------- -->
@@ -425,7 +434,7 @@
                 <img src = "LosPollosImages-gif/chicken-tenders.webp" alt = "chicken-tenders">
             </div>
         </div> 
-               
+ 
     </section>
 <!-- ----------------------------------------------------------------------- -->
 <!--                                Menu end                                 -->
@@ -483,16 +492,18 @@
 <!-- ----------------------------------------------------------------------- -->
 <!--                                Modal Boxes                                -->
 <!-- ----------------------------------------------------------------------- -->
-<section id ="Mymodal" class="modal">
+    </div>
+<section class="modal Menu">
     <div class="popup-container">
         
       <div id="Delivery-modal" class="popup-card">
         <div class="popup-head"><h5>Order details </h5>
-            <button id="Closebtn">&times;</button></div>
+            <button class="Closebtn Menu">&times;</button>
+        </div>
         
         <div class="P-D-btns-container">
-          <button class = "P-D-btns"id="Deliverybtn">Delivery</button>
-          <button class = "P-D-btns"id="Pickupbtn">Pickup</button>
+          <button class = "P-D-btns Delivery-Menu"id="Deliverybtn">Delivery</button>
+          <button class = "P-D-btns Delivery-Menu"id="Pickupbtn">Pickup</button>
         </div>
         <p>Place you Scheduled order right now</p>
         <div class="form-container">
@@ -511,7 +522,7 @@
           </div>
           <div class="in-container">
             <label for="Time"><h4>Choose Time:</h4></label>
-            <select name="Date" id="Date-Dropdown">
+            <select name="Date" id="Time-Dropdown">
               <option value="option1">12:00pm</option>
               <option value="option2">12:30pm</option>
               <option value="option3">1:00pm</option>
@@ -521,39 +532,19 @@
         </div>
         <button class ="Update-btn">Update</button>
       </div>
-      <!-- <div id="Pickup-modal"class="popup-card">
-          <h5>Order details</h5>
-          <div class="P-D-btns-container">
-            <button class ="P-D-btns"id="Delivery">Delivery</button>
-            <button class ="P-D-btns"id="Pickup">Pickup</button>
-          </div>
-          <p>Place you Scheduled order right now</p>
-          <div class="form-container">
-            <div class="in-container">
-              <label for="Date"><h4>Choose Date:</h4></label>
-              <select name="Date" id="Date-Dropdown">
-                <option value="option1">Today</option>
-                <option value="option2">tomorrow</option>
-                <option value="option3">11/10</option>
-                <option value="option4">11/11</option>
-              </select>
-            </div>
-            <div class="in-container">
-              <label for="Time"><h4>Choose Time:</h4></label>
-              <select name="Date" id="Date-Dropdown">
-                <option value="option1">12:00pm</option>
-                <option value="option2">12:30pm</option>
-                <option value="option3">1:00pm</option>
-                <option value="option4">1:30pm</option>
-              </select>
-            </div>
-          </div>
-          <button class ="Update-btn">Update</button>
-        </div> -->
-        
+     
     </div>
   </section>
-    </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
     <script type="module" src="script.js"></script>
 </body>
 </html>
