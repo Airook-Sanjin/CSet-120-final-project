@@ -202,7 +202,9 @@ body {
 }
 
 .item-description { 
-    color: var(--light-grey)
+    color: var(--light-grey);
+    width: 300px;
+    font-size: 14px;
 
 }
 
