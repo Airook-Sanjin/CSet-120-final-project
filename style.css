@@ -1,0 +1,246 @@
+
+/* -------------------------------------------------------------------------- */
+/*                                 Universals                                 */
+/* -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------------- colors --------------------------------- */
+:root {
+--dark-blue: #021F59;
+--teal: #05C7F2;
+--main-red: #F20519;
+--secondary-red: #F20530;
+--main-yellow: #F2E205;
+--light-grey: #666;
+}
+
+.menu-body { 
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vh;
+    align-items: center; */
+    overflow: auto;
+   
+}
+
+body { 
+    height: 100vh;
+    background-color: var(--main-red);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Sticky header                               */
+/* -------------------------------------------------------------------------- */
+
+#logo{
+    width:100px
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: #d71d3f;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: space-around;
+}
+.header a{
+    color:white;
+    text-decoration: none;
+}
+.userNav,.nav,.logo{
+    display: flex;
+    width:20%;
+    align-items: center;
+    gap:20px
+}
+#UserProf{
+    font-size:30px;
+}
+.btnLink{
+    color:hsl(0, 0%, 0%);
+    background-color: #F2E205;
+    border-radius: 10px;
+    width:100px;
+    height: 40px;
+    padding:2%;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 Nav Styles                                 */
+/* -------------------------------------------------------------------------- */
+
+
+
+.menu-nav { 
+
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-top: 2rem;   
+    padding-bottom: 2rem;
+    place-content: center;
+    position: sticky;
+    background-color: white;
+   
+
+}
+
+.menu-nav li { 
+    margin-right: 4rem;
+    font-size: 1.2rem;
+    
+
+}
+
+.menu-nav li:hover {
+    cursor: pointer;
+}
+
+.menu-nav::after {
+    content: button; 
+}
+
+.location-button { 
+    font-size: 20px;
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer;
+    margin-left: -20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Card Styles                                */
+/* -------------------------------------------------------------------------- */
+
+
+.section-title { 
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    font-family: "Arvo", serif;
+}
+
+
+.title-style { 
+    display: block;
+   transform: translatey(200%);
+  
+}
+
+
+.items-container {
+    display: flex;
+    flex: 2;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 7%;
+    /* background-color: rgb(155, 35, 35); */
+    background-color: var(--main-red))
+
+
+}
+
+.item-card { 
+    padding: 10px;
+    width: 30em;
+    height: 9em;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    background-color: #fff;
+    font-family: "Montserrat", sans-serif;
+    
+
+}
+
+
+
+.item-card:hover{
+    box-shadow: 0 0 0 0 50px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.item-info { 
+  display: flex;  
+  flex-direction: column;
+  margin-top: .5em;
+
+}
+
+.menu-add {
+    margin-top: 2.5em;
+    margin-left:3em;
+    font-family: "Arvo", serif;
+    background-color: yellow;
+    border-style:  1px solid black !important;
+
+   
+}
+
+.btn:hover {
+    cursor: pointer; 
+    /* transform: scale(1.05); */
+
+}
+
+.price {
+    margin-top: 1em;
+    margin-left: .5em;
+    transform: translateY(-15%);
+  
+
+}
+
+.item-description { 
+    color: var(--light-grey)
+
+}
+
+.item-img { 
+    float: right;
+    transform: translatey(-120%);
+
+}
+
+.item-img img { 
+    height: 5em;
+    float: right;
+    width: 100%;
+    object-fit: cover;
+    border-left: .75px solid rgb(226, 224, 224);
+}
+
+.item-info {
+   display: flex;
+}
+
+.btn { 
+    padding: 10px;
+    border-radius: 6px;
+    /* border-style:  none; */
+
+  
+}
+/* -------------------------------------------------------------------------- */
+/*                             Breakfast container                            */
+/* -------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Media Queries                               */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .item-card {
+        width: 150%; 
+    }
+}
