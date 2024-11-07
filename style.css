@@ -143,7 +143,7 @@ body {
     justify-content: center;
     padding-top: 7%;
     /* background-color: rgb(155, 35, 35); */
-    background-color: var(--main-red))
+    background-color: var(--main-red);
 
 
 }
@@ -215,7 +215,7 @@ body {
 }
 
 .item-img img { 
-    height: 5em;
+    height: 7em;
     float: right;
     width: 100%;
     object-fit: cover;
