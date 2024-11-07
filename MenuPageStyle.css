@@ -69,7 +69,14 @@ body {
     height: 40px;
     padding:2%;
 }
-
+.userNav button{
+    background-color: transparent;
+    border:none;
+    color:white;
+    font-family: "Lato", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
 
 /* -------------------------------------------------------------------------- */
 /*                                 Nav Styles                                 */
@@ -143,7 +150,7 @@ body {
     justify-content: center;
     padding-top: 7%;
     /* background-color: rgb(155, 35, 35); */
-    background-color: var(--main-red))
+    background-color: var(--main-red);
 
 
 }
@@ -244,3 +251,83 @@ body {
         width: 150%; 
     }
 }
+/* -------------------------------------------------------------------------- */
+/*                                Modal pop up                              */
+/* -------------------------------------------------------------------------- */
+
+.popup-container{
+margin: 6% 37%;
+}
+.modal{
+    z-index: 1;
+    display:none;
+    position:fixed;
+    /* overflow: scroll; */
+    top:50%;
+    left:50%;
+    transform: translate( -50%, -50%);
+    width:100%;
+    height:100%;
+    background-color:hsl(0, 0%, 0%, 0.4)
+  }
+  .popup-card{
+    display: flex;
+    flex-direction: column;
+    margin: 5% auto;
+    background-color: hsl(0, 0%, 97%);
+    height:500px;
+    width:350px;
+    padding:6%;
+    border-radius: 20px;
+    row-gap:20px
+  }
+  .popup-head{
+    display: flex;
+    flex-direction: row;
+    gap:200px;
+  }
+  #Closebtn{
+    background-color: transparent;
+    border:none;
+    width:20px;
+    font-size: 30px;
+  }
+  .P-D-btns{
+    background-color: transparent;
+    border:none;
+  }
+  .popup-card button:hover{
+    cursor: pointer;
+  }
+  .P-D-btns-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding:3%;
+    background-color:hsl(0, 0%, 70%);
+    border-radius: 20px;
+  }
+  .form-container{
+    display: flex;
+    flex-direction: column;
+    row-gap:20px
+    /* height:100%; */
+  }
+   .form-container input, .form-container select{
+    border:none;
+    background-color: hsl(0, 0%, 89%);
+    width:100%;
+    border-radius: 20px;
+    padding:2%;
+  }
+  option:value{
+    color: hsl(0, 0%, 70%);
+  }
+  .Update-btn{
+    background-color: #f2e205;
+    width:80%;
+    height: fit-content;
+    padding:3%;
+    border:none;
+    border-radius: 20px;
+  }

@@ -37,10 +37,38 @@ function initializeSignInPage() {
   document.getElementById("Login-btn").addEventListener("click", login);
 }
 function initializeMainPage() {}
+function initializeMenuPage() {
+  //  -----------------------------------------------------------------------
+  //                                Modal Boxes
+  //  -----------------------------------------------------------------------
+  let modalBtn = document.getElementById("Modalbutton");
+  let modal = document.getElementById("Mymodal");
+  let closebtn = document.getElementById("Closebtn");
+  modalBtn.addEventListener("click", function () {
+    modal.style.display = "block";
+  });
+  closebtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+let logo = document.getElementById("logo");
+logo.addEventListener("click", function(){
+    location.replace("index.html")
+})
+  //  -----------------------------------------------------------------------
+  //                                Modal Boxes
+  //  -----------------------------------------------------------------------
+}
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("Page1")) {
     initializeMainPage();
   } else if (document.getElementById("SignInPage")) {
     initializeSignInPage();
+  } else if (document.getElementById("MenuPage")) {
+    initializeMenuPage();
   }
 });
