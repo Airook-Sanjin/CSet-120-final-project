@@ -57,7 +57,16 @@ function initializeMenuPage() {
   };
 let logo = document.getElementById("logo");
 logo.addEventListener("click", function(){
-    location.replace("index.html")
+    location.replace("index.html");
+});
+let Deliverybtn = document.getElementById("Deliverybtn");
+let Pickupbtn = document.getElementById("Pickupbtn");
+let indicator = document.getElementById("D-P-Indicator");
+Deliverybtn.addEventListener("click", function(){
+indicator.innerHTML=`<ion-icon name="pin"></ion-icon> Delivery`
+Pickupbtn.addEventListener("click", function(){
+    indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Pick Up`
+})
 })
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
