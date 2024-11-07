@@ -254,9 +254,17 @@ body {
 /* -------------------------------------------------------------------------- */
 /*                                Modal pop up                              */
 /* -------------------------------------------------------------------------- */
-
+@keyframes animateTop {
+    from{top:-300px;
+         opacity: 0;}
+    to{top:0;
+       opacity:1;}
+    
+}
 .popup-container{
 margin: 6% 37%;
+animation: animateTop 0.8s ;
+
 }
 .modal{
     z-index: 1;
