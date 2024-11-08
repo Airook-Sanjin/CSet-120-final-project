@@ -22,8 +22,12 @@ function initializeSignInPage() {
     let pass = document.getElementById("password").value;
     //console.log(email);
     //console.log(pass);
+    if (email == managerInfo.email && pass == managerInfo.password) {
+      location.replace("index.html");
+      alert("Logged in as manager");
+    }
 
-    if (localStorage.getItem(email)) {
+   else if (localStorage.getItem(email)) {
       if (pass == localStorage.getItem(email)) {
         location.replace("index.html");
       } else {
