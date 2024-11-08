@@ -77,6 +77,22 @@ function initializeMainPage() {
   });
 }
 function initializeMenuPage() {
+ready();
+  function ready (){
+    let AddtoCart = document.getElementsByClassName("btn menu-add")
+    for (let i = 0; i < AddtoCart.length; i++ ){
+     let AddtoCartBtn = AddtoCart[i];
+     AddtoCartBtn.addEventListener("click", addToCartClicked )
+    }
+    
+  }
+  function addToCartClicked (event){
+ let button = event.target;
+ let shopItem = button.parentElement.parentElement;
+ console.log(shopItem)
+ let Title = shopItem.getElementsByClassName("item-header")[0].innerText;
+ console.log(Title)
+  }
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
   //  -----------------------------------------------------------------------
@@ -112,8 +128,12 @@ function initializeMenuPage() {
   });
 
   //  -----------------------------------------------------------------------
-  //                                Modal Boxes
+  //                                Modal Boxes end
   //  -----------------------------------------------------------------------
+  
+}
+function initializeCheckoutPage(){
+
 }
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("Page1")) {
@@ -122,5 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeSignInPage();
   } else if (document.getElementById("MenuPage")) {
     initializeMenuPage();
+  } else if (document.getElementById("CheckoutPage")){
+    initializeCheckoutPage();
   }
 });

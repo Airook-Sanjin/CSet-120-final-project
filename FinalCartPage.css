@@ -1,9 +1,30 @@
+  /* ---------------------------------------------------- */
+  /* ------               Universal             --------- */
+  /* ---------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
+  h3 {
+    font-family: "Goblin One", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  p {
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  a {
+    font-family: "Lato", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  /* ---------------------------------------------------- */
+  /* -------          Header Section            --------- */
+  /* ---------------------------------------------------- */
 #logo {
     width: 100px;
   }
@@ -75,7 +96,125 @@
     transition: 0.9s;
   }
   /* ---------------------------------------------------- */
-  /* ------               Footer Section       ----------*/
+  /* -------             Page Section           --------- */
+  /* ---------------------------------------------------- */
+.page-container{
+    display: flex;
+    width:100%;
+    height: 600px;
+    gap:10%;
+}
+         /* -------------------------------- */
+         /* ------ Final Cart Section ------ */
+         /* -------------------------------- */
+  .Final-Cart-Container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:3%;
+    background-color: hsl(0, 0%, 90%);
+    width:30%;
+    box-shadow: -2px 4px 4px #00000030, -5px 12px 12px #00000015;
+  }
+  .Final-Cart-Content{
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+  }
+  .Final-Cart-Content::after{
+    border-bottom: 1px solid black;
+  }
+  .Item-Qty-Price{
+    display:flex;
+    flex-direction: row;
+    height:100%;
+    column-gap:50px;
+    /* justify-content: space-around; */
+
+  }
+  .Item-Qty-Price-List{
+    display:flex;
+    flex-direction: row;
+    height:100%;
+    width:100%;
+    justify-content: space-around;
+    column-gap:50px;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+
+  }
+  #Item-img{
+    background-color: #f20530;
+    width:60%;
+    height:100px;
+  }
+  #I{
+    width:85%
+  }
+  #Q{
+    width:10%;
+  }
+  #P{
+    width:10%;
+  }
+  .Item-Container{
+  display: flex;
+  flex-direction: row;
+  width:85%;
+}
+.Qty-Container{
+  display: flex;
+  flex-direction: column;
+  width:10%;
+}
+.Price-Container{
+  display: flex;
+  flex-direction: column;
+  width:10%;
+}
+         /* -------------------------------- */
+         /* ------- Payment Section -------- */
+         /* -------------------------------- */
+.Payment-Info-Container{
+    display:flex;
+
+    background-color: hsl(0, 0%, 95%);
+    padding:2%;
+    width:60%;
+}
+.Payment-Info-Content{
+  display:flex;
+flex-direction: column;
+width:100%;
+gap:25px;
+}
+.PaymentMethod-Container{
+  display: flex;
+  flex-direction: column;
+  width:40%;
+
+}
+.Order-Summary-Content{
+  display:flex;
+  flex-direction: column;
+}
+.Exp-Cvv-Container{
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+.Exp-Cvv-Container input{
+  width:30%;
+}
+#PlaceOrderBtn{
+  display:flex;
+  width:20%;
+  padding:1%;
+align-content:center;
+}
+
+  /* ---------------------------------------------------- */
+  /* ------               Footer Section       ---------- */
   /* ---------------------------------------------------- */
   footer a {
     color: hsl(100, 100%, 100%);
