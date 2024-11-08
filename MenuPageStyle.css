@@ -3,9 +3,9 @@
 /*                                 Universals                                 */
 /* -------------------------------------------------------------------------- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* --------------------------------- colors --------------------------------- */
@@ -19,18 +19,18 @@
 }
 
 .menu-body { 
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100vh;
-    align-items: center; */
-    overflow: auto;
-   
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vh;
+  align-items: center; */
+  overflow: auto;
+ 
 }
 
 body { 
-    height: 100vh;
-    background-color: var(--main-red);
+  height: 100vh;
+  background-color: var(--main-red);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -38,75 +38,76 @@ body {
 /* -------------------------------------------------------------------------- */
 
 #logo {
-    width: 100px;
-  }
-  .header {
-    display: flex;
-    flex-direction: row;
-    background-color: #f20530;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-around;
-  }
-  .header a {
-    color: white;
-    text-decoration: none;
-  }
-  .userNav,
-  .nav,
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
-  
-  .nav a:hover,
-  .userNav a:hover {
-    color: #f2e205;
-  }
-  .Modalbutton  {
-    color: white;
-    background-color: transparent;
-    border:none
-  }
-  .Modalbutton ion-icon{
-    color:#F2E205
-  }
-  #Searchbar {
-    border-radius: 20px;
-    background-color: hsl(349, 96%, 45%);
-    border: none;
-    color: white;
-    padding: 10px;
-  }
-  #Searchbar::placeholder {
-    color: hsl(0, 0%, 70%);
-  }
-  #Searchbar:focus {
-    outline: none;
-    border: none;
-    /* background-color: none; */
-  }
-  #UserProf,
-  #Cart {
-    font-size: 30px;
-    color: #f2e205;
-  }
-  #Navbtn {
-    display: flex;
-    color: hsl(100, 100%, 100%);
-    background-color: #f2e205;
-    justify-content: center;
-    border-radius: 10px;
-    width: 120px;
-    padding: 3%;
-  }
-  #Navbtn:hover {
-    color: black;
-    transform: scale(1.2);
-    box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
-    transition: 0.9s;
-  }
+  width: 100px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #f20530;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+.header a {
+  color: white;
+  text-decoration: none;
+}
+.userNav,
+.nav,
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav a:hover,
+.userNav a:hover {
+  color: #f2e205;
+}
+.Modalbutton  {
+  color: white;
+  background-color: transparent;
+  border:none
+}
+.Modalbutton ion-icon{
+  color:#F2E205
+}
+#Searchbar {
+  border-radius: 20px;
+  background-color: hsl(349, 96%, 45%);
+  border: none;
+  color: white;
+  padding: 10px;
+}
+#Searchbar::placeholder {
+  color: hsl(0, 0%, 70%);
+}
+#Searchbar:focus {
+  outline: none;
+  border: none;
+  /* background-color: none; */
+}
+#UserProf,
+#Cart {
+  font-size: 30px;
+  color: #f2e205;
+}
+#Navbtn {
+  display: flex;
+  color: hsl(100, 100%, 100%);
+  background-color: #f2e205;
+  justify-content: center;
+  border-radius: 10px;
+  width: 120px;
+  padding: 3%;
+}
+#Navbtn:hover {
+  color: black;
+  transform: scale(1.2);
+  box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+  transition: 0.9s;
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                                 Nav Styles                                 */
@@ -116,39 +117,39 @@ body {
 
 .menu-nav { 
 
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    padding-top: 2rem;   
-    padding-bottom: 2rem;
-    place-content: center;
-    position: sticky;
-    background-color: white;
-   
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding-top: 2rem;   
+  padding-bottom: 2rem;
+  place-content: center;
+  position: sticky;
+  background-color: white;
+ 
 
 }
 
 .menu-nav li { 
-    margin-right: 4rem;
-    font-size: 1.2rem;
-    
+  margin-right: 4rem;
+  font-size: 1.2rem;
+  
 
 }
 
 .menu-nav li:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .menu-nav::after {
-    content: button; 
+  content: button; 
 }
 
 .location-button { 
-    font-size: 20px;
-    background-color: transparent;
-    border-style: none;
-    cursor: pointer;
-    margin-left: -20px;
+  font-size: 20px;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  margin-left: -20px;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -157,116 +158,118 @@ body {
 
 
 .section-title { 
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 30px;
-    font-family: "Arvo", serif;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+  font-family: "Arvo", serif;
 }
 
 
 .title-style { 
-    display: block;
-   transform: translatey(200%);
-  
+  display: block;
+ transform: translatey(200%);
+
 }
 
 
 .items-container {
-    display: flex;
-    flex: 2;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 7%;
-    /* background-color: rgb(155, 35, 35); */
-    background-color: var(--main-red);
+  display: flex;
+  flex: 2;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 7%;
+  /* background-color: rgb(155, 35, 35); */
+  background-color: var(--main-red);
 
 
 }
 
 .item-card { 
-    padding: 10px;
-    width: 30em;
-    height: 9em;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transition: transform 0.4s ease;
-    background-color: #fff;
-    font-family: "Montserrat", sans-serif;
-    
+  padding: 10px;
+  width: 30em;
+  height: 9em;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.4s ease;
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
+  
 
 }
 
 
 
 .item-card:hover{
-    box-shadow: 0 0 0 0 50px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
+  box-shadow: 0 0 0 0 50px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .item-info { 
-  display: flex;  
-  flex-direction: column;
-  margin-top: .5em;
+display: flex;  
+flex-direction: column;
+margin-top: .5em;
 
 }
 
 .menu-add {
-    margin-top: 2.5em;
-    margin-left:3em;
-    font-family: "Arvo", serif;
-    background-color: yellow;
-    border-style:  1px solid black !important;
+  margin-top: 2.5em;
+  margin-left:3em;
+  font-family: "Arvo", serif;
+  background-color: yellow;
+  border-style:  1px solid black !important;
 
-   
+ 
 }
 
 .btn:hover {
-    cursor: pointer; 
-    /* transform: scale(1.05); */
+  cursor: pointer; 
+  /* transform: scale(1.05); */
 
 }
 
 .price {
-    margin-top: 1em;
-    margin-left: .5em;
-    transform: translateY(-15%);
-  
+  margin-top: 1em;
+  margin-left: .5em;
+  transform: translateY(-15%);
+
 
 }
 
 .item-description { 
-    color: var(--light-grey)
+  color: var(--light-grey);
+  width: 300px;
+  font-size: 14px;
 
 }
 
 .item-img { 
-    float: right;
-    transform: translatey(-120%);
+  float: right;
+  transform: translatey(-120%);
 
 }
 
 .item-img img { 
-    height: 5em;
-    float: right;
-    width: 100%;
-    object-fit: cover;
-    border-left: .75px solid rgb(226, 224, 224);
+  height: 7em;
+  float: right;
+  width: 100%;
+  object-fit: cover;
+  border-left: .75px solid rgb(226, 224, 224);
 }
 
 .item-info {
-   display: flex;
+ display: flex;
 }
 
 .btn { 
-    padding: 10px;
-    border-radius: 6px;
-    /* border-style:  none; */
+  padding: 10px;
+  border-radius: 6px;
+  /* border-style:  none; */
 
-  
+
 }
 /* -------------------------------------------------------------------------- */
 /*                             Breakfast container                            */
@@ -277,99 +280,99 @@ body {
 /*                                Media Queries                               */
 /* -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-    .item-card {
-        width: 150%; 
-    }
+  .item-card {
+      width: 150%; 
+  }
 }
 /* -------------------------------------------------------------------------- */
 /*                                Modal pop up                              */
 /* -------------------------------------------------------------------------- */
 @keyframes animateTop {
-    from{top:-300px;
-         opacity: 0;}
-    to{top:0;
-       opacity:1;}
-    
+  from{top:-300px;
+       opacity: 0;}
+  to{top:0;
+     opacity:1;}
+  
 }
 .popup-container{
-    margin: 6.5% 37%;
-    animation: animateTop 0.8s ;
+  margin: 6.5% 37%;
+  animation: animateTop 0.8s ;
 
 }
 .modal{
-    z-index: 1;
-    display:none;
-    position:fixed;
-    /* overflow: scroll; */
-    top:50%;
-    left:50%;
-    transform: translate( -50%, -50%);
-    width:100%;
-    height:100%;
-    background-color:hsl(0, 0%, 0%, 0.4)
-  }
-  .popup-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5% auto;
-    background-color: hsl(0, 0%, 97%);
-    height:500px;
-    width:350px;
-    padding:6%;
-    border-radius: 20px;
-    row-gap:20px
-  }
-  .popup-head{
-    display: flex;
-    flex-direction: row;
-    gap:200px;
-  }
-  .Closebtn{
-    background-color: transparent;
-    border:none;
-    width:20px;
-    font-size: 30px;
-  }
-  .P-D-btns{
-    background-color: transparent;
-    border:none;
-  }
-  .popup-card button:hover{
-    cursor: pointer;
-  }
-  .P-D-btns-container{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding:3%;
-    background-color:hsl(0, 0%, 70%);
-    border-radius: 20px;
-  }
-  .form-container{
-    display: flex;
-    flex-direction: column;
-    row-gap:20px
-    /* height:100%; */
-  }
-   .form-container input, .form-container select{
-    border:none;
-    background-color: hsl(0, 0%, 89%);
-    width:100%;
-    border-radius: 20px;
-    padding:2%;
-  }
-  option:value{
-    color: hsl(0, 0%, 70%);
-  }
-  .Update-btn{
-    /* display: flex; */
+  z-index: 1;
+  display:none;
+  position:fixed;
+  /* overflow: scroll; */
+  top:50%;
+  left:50%;
+  transform: translate( -50%, -50%);
+  width:100%;
+  height:100%;
+  background-color:hsl(0, 0%, 0%, 0.4)
+}
+.popup-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5% auto;
+  background-color: hsl(0, 0%, 97%);
+  height:500px;
+  width:350px;
+  padding:6%;
+  border-radius: 20px;
+  row-gap:20px
+}
+.popup-head{
+  display: flex;
+  flex-direction: row;
+  gap:200px;
+}
+.Closebtn{
+  background-color: transparent;
+  border:none;
+  width:20px;
+  font-size: 30px;
+}
+.P-D-btns{
+  background-color: transparent;
+  border:none;
+}
+.popup-card button:hover{
+  cursor: pointer;
+}
+.P-D-btns-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding:3%;
+  background-color:hsl(0, 0%, 70%);
+  border-radius: 20px;
+}
+.form-container{
+  display: flex;
+  flex-direction: column;
+  row-gap:20px
+  /* height:100%; */
+}
+ .form-container input, .form-container select{
+  border:none;
+  background-color: hsl(0, 0%, 89%);
+  width:100%;
+  border-radius: 20px;
+  padding:2%;
+}
+option:value{
+  color: hsl(0, 0%, 70%);
+}
+.Update-btn{
+  /* display: flex; */
 
-    background-color: #f2e205;
-    width:80%;
+  background-color: #f2e205;
+  width:80%;
 
-    height: fit-content;
-    padding:3%;
-    border:none;
-    border-radius: 20px;
-  }
+  height: fit-content;
+  padding:3%;
+  border:none;
+  border-radius: 20px;
+}
