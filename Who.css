@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    height: 1100px;
+   
+}
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #F20530;
+    margin-top: 140px;
+    text-shadow: 1px 1px 1px black;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-top: -160px;
+    margin-left: 590px;
+}
+
+.GusMessage img {
+    width: 440px;
+    height: 260px;
+    position: absolute;
+    margin-top: -260px;
+    
+    border: 1px solid black;
+    
+
+   
+  
+}
+
+
+
+.GusMessage p {
+    font-size: 14px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    width: 440px;
+}
+
+.GusMessage {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 150px;
+    
+    border: 1px solid black;
+   
+   
+}
+
+.GusMessage h2 {
+    font-size: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    color: #F20530;
+    width: 440px;
+    
+}
+
+
+
+
+.About p {
+    font-size: 16px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    width: 440px;
+    
+
+}
+
+.About {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 630px;
+    
+    border: 1px solid black;
+   
+   
+}
+
+.About h2 {
+    font-size: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    color: #F20530;
+    width: 440px;
+}
+
+.About img {
+    width: 440px;
+    height: 260px;
+    position: absolute;
+    margin-top: -260px;
+    
+    border: 1px solid black;
+    
+
+   
+  
+}
+
+video {
+    position: absolute;
+    margin-left: 310px;
+    border: 2px solid black;
+   
+   
+}
+
+.Start p {
+    font-size: 25px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 390px;
+    text-align: center;
+    
+}

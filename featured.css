@@ -194,3 +194,16 @@ h4 {
     font-size: 30px;
     text-shadow: 3px 3px 3px black;
 }
+
+.OreoImage img {
+    position: absolute;
+    width:60px;
+    height: 35px;
+    margin-top: 490px;
+    margin-left: 500px;
+    background-color: #6c95e7;
+}
+
+.OreoImage {
+    background-color: #6c95e7;
+}
