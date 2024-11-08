@@ -64,12 +64,12 @@ body {
   .userNav a:hover {
     color: #f2e205;
   }
-  #Modalbutton  {
+  .Modalbutton  {
     color: white;
     background-color: transparent;
     border:none
   }
-  #Modalbutton ion-icon{
+  .Modalbutton ion-icon{
     color:#F2E205
   }
   #Searchbar {
@@ -325,7 +325,7 @@ body {
     flex-direction: row;
     gap:200px;
   }
-  #Closebtn{
+  .Closebtn{
     background-color: transparent;
     border:none;
     width:20px;
