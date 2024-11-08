@@ -8,13 +8,19 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 /* --------------------------------- colors --------------------------------- */
 :root {
 --dark-blue: #021F59;
 --teal: #05C7F2;
+--warm-blue: #4aa3e3;
 --main-red: #F20519;
 --secondary-red: #F20530;
 --main-yellow: #F2E205;
+--warm-yellow : #f0af02;
 --light-grey: #666;
 }
 
@@ -30,11 +36,11 @@
 
 body { 
     height: 100vh;
-    background-color: var(--main-red);
+    background-color: var(--warm-yellow);
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                Sticky header                               */
+/*                                Page Navigation                               */
 /* -------------------------------------------------------------------------- */
 
 #logo{
@@ -47,6 +53,10 @@ body {
     flex-wrap: wrap;
     width:100%;
     justify-content: space-around;
+    /* position: fixed; */
+    /* z-index: 99; */
+    transition: top 0.3s;
+
 }
 .header a{
     color:white;
@@ -85,15 +95,27 @@ body {
     padding-top: 2rem;   
     padding-bottom: 2rem;
     place-content: center;
-    position: sticky;
-    background-color: white;
+    /* z-index: 99; */
+    top: 0; 
+    width: 100%;
+    background-color: var(--main-red);
+    color: white;
    
 
 }
 
+.menu-nav a { 
+    text-decoration: none;
+    color: inherit;
+}
+
 .menu-nav li { 
-    margin-right: 4rem;
-    font-size: 1.2rem;
+    margin-right: 2.5rem;
+    font-size: 1rem;
+    font-family: "Arvo", serif;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 550;
     
 
 }
@@ -107,7 +129,7 @@ body {
 }
 
 .location-button { 
-    font-size: 20px;
+    font-size: 16px;
     background-color: transparent;
     border-style: none;
     cursor: pointer;
@@ -124,9 +146,19 @@ body {
     display: flex;
     justify-content: center;
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     font-family: "Arvo", serif;
+    color: var(--main-red);
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+   
 }
+/* 
+.title-style {
+    background-image: url(/media/zigzag.svg);
+    background-position: 0 20%;
+    background-repeat: repeat-x;
+} */
 
 
 .title-style { 
@@ -135,6 +167,13 @@ body {
   
 }
 
+#tenders img[src^="media/chicken-tenders.webp"] {
+height: 5rem;
+}
+
+#apple img[src^="media/applepie.png"] {
+    height: 7rem;
+}
 
 .items-container {
     display: flex;
@@ -143,7 +182,7 @@ body {
     justify-content: center;
     padding-top: 7%;
     /* background-color: rgb(155, 35, 35); */
-    background-color: var(--main-red);
+    background-color: var(--warm-yellow);
 
 
 }
@@ -151,14 +190,16 @@ body {
 .item-card { 
     padding: 10px;
     width: 30em;
-    height: 9em;
+    height: 10em;
     margin: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     transition: transform 0.4s ease;
     background-color: #fff;
-    font-family: "Montserrat", sans-serif;
+    /* font-family: "Montserrat", sans-serif; */
+    font-family: "Quicksand", serif;
+    ;
     
 
 }
@@ -203,8 +244,10 @@ body {
 
 .item-description { 
     color: var(--light-grey);
-    width: 300px;
+    max-width: 250px;
+    overflow: hidden;
     font-size: 14px;
+    text-wrap: wrap;
 
 }
 
@@ -215,12 +258,15 @@ body {
 }
 
 .item-img img { 
-    height: 7em;
-    float: right;
-    width: 100%;
-    object-fit: cover;
-    border-left: .75px solid rgb(226, 224, 224);
+    height: 120px;
+    width: auto;
+    object-fit: fit;
 }
+
+.item-img img[src^="media/huevosrancheros.png"]{
+height: 2px;
+}
+
 
 .item-info {
    display: flex;
@@ -230,9 +276,34 @@ body {
     padding: 10px;
     border-radius: 6px;
     /* border-style:  none; */
-
   
 }
+
+/* -------------------------------- backtotop ------------------------------- */
+#topBtn { 
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99; 
+    border: none;
+    background-color: var(--secondary-red);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 15px 20px;
+    border-radius: 60px;
+    text-align: center;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+#topBtn:hover { 
+    background-color: rgb(154, 8, 8);
+}
+
+
 /* -------------------------------------------------------------------------- */
 /*                             Breakfast container                            */
 /* -------------------------------------------------------------------------- */
