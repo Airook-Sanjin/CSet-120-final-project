@@ -40,6 +40,7 @@ function initializeSignInPage() {
   document.getElementById("Signup-btn").addEventListener("click", signup);
   document.getElementById("Login-btn").addEventListener("click", login);
 }
+// ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
@@ -76,22 +77,43 @@ function initializeMainPage() {
     maindeliveryForm.style.display = "none";
   });
 }
+// ---------------------------------------------------------------------------------------------------------
 function initializeMenuPage() {
+  document.addEventListener("DOMContentLoaded", ready);
 ready();
-  function ready (){
-    let AddtoCart = document.getElementsByClassName("btn menu-add")
+  function ready (){ // makes sure the each add to cart buttons work
+    let AddtoCart = document.getElementsByClassName("menu-add")
     for (let i = 0; i < AddtoCart.length; i++ ){
      let AddtoCartBtn = AddtoCart[i];
-     AddtoCartBtn.addEventListener("click", addToCartClicked )
+     AddtoCartBtn.addEventListener("click", addToCartClicked)
     }
-    
+  //  -----------------------------------------------------------------------
+  //                                Adding to Cart
+  //  -----------------------------------------------------------------------
   }
   function addToCartClicked (event){
  let button = event.target;
- let shopItem = button.parentElement.parentElement;
+ console.log(button)
+ let shopItem = button.parentElement.parentElement.parentElement;
  console.log(shopItem)
  let Title = shopItem.getElementsByClassName("item-header")[0].innerText;
  console.log(Title)
+
+ let Price = shopItem.getElementsByClassName("price")[0].getElementsByTagName("span", )[0].innerText;
+ console.log(Price)
+ let Image = shopItem.getElementsByClassName("item-img")[0].getElementsByTagName("img")[0].src;
+ console.log(Image)
+ let ItemInfo = {
+  fooodTitle: Title,
+  foodPrice: Price,
+  foodImage: Image
+  
+
+ };
+
+ 
+ localStorage.setItem('ItemInfo' ,JSON.stringify(ItemInfo));
+
   }
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
@@ -128,13 +150,32 @@ ready();
   });
 
   //  -----------------------------------------------------------------------
-  //                                Modal Boxes end
+  //                            Modal Boxes end
   //  -----------------------------------------------------------------------
   
 }
 function initializeCheckoutPage(){
-
+ let cartRowContent = `<div class="Item-Qty-Price-List">
+              <div class="Item-Container">
+                <img id="Item-img" src="${Image}" alt="ItemImg" />
+                <p>${Title}</p>
+              </div>
+              <div class="Qty-Container">
+                <input
+                  type="number"
+                  name="Quantity-Counter"
+                  id="Quantity"
+                  value="1"
+                />
+              </div>
+              <div class="Price-Container">
+                <p>${Price}</p>
+              </div>
+            </div>`
 }
+  //  -----------------------------------------------------------------------
+  //                  Checks for Id to Load the right Functions
+  //  -----------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("Page1")) {
     initializeMainPage();
