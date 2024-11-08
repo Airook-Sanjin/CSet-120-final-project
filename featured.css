@@ -4,55 +4,193 @@
     box-sizing: border-box;
     overflow-x: hidden;
     overflow-y: hidden;
+    background-color: #F20530
     
 }
 
+h1 {
+    margin-left: 440px;
+    color: #F2E205;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 45px;
+    margin-top: 50px;
+    text-shadow: 3px 3px 3px black;
+}
+
+.logo {
+  margin-left: 70px;
+  
+
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-top: -80px;
+    margin-left: 700px;
+
+}
+
+.container {
+    
+}
 .Fish {
    
     position: absolute;
-    margin-top: 100px;
-    margin-left: 130px;
-    width: 600px;
+    margin-top: 30px;
+    margin-left: 50px;
+    width: 350px;
     height: 500px;
     align-content: center;
     text-align: center;
-    border-radius: 20px;
+    box-shadow: 5px 10px 18px #6c95e7;
+   border-radius: 15px;
+    
+    background-color: #6c95e7;
    
 }
 .Fish img {
-    width: 500px;
-    height: 400px;
-    border: 1px solid white;
+    width: 300px;
+    height: 300px;
+
+    border-radius: 15px;
+    
+    
+}
+
+.Fish img:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+     box-shadow: white 5px 5px 5px;
     
 }
 
 .Fish h3 {
-    color: black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 50px;
-}
-
-.SugarCookie {
-    background-color: #F20530;
-    position: absolute;
-    margin-top: 100px;
-    margin-left: 880px;
-    width: 300px;
-    height: 300px;
-    align-content: center;
-    text-align: center;
-    border-radius: 20px;
-   
-   
-}
-.SugarCookie img {
-    width: 200px;
-    height: 200px;
+    color: #F2E205;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    text-shadow: 3px 3px 3px black;
+    background-color: #6c95e7;
     
 }
 
-.SugarCookie h3 {
-    color: black;
+.Fish p {
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 10px;
+    background-color: #6c95e7;
+    text-shadow: 2px 2px 2px black;
+    
+    
+   
+}
+.OreoMilkshake {
+   
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 460px;
+    width: 350px;
+    height: 500px;
+    align-content: center;
+    text-align: center;
+    box-shadow: 5px 10px 18px #6c95e7;
+    border-radius: 15px;
+   
+    background-color: #6c95e7;
+   
+}
+.OreoMilkshake img {
+    width: 300px;
+    height: 300px;
+   
+    border-radius: 15px;
+    
+   
+    
+}
+
+.OreoMilkshake img:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: white 5px 5px 5px;
+}
+
+.OreoMilkshake h3 {
+    color: #F2E205;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
+    text-shadow: 3px 3px 3px black;
+    background-color: #6c95e7;
+}
+
+.OreoMilkshake p {
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 10px;
+    background-color: #6c95e7;
+    text-shadow: 2px 2px 2px black;
+   
+}
+
+.SugarCookie {
+   
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 870px;
+    width: 350px;
+    height: 500px;
+    align-content: center;
+    text-align: center;
+    box-shadow: 5px 10px 18px #6c95e7;
+    background-color: #6c95e7;
+    border-radius: 15px;
+   
+}
+.SugarCookie img {
+    width: 300px;
+    height: 300px;
+   
+    border-radius: 15px;
+   
+    
+}
+
+.SugarCookie img:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: white 5px 5px 5px;
+    
+
+}
+
+.SugarCookie h3 {
+    color: #F2E205;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    text-shadow: 3px 3px 3px black;
+    background-color: #6c95e7;
+    
+    
+}
+
+.SugarCookie p {
+    margin-top: 10px;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #6c95e7;
+    text-shadow: 2px 2px 2px black;
+    
+   
+}
+
+h4 {
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #6c95e7;
+    font-size: 30px;
+    text-shadow: 3px 3px 3px black;
 }
