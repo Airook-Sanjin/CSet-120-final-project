@@ -104,6 +104,11 @@ a {
   box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
   transition: 0.9s;
 }
+
+#Home {
+  margin-top: 12px;
+  margin-left: 110px;
+}
 /* --------------------------------------------End Of Header--------------------------- */
 
 .Deal {
