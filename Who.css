@@ -19,6 +19,15 @@ h1 {
     text-shadow: 1px 1px 1px black;
 }
 
+#Home {
+    margin-top: 12px;
+    margin-left: 110px;
+  }
+
+  #Home:hover {
+    cursor: pointer;
+    color: #F2E205;
+}
 .logo img {
     width: 100px;
     height: 100px;
@@ -39,6 +48,7 @@ h1 {
    
   
 }
+
 
 
 
@@ -122,11 +132,13 @@ video {
 }
 
 .Start p {
-    font-size: 25px;
+    font-size: 28px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     margin-top: 390px;
     text-align: center;
+    text-shadow: 1px 1px 1px black;
+    color: #F20530;
     
 }
 
