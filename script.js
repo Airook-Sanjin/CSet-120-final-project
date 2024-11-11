@@ -154,6 +154,29 @@ function initializeMenuPage() {
   //  -----------------------------------------------------------------------
   //                            Modal Boxes end
   //  -----------------------------------------------------------------------
+    //  -----------------------------------------------------------------------
+  //                            onscroll Function
+  //  -----------------------------------------------------------------------
+  let topButton = document.getElementById("topBtn")
+window.onscroll = function() {scrollFunction()};
+
+
+function scrollFunction(){
+if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) 
+{  topButton.style.display = "block";
+
+} else { 
+    topButton.style.display = "none";
+}
+}
+topButton.addEventListener("click", backToTop)
+function backToTop () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+  //  -----------------------------------------------------------------------
+  //                            Onscroll function end
+  //  -----------------------------------------------------------------------
+
 }
 function initializeCheckoutPage() {
   console.log("is this on?")
