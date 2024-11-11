@@ -93,7 +93,7 @@ function initializeMenuPage() {
   function addToCartClicked(event) {
     let button = event.target;
     console.log(button);
-    let shopItem = button.parentElement.parentElement.parentElement;
+    let shopItem = button.parentElement.parentElement;
     console.log(shopItem);
     let Title = shopItem.getElementsByClassName("item-header")[0].innerText;
     console.log(Title);
@@ -151,10 +151,8 @@ function initializeMenuPage() {
     deliveryForm.style.display = "none";
   });
 
+
   //  -----------------------------------------------------------------------
-  //                            Modal Boxes end
-  //  -----------------------------------------------------------------------
-    //  -----------------------------------------------------------------------
   //                            onscroll Function
   //  -----------------------------------------------------------------------
   let topButton = document.getElementById("topBtn")
@@ -179,11 +177,14 @@ function backToTop () {
 
 }
 function initializeCheckoutPage() {
+   //  -----------------------------------------------------------------------
+  //                            retrieving Item info
+  //  -----------------------------------------------------------------------
   console.log("is this on?")
   let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`))||[];
   console.log(retrievedItems);
   let itemList = document.getElementsByClassName("Item-Qty-Price-List")[0];
-for(let i = 0 ; i <= retrievedItems.length; i++){
+for(let i = 0 ; i < retrievedItems.length; i++){
   let cartRowContent = document.createElement("div");
   cartRowContent.className = "Item-Container";
   cartRowContent.innerHTML = `<div class="Item-Qty-Price-List">
@@ -200,10 +201,15 @@ for(let i = 0 ; i <= retrievedItems.length; i++){
                 />
               </div>
               <div class="Price-Container">
-                <p>${retrievedItems[i].foodPrice}</p>
+                <p>$${retrievedItems[i].foodPrice}</p>
               </div>
             </div>`;
   itemList.insertAdjacentElement("afterEnd", cartRowContent);}
+   //  -----------------------------------------------------------------------
+  //                            Adding Quantity
+  //  ------------------------------------------------------------------------
+  let quantityValue = getElementById("Quantity").value;
+console.log(quantityValue)
 }
 
 //  -----------------------------------------------------------------------
