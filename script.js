@@ -25,9 +25,7 @@ function initializeSignInPage() {
     if (email == managerInfo.email && pass == managerInfo.password) {
       location.replace("index.html");
       alert("Logged in as manager");
-    }
-
-   else if (localStorage.getItem(email)) {
+    } else if (localStorage.getItem(email)) {
       if (pass == localStorage.getItem(email)) {
         location.replace("index.html");
       } else {
@@ -46,7 +44,7 @@ function initializeMainPage() {
   //                                Modal Boxes
   //  -----------------------------------------------------------------------
   let MainmodalBtn = document.getElementsByClassName("Modalbutton Main")[0];
-  
+
   let Mainmodal = document.getElementsByClassName("modal Main")[0];
   let Mainclosebtn = document.getElementsByClassName("Closebtn Main")[0];
   MainmodalBtn.addEventListener("click", function () {
@@ -80,40 +78,44 @@ function initializeMainPage() {
 // ---------------------------------------------------------------------------------------------------------
 function initializeMenuPage() {
   document.addEventListener("DOMContentLoaded", ready);
-ready();
-  function ready (){ // makes sure the each add to cart buttons work
-    let AddtoCart = document.getElementsByClassName("menu-add")
-    for (let i = 0; i < AddtoCart.length; i++ ){
-     let AddtoCartBtn = AddtoCart[i];
-     AddtoCartBtn.addEventListener("click", addToCartClicked)
+  ready();
+  function ready() {
+    // makes sure the each add to cart buttons work
+    let AddtoCart = document.getElementsByClassName("menu-add");
+    for (let i = 0; i < AddtoCart.length; i++) {
+      let AddtoCartBtn = AddtoCart[i];
+      AddtoCartBtn.addEventListener("click", addToCartClicked);
     }
-  //  -----------------------------------------------------------------------
-  //                                Adding to Cart
-  //  -----------------------------------------------------------------------
+    //  -----------------------------------------------------------------------
+    //                                Adding to Cart
+    //  -----------------------------------------------------------------------
   }
-  function addToCartClicked (event){
- let button = event.target;
- console.log(button)
- let shopItem = button.parentElement.parentElement.parentElement;
- console.log(shopItem)
- let Title = shopItem.getElementsByClassName("item-header")[0].innerText;
- console.log(Title)
+  function addToCartClicked(event) {
+    let button = event.target;
+    console.log(button);
+    let shopItem = button.parentElement.parentElement.parentElement;
+    console.log(shopItem);
+    let Title = shopItem.getElementsByClassName("item-header")[0].innerText;
+    console.log(Title);
 
- let Price = shopItem.getElementsByClassName("price")[0].getElementsByTagName("span", )[0].innerText;
- console.log(Price)
- let Image = shopItem.getElementsByClassName("item-img")[0].getElementsByTagName("img")[0].src;
- console.log(Image)
- let ItemInfo = {
-  fooodTitle: Title,
-  foodPrice: Price,
-  foodImage: Image
-  
+    let Price = shopItem
+      .getElementsByClassName("price")[0]
+      .getElementsByTagName("span")[0].innerText;
+    console.log(Price);
+    let foodImage = shopItem
+      .getElementsByClassName("item-img")[0]
+      .getElementsByTagName("img")[0].src;
+    console.log(foodImage);
 
- };
+    let ItemInfo = {
+      foodTitle: Title,
+      foodPrice: Price,
+      foodImg: foodImage,
+    };
+    let existingItems = JSON.parse(localStorage.getItem("StoredItems"))||[];
+    existingItems.push(ItemInfo)
 
- 
- localStorage.setItem('ItemInfo' ,JSON.stringify(ItemInfo));
-
+    localStorage.setItem("StoredItems", JSON.stringify(existingItems));
   }
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
@@ -152,13 +154,19 @@ ready();
   //  -----------------------------------------------------------------------
   //                            Modal Boxes end
   //  -----------------------------------------------------------------------
-  
 }
-function initializeCheckoutPage(){
- let cartRowContent = `<div class="Item-Qty-Price-List">
+function initializeCheckoutPage() {
+  console.log("is this on?")
+  let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`))||[];
+  console.log(retrievedItems);
+  let itemList = document.getElementsByClassName("Item-Qty-Price-List")[0];
+for(let i = 0 ; i <= retrievedItems.length; i++){
+  let cartRowContent = document.createElement("div");
+  cartRowContent.className = "Item-Container";
+  cartRowContent.innerHTML = `<div class="Item-Qty-Price-List">
               <div class="Item-Container">
-                <img id="Item-img" src="${Image}" alt="ItemImg" />
-                <p>${Title}</p>
+                <img id="Item-img" src="${retrievedItems[i].foodImg}" alt="ItemImg" />
+                <p>${retrievedItems[i].foodTitle}</p>
               </div>
               <div class="Qty-Container">
                 <input
@@ -169,21 +177,27 @@ function initializeCheckoutPage(){
                 />
               </div>
               <div class="Price-Container">
-                <p>${Price}</p>
+                <p>${retrievedItems[i].foodPrice}</p>
               </div>
-            </div>`
+            </div>`;
+  itemList.insertAdjacentElement("afterEnd", cartRowContent);}
 }
-  //  -----------------------------------------------------------------------
-  //                  Checks for Id to Load the right Functions
-  //  -----------------------------------------------------------------------
+
+//  -----------------------------------------------------------------------
+//                  Checks for Id to Load the right Functions
+//  -----------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("Page1")) {
+    console.log("MainPage opening")
     initializeMainPage();
   } else if (document.getElementById("SignInPage")) {
+    console.log("Signin Page opening")
     initializeSignInPage();
   } else if (document.getElementById("MenuPage")) {
+    console.log("MenuPage opening")
     initializeMenuPage();
-  } else if (document.getElementById("CheckoutPage")){
+  } else if (document.getElementById("CheckoutPage")) {
+    console.log("checkoutPage opening")
     initializeCheckoutPage();
   }
 });
