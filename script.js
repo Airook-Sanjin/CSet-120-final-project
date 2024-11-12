@@ -179,7 +179,8 @@ function initializeMenuPage() {
 }
 function initializeCheckoutPage() {
 
- function ready(){let quantityInputs = document.getElementsByClassName("Cart-Quantity")
+ function ready(){
+  let quantityInputs = document.getElementsByClassName("Cart-Quantity")
   for (let i = 0; i < quantityInputs.length; i++){
     let input = quantityInputs[i];
     input.addEventListener("change", quantityChanged);
@@ -268,8 +269,9 @@ function initializeCheckoutPage() {
 let itemContainer = document.getElementsByClassName("Item-Qty-Price-List")[0];
 let itemRow = itemContainer.getElementsByClassName("Item-List-Container");
 let total = 0;
-let tax = 0.06;
+let taxtotal = 0.06;
 let orderTotal = 0;
+let TipTotal = 0;
 for(let i = 0; i <itemRow.length;i++){
   let cartRow = itemRow[i];
   let priceElement = cartRow.getElementsByClassName("Cart-Price")[0];
@@ -277,13 +279,48 @@ for(let i = 0; i <itemRow.length;i++){
   let price = parseFloat(priceElement.innerText.replace('Total: $',''));
   let quantity = parseInt(quantityElement.value);
   total += price * quantity;
-  tax = total * 0.06
+  
+  // ---------------------tips-------------------------------
+}
+taxtotal = total * 0.06;
+
+
+
+
+let tipBtns = document.getElementsByClassName("tip-btn");
+for(let e = 0; e < tipBtns.length; e++){
+  let tipBtnElement = tipBtns[e];
+  tipBtnElement.addEventListener("click", function (){
+    console.log(tipBtnElement);
+    Tip = parseFloat(tipBtnElement.innerText.replace(`Tip: $`,``)) /100;
+if (isNaN(Tip)){
+  TipTotal = 0;
+  total = Math.round(total*100)/100;
+orderTotal = total + taxtotal
+  console.log(Tip)
+}else{
+  TipTotal = total * Tip;
+  total = Math.round(total*100)/100;
+orderTotal = (total + taxtotal) + TipTotal
+}
+
+console.log(orderTotal)
+
+document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`;
+document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
+document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(2)}`;
+document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
+
+  })
 }
 total = Math.round(total*100)/100;
-orderTotal = total + tax;
-document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`
-document.getElementById("tax").innerText = `Tax: $ ${tax.toFixed(2)}`
-document.getElementById("FinalTotal").innerText = `Order Total: ${orderTotal.toFixed(2)}`
+orderTotal = (total + taxtotal) + TipTotal
+console.log(orderTotal)
+
+document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`;
+document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
+document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(2)}`;
+document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
   }
   updateCartTotal();
 }

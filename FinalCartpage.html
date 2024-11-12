@@ -69,9 +69,16 @@
             <div class="contact-Info-Container">
               <div class="Content-Info-Content">
                 <h5>Contact Information</h5>
-                <h6>Contact Info</h6>
-                <p id="Name">John McLamb</p>
-                <p id="Email">JohnMcHammer@gmail.com</p>
+                
+                <div class="nameEmail-Container">
+                  <div class="name"><h6>Name</h6>
+                    <input id="Name" type="text" placeholder="First and Last Name" required></input></div>
+                  <div class="Email">
+                    <h6>Email</h6>
+                  <input id="Email" type="text" placeholder="FirstLast@asmail.com" required></input></div>
+                  </div>
+                  
+                
               </div>
             </div>
             <div class="optionalTip-container">
@@ -86,9 +93,9 @@
             <div class="Summmary-Container">
               <div class="Order-Summary-Container">
                 <h5>Order Summary</h5>
-                <p id ="TotalPrice">Total</p>
-                <p id ="tax">Tax</p>
-                <p id ="tip">Tip</p>
+                <p id ="TotalPrice">Total:</p>
+                <p id ="tax">Tax:</p>
+                <p id ="tip">Tip:</p>
                 <h4 id ="FinalTotal">Order Total</h4>
               </div>
             </div>
@@ -96,7 +103,7 @@
               <h5>Payment Method</h5>
               <p>Credit Card Details</p>
               <p>Name on Card</p>
-              <input type="text" name="Cardname" id="CardName" required />
+              <input type="text" placeholder="FIRST NAME LAST NAME"name="Cardname" id="CardName" required />
               <p>Card Number</p>
               <input type="text" inputmode="numeric" autocomplete="cc-number" pattern="[0-9/s]{13,19}" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" name="CardNumber" id="CardNumber" required />
               <div class="Exp-Cvv-Container">
