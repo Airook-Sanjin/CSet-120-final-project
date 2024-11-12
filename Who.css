@@ -6,140 +6,76 @@
 }
 
 body {
-    height: 1100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    
 }
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+.container, .container2, .Start, .Vid {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.GusMessage, .About {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid black;
+
+}
+
+.GusMessage img, .About img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.Vid video {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 2px solid black;
+}
+
 h1 {
     text-align: center;
-    margin-top: 50px;
-    font-size: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3.5rem;
     color: #F20530;
-    margin-top: 140px;
+    margin-top: 40px;
     text-shadow: 1px 1px 1px black;
-}
-
-#Home {
-    margin-top: 12px;
-    margin-left: -600px;
-  }
-
-  #Home:hover {
-    cursor: pointer;
-    color: #F2E205;
-}
-.logo img {
-    width: 100px;
-    height: 100px;
-    
-    margin-top: -210px;
-    margin-left: 590px;
-}
-
-.GusMessage img {
-    width: 440px;
-    height: 260px;
-    
-    margin-top: -260px;
-    
-    border: 1px solid black;
-    
-
-   
-  
-}
-
-
-
-
-.GusMessage p {
-    font-size: 14px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    width: 440px;
-}
-
-.GusMessage {
-    width: 440px;
-    margin-top: 300px;
-    margin-left: 150px;
-    
-    border: 1px solid black;
-   
-   
-}
-
-.GusMessage h2 {
-    font-size: 20px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    text-shadow: 1px 1px 1px black;
-    color: #F20530;
-    width: 440px;
-    
-}
-
-
-
-
-.About p {
-    font-size: 16px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    width: 440px;
-    
-
-}
-
-.About {
-    
-    margin-top: -215px;
-    margin-left: 630px;
-    width: 440px;
-    border: 1px solid black;
-   
-   
-}
-
-.About h2 {
-    font-size: 20px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    text-shadow: 1px 1px 1px black;
-    color: #F20530;
-    width: 440px;
-}
-
-.About img {
-    width: 440px;
-    height: 260px;
-  
-    margin-top: -260px;
-    
-    border: 1px solid black;
-    
-
-   
-  
-}
-
-video {
-    
-    display: block;
-    margin: auto;
-    border: 2px solid black;
-   
-   
 }
 
 .Start p {
-    font-size: 28px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    
+    font-size: 2.2rem;
+    color: #F20530;
     text-align: center;
     text-shadow: 1px 1px 1px black;
-    color: #F20530;
-    
 }
 
+h2 {
+    color:#F20530;
+    text-shadow: 1px 1px 1px black;
+}
+
+#Home:hover {
+    color: #F2E205;
+}
