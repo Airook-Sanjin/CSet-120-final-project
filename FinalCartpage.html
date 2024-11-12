@@ -74,13 +74,22 @@
                 <p id="Email">JohnMcHammer@gmail.com</p>
               </div>
             </div>
+            <div class="optionalTip-container">
+              <h5>Tips?</h5>
+              <div class="tipbtncontainer">
+                <button class="tip-btn">5%</button>
+                <button class="tip-btn">15%</button>
+                <button class="tip-btn">20%</button>
+                <button class="tip-btn">No Tip</button>
+              </div>
+            </div>
             <div class="Summmary-Container">
               <div class="Order-Summary-Container">
                 <h5>Order Summary</h5>
                 <p id ="TotalPrice">Total</p>
-                <p id = "Subtotal">Subtotal</p>
                 <p id ="tax">Tax</p>
-                <h5 id ="FinalTotal">Order Total</h5>
+                <p id ="tip">Tip</p>
+                <h4 id ="FinalTotal">Order Total</h4>
               </div>
             </div>
             <div class="PaymentMethod-Container">
@@ -89,17 +98,18 @@
               <p>Name on Card</p>
               <input type="text" name="Cardname" id="CardName" required />
               <p>Card Number</p>
-              <input type="text" name="CardNumber" id="CardNumber" required />
+              <input type="text" inputmode="numeric" autocomplete="cc-number" pattern="[0-9/s]{13,19}" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" name="CardNumber" id="CardNumber" required />
               <div class="Exp-Cvv-Container">
                 <div class="Exp">
                   <p>Expiration Date</p>
-                  <input type="text" name="" id="" required />
+                  <input type="number" maxlength="4" placeholder="MM/YY" id="" required />
                 </div>
                 <div class="Cvv">
                   <p>Cvv</p>
-                  <input type="text" name="" id="" required />
+                  <input type="number" placeholder="xxx" maxlength="3" name="" id="" required />
                 </div>
               </div>
+
             </div>
             <button id ="PlaceOrderBtn">Place Order</button>
           </div>

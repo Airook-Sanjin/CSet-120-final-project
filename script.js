@@ -112,8 +112,8 @@ function initializeMenuPage() {
       foodPrice: Price,
       foodImg: foodImage,
     };
-    let existingItems = JSON.parse(localStorage.getItem("StoredItems"))||[];
-    existingItems.push(ItemInfo)
+    let existingItems = JSON.parse(localStorage.getItem("StoredItems")) || [];
+    existingItems.push(ItemInfo);
 
     localStorage.setItem("StoredItems", JSON.stringify(existingItems));
   }
@@ -151,65 +151,141 @@ function initializeMenuPage() {
     deliveryForm.style.display = "none";
   });
 
-
   //  -----------------------------------------------------------------------
   //                            onscroll Function
   //  -----------------------------------------------------------------------
-  let topButton = document.getElementById("topBtn")
-window.onscroll = function() {scrollFunction()};
+  let topButton = document.getElementById("topBtn");
+  window.onscroll = function () {
+    scrollFunction();
+  };
 
-
-function scrollFunction(){
-if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) 
-{  topButton.style.display = "block";
-
-} else { 
-    topButton.style.display = "none";
-}
-}
-topButton.addEventListener("click", backToTop)
-function backToTop () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      topButton.style.display = "block";
+    } else {
+      topButton.style.display = "none";
+    }
+  }
+  topButton.addEventListener("click", backToTop);
+  function backToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
   //  -----------------------------------------------------------------------
   //                            Onscroll function end
   //  -----------------------------------------------------------------------
-
 }
 function initializeCheckoutPage() {
-   //  -----------------------------------------------------------------------
+
+ function ready(){let quantityInputs = document.getElementsByClassName("Cart-Quantity")
+  for (let i = 0; i < quantityInputs.length; i++){
+    let input = quantityInputs[i];
+    input.addEventListener("change", quantityChanged);
+  }
+ }
+  //  -----------------------------------------------------------------------
   //                            retrieving Item info
   //  -----------------------------------------------------------------------
-  console.log("is this on?")
-  let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`))||[];
+  console.log("is this on?");
+  let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
   console.log(retrievedItems);
   let itemList = document.getElementsByClassName("Item-Qty-Price-List")[0];
-for(let i = 0 ; i < retrievedItems.length; i++){
-  let cartRowContent = document.createElement("div");
-  cartRowContent.className = "Item-Container";
-  cartRowContent.innerHTML = `<div class="Item-Qty-Price-List">
+  for (let i = 0; i < retrievedItems.length; i++) {
+    let cartRowContent = document.createElement("div");
+    cartRowContent.className = "Item-List-Container";
+    cartRowContent.innerHTML = `
+  
               <div class="Item-Container">
                 <img id="Item-img" src="${retrievedItems[i].foodImg}" alt="ItemImg" />
                 <p>${retrievedItems[i].foodTitle}</p>
               </div>
               <div class="Qty-Container">
-                <input
+                <input class ="Cart-Quantity"
                   type="number"
                   name="Quantity-Counter"
                   id="Quantity"
-                  value="1"
+                  value="1" min="1"
                 />
               </div>
               <div class="Price-Container">
-                <p>$${retrievedItems[i].foodPrice}</p>
+                <p class ="Cart-Price">Total: $${retrievedItems[i].foodPrice}</p>
               </div>
-            </div>`;
-  itemList.insertAdjacentElement("afterEnd", cartRowContent);}
+              <button class = "remove-btn">Remove</button>
+           `;
+    itemList.insertAdjacentElement("beforeEnd", cartRowContent);
+  }
+  itemList.addEventListener("click", function(event){
+    if(event.target.classList.contains ("remove-btn")){removeItem(event);}
+  })
+  ready();
+  document.getElementById("PlaceOrderBtn").addEventListener("click", function(){
+    alert("Purchased complete")
+  })
    //  -----------------------------------------------------------------------
-  //                            Adding Quantity
+  //                            Quantity Change
+  //  -----------------------------------------------------------------------
+  function quantityChanged(event){
+    
+    let input = event.target;
+    console.log(input)
+    if (isNaN(input.value) || input.value <=0) {
+      input.value = 1
+    }
+    updateCartTotal();
+  }
+  //  -----------------------------------------------------------------------
+  //                            Remove Function
+  //  -----------------------------------------------------------------------
+  function removeItem(event) 
+  {
+    console.log("RemoveItem Pressed?")
+    let buttonClicked = event.target;
+    console.log(buttonClicked)
+    let itemContainer = buttonClicked.closest(".Item-List-Container");
+    console.log(itemContainer);
+    // VVV this will find the index of the item we want to remove
+    let itemTitle = itemContainer.getElementsByTagName("p")[0].textContent;
+    console.log(itemTitle);
+    let retrievedItems = JSON.parse(localStorage.getItem("StoredItems")) || [];
+    console.log(retrievedItems);
+    let itemIndex = retrievedItems.findIndex((item) => item.foodTitle === itemTitle); //this is a callback function that check each item in the retrievedItems array
+    // it checks if foodTitle matches itemTitle adn return the index of that item
+    if (itemIndex > -1) {
+      retrievedItems.splice(itemIndex, 1); //removes it from array'
+      localStorage.setItem("StoredItems", JSON.stringify(retrievedItems));
+    }
+    itemContainer.remove();
+    updateCartTotal();
+  }
+  //  -----------------------------------------------------------------------
+  //                            Updating Total
   //  ------------------------------------------------------------------------
-  let quantityValue = getElementById("Quantity").value;
-console.log(quantityValue)
+  // let quantityValue = document.getElementById("Quantity").value;
+  // console.log(quantityValue);
+  function updateCartTotal(){
+let itemContainer = document.getElementsByClassName("Item-Qty-Price-List")[0];
+let itemRow = itemContainer.getElementsByClassName("Item-List-Container");
+let total = 0;
+let tax = 0.06;
+let orderTotal = 0;
+for(let i = 0; i <itemRow.length;i++){
+  let cartRow = itemRow[i];
+  let priceElement = cartRow.getElementsByClassName("Cart-Price")[0];
+  let quantityElement = cartRow.getElementsByClassName("Cart-Quantity")[0];
+  let price = parseFloat(priceElement.innerText.replace('Total: $',''));
+  let quantity = parseInt(quantityElement.value);
+  total += price * quantity;
+  tax = total * 0.06
+}
+total = Math.round(total*100)/100;
+orderTotal = total + tax;
+document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`
+document.getElementById("tax").innerText = `Tax: $ ${tax.toFixed(2)}`
+document.getElementById("FinalTotal").innerText = `Order Total: ${orderTotal.toFixed(2)}`
+  }
+  updateCartTotal();
 }
 
 //  -----------------------------------------------------------------------
@@ -217,16 +293,16 @@ console.log(quantityValue)
 //  -----------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("Page1")) {
-    console.log("MainPage opening")
+    console.log("MainPage opening");
     initializeMainPage();
   } else if (document.getElementById("SignInPage")) {
-    console.log("Signin Page opening")
+    console.log("Signin Page opening");
     initializeSignInPage();
   } else if (document.getElementById("MenuPage")) {
-    console.log("MenuPage opening")
+    console.log("MenuPage opening");
     initializeMenuPage();
   } else if (document.getElementById("CheckoutPage")) {
-    console.log("checkoutPage opening")
+    console.log("checkoutPage opening");
     initializeCheckoutPage();
   }
 });
