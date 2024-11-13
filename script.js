@@ -178,20 +178,20 @@ function initializeMenuPage() {
   //  -----------------------------------------------------------------------
 }
 function initializeCheckoutPage() {
-
- function ready(){
-  let quantityInputs = document.getElementsByClassName("Cart-Quantity")
-  for (let i = 0; i < quantityInputs.length; i++){
-    let input = quantityInputs[i];
-    input.addEventListener("change", quantityChanged);
+  function ready() {
+    let quantityInputs = document.getElementsByClassName("Cart-Quantity");
+    for (let i = 0; i < quantityInputs.length; i++) {
+      let input = quantityInputs[i];
+      input.addEventListener("change", quantityChanged);
+    }
   }
- }
   //  -----------------------------------------------------------------------
   //                            retrieving Item info
   //  -----------------------------------------------------------------------
-  console.log("is this on?");
+  
   let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
-  console.log(retrievedItems);
+  let PlaceOrderBtn = document.getElementById("PlaceOrderBtn");
+  // --------------------------------------------------------------------
   let itemList = document.getElementsByClassName("Item-Qty-Price-List")[0];
   for (let i = 0; i < retrievedItems.length; i++) {
     let cartRowContent = document.createElement("div");
@@ -217,41 +217,94 @@ function initializeCheckoutPage() {
            `;
     itemList.insertAdjacentElement("beforeEnd", cartRowContent);
   }
-  itemList.addEventListener("click", function(event){
-    if(event.target.classList.contains ("remove-btn")){removeItem(event);}
-  })
+  itemList.addEventListener("click", function (event) {
+    if (event.target.classList.contains("remove-btn")) {
+      removeItem(event);
+    }
+  });
   ready();
-  document.getElementById("PlaceOrderBtn").addEventListener("click", function(){
-    alert("Purchased complete")
-  })
-   //  -----------------------------------------------------------------------
+  PlaceOrderBtn.addEventListener("click", function(){
+    let ExpDate = document.getElementById("ExpDate").value;
+  let Cvv = document.getElementById("CVV").value;
+  let CardName = document.getElementById("CardName").value;
+  let CardNumber = document.getElementById("CardNumber").value;
+    let ExistingErrormsg = document.getElementsByClassName("Error-Msg")[0];
+    let existingSuccessMsg = document.getElementsByClassName("Success-Msg")[0];
+
+    if (ExistingErrormsg || existingSuccessMsg){
+      ExistingErrormsg.remove();
+      existingSuccessMsg.remove();
+    }
+    let errorMessage = validateCard(CardName, CardNumber, ExpDate, Cvv)
+    if(errorMessage) {
+      let errorElement = document.createElement("p")
+    errorElement.className = "Error-Msg"
+      errorElement.style.color = "red"
+      errorElement.innerText = errorMessage;
+      PlaceOrderBtn.insertAdjacentElement("afterend", errorElement);
+    }
+    else{
+      
+      let SuccessMsg = document.createElement("p");
+      SuccessMsg.className = "Success-Msg";
+      SuccessMsg.style.color ="green"
+      SuccessMsg.innerText = "Purchase Successful"
+      PlaceOrderBtn.insertAdjacentElement("afterend", SuccessMsg);
+
+    }
+
+  });
+
+  function validateCard(CardName, CardNumber, ExpDate, Cvv) {
+    let errorMessage = "";
+    
+    if (!CardName) {
+      errorMessage += " Please Enter Card Name\n";
+    } 
+    if (!CardNumber || !/^\d{13,19}$/.test(CardNumber)) {
+      errorMessage += "Please Enter Card Number(13 to 19 digits)\n";
+    }
+    if (!ExpDate) {
+      errorMessage += "Please Fill the expiry Date (MM/YY)\n";
+    }
+    //--------------------------------------------------------------------------------------------------------------------//
+    if (!Cvv || !/^\d{3,4}$/.test(Cvv)) {
+      // This is a regular expression that match specific numbers
+      //"^" marks the start of the string and "$" marks the end of the string
+      // "/d" matches any digit (0 -9) and "{number,number}" specifies that the digit (element) must occur 3 or 4 times
+      errorMessage += " CVV is invalid (must be 3 or 4 digits)\n";
+    }
+    //-------------------------------------------------------------------------------------------------------------------------//
+    return errorMessage
+  }
+
+  //  -----------------------------------------------------------------------
   //                            Quantity Change
   //  -----------------------------------------------------------------------
-  function quantityChanged(event){
-    
+  function quantityChanged(event) {
     let input = event.target;
-    console.log(input)
-    if (isNaN(input.value) || input.value <=0) {
-      input.value = 1
+    console.log(input);
+    if (isNaN(input.value) || input.value <= 0) {
+      input.value = 1;
     }
     updateCartTotal();
   }
   //  -----------------------------------------------------------------------
   //                            Remove Function
   //  -----------------------------------------------------------------------
-  function removeItem(event) 
-  {
-    console.log("RemoveItem Pressed?")
+  function removeItem(event) {
+    console.log("RemoveItem Pressed?");
     let buttonClicked = event.target;
-    console.log(buttonClicked)
+
     let itemContainer = buttonClicked.closest(".Item-List-Container");
-    console.log(itemContainer);
+
     // VVV this will find the index of the item we want to remove
     let itemTitle = itemContainer.getElementsByTagName("p")[0].textContent;
     console.log(itemTitle);
     let retrievedItems = JSON.parse(localStorage.getItem("StoredItems")) || [];
-    console.log(retrievedItems);
-    let itemIndex = retrievedItems.findIndex((item) => item.foodTitle === itemTitle); //this is a callback function that check each item in the retrievedItems array
+    let itemIndex = retrievedItems.findIndex(
+      (item) => item.foodTitle === itemTitle
+    ); //this is a callback function that check each item in the retrievedItems array
     // it checks if foodTitle matches itemTitle adn return the index of that item
     if (itemIndex > -1) {
       retrievedItems.splice(itemIndex, 1); //removes it from array'
@@ -265,65 +318,74 @@ function initializeCheckoutPage() {
   //  ------------------------------------------------------------------------
   // let quantityValue = document.getElementById("Quantity").value;
   // console.log(quantityValue);
-  function updateCartTotal(){
-let itemContainer = document.getElementsByClassName("Item-Qty-Price-List")[0];
-let itemRow = itemContainer.getElementsByClassName("Item-List-Container");
-let total = 0;
-let taxtotal = 0.06;
-let orderTotal = 0;
-let TipTotal = 0;
-for(let i = 0; i <itemRow.length;i++){
-  let cartRow = itemRow[i];
-  let priceElement = cartRow.getElementsByClassName("Cart-Price")[0];
-  let quantityElement = cartRow.getElementsByClassName("Cart-Quantity")[0];
-  let price = parseFloat(priceElement.innerText.replace('Total: $',''));
-  let quantity = parseInt(quantityElement.value);
-  total += price * quantity;
-  
-  // ---------------------tips-------------------------------
-}
-taxtotal = total * 0.06;
+  function updateCartTotal() {
+    let itemContainer = document.getElementsByClassName(
+      "Item-Qty-Price-List"
+    )[0];
+    let itemRow = itemContainer.getElementsByClassName("Item-List-Container");
+    let total = 0;
+    let taxtotal = 0.06;
+    let orderTotal = 0;
+    let TipTotal = 0;
+    for (let i = 0; i < itemRow.length; i++) {
+      let cartRow = itemRow[i];
+      let priceElement = cartRow.getElementsByClassName("Cart-Price")[0];
+      let quantityElement = cartRow.getElementsByClassName("Cart-Quantity")[0];
+      let price = parseFloat(priceElement.innerText.replace("Total: $", ""));
+      let quantity = parseInt(quantityElement.value);
+      total += price * quantity;
 
+      // ---------------------tips-------------------------------
+    }
+    taxtotal = total * 0.06;
 
+    let tipBtns = document.getElementsByClassName("tip-btn");
+    for (let e = 0; e < tipBtns.length; e++) {
+      let tipBtnElement = tipBtns[e];
+      tipBtnElement.addEventListener("click", function () {
+        Tip = parseFloat(tipBtnElement.innerText.replace(`Tip: $`, ``)) / 100;
+        if (isNaN(Tip)) {
+          TipTotal = 0;
+          total = Math.round(total * 100) / 100;
+          orderTotal = total + taxtotal;
+          console.log(Tip);
+        } else {
+          TipTotal = total * Tip;
+          total = Math.round(total * 100) / 100;
+          orderTotal = total + taxtotal + TipTotal;
+        }
 
+        document.getElementById(
+          "TotalPrice"
+        ).innerText = `Total: $${total.toFixed(2)}`;
+        document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(
+          2
+        )}`;
+        document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(
+          2
+        )}`;
+        document.getElementById(
+          "FinalTotal"
+        ).innerText = `Order Total: $${orderTotal.toFixed(2)}`;
+      });
+    }
+    total = Math.round(total * 100) / 100;
+    orderTotal = total + taxtotal + TipTotal;
 
-let tipBtns = document.getElementsByClassName("tip-btn");
-for(let e = 0; e < tipBtns.length; e++){
-  let tipBtnElement = tipBtns[e];
-  tipBtnElement.addEventListener("click", function (){
-    console.log(tipBtnElement);
-    Tip = parseFloat(tipBtnElement.innerText.replace(`Tip: $`,``)) /100;
-if (isNaN(Tip)){
-  TipTotal = 0;
-  total = Math.round(total*100)/100;
-orderTotal = total + taxtotal
-  console.log(Tip)
-}else{
-  TipTotal = total * Tip;
-  total = Math.round(total*100)/100;
-orderTotal = (total + taxtotal) + TipTotal
-}
-
-console.log(orderTotal)
-
-document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`;
-document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
-document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(2)}`;
-document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
-
-  })
-}
-total = Math.round(total*100)/100;
-orderTotal = (total + taxtotal) + TipTotal
-console.log(orderTotal)
-
-document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`;
-document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
-document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(2)}`;
-document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
+    document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(
+      2
+    )}`;
+    document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
+    document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(2)}`;
+    document.getElementById(
+      "FinalTotal"
+    ).innerText = `Order Total: $${orderTotal.toFixed(2)}`;
   }
   updateCartTotal();
 }
+//  -----------------------------------------------------------------------
+//                            Placed order function
+//  ------------------------------------------------------------------------
 
 //  -----------------------------------------------------------------------
 //                  Checks for Id to Load the right Functions

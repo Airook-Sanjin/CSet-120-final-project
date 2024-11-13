@@ -21,7 +21,7 @@
     <!-- ----------------------------------------------------------------------- -->
     <!--                            Sticky Navigation                            -->
     <!-- ----------------------------------------------------------------------- -->
-    <header  class="header">
+    <header class="header">
       <div class="logo">
         <img
           id="logo"
@@ -67,18 +67,40 @@
           <div class="Payment-Info-Content">
             <h3>Checkout</h3>
             <div class="contact-Info-Container">
-              <div class="Content-Info-Content">
+              <div class="Contact-Info-Content">
                 <h5>Contact Information</h5>
-                
-                <div class="nameEmail-Container">
-                  <div class="name"><h6>Name</h6>
-                    <input id="Name" type="text" placeholder="First and Last Name" required></input></div>
-                  <div class="Email">
-                    <h6>Email</h6>
-                  <input id="Email" type="text" placeholder="FirstLast@asmail.com" required></input></div>
+
+                <div class="name-Container">
+                  <div class="nameEmailcard">
+                    <h6>Name</h6>
+                    <input
+                      class="Name"
+                      type="text"
+                      placeholder="First Name"
+                      required
+                    />
                   </div>
-                  
-                
+                  <div class="nameEmailcard">
+                    <h6>Last Name</h6>
+                    <input
+                      class="Name Last"
+                      type="text"
+                      placeholder="Last Name"
+                    />
+                  </div>
+                </div>
+
+                <div class="Email-Container">
+                  <div class="Email">
+                    <h6>Email *</h6>
+                    <input
+                      id="Email"
+                      type="text"
+                      placeholder="FirstLast@asmail.com"
+                      required
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div class="optionalTip-container">
@@ -93,34 +115,74 @@
             <div class="Summmary-Container">
               <div class="Order-Summary-Container">
                 <h5>Order Summary</h5>
-                <p id ="TotalPrice">Total:</p>
-                <p id ="tax">Tax:</p>
-                <p id ="tip">Tip:</p>
-                <h4 id ="FinalTotal">Order Total</h4>
+                <p id="TotalPrice">Total:</p>
+                <p id="tax">Tax:</p>
+                <p id="tip">Tip:</p>
+                <h4 id="FinalTotal">Order Total</h4>
               </div>
             </div>
             <div class="PaymentMethod-Container">
               <h5>Payment Method</h5>
-              <p>Credit Card Details</p>
-              <p>Name on Card</p>
-              <input type="text" placeholder="FIRST NAME LAST NAME"name="Cardname" id="CardName" required />
-              <p>Card Number</p>
-              <input type="text" inputmode="numeric" autocomplete="cc-number" pattern="[0-9/s]{13,19}" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" name="CardNumber" id="CardNumber" required />
-              <div class="Exp-Cvv-Container">
-                <div class="Exp">
-                  <p>Expiration Date</p>
-                  <input type="number" maxlength="4" placeholder="MM/YY" id="" required />
+              <h6>Credit Card Details</h6>
+              <div class="Card-Cont">
+                <div class="CardName">
+                  <h6>Name on Card *</h6>
+                  <input
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Name on Card"
+                    name="Cardname"
+                    id="CardName"
+                    required
+                  />
                 </div>
-                <div class="Cvv">
-                  <p>Cvv</p>
-                  <input type="number" placeholder="xxx" maxlength="3" name="" id="" required />
+                <div class="CardNumber">
+                  <h6>Card Number *</h6>
+                  <input
+                    type="text"
+                    autocomplete="off"
+                    inputmode="numeric"
+                    autocomplete="cc-number"
+                    pattern="[0-9\s]{13,19}"
+                    maxlength="19"
+                    placeholder="xxxx xxxx xxxx xxxx"
+                    name="CardNumber"
+                    id="CardNumber"
+                    required
+                  />
                 </div>
               </div>
 
+              <div class="Exp-Cvv-Container">
+                <div class="Exp">
+                  <h6>Expiration Date *</h6>
+                  <input
+                    type="text"
+                    autocomplete="off"
+                    inputmode="numeric"
+                    maxlength="4"
+                    placeholder="MM/YY"
+                    id="ExpDate"
+                    required
+                  />
+                </div>
+                <div class="Cvv">
+                  <h6>Cvv *</h6>
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    placeholder="xxx"
+                    maxlength="3"
+                    name=""
+                    id="CVV"
+                    required
+                  />
+                </div>
+              </div>
             </div>
-            <button id ="PlaceOrderBtn">Place Order</button>
+            <button id="PlaceOrderBtn">Place Order</button>
           </div>
-         
         </div>
         <div class="Final-Cart-Container">
           <div class="Final-Cart-Content">
