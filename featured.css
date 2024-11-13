@@ -23,43 +23,38 @@ h1 {
     text-shadow: 3px 3px 3px black;
 }
 header {
-    margin-top: 17px;
-    margin-left: -50px;
-    color:#F2E205;
-    position: relative;
-}
-
-#Home {
     
-    margin-left: 180px;
     
-  }
-
-#Home:hover {
-    cursor: pointer;
-    color: #F2E205;
+    
 }
 
 
+
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    text-align: center;
+}
 
 
 .Fish {
    
-    position: absolute;
-    margin-top: 30px;
-    margin-left: 50px;
-    width: 350px;
-    height: 500px;
-    align-content: center;
-    text-align: center;
-    box-shadow: 5px 10px 18px #6c95e7;
+   width: 30%;
+   max-width: 350px;
+   min-width: 280px;
+   height: auto;
+   margin-bottom: 20px;
+   box-shadow: 5px 10px 18px #6c95e7;
    border-radius: 15px;
-    
-    background-color: #6c95e7;
+   background-color: #6c95e7;
    
 }
 .Fish img {
-    width: 300px;
+    width: 100%;
     height: 300px;
 
     border-radius: 15px;
@@ -71,7 +66,7 @@ header {
     transform: scale(1.1);
     transition: 0.5s ease-in-out;
     cursor: pointer;
-     box-shadow: white 5px 5px 5px;
+   
     
 }
 
@@ -97,12 +92,11 @@ header {
 .OreoMilkshake {
    
    
-    margin-top: 30px;
-    margin-left: 460px;
-    width: 350px;
-    height: 500px;
-    align-content: center;
-    text-align: center;
+    width: 30%;
+   max-width: 350px;
+   min-width: 280px;
+   height: auto;
+   margin-bottom: 20px;
     box-shadow: 5px 10px 18px #6c95e7;
     border-radius: 15px;
    
@@ -110,7 +104,7 @@ header {
    
 }
 .OreoMilkshake img {
-    width: 300px;
+    width: 100%;
     height: 300px;
    
     border-radius: 15px;
@@ -123,7 +117,7 @@ header {
     transform: scale(1.1);
     transition: 0.5s ease-in-out;
     cursor: pointer;
-    box-shadow: white 5px 5px 5px;
+   
 }
 
 .OreoMilkshake h3 {
@@ -147,19 +141,18 @@ header {
 .SugarCookie {
    
     
-    margin-top: -500px;
-    margin-left: 870px;
-    width: 350px;
-    height: 500px;
-    align-content: center;
-    text-align: center;
+    width: 30%;
+   max-width: 350px;
+   min-width: 280px;
+   height: auto;
+   margin-bottom: 20px;
     box-shadow: 5px 10px 18px #6c95e7;
     background-color: #6c95e7;
     border-radius: 15px;
    
 }
 .SugarCookie img {
-    width: 300px;
+    width: 100%;
     height: 300px;
    
     border-radius: 15px;
@@ -171,8 +164,7 @@ header {
     transform: scale(1.1);
     transition: 0.5s ease-in-out;
     cursor: pointer;
-    box-shadow: white 5px 5px 5px;
-    
+   
 
 }
 
