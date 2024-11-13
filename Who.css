@@ -65,7 +65,7 @@ h1 {
 }
 
 .Start p {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     color: #F20530;
     text-align: center;
     text-shadow: 1px 1px 1px black;
@@ -76,6 +76,3 @@ h2 {
     text-shadow: 1px 1px 1px black;
 }
 
-#Home:hover {
-    color: #F2E205;
-}

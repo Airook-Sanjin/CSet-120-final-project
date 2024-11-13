@@ -102,3 +102,45 @@ h1 {
 }
 
 
+
+.reward2 {
+    max-width: 800px;
+    text-align: center;
+}
+ 
+.reward2 h2 {
+    font-size: 40px;
+    color: white;
+    text-shadow: 4px 4px 4px black;
+     margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.reward2 img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 20px;
+    
+}
+
+.reward2 button {
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #F20530;
+    background-color: #F2E205;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reward2 button:hover {
+    background-color: #F20530;
+    color: #F2E205;
+}
+
+
