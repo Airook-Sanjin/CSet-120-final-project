@@ -231,8 +231,9 @@ function initializeCheckoutPage() {
     let ExistingErrormsg = document.getElementsByClassName("Error-Msg")[0];
     let existingSuccessMsg = document.getElementsByClassName("Success-Msg")[0];
 
-    if (ExistingErrormsg || existingSuccessMsg){
-      ExistingErrormsg.remove();
+    if (ExistingErrormsg){
+      ExistingErrormsg.remove();}
+      if(existingSuccessMsg){
       existingSuccessMsg.remove();
     }
     let errorMessage = validateCard(CardName, CardNumber, ExpDate, Cvv)
@@ -405,3 +406,4 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeCheckoutPage();
   }
 });
+
