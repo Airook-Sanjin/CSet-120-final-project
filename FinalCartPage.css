@@ -1,0 +1,308 @@
+/* ---------------------------------------------------- */
+/* ------               Universal             --------- */
+/* ---------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h3 {
+  font-family: "Goblin One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+p {
+  font-family: "Lato", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+a {
+  font-family: "Lato", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+/* ---------------------------------------------------- */
+/* -------          Header Section            --------- */
+/* ---------------------------------------------------- */
+#logo {
+  width: 100px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #f20530;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+.header a {
+  color: white;
+  text-decoration: none;
+}
+.userNav,
+.nav,
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav a:hover,
+.userNav a:hover {
+  color: #f2e205;
+}
+.Modalbutton {
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+.Modalbutton ion-icon {
+  color: #f2e205;
+}
+#Searchbar {
+  border-radius: 20px;
+  background-color: hsl(349, 96%, 45%);
+  border: none;
+  color: white;
+  padding: 10px;
+}
+#Searchbar::placeholder {
+  color: hsl(0, 0%, 70%);
+}
+#Searchbar:focus {
+  outline: none;
+  border: none;
+  /* background-color: none; */
+}
+#UserProf,
+#Cart {
+  font-size: 30px;
+  color: #f2e205;
+}
+#Navbtn {
+  display: flex;
+  color: hsl(100, 100%, 100%);
+  background-color: #f2e205;
+  justify-content: center;
+  border-radius: 10px;
+  width: 120px;
+  padding: 3%;
+}
+#Navbtn:hover {
+  color: black;
+  transform: scale(1.2);
+  box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+  transition: 0.9s;
+}
+/* ---------------------------------------------------- */
+/* -------             Page Section           --------- */
+/* ---------------------------------------------------- */
+.page-container {
+  display: flex;
+  width: 100%;
+  height: 700px;
+  gap: 2%;
+}
+/* -------------------------------- */
+/* ------ Final Cart Section ------ */
+/* -------------------------------- */
+.Final-Cart-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+  background-color: hsl(0, 0%, 90%);
+  width: 45%;
+  box-shadow: -2px 4px 4px #00000030, -5px 12px 12px #00000015;
+}
+.Final-Cart-Content {
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  width: 100%;
+  padding: 2%;
+  row-gap: 25px;
+}
+.Final-Cart-Content::after {
+  border-bottom: 1px solid black;
+}
+.Item-Qty-Price {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  column-gap: 50px;
+  /* justify-content: space-around; */
+}
+.Item-Qty-Price-List {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  row-gap: 50px;
+}
+#Item-img {
+  background-color: #f20530;
+  width: 40%;
+  height: 100px;
+}
+#I {
+  width: 50%;
+}
+#Q {
+  width: 3%;
+}
+#P {
+  width: 10%;
+}
+.Item-Container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  width: 60%;
+}
+.Qty-Container {
+  display: flex;
+  flex-direction: column;
+  width: 6%;
+}
+.Price-Container {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+.Item-List-Container {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+}
+.remove-btn {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-family: "Lato", serif;
+  font-weight: 700;
+  font-style: normal;
+  background-color: #f20530;
+  border: none;
+  width: 120px;
+  height: 50px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+}
+.remove-btn:hover {
+  transform: translateY(-10px);
+  transition: all 0.7s;
+  background-color: hsl(349, 96%, 58%);
+}
+/* -------------------------------- */
+/* ------- Payment Section -------- */
+/* -------------------------------- */
+.Payment-Info-Container {
+  display: flex;
+  background-color: hsl(0, 0%, 95%);
+  padding: 2%;
+  width: 60%;
+}
+.Payment-Info-Content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 25px;
+}
+.nameEmail-Container{
+  display: flex;
+  flex-direction: column;
+  row-gap:20px;
+}
+.tipbtncontainer{
+  display: flex;
+  flex-direction: row;
+  gap:5%;
+}
+.tip-btn{
+  display: flex;
+  justify-content: center;
+  padding:1%;
+  width:10%;
+  border:none;
+  background-color: #f2e205;
+  border-radius: 20px; 
+}
+.tip-btn:hover{
+  transform: translateY(-2px);
+  background-color: hsl(56, 96%, 58%);
+  box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+  transition: all 0.7s;
+}
+.PaymentMethod-Container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.Order-Summary-Content {
+  display: flex;
+  flex-direction: column;
+}
+.Exp-Cvv-Container {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+.Exp-Cvv-Container input {
+  width: 50%;
+}
+.Exp {
+  width: 40%;
+}
+.Cvv {
+  width: 25%;
+}
+#PlaceOrderBtn {
+  display: flex;
+  text-align: center;
+  background-color: #f20530;
+  width: 15%;
+  border-radius: 20px;
+  border: none;
+  padding: 1%;
+  justify-content: center;
+}
+#PlaceOrderBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+  background-color: hsl(349, 96%, 58%);
+  transition: all 0.3s;
+}
+
+/* ---------------------------------------------------- */
+/* ------               Footer Section       ---------- */
+/* ---------------------------------------------------- */
+footer a {
+  color: hsl(100, 100%, 100%);
+  text-decoration: none;
+}
+footer ion-icon {
+  font-size: 30px;
+  color: hsl(349, 96%, 28%);
+}
+.footer-container {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: hsl(349, 96%, 44%);
+  height: 200px;
+  position: relative;
+}
+.about {
+  display: flex;
+  gap: 20px;
+}
+.icon-footer {
+  display: flex;
+  gap: 20px;
+}
