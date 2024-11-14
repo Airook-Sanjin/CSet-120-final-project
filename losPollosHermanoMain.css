@@ -10,6 +10,7 @@ h3 {
   font-family: "Goblin One", serif;
   font-weight: 400;
   font-style: normal;
+  color: #f20530;
 }
 p {
   font-family: "Lato", serif;
@@ -173,9 +174,6 @@ a {
   justify-content: center;
   padding: 2%;
 }
-.MenuCardInfo h3 {
-  color: #f20530;
-}
 .Card img {
   height: 300px;
 
@@ -237,9 +235,6 @@ a {
   justify-content: center;
   gap: 5%;
 }
-.Square h3 {
-  color: #f20530;
-}
 .square-info {
   display: flex;
   flex-direction: column;
@@ -275,6 +270,72 @@ a {
   height: 465px;
 }
 /* --------------------------------------------End of Second Cards--------------------------------------------- */
+.Testimonial-Carousel{
+  overflow:hidden;
+  width:100%
+}
+#TestimonialSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap:40px;
+  height:500px;
+  text-align: center;
+  padding:3% 0;
+  background-size: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
+    url(LosPollosImages-gif/InsideStore.webp);
+  background-position: center;
+  background-color: hsla(0, 0%, 0%, 0.7);
+}
+.Testimonial-Container{
+  display:flex;
+ transition: transform 0.5s ease-in-out;
+ width:100%;
+ margin-left:350px;
+ row-gap: 30px;
+
+}
+.Testimonial-Card{
+  display:flex;
+  flex-direction: column;
+  row-gap: 50px;;
+ padding:2% 0;
+ font-size: 24px;
+ font-style: italic;
+ min-width:700px;
+ margin-right:450px;
+ box-sizing: border-box;
+ color:hsl(0, 0%, 82%)
+}
+.Testimonial-Customer{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1%;
+  justify-content: center;
+  align-items: center;
+}
+
+.Testimonial-Card img{
+  width:70px;
+  border-radius:60%;
+}
+.buttons{
+  display: flex;
+  gap:3%;
+}
+.slide{
+  background-color: transparent;
+  border:none;
+  font-size: 50px;
+  color:#f20530;
+}
+.slide:hover{
+  transform: scale(1.2);
+}
+#Prev-TestBtn{
+  margin-left:70%;}
+/*---------------------------------------------End of Testimonial Section--------------------------------------------- */
 .secret{
     display: flex;
     
@@ -296,6 +357,7 @@ a {
 .footer-container:hover #SecretGus{
     bottom:0
 }
+
 /* -----------------------------------------------End Of Secret--------------------------------------------------- */
 
 footer a {

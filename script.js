@@ -78,6 +78,38 @@ function initializeMainPage() {
   mainPickupbtn.addEventListener("click", function () {
     maindeliveryForm.style.display = "none";
   });
+  //  -----------------------------------------------------------------------
+  //                                Testimonial Carousel
+  //  -----------------------------------------------------------------------
+  let currentTestimonialIndex = 0;
+  let TestimonialCards = document.querySelectorAll(".Testimonial-Card");
+ let totalTestimonialCards = TestimonialCards.length;
+ document.getElementById("Next-TestBtn").addEventListener("click",function(){
+  if(currentTestimonialIndex < totalTestimonialCards -1){
+    currentTestimonialIndex++;
+  }else{
+    currentTestimonialIndex = 0
+  }
+  updateTestimonial();
+
+ });
+ document.getElementById("Prev-TestBtn").addEventListener("click",function(){
+  if(currentTestimonialIndex > 0){
+    currentTestimonialIndex--;
+  }else{
+    currentTestimonialIndex = totalTestimonialCards -1
+  }
+  updateTestimonial();
+
+ });
+
+
+ function updateTestimonial(){
+  let TestimonialContainers = document.querySelector(".Testimonial-Container")
+  
+  let testOffset = -currentTestimonialIndex * (700 + 450);
+  TestimonialContainers.style.transform = `translateX(${testOffset}px)` 
+  }
 }
 // ---------------------------------------------------------------------------------------------------------
 function initializeMenuPage() {
