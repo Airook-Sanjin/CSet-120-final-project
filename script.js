@@ -19,6 +19,10 @@ function initializeSignInPage() {
       alert("User does not exist");
     }
   }
+  const managerInfo = {
+    email: "LosPollosManager81@gmail.com",
+    password: "GusFring2425",
+  }
 
   function login() {
     let email = document.getElementById("email").value;
@@ -26,8 +30,9 @@ function initializeSignInPage() {
     //console.log(email);
     //console.log(pass);
     
+    
     if (email == managerInfo.email && pass == managerInfo.password) {
-      location.replace("index.html");
+      location.replace("admin.html");
       alert("Logged in as manager");
     } else if (localStorage.getItem(email)) {
       if (pass == localStorage.getItem(email)) {
@@ -349,4 +354,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+let 
 

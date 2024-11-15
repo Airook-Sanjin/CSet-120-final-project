@@ -35,7 +35,7 @@ html {
 
 body { 
     height: 100vh;
-    background-color: var(--warm-yellow);
+    background-color:#021F59
 }
 
 /* -------------------------------------------------------------------------- */
@@ -135,6 +135,13 @@ body {
     margin-left: -20px;
 }
 
+.ManHeader {
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+    font-size: 2.1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 /* -------------------------------------------------------------------------- */
 /*                                 Card Styles                                */
 /* -------------------------------------------------------------------------- */
@@ -181,7 +188,7 @@ height: 5rem;
     justify-content: center;
     padding-top: 7%;
     /* background-color: rgb(155, 35, 35); */
-    background-color: var(--warm-yellow);
+    background-color:#021F59;
 
 
 }
@@ -329,4 +336,38 @@ height: 2px;
 }
 
 
+#addItemForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    font-family: "Arvo", serif;
+}
+
+#addItemForm label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+#addItemForm input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+#addItemForm button {
+    padding: 10px 20px;
+    background-color: var(--main-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#addItemForm button:hover {
+    background-color:#05C7F2
+}
 

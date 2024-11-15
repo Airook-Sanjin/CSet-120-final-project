@@ -7,3 +7,7 @@ document.querySelector(".reward2 button").addEventListener("click", function () 
     document.querySelector(".reward2").style.display = "none";
     alert("Claimed!");
 });
+
+
+//apply coupon to Final Cart Page 
+
