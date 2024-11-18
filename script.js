@@ -222,6 +222,12 @@ function initializeCheckoutPage() {
     }
   }
   //  -----------------------------------------------------------------------
+  //                            retrieving and applying Coupons
+  //  -----------------------------------------------------------------------
+ 
+    
+
+  //  -----------------------------------------------------------------------
   //                            retrieving Item info
   //  -----------------------------------------------------------------------
   
@@ -291,6 +297,8 @@ function initializeCheckoutPage() {
     }
 
   });
+  
+
 
   function validateCard(CardName, CardNumber, ExpDate, Cvv) {
     let errorMessage = "";
@@ -373,11 +381,11 @@ function initializeCheckoutPage() {
       total += price * quantity;
 
       // ---------------------tips-------------------------------
-    }
+   } 
     taxtotal = total * 0.06;
 
     let tipBtns = document.getElementsByClassName("tip-btn");
-    for (let e = 0; e < tipBtns.length; e++) {
+      for (let e = 0; e < tipBtns.length; e++) {
       let tipBtnElement = tipBtns[e];
       tipBtnElement.addEventListener("click", function () {
         Tip = parseFloat(tipBtnElement.innerText.replace(`Tip: $`, ``)) / 100;
@@ -385,29 +393,29 @@ function initializeCheckoutPage() {
           TipTotal = 0;
           total = Math.round(total * 100) / 100;
           orderTotal = total + taxtotal;
-          console.log(Tip);
-        } else {
-          TipTotal = total * Tip;
-          total = Math.round(total * 100) / 100;
-          orderTotal = total + taxtotal + TipTotal;
-        }
+            console.log(Tip);
+           }  else {
+           TipTotal = total * Tip;
+            total = Math.round(total * 100) / 100;
+           orderTotal = total + taxtotal + TipTotal;
+          }
 
-        document.getElementById(
-          "TotalPrice"
-        ).innerText = `Total: $${total.toFixed(2)}`;
-        document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(
+          document.getElementById(
+            "TotalPrice"
+          ).innerText = `Total: $${total.toFixed(2)}`;
+          document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(
+           2
+         )}`;
+          document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(
           2
-        )}`;
-        document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(
-          2
-        )}`;
-        document.getElementById(
-          "FinalTotal"
-        ).innerText = `Order Total: $${orderTotal.toFixed(2)}`;
-      });
-    }
-    total = Math.round(total * 100) / 100;
-    orderTotal = total + taxtotal + TipTotal;
+          )}`;
+          document.getElementById(
+           "FinalTotal"
+         ).innerText = `Order Total: $${orderTotal.toFixed(2)}`;
+        });
+      }
+    
+    orderTotal = total  + taxtotal + TipTotal;
 
     document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(
       2
@@ -419,6 +427,35 @@ function initializeCheckoutPage() {
     ).innerText = `Order Total: $${orderTotal.toFixed(2)}`;
   }
   updateCartTotal();
+
+  let couponEnterBtn = document.getElementById("CouponBtn");
+  
+  couponEnterBtn.addEventListener("click", applyCoupon)
+function applyCoupon(){
+//  -------------------------------------coupons------------------------------------
+let couponIdRetrieved = JSON.parse(localStorage.getItem('Coupons')) || [];
+let Coupon = document.getElementById("CouponID").value;
+let discount =  0
+for (let coupon of couponIdRetrieved){
+  if(coupon.code===Coupon){
+  discount = coupon.discount;
+  break;
+}
+}
+if (discount > 0){
+  let total = parseFloat(document.getElementById("FinalTotal").innerText.replace("Order Total: $",""));
+  let discountAmount = (total * discount)/100;
+  let newTotal = total - discountAmount   
+  console.log(Coupon)
+  document.getElementById("FinalTotal").innerText =`Total:$${newTotal.toFixed(2)}`;
+  let orderSummaryContainer = document.getElementById("tip");
+let CouponElement = document.createElement('p');
+CouponElement.innerHTML= `Discount: -$${discountAmount.toFixed(2)}`
+orderSummaryContainer.insertAdjacentElement("afterend",CouponElement)
+}else{alert("invalid Code")}
+
+  
+}
 }
 //  -----------------------------------------------------------------------
 //                            Placed order function
