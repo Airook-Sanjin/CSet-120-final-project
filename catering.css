@@ -40,6 +40,76 @@ body {
 /* -------------------------------------------------------------------------- */
 /*                                Page Navigation                               */
 /* -------------------------------------------------------------------------- */
+#logo {
+	width: 100px;
+}
+.header {
+	display: flex;
+	flex-direction: row;
+	background-color: #f20530;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-around;
+}
+.header a {
+	color: white;
+	text-decoration: none;
+}
+.userNav,
+.nav,
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
+
+.nav a:hover,
+.userNav a:hover {
+	color: #f2e205;
+}
+.Modalbutton {
+	color: white;
+	background-color: transparent;
+	border: none;
+}
+.Modalbutton ion-icon {
+	color: #f2e205;
+}
+#Searchbar {
+	border-radius: 20px;
+	background-color: hsl(349, 96%, 45%);
+	border: none;
+	color: white;
+	padding: 10px;
+}
+#Searchbar::placeholder {
+	color: hsl(0, 0%, 70%);
+}
+#Searchbar:focus {
+	outline: none;
+	border: none;
+	/* background-color: none; */
+}
+#UserProf,
+#Cart {
+	font-size: 30px;
+	color: #f2e205;
+}
+#Navbtn {
+	display: flex;
+	color: hsl(100, 100%, 100%);
+	background-color: #f2e205;
+	justify-content: center;
+	border-radius: 10px;
+	width: 120px;
+	padding: 3%;
+}
+#Navbtn:hover {
+	color: black;
+	transform: scale(1.2);
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+	transition: 0.9s;
+}
 
 /* ----------------------------------- CTA ---------------------------------- */
 .cta {
@@ -211,7 +281,7 @@ ion-icon {
 .catering-title {
 	text-transform: capitalize;
 	color: white;
-	font-size: 40px;
+	font-size: 35px;
 	font-weight: 500;
 	font-family: 'Montserrat', serif;
 	color: #333;
@@ -223,6 +293,7 @@ ion-icon {
 
 .menu-heading p {
 	color: rgb(109, 109, 109);
+	font-size: 1.15rem;
 }
 
 .menu-heading {
@@ -237,6 +308,11 @@ ion-icon {
 	color: #ff4742;
 	font-weight: 400;
 	text-decoration: none;
+}
+
+.menu-heading a:hover {
+	color: #da3530;
+	transition: 5ms;
 }
 
 .title-style {
@@ -336,8 +412,8 @@ ion-icon {
 #topBtn {
 	display: none;
 	position: fixed;
-	bottom: 20px;
-	right: 30px;
+	bottom: 40px;
+	right: 80px;
 	z-index: 99;
 	border: none;
 	background-color: var(--secondary-red);
@@ -348,7 +424,7 @@ ion-icon {
 	padding: 15px 20px;
 	border-radius: 60px;
 	text-align: center;
-	transition: 0.3s;
+	transition: 0.2s;
 	text-transform: uppercase;
 }
 
