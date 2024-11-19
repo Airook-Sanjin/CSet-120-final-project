@@ -371,3 +371,21 @@ height: 2px;
     background-color:#05C7F2
 }
 
+.items-container select {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    
+}
+
+#addItemForm input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color:#05C7F2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

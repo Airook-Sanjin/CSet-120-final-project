@@ -475,8 +475,15 @@
     <input type="number" id="itemPrice" name="itemPrice"><br><br>
     <label for="itemDescription">Item Description:</label>
     <textarea id="itemDescription" name="itemDescription"></textarea><br><br>
-    <label for = "itemSection">Section</label>
-    <input type="text" id="itemSection" name="itemSection"><br><br>
+    <select name = "choice" id="choice">
+        <option value="Breakfast-Specialties">Breakfast Specialties</option>
+        <option value="Pollos-Burritos">Pollos Burritos</option>
+        <option value="Pollos-Specialties">Pollos Specialties</option>
+        <option value="Sides">Sides</option>
+        <option value="Sandwiches">Sandwiches</option>
+        <option value="Desserts">Desserts</option>
+        <option value="beverages">Beverages</option>
+    </select>
     <input type="submit" value="Add Item">
     <button onclick = "clearForm()" id = "clearBtn" title = "Clear form">Clear</button>
   </form>

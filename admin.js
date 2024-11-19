@@ -38,6 +38,7 @@ addItemForm.addEventListener("submit", function (event) {
     const itemName = document.getElementById("itemName").value;
     const itemPrice = document.getElementById("itemPrice").value;
     const itemDescription = document.getElementById("itemDescription").value;
+    const choice = document.getElementById("choice").value;
 
     const itemsContainer =  document.querySelector("#create .items-container");
 
@@ -55,9 +56,12 @@ addItemForm.addEventListener("submit", function (event) {
     <img src = " " alt = "${itemName}">
     </div>
     `;
-
-
-    itemsContainer.appendChild(newItemCard);
+const sectionId = choice.toLowerCase().replace(/ /g, '-');
+const section = document.getElementById(sectionId);
+if (section) {
+    section.querySelector(".items-container").appendChild(newItemCard);
+}
+  
 
 
     newItemCard.querySelector(".close-button").addEventListener("click", function () {
