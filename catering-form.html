@@ -110,7 +110,7 @@
 					<div class="cta-inner">
 						<!-- <img src="lph-logos.png" /> -->
 						<p>CATERING</p>
-						<button>Order Now</button>
+						<button><a href = "catering.html">Order Now</a></button>
 					</div>
 				</div>
 
@@ -125,7 +125,7 @@
 									<h1>Did We Hear "Party"?</h1>
 									<blockquote class="info-description">
 										Whether it's a birthday party to celebrate life or a
-										corporate celebration, we'll be there with our party hats.
+										team celebration, we'll be there with our party hats.
 										<br />
 										<br />
 										Don't know what to order for your group? Have instructions
@@ -163,9 +163,7 @@
 							<form
 								id="cateringForm"
 								class="catering-form"
-								action="/order-menu"
-								method="GET"
-								novalidate>
+								>
 								<div class="form-group">
 									<label for="name">Full Name</label>
 									<input
@@ -175,6 +173,35 @@
 										placeholder="Enter your full name"
 										required />
 								</div>
+								<div class="form-group">
+									<label for="name">Phone Number</label>
+									<input
+										type="tel"
+										id="tel"
+										name="tel"
+										placeholder="(    ) ___ - ___"
+										required />
+								</div>
+								<div class="form-group">
+									<label for="name">Time</label>
+									<input
+										type="time"
+										id="time"
+										name="time"
+										placeholder="Time"
+										required />
+								</div>
+								<div class="form-group">
+									<label for="guests">Guest Count</label>
+									<input
+										type="number"
+										id="guests"
+										name="guests"
+										min="0" max="500"
+										placeholder=""
+										required />
+								</div>
+					
 								<div class="form-group">
 									<label for="email">Email Address</label>
 									<input
@@ -210,7 +237,15 @@
 										<option value="other">Other</option>
 									</select>
 								</div>
-							</div>
+								<div class="form-group">
+									<label for="notes">Additional Notes</label>
+									<textarea
+										type="text"
+										id="notes"
+										name="notes"
+										placeholder="Add any additional notes or requests here"
+										required ></textarea>
+								</div>
 								<button
 									type="submit"
 									class="form-button">
