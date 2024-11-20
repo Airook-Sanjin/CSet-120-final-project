@@ -5,15 +5,29 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  /* background-color: var(--background-white); */
-  /* background-color: var(white); */
-  background-image: url("media/lphbackground.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #ede2cd;
-  color: #333;
-  line-height: 1.6;
+	font-family: 'Roboto', sans-serif;
+	/* background-color: var(--background-white); */
+	/* background-color: var(white); */
+	background-image: url('media/lphbackground.webp');
+	/* background-color: #fde947; */
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #ede2cd;
+	color: #333;
+	line-height: 1.6;
+}
+
+:root {
+	--dark-blue: #021f59;
+	--teal: #05c7f2;
+	--warm-blue: #4aa3e3;
+	--main-red: #f20519;
+	--secondary-red: #f20530;
+	--main-yellow: #f2e205;
+	--warm-yellow: #f0af02;
+	--light-grey: #666;
+	--accent-orange: #ff7043;
+	--background-white: #f4f4f4;
 }
 
 /* -------------------------------------------------------------------------- */
