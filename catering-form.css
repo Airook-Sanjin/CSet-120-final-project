@@ -5,6 +5,27 @@ body {
 	box-sizing: border-box;
 }
 
+/* ------------------------------- CTA Section ------------------------------ */
+
+.cta {
+	display: flex;
+	place-content: center;
+	/* margin-top: 20px;
+	margin-bottom: 20px; */
+	background-image: url('media/header.jpg');
+	background-position: 0 50%;
+	background-size: cover;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.cta img {
+	width: 500px;
+	height: 300px;
+	object-fit: fit;
+	border-radius: 10px;
+}
+
 .cta {
 	height: 20rem;
 	width: 100%;
@@ -21,6 +42,8 @@ body {
 	font-weight: 800;
 	color: white;
 	-webkit-text-stroke: 3px #f2022f;
+	transform: translateY(-5000);
+	display: block;
 }
 
 .cta-inner button {
@@ -263,25 +286,6 @@ input:focus,
 select:focus {
 	border-color: #d71d3f;
 	outline: none;
-}
-
-.cta {
-	display: flex;
-	place-content: center;
-	/* margin-top: 20px;
-	margin-bottom: 20px; */
-	background-image: url('media/header.jpg');
-	background-position: 0 50%;
-	background-size: cover;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
-.cta img {
-	width: 500px;
-	height: 300px;
-	object-fit: fit;
-	border-radius: 10px;
 }
 
 .form-group textarea {
