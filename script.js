@@ -6,6 +6,7 @@ function initializeSignInPage() {
     const passwordRequirements = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
     //console.log(email);
     //console.log(pass);
+    localStorage.setItem("userStatus", "logged-in")
 
     localStorage.setItem(email, pass);
     if (!passwordRequirements.test(pass)) {
@@ -29,6 +30,7 @@ function initializeSignInPage() {
     let pass = document.getElementById("password").value;
     //console.log(email);
     //console.log(pass);
+    localStorage.setItem("userStatus", "logged-in")
     
     
     if (email == managerInfo.email && pass == managerInfo.password) {
@@ -40,6 +42,7 @@ function initializeSignInPage() {
       } else {
         alert("Wrong Password");
       }
+
     } else {
       alert("User does not exist");
     }
@@ -47,6 +50,12 @@ function initializeSignInPage() {
   document.getElementById("Signup-btn").addEventListener("click", signup);
   document.getElementById("Login-btn").addEventListener("click", login);
 }
+
+function joinAsGuest() {
+  localStorage.setItem("userStatus", "guest");
+  window.location.replace("index.html");
+}
+
 // ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
   //  -----------------------------------------------------------------------
