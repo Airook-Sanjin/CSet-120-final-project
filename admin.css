@@ -368,7 +368,7 @@ height: 2px;
 }
 
 #addItemForm button:hover {
-    background-color:#05C7F2
+    background-color:darkred;
 }
 
 .items-container select {
@@ -388,4 +388,9 @@ height: 2px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+
+#addItemForm input[type="submit"]:hover{
+    background-color:#028dad;
 }

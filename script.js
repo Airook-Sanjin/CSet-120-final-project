@@ -356,3 +356,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let 
 
+
+
+
+  // document.addEventListener("DOMContentLoaded", function() {
+  //     const menuItems = JSON.parse(localStorage.getItem("menuItems"));
+  //     const menuContainer = document.getElementById("menuContainer");
+
+  //     menuItems.forEach(item => {
+  //         const itemCard = document.createElement("div");
+  //         itemCard.className = "item-card";
+
+  //         itemCard.innerHTML = `
+  //         <div class ="item-info">
+  //             <h4 class="item-header">${item.name}</h4>
+  //             <p class="item-description">${item.description}</p>
+  //         </div>
+  //         <div class="price">$<span>${item.price}</span> <button class="btn menu-add">Add to Cart</button></div>
+  //         `;
+
+  //         menuContainer.appendChild(itemCard);
+
+  //     });
+  // });

@@ -482,14 +482,36 @@
         <option value="Sides">Sides</option>
         <option value="Sandwiches">Sandwiches</option>
         <option value="Desserts">Desserts</option>
-        <option value="beverages">Beverages</option>
+        <option value="Beverages">Beverages</option>
     </select>
     <input type="submit" value="Add Item">
-    <button onclick = "clearForm()" id = "clearBtn" title = "Clear form">Clear</button>
+    <button onclick ="event.preventDefault(); clearForm()" id = "clearBtn" title = "Clear form">Clear</button>
   </form>
   </div>
 
+<!-- <script>
+    function addItem(event) {
+        event.preventDefault();
+        const itemName = document.getElementById("itemName").value;
+        const itemPrice = document.getElementById("itemPrice").value;
+        const itemDescription = document.getElementById("itemDescription").value;
+        const itemCategory = document.getElementById("choice").value;
 
+        const newItem = {
+            name: itemName,
+            price: itemPrice,
+            description: itemDescription,
+            category: itemCategory
+        };
+
+        let menuItems = JSON.parse(local.Storage.getItem("menuItems")) || [];
+        menuItems.push(newItem);
+        local.Storage.setItem("menuItems", JSON.stringify(menuItems));
+
+        alert("Item added")
+        clearForm();
+    }
+</script>  -->
     </div>
     </div>
     </section>
