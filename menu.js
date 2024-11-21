@@ -1,4 +1,5 @@
 let topButton = document.getElementById('topBtn');
+// let menuNav = document.getElementsByClassName('menu-nav')
 window.onscroll = function () {
 	scrollFunction();
 };

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Final Cart</title>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="FinalCartPage.css" />
+		<link
+			rel="icon"
+			type="Image/x-icon"
+			href="LosPollosImages-gif/LosPollosHermanosLogo1.png" />
+	</head>
+	<body>
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Sticky Navigation                            -->
+		<!-- ----------------------------------------------------------------------- -->
+		<header class="header">
+			<div class="logo">
+				<img
+					id="logo"
+					src="LosPollosImages-gif/LosPollosHermanosLogo2.webp"
+					alt="LosPollosHermanosLogo" />
+			</div>
+			<div class="nav">
+				<a
+					id="Menu"
+					href="MenuPage.html"
+					rel="noopener noreferrer"
+					>Menu</a
+				>
+				<a
+					id="Who we are"
+					href="Who.html"
+					rel="noopener noreferrer"
+					>Who we are</a
+				>
+				<a
+					id="Rewards"
+					href="rewards.html"
+					rel="noopener noreferrer"
+					>Rewards</a
+				>
+				<input
+					type="search"
+					name="Searchbar"
+					id="Searchbar"
+					placeholder="Search" />
+			</div>
+			<div class="userNav">
+				<button class="Modalbutton Main">
+					<ion-icon name="location"></ion-icon>Set a Location
+				</button>
+
+				<a href="Sign-in.html"
+					><ion-icon
+						id="UserProf"
+						name="person-circle-outline"></ion-icon
+				></a>
+				<a href=""
+					><ion-icon
+						id="Cart"
+						name="cart"></ion-icon
+				></a>
+				<a
+					id="Navbtn"
+					href="MenuPage.html"
+					rel="noopener noreferrer"
+					>Order Now</a
+				>
+			</div>
+		</header>
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Final Cart Section                           -->
+		<!-- ----------------------------------------------------------------------- -->
+		<section
+			id="CheckoutPage"
+			class="FinalCart">
+			<div class="page-container">
+				<div class="Payment-Info-Container">
+					<div class="Payment-Info-Content">
+						<h3>Checkout</h3>
+						<div class="contact-Info-Container">
+							<div class="Contact-Info-Content">
+								<h5>Contact Information</h5>
+
+								<div class="name-Container">
+									<div class="nameEmailcard">
+										<h6>Name</h6>
+										<input
+											class="Name"
+											type="text"
+											placeholder="First Name"
+											required />
+									</div>
+									<div class="nameEmailcard">
+										<h6>Last Name</h6>
+										<input
+											class="Name Last"
+											type="text"
+											placeholder="Last Name" />
+									</div>
+								</div>
+
+								<div class="Email-Container">
+									<div class="Email">
+										<h6>Email *</h6>
+										<input
+											id="Email"
+											type="text"
+											placeholder="FirstLast@asmail.com"
+											required />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="optionalTip-container">
+							<h5>Tips?</h5>
+							<div class="tipbtncontainer">
+								<button class="tip-btn">5%</button>
+								<button class="tip-btn">15%</button>
+								<button class="tip-btn">20%</button>
+								<button class="tip-btn">No Tip</button>
+							</div>
+							<div class="Couponcontainer">
+								<h5>Coupons</h5>
+								<div class="CouponEnterSection">
+									<input
+										type="text"
+										name="Coupon"
+										id="CouponID"
+										placeholder="EnterCoupon" />
+									<button
+										class="CouponSubmit"
+										id="CouponBtn">
+										Enter
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="Summmary-Container">
+							<div class="Order-Summary-Container">
+								<h5>Order Summary</h5>
+								<p id="TotalPrice">Total:</p>
+								<p id="tax">Tax:</p>
+								<p id="tip">Tip:</p>
+								<h4 id="FinalTotal">Order Total</h4>
+							</div>
+						</div>
+						<div class="PaymentMethod-Container">
+							<h5>Payment Method</h5>
+							<h6>Credit Card Details</h6>
+							<div class="Card-Cont">
+								<div class="CardName">
+									<h6>Name on Card *</h6>
+									<input
+										type="text"
+										autocomplete="off"
+										placeholder="Name on Card"
+										name="Cardname"
+										id="CardName"
+										required />
+								</div>
+								<div class="CardNumber">
+									<h6>Card Number *</h6>
+									<input
+										type="text"
+										autocomplete="off"
+										inputmode="numeric"
+										autocomplete="cc-number"
+										pattern="[0-9\s]{13,19}"
+										maxlength="19"
+										placeholder="xxxx xxxx xxxx xxxx"
+										name="CardNumber"
+										id="CardNumber"
+										required />
+								</div>
+							</div>
+
+							<div class="Exp-Cvv-Container">
+								<div class="Exp">
+									<h6>Expiration Date *</h6>
+									<input
+										type="text"
+										autocomplete="off"
+										inputmode="numeric"
+										maxlength="4"
+										placeholder="MM/YY"
+										id="ExpDate"
+										required />
+								</div>
+								<div class="Cvv">
+									<h6>Cvv *</h6>
+									<input
+										type="text"
+										inputmode="numeric"
+										autocomplete="off"
+										placeholder="xxx"
+										maxlength="3"
+										name=""
+										id="CVV"
+										required />
+								</div>
+							</div>
+						</div>
+						<button id="PlaceOrderBtn">Place Order</button>
+					</div>
+				</div>
+				<div class="Final-Cart-Container">
+					<div class="Final-Cart-Content">
+						<h3>Your Order</h3>
+						<div class="Item-Qty-Price">
+							<h4 id="I">Item</h4>
+							<h4 id="Q">Qty</h4>
+							<h4 id="P">Price</h4>
+						</div>
+						<div class="Item-Qty-Price-List">
+							<!-- <div class="Item-Container">
+                <img id="Item-img" src="" alt="ItemImg" />
+                <p>Itemname</p>
+              </div>
+              <div class="Qty-Container">
+                <input
+                  type="number"
+                  name="Quantity-Counter"
+                  id="Quantity"
+                  value="1"
+                />
+              </div>
+              <div class="Price-Container">
+                <p>Price</p>
+              </div> -->
+						</div>
+					</div>
+
+					<div class="Cart-List"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Footer Section                               -->
+		<!-- ----------------------------------------------------------------------- -->
+		<footer>
+			<div class="footer-container">
+				<div class="about">
+					<a href="#">Services</a>
+					<a href="#">Testimonials</a>
+					<a href="#">Contact us</a>
+				</div>
+				<div class="icon-footer">
+					<a href="http://"><ion-icon name="logo-facebook"></ion-icon></a>
+					<a href="http://"><ion-icon name="logo-twitter"></ion-icon></a>
+					<a
+						href="https://www.instagram.com/eatlospolloshermanos/"
+						target="_blank"
+						><ion-icon name="logo-instagram"></ion-icon
+					></a>
+				</div>
+				<section class="secret">
+					<img
+						id="SecretGus"
+						src="LosPollosImages-gif/Gus Frank Icon.svg"
+						alt="GusSecret" />
+				</section>
+			</div>
+		</footer>
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

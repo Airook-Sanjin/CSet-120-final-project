@@ -42,8 +42,6 @@ body {
 	font-weight: 800;
 	color: white;
 	-webkit-text-stroke: 3px #f2022f;
-	transform: translateY(-5000);
-	display: block;
 }
 
 .cta-inner button {
