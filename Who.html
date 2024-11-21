@@ -109,5 +109,19 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    const userStatus = localStorage.getItem("userStatus");
+    if (userStatus == "guest") {
+        document.getElementById("Rewards").style.display = "none";
+        document.getElementById("UserProf").style.display = "none";
+    }
+    else {
+        document.getElementById("Rewards").style.display = "block";
+        document.getElementById("UserProf").style.display = "block";
+    }
+});
+
+    </script>
 </body>
 </html>
