@@ -142,20 +142,6 @@ body {
 	border-radius: 10px;
 }
 
-/* 
-.cta span {
-	font-family: 'Arvo', serif;
-	font-size: 40px;
-	place-content: center;
-	transform: translateX(80px);
-	transform: translateY(50px);
-	text-transform: uppercase;
-	-webkit-text-stroke-width: 1.5px;
-	-webkit-text-stroke-color: black;
-	font-weight: 900;
-	z-index: 99;
-} */
-
 /* -------------------------------- CTA end -------------------------------- */
 
 #logo {
@@ -235,9 +221,6 @@ body {
 .location-button {
 	display: block;
 	color: white;
-	/* font-family: 'Arvo', serif;
-	font-weight: 200;
-	text-transform: uppercase; */
 }
 
 ion-icon {

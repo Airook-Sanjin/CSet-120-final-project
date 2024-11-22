@@ -112,7 +112,7 @@ body {
 	place-content: center;
 	/* margin-top: 20px;
 	margin-bottom: 20px; */
-	background-image: url('media/Header2.jpg');
+	background-image: url('media/chicken-header.jpg');
 	background-position: 0 50%;
 	background-size: cover;
 	padding-top: 20px;
@@ -146,13 +146,6 @@ body {
 	top: 0;
 }
 
-.menu-nav a {
-	color: white;
-	padding: 10px 15px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
 .menu-nav a:hover {
 	border-bottom: 3px solid white;
 	transition: 0.3s;
@@ -160,14 +153,16 @@ body {
 
 .menu-nav a {
 	text-decoration: none;
+	color: white;
+}
+
+.menu-nav a:last-child:hover {
+	border-bottom: none;
 }
 
 .location-button {
 	display: block;
 	color: white;
-	/* font-family: 'Arvo', serif;
-	font-weight: 200;
-	text-transform: uppercase; */
 }
 
 ion-icon {
@@ -235,12 +230,12 @@ ion-icon {
 }
 
 #tenders img[src^='media/chicken-tenders.webp'] {
-	height: 5rem;
+	height: 10rem;
 }
 
-#apple img[src^='media/applepie.png'] {
-	height: 7rem;
-}
+/* .item-card [src^='media/applepie.png'] {
+	height: 10rem;
+} */
 
 .items-container {
 	display: grid;
@@ -332,10 +327,18 @@ ion-icon {
 	font-size: 13px;
 }
 
-/* #desserts img[src='media/applepie.png'] {
-	height: 300px;
-	object-fit: contain;
-} */
+#desserts img[src='media/applepie.png'] {
+	height: 10rem;
+	width: 8rem;
+	object-fit: cover;
+}
+
+#desserts img[src='media/frenchstix.png'] {
+	object-fit: cover;
+	height: 100px;
+	width: 8rem;
+	transform: translateY(50px);
+}
 
 /* -------------------------------- backtotop ------------------------------- */
 #topBtn {
