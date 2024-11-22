@@ -1,6 +1,6 @@
+
 function initializeSignInPage() {
   function signup() {
-    
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
     const passwordRequirements = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
@@ -9,12 +9,14 @@ function initializeSignInPage() {
 
     localStorage.setItem(email, pass);
     if (!passwordRequirements.test(pass)) {
-      alert("Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number.");
+      alert(
+        "Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number."
+      );
     }
     if (localStorage.getItem(email)) {
       if (passwordRequirements.test(pass)) {
         location.replace("index.html");
-      } 
+      }
     } else {
       alert("User does not exist");
     }
@@ -25,7 +27,7 @@ function initializeSignInPage() {
     let pass = document.getElementById("password").value;
     //console.log(email);
     //console.log(pass);
-    
+
     if (email == managerInfo.email && pass == managerInfo.password) {
       location.replace("index.html");
       alert("Logged in as manager");
@@ -83,32 +85,35 @@ function initializeMainPage() {
   //  -----------------------------------------------------------------------
   let currentTestimonialIndex = 0;
   let TestimonialCards = document.querySelectorAll(".Testimonial-Card");
- let totalTestimonialCards = TestimonialCards.length;
- document.getElementById("Next-TestBtn").addEventListener("click",function(){
-  if(currentTestimonialIndex < totalTestimonialCards -1){
-    currentTestimonialIndex++;
-  }else{
-    currentTestimonialIndex = 0
-  }
-  updateTestimonial();
+  let totalTestimonialCards = TestimonialCards.length;
+  document
+    .getElementById("Next-TestBtn")
+    .addEventListener("click", function () {
+      if (currentTestimonialIndex < totalTestimonialCards - 1) {
+        currentTestimonialIndex++;
+      } else {
+        currentTestimonialIndex = 0;
+      }
+      updateTestimonial();
+    });
+  document
+    .getElementById("Prev-TestBtn")
+    .addEventListener("click", function () {
+      if (currentTestimonialIndex > 0) {
+        currentTestimonialIndex--;
+      } else {
+        currentTestimonialIndex = totalTestimonialCards - 1;
+      }
+      updateTestimonial();
+    });
 
- });
- document.getElementById("Prev-TestBtn").addEventListener("click",function(){
-  if(currentTestimonialIndex > 0){
-    currentTestimonialIndex--;
-  }else{
-    currentTestimonialIndex = totalTestimonialCards -1
-  }
-  updateTestimonial();
+  function updateTestimonial() {
+    let TestimonialContainers = document.querySelector(
+      ".Testimonial-Container"
+    );
 
- });
-
-
- function updateTestimonial(){
-  let TestimonialContainers = document.querySelector(".Testimonial-Container")
-  
-  let testOffset = -currentTestimonialIndex * (700 + 450);
-  TestimonialContainers.style.transform = `translateX(${testOffset}px)` 
+    let testOffset = -currentTestimonialIndex * (700 + 450);
+    TestimonialContainers.style.transform = `translateX(${testOffset}px)`;
   }
 }
 // ---------------------------------------------------------------------------------------------------------
@@ -224,13 +229,12 @@ function initializeCheckoutPage() {
   //  -----------------------------------------------------------------------
   //                            retrieving and applying Coupons
   //  -----------------------------------------------------------------------
- 
-    
 
   //  -----------------------------------------------------------------------
   //                            retrieving Item info
   //  -----------------------------------------------------------------------
   
+
   let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
   let PlaceOrderBtn = document.getElementById("PlaceOrderBtn");
   // --------------------------------------------------------------------
@@ -265,47 +269,78 @@ function initializeCheckoutPage() {
     }
   });
   ready();
-  PlaceOrderBtn.addEventListener("click", function(){
+
+  PlaceOrderBtn.addEventListener("click", function () {
+    let FirstName = document.getElementById("FirstName").value;
+    let LastName = document.getElementById("LastName").value;
+    let Email = document.getElementById("Email").value;
     let ExpDate = document.getElementById("ExpDate").value;
-  let Cvv = document.getElementById("CVV").value;
-  let CardName = document.getElementById("CardName").value;
-  let CardNumber = document.getElementById("CardNumber").value;
+    let Cvv = document.getElementById("CVV").value;
+    let CardName = document.getElementById("CardName").value;
+    let CardNumber = document.getElementById("CardNumber").value;
     let ExistingErrormsg = document.getElementsByClassName("Error-Msg")[0];
     let existingSuccessMsg = document.getElementsByClassName("Success-Msg")[0];
 
-    if (ExistingErrormsg){
-      ExistingErrormsg.remove();}
-      if(existingSuccessMsg){
+    if (ExistingErrormsg) {
+      ExistingErrormsg.remove();
+    }
+    if (existingSuccessMsg) {
       existingSuccessMsg.remove();
     }
-    let errorMessage = validateCard(CardName, CardNumber, ExpDate, Cvv)
-    if(errorMessage) {
-      let errorElement = document.createElement("p")
-    errorElement.className = "Error-Msg"
-      errorElement.style.color = "red"
+    let errorMessage = validateCard(
+      FirstName,
+      LastName,
+      Email,
+      CardName,
+      CardNumber,
+      ExpDate,
+      Cvv
+    );
+    if (errorMessage) {
+      let errorElement = document.createElement("p");
+      errorElement.className = "Error-Msg";
+      errorElement.style.color = "red";
       errorElement.innerText = errorMessage;
       PlaceOrderBtn.insertAdjacentElement("afterend", errorElement);
-    }
-    else{
-      
+    } else {
       let SuccessMsg = document.createElement("p");
       SuccessMsg.className = "Success-Msg";
-      SuccessMsg.style.color ="green"
-      SuccessMsg.innerText = "Purchase Successful"
+      SuccessMsg.style.color = "green";
+      SuccessMsg.innerText = "Purchase Successful";
       PlaceOrderBtn.insertAdjacentElement("afterend", SuccessMsg);
-
+      resetPage();
     }
-
   });
-  
+  function resetPage() {
+    localStorage.removeItem("StoredItems");
+    CouponClicked = false;
+    setTimeout(function () {
+      location.reload(location.href);
+    }, 2000);
+  }
 
-
-  function validateCard(CardName, CardNumber, ExpDate, Cvv) {
+  function validateCard(
+    FirstName,
+    LastName,
+    Email,
+    CardName,
+    CardNumber,
+    ExpDate,
+    Cvv
+  ) {
     let errorMessage = "";
-    
+    if (!FirstName) {
+      errorMessage += "Please Enter First Name\n";
+    }
+    if (!LastName) {
+      errorMessage += "Please Enter Last Name\n";
+    }
+    if (!Email) {
+      errorMessage += "Please Enter Email\n";
+    }
     if (!CardName) {
-      errorMessage += " Please Enter Card Name\n";
-    } 
+      errorMessage += "Please Enter Card Name\n";
+    }
     if (!CardNumber || !/^\d{13,19}$/.test(CardNumber)) {
       errorMessage += "Please Enter Card Number(13 to 19 digits)\n";
     }
@@ -320,19 +355,23 @@ function initializeCheckoutPage() {
       errorMessage += " CVV is invalid (must be 3 or 4 digits)\n";
     }
     //-------------------------------------------------------------------------------------------------------------------------//
-    return errorMessage
+    return errorMessage;
   }
 
   //  -----------------------------------------------------------------------
-  //                            Quantity Change
+  //                             Quantity Change
   //  -----------------------------------------------------------------------
   function quantityChanged(event) {
     let input = event.target;
-    console.log(input);
+    couponApplied = false;
+    
     if (isNaN(input.value) || input.value <= 0) {
       input.value = 1;
     }
+    console.log("Quantity HAs Changed", input.value)
     updateCartTotal();
+    
+    
   }
   //  -----------------------------------------------------------------------
   //                            Remove Function
@@ -361,105 +400,261 @@ function initializeCheckoutPage() {
   //  -----------------------------------------------------------------------
   //                            Updating Total
   //  ------------------------------------------------------------------------
-  // let quantityValue = document.getElementById("Quantity").value;
-  // console.log(quantityValue);
+  let currentCouponCode = null;
+  let currentDiscount = 0;
+  let CurrentTipTotal = 0
+  let couponApplied = false
+  let autoAppliedCoupon = false
+  let CouponBtn = document.getElementById("CouponBtn");
   function updateCartTotal() {
-    let itemContainer = document.getElementsByClassName(
-      "Item-Qty-Price-List"
-    )[0];
-    let itemRow = itemContainer.getElementsByClassName("Item-List-Container");
-    let total = 0;
-    let taxtotal = 0.06;
-    let orderTotal = 0;
-    let TipTotal = 0;
-    for (let i = 0; i < itemRow.length; i++) {
-      let cartRow = itemRow[i];
-      let priceElement = cartRow.getElementsByClassName("Cart-Price")[0];
-      let quantityElement = cartRow.getElementsByClassName("Cart-Quantity")[0];
-      let price = parseFloat(priceElement.innerText.replace("Total: $", ""));
-      let quantity = parseInt(quantityElement.value);
-      total += price * quantity;
-
-      // ---------------------tips-------------------------------
-   } 
-    taxtotal = total * 0.06;
-
-    let tipBtns = document.getElementsByClassName("tip-btn");
-      for (let e = 0; e < tipBtns.length; e++) {
-      let tipBtnElement = tipBtns[e];
-      tipBtnElement.addEventListener("click", function () {
-        Tip = parseFloat(tipBtnElement.innerText.replace(`Tip: $`, ``)) / 100;
-        if (isNaN(Tip)) {
-          TipTotal = 0;
-          total = Math.round(total * 100) / 100;
-          orderTotal = total + taxtotal;
-            console.log(Tip);
-           }  else {
-           TipTotal = total * Tip;
-            total = Math.round(total * 100) / 100;
-           orderTotal = total + taxtotal + TipTotal;
-          }
-
-          document.getElementById(
-            "TotalPrice"
-          ).innerText = `Total: $${total.toFixed(2)}`;
-          document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(
-           2
-         )}`;
-          document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(
-          2
-          )}`;
-          document.getElementById(
-           "FinalTotal"
-         ).innerText = `Order Total: $${orderTotal.toFixed(2)}`;
-        });
-      }
+  let itemContainer = document.getElementsByClassName("Item-Qty-Price-List")[0];
+  let itemRow = itemContainer.getElementsByClassName("Item-List-Container");
+  let total = 0;
+  
     
-    orderTotal = total  + taxtotal + TipTotal;
+    
+    
+  for (let i = 0; i < itemRow.length; i++) {
+    let cartRow = itemRow[i];
+    let priceElement = cartRow.getElementsByClassName("Cart-Price")[0];
+    let quantityElement = cartRow.getElementsByClassName("Cart-Quantity")[0];
+    let price = parseFloat(priceElement.innerText.replace("Total: $", ""));
+    let quantity = parseInt(quantityElement.value);
+    total += price * quantity;
+    // ---------------------tips-------------------------------
+    }
+  let Taxtotal = total * 0.06;
+  let TipTotal = 0;
+  let orderTotal = total + Taxtotal + CurrentTipTotal;
+  updateUI(total, TipTotal, Taxtotal, orderTotal);
+  tipBtns(total,Taxtotal);
+  couponInput();
+  
+  // ---------------------------------------------------Tip btns function
+  function tipBtns (total, Taxtotal){
+    let tipBtns = document.getElementsByClassName("tip-btn");
+    for (let e = 0; e < tipBtns.length; e++) {
+      let tipBtnElement = tipBtns[e];
+      // -----------------removes previous one so it doesn't get overwritten
+      tipBtnElement.removeEventListener("click", function () {
+        console.log("tipButtonPressed")
+        couponApplied = false
+        let TipTotal = applyTip(tipBtnElement, total, Taxtotal);
+        let DiscountElement = document.getElementById("Discount");
+        let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
+        applyCoupon(DiscountElement, couponIdRetrieved, CouponID.value, TipTotal);
+          });
+      // -------------------------------------------------------------------
+      tipBtnElement.addEventListener("click", function () {
+        console.log("tipButtonPressed")
+        couponApplied = false
+        let TipTotal = applyTip(tipBtnElement, total, Taxtotal);
+        let DiscountElement = document.getElementById("Discount");
+        let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
+        applyCoupon(DiscountElement, couponIdRetrieved, CouponID.value, TipTotal);
+          });
+      }
+    }
+    // ------------------------------------------------coupon input function
+  
 
-    document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(
-      2
-    )}`;
-    document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
-    document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(2)}`;
-    document.getElementById(
-      "FinalTotal"
-    ).innerText = `Order Total: $${orderTotal.toFixed(2)}`;
   }
+
   updateCartTotal();
 
-  let couponEnterBtn = document.getElementById("CouponBtn");
   
-  couponEnterBtn.addEventListener("click", applyCoupon)
-function applyCoupon(){
-//  -------------------------------------coupons------------------------------------
-let couponIdRetrieved = JSON.parse(localStorage.getItem('Coupons')) || [];
-let Coupon = document.getElementById("CouponID").value;
-let discount =  0
-for (let coupon of couponIdRetrieved){
-  if(coupon.code===Coupon){
-  discount = coupon.discount;
-  break;
+//--------------------------APPLY COUPON function--------------------------------
+
+  function applyCoupon(DiscountElement, discount, Coupon, TipTotal = CurrentTipTotal){
+    
+    let discountAmount;
+    let newTotal;
+    console.log("applying Coupon",Coupon);
+    console.log("Discount", discount)
+      // ---------------------------------------------------------------
+    if (discount > 0 && !couponApplied ) {
+      couponApplied = true
+      currentCouponCode = Coupon;
+      currentDiscount = discount;
+        let total = parseFloat(document.getElementById("FinalTotal").innerText.replace("Order Total: $", ""));
+        discountAmount = (total * discount) / 100;
+        newTotal = total - discountAmount + TipTotal
+
+    DiscountElement.style.display = "block";
+            
+    
+    DiscountElement.innerHTML = `Discount: -$${discountAmount.toFixed(2)}`;
+    document.getElementById("FinalTotal").innerText = `Order Total: $${newTotal.toFixed(2)}`;
+            console.log("Coupon Applied Successfully")
+    }
+    else {
+      if(couponApplied){
+        console.log("Coupon is already Applied")
+        }else{
+        console.log("no valid coupon")
+      }
+    }
+      }
+        
+      function updateUI(total, TipTotal, Taxtotal, orderTotal){
+        document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`;
+        document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
+        document.getElementById("tax").innerText = `Tax: $${Taxtotal.toFixed(2)}`;
+        document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
+        console.log("UI Updated")
+        }
+
+  // --------------------------------------------APPLY TIP --------------
+  function applyTip(tipBtnElement, total, Taxtotal) {
+    let Tip = parseFloat(tipBtnElement.innerText.replace(`Tip: $`, ``)) / 100 || 0;
+    let TipTotal = 0;
+    let orderTotal;
+    if (isNaN(Tip)) {
+      TipTotal = 0;
+      console.log(Tip);
+    } else {
+      TipTotal = total * Tip;
+      CurrentTipTotal = TipTotal;
+    }
+    total = Math.round(total * 100) / 100;
+    orderTotal = total + Taxtotal+ TipTotal;
+
+    updateUI(total, TipTotal, Taxtotal, orderTotal);
+    if(currentCouponCode){
+      let DiscountElement = document.getElementById("Discount");
+      applyCoupon(DiscountElement, currentDiscount, currentCouponCode, TipTotal)
+    }
+
+    return TipTotal;
+  }
+function triggerInputEvent(element){
+  let event = new Event ( "input",{bubbles:true}); //creates and input event
+  element.dispatchEvent(event); // this puts the event onto the Input element
 }
-}
-if (discount > 0){
-  let total = parseFloat(document.getElementById("FinalTotal").innerText.replace("Order Total: $",""));
-  let discountAmount = (total * discount)/100;
-  let newTotal = total - discountAmount   
-  console.log(Coupon)
-  document.getElementById("FinalTotal").innerText =`Total:$${newTotal.toFixed(2)}`;
-  let orderSummaryContainer = document.getElementById("tip");
-let CouponElement = document.createElement('p');
-CouponElement.innerHTML= `Discount: -$${discountAmount.toFixed(2)}`
-orderSummaryContainer.insertAdjacentElement("afterend",CouponElement)
-}else{alert("invalid Code")}
+function couponInput(){
+
+
+  let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
+  let CouponID = document.getElementById("CouponID");
+  let DiscountElement = document.getElementById("Discount");
+  let discount = 0;
+  let CouponCode;
+    // -----------------removes previous one so it doesn't get overwritten
+    CouponBtn.removeEventListener("click", function () {
+      let Coupon = CouponID.value
+      for (let coupon of couponIdRetrieved) {
+          if (coupon.code === Coupon) {
+            discount = coupon.discount;
+            CouponCode = coupon.code
+    
+            break;
+          }
+        }
+      if(CouponCode === CouponID.value){
+        
+        console.log("Applying coupon")
+        applyCoupon(DiscountElement, discount, Coupon)
+        }});
+  
+        CouponID.removeEventListener("input",function(){
+          let Coupon = CouponID.value
+          if (Coupon === "") {
+            
+            console.log("Reset");
+            DiscountElement.style.display = "none";
+            DiscountElement.innerText = "Discount: $0.00";
+            couponApplied = false
+            autoAppliedCoupon = true
+            updateCartTotal();
+            }
+        });
+  
+    // --------------------------------------------------------------------
+
+  if(!couponApplied && !autoAppliedCoupon){
+    
+    
+    if (couponIdRetrieved.map((coupon) => coupon.code).includes("FIRSTTIME")) {
+      console.log("Reward Coupon Found AutoApplying")
+      CouponID.value = "FIRSTTIME";
+      couponApplied = false
+      autoAppliedCoupon = true;
+      triggerInputEvent(CouponID);
+      let Coupon = CouponID.value
+    for (let coupon of couponIdRetrieved) {
+        if (coupon.code === Coupon) {
+          discount = coupon.discount;
+          CouponCode = coupon.code
+  
+          break;
+        }
+      }
+      
+      applyCoupon(DiscountElement, discount, Coupon )
+    
+    
+  }
+else if (couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF")) {
+      console.log("Reward Coupon Found AutoApplying")
+      CouponID.value = "TWENTYOFF";
+      couponApplied = false
+      autoAppliedCoupon = true;
+      triggerInputEvent(CouponID);
+      let Coupon = CouponID.value
+    for (let coupon of couponIdRetrieved) {
+        if (coupon.code === Coupon) {
+          discount = coupon.discount;
+          CouponCode = coupon.code
+  
+          break;
+        }
+      }
+      applyCoupon(DiscountElement, discount, Coupon)
+  }
+
+  else if (Coupon === ""){
+    console.log("IS this Working?");
+      DiscountElement.style.display = "none";
+      DiscountElement.innerText = "Discount: $0.00";
+      couponApplied = false
+      autoAppliedCoupon = true
+      updateCartTotal();
+  }
+  }
+  CouponID.addEventListener("input",function(){
+    let Coupon = CouponID.value
+    if (Coupon === "") {
+      
+      console.log("Reset");
+      DiscountElement.style.display = "none";
+      DiscountElement.innerText = "Discount: $0.00";
+      couponApplied = false
+      autoAppliedCoupon = true
+      updateCartTotal();
+      }
+  });
 
   
+
+  CouponBtn.addEventListener("click", function () {
+    let Coupon = CouponID.value
+    for (let coupon of couponIdRetrieved) {
+        if (coupon.code === Coupon) {
+          discount = coupon.discount;
+          CouponCode = coupon.code
+  
+          break;
+        }
+      }
+    if(CouponCode === CouponID.value){
+      
+      console.log("Applying coupon")
+      applyCoupon(DiscountElement, discount, Coupon)
+      }});
+  }
+
 }
-}
-//  -----------------------------------------------------------------------
-//                            Placed order function
-//  ------------------------------------------------------------------------
+
 
 //  -----------------------------------------------------------------------
 //                  Checks for Id to Load the right Functions
@@ -479,7 +674,3 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeCheckoutPage();
   }
 });
-
-
-
-
