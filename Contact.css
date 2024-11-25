@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+
+body {
+    background-color:#F2E205;
+   
+
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+   
+  
+} 
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 1px 1px black;
+}
+.form-container {
+    max-width: 28%;
+    max-height: 30%;
+    text-align: center;
+    margin-left: 28%;
+    padding: 20px;
+    background-color:#F20530;
+    border-radius: 20px;
+    box-shadow: 5px 10px 18px #F20530;
+    margin-top: 1%;
+    
+}
+
+
+
+
+
+.form-container button {
+    background-color: #F2E205;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 1px 1px black;
+    
+}
+
+.form-container label {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.form-container input {
+    height: 30px;   
+    border-radius: 15px;
+    border: none;
+    background-color: #fff;
+    color: #fff;
+}
+
+.form-container textarea {
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+}
+
+.form-container button:hover {
+    background-color: #F20530;
+    color: #F2E205;
+}
+
+input[type="email"]::placeholder {
+    background-color: #fff !important;
+}
+
+.container {
+    position: relative;
+}
+
+.form-container {
+    width: 50%;
+    float: left;
+}
+
+.links-container {
+    width: 40%;
+    float: right;
+   
+}
+
+
+.links-container a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 1px 1px black;
+
+}
+
+
+
+
+.links-container i {
+    margin-top: 7%;
+    font-size: 80px;
+
+}
+
+.Instagram i {
+    color:deeppink;
+}
+
+.Facebook i {
+    color:royalblue;
+}
+
+.Twitter i {
+    color: cyan;
+}
+
+.Instagram i:hover{
+    color:rgb(179, 8, 99);
+}
+
+.Facebook i:hover{
+    color:darkblue;
+}
+
+.Twitter i:hover {
+    color:rgb(2, 154, 154);
+}
+
+
+:root {
+    --placeholder-color: #000 !important;
+}
+::webkit-input-placeholder {
+    background-color: #000 !important; 
+}
+
+:-moz-placeholder {
+    background-color: #000 !important;
+}
+
+::-moz-placeholder {
+    background-color: #000 !important;
+}
+
+:-ms-input-placeholder {
+    background-color: #000 !important;
+}

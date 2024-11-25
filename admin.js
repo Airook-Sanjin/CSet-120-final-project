@@ -76,3 +76,21 @@ if (section) {
        document.getElementById("itemDescription").value = "";
        
     }
+
+
+    //Update menu data in LocalStorage 
+    localStorage.setItem("menuItems", JSON.stringify(menuItems));
+
+    //listen for changes to menu data in LocalStorage
+    window.addEventListener("storage", function(event) {
+        if (event.key === "menuData") {
+            menuItems = JSON.parse(event.newValue);
+            //update the menu items on the page
+        }
+    });
+
+    let menuData = [];
+
+    function updateMenuData(data) {
+        menuData = data;
+    }
