@@ -154,9 +154,16 @@ function initializeMenuPage() {
       foodImg: foodImage,
     };
     let existingItems = JSON.parse(localStorage.getItem("StoredItems")) || [];
-    existingItems.push(ItemInfo);
+    
+    let existingItemsindex = existingItems.findIndex(item =>item.foodTitle===Title);
+    if (existingItemsindex> - 1){
+      alert("Item is already in cart")
+    }else{
+      existingItems.push(ItemInfo);
+      localStorage.setItem("StoredItems", JSON.stringify(existingItems));
+    }
 
-    localStorage.setItem("StoredItems", JSON.stringify(existingItems));
+    
   }
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
@@ -368,9 +375,35 @@ function initializeCheckoutPage() {
     if (isNaN(input.value) || input.value <= 0) {
       input.value = 1;
     }
-    console.log("Quantity HAs Changed", input.value)
-    updateCartTotal();
+    console.log("Quantity HAs Changed", input.value )
+    updateCartTotal()
+    // ========================
+    let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
+    let CouponID = document.getElementById("CouponID");
+    let DiscountElement = document.getElementById("Discount");
+    let discount = 0;
+    let CouponCode= CouponID.value;
+    if(CouponCode){
+    for (let coupon of couponIdRetrieved) {
+      if (coupon.code === CouponCode) {
+        discount = coupon.discount;
+        CouponCode = coupon.code
+
+        break;
+      }
+    }
     
+
+    // ===================
+    
+    
+    
+    if(CouponID.value === ""){
+      resetCoupon()
+    }else{
+      applyCoupon(DiscountElement, discount,CouponCode)
+    }
+  }
     
   }
   //  -----------------------------------------------------------------------
@@ -402,10 +435,14 @@ function initializeCheckoutPage() {
   //  ------------------------------------------------------------------------
   let currentCouponCode = null;
   let currentDiscount = 0;
+  
   let CurrentTipTotal = 0
+  console.log("Base currentTip" , CurrentTipTotal)
   let couponApplied = false
   let autoAppliedCoupon = false
   let CouponBtn = document.getElementById("CouponBtn");
+  let CurrentOrderTotal = 0;
+  let CurrentTaxTotal = 0;
   function updateCartTotal() {
   let itemContainer = document.getElementsByClassName("Item-Qty-Price-List")[0];
   let itemRow = itemContainer.getElementsByClassName("Item-List-Container");
@@ -424,11 +461,15 @@ function initializeCheckoutPage() {
     // ---------------------tips-------------------------------
     }
   let Taxtotal = total * 0.06;
+
+  CurrentTaxTotal = Taxtotal
   let TipTotal = 0;
   let orderTotal = total + Taxtotal + CurrentTipTotal;
+  console.log("current total", orderTotal)
   updateUI(total, TipTotal, Taxtotal, orderTotal);
   tipBtns(total,Taxtotal);
   couponInput();
+
   
   // ---------------------------------------------------Tip btns function
   function tipBtns (total, Taxtotal){
@@ -442,16 +483,20 @@ function initializeCheckoutPage() {
         let TipTotal = applyTip(tipBtnElement, total, Taxtotal);
         let DiscountElement = document.getElementById("Discount");
         let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
-        applyCoupon(DiscountElement, couponIdRetrieved, CouponID.value, TipTotal);
+        // applyCoupon(DiscountElement, couponIdRetrieved, CouponID.value, CurrentTipTotal);
+        orderTotal = total + Taxtotal + CurrentTipTotal;
+        updateUI(total, TipTotal, Taxtotal, orderTotal);
           });
       // -------------------------------------------------------------------
       tipBtnElement.addEventListener("click", function () {
         console.log("tipButtonPressed")
         couponApplied = false
         let TipTotal = applyTip(tipBtnElement, total, Taxtotal);
-        let DiscountElement = document.getElementById("Discount");
+        let DiscountElement = parseFloat(document.getElementById("Discount").innerText.replace("Discount: -$", ""));
         let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
-        applyCoupon(DiscountElement, couponIdRetrieved, CouponID.value, TipTotal);
+        // applyCoupon(DiscountElement, couponIdRetrieved, CouponID.value, CurrentTipTotal);
+        orderTotal = total + Taxtotal + CurrentTipTotal - DiscountElement;
+        updateUI(total, TipTotal, Taxtotal, orderTotal);
           });
       }
     }
@@ -465,7 +510,7 @@ function initializeCheckoutPage() {
   
 //--------------------------APPLY COUPON function--------------------------------
 
-  function applyCoupon(DiscountElement, discount, Coupon, TipTotal = CurrentTipTotal){
+  function applyCoupon(DiscountElement, CurrentTaxTotal, discount, Coupon, TipTotal = CurrentTipTotal){
     
     let discountAmount;
     let newTotal;
@@ -476,9 +521,15 @@ function initializeCheckoutPage() {
       couponApplied = true
       currentCouponCode = Coupon;
       currentDiscount = discount;
-        let total = parseFloat(document.getElementById("FinalTotal").innerText.replace("Order Total: $", ""));
-        discountAmount = (total * discount) / 100;
-        newTotal = total - discountAmount + TipTotal
+        let total = parseFloat(document.getElementById("TotalPrice").innerText.replace("Total: $", ""));
+        discountAmount = ((total + CurrentTaxTotal )* discount) / 100;
+        console.log("InApplyCouponTipTotal", TipTotal)
+        console.log("InApplyCouponDiscountAmount", discountAmount)
+        console.log("InApplyCouponTotal", total)
+
+        newTotal = (total - discountAmount) + TipTotal + CurrentTaxTotal
+        console.log("InApplyCouponNewTotal", newTotal)
+
 
     DiscountElement.style.display = "block";
             
@@ -498,6 +549,7 @@ function initializeCheckoutPage() {
         
       function updateUI(total, TipTotal, Taxtotal, orderTotal){
         document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`;
+        console.log("tipdeduction", TipTotal)
         document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
         document.getElementById("tax").innerText = `Tax: $${Taxtotal.toFixed(2)}`;
         document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
@@ -510,22 +562,27 @@ function initializeCheckoutPage() {
     let TipTotal = 0;
     let orderTotal;
     if (isNaN(Tip)) {
-      TipTotal = 0;
-      console.log(Tip);
+      CurrentTipTotal = 0;
+      CurrentTipTotal = TipTotal;
+      console.log("tip is NaN",Tip);
     } else {
       TipTotal = total * Tip;
       CurrentTipTotal = TipTotal;
+      console.log("CurrentTip applied", CurrentTipTotal)
     }
     total = Math.round(total * 100) / 100;
-    orderTotal = total + Taxtotal+ TipTotal;
-
-    updateUI(total, TipTotal, Taxtotal, orderTotal);
+    orderTotal = total + Taxtotal+ CurrentTipTotal;
+    
+console.log("tipTotal", TipTotal)
+    updateUI(total, CurrentTipTotal, Taxtotal, orderTotal);
+  
     if(currentCouponCode){
       let DiscountElement = document.getElementById("Discount");
-      applyCoupon(DiscountElement, currentDiscount, currentCouponCode, TipTotal)
+      applyCoupon(DiscountElement,CurrentTaxTotal, currentDiscount, currentCouponCode, CurrentTipTotal)
+      
     }
 
-    return TipTotal;
+    return CurrentTipTotal;
   }
 function triggerInputEvent(element){
   let event = new Event ( "input",{bubbles:true}); //creates and input event
@@ -560,12 +617,7 @@ function couponInput(){
           let Coupon = CouponID.value
           if (Coupon === "") {
             
-            console.log("Reset");
-            DiscountElement.style.display = "none";
-            DiscountElement.innerText = "Discount: $0.00";
-            couponApplied = false
-            autoAppliedCoupon = true
-            updateCartTotal();
+            resetCoupon()
             }
         });
   
@@ -590,7 +642,7 @@ function couponInput(){
         }
       }
       
-      applyCoupon(DiscountElement, discount, Coupon )
+      applyCoupon(DiscountElement,CurrentTaxTotal, discount, Coupon )
     
     
   }
@@ -609,28 +661,17 @@ else if (couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF")) {
           break;
         }
       }
-      applyCoupon(DiscountElement, discount, Coupon)
+      applyCoupon(DiscountElement, CurrentTaxTotal, discount, Coupon)
   }
 
   else if (Coupon === ""){
-    console.log("IS this Working?");
-      DiscountElement.style.display = "none";
-      DiscountElement.innerText = "Discount: $0.00";
-      couponApplied = false
-      autoAppliedCoupon = true
-      updateCartTotal();
+    resetCoupon();
   }
   }
   CouponID.addEventListener("input",function(){
     let Coupon = CouponID.value
     if (Coupon === "") {
-      
-      console.log("Reset");
-      DiscountElement.style.display = "none";
-      DiscountElement.innerText = "Discount: $0.00";
-      couponApplied = false
-      autoAppliedCoupon = true
-      updateCartTotal();
+      resetCoupon();
       }
   });
 
@@ -649,9 +690,23 @@ else if (couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF")) {
     if(CouponCode === CouponID.value){
       
       console.log("Applying coupon")
-      applyCoupon(DiscountElement, discount, Coupon)
+      applyCoupon(DiscountElement, CurrentTaxTotal, discount, Coupon)
       }});
   }
+  function resetCoupon(){
+    let Coupon = CouponID.value
+    if (Coupon === "") {
+      
+      console.log("Reset");
+      let DiscountElement= document.getElementById("Discount");
+      DiscountElement.style.display = "none";
+      DiscountElement.innerText = "Discount: $0.00";
+      couponApplied = false
+      autoAppliedCoupon = true
+      currentCouponCode= null
+      currentDiscount = 0
+      updateCartTotal();
+  }}
 
 }
 
