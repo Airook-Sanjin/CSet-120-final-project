@@ -115,6 +115,31 @@ function initializeMainPage() {
     let testOffset = -currentTestimonialIndex * (700 + 450);
     TestimonialContainers.style.transform = `translateX(${testOffset}px)`;
   }
+  // --------------------gus--------------------------------------
+  let Footer = document.getElementsByTagName('footer')[0];
+  let secretGus = document.getElementById("SecretGus");
+  let SecretModal = document.getElementsByClassName("SecretModal Main")[0];
+  let scrollthreshold = 10;
+  let audio = document.getElementsByTagName('audio')[0];
+  Footer.addEventListener("mouseover", function(){
+    audio.play()
+  })
+secretGus.addEventListener("mouseover", function(){
+  SecretModal.style.display = "block"
+})
+window.onclick = function(event){
+  if(event.target=== SecretModal){
+    SecretModal.style.display = "none";
+  }
+}
+window.onscroll = function(){
+  
+    if(window.scrollY >= scrollthreshold ){
+      SecretModal.style.display = "none";
+    }
+  
+}
+  
 }
 // ---------------------------------------------------------------------------------------------------------
 function initializeMenuPage() {

@@ -2,6 +2,7 @@ let Coupons = [
     {code:"EARLYBIRD", discount:30},
     {code:"WEFAMILY", discount:50},
     {code:"WALTER", discount:15},
+    {code:"RESTGUS", discount:80}
 
     ];
     localStorage.setItem("Coupons", JSON.stringify(Coupons));
@@ -12,7 +13,7 @@ document.querySelector(".reward button").addEventListener("click", function () {
        {clicked1 = true;
         clicked2 = false;
         document.querySelector(".reward").style.display = "none";
-            if(Coupons.length > 3){
+            if(Coupons.length > 4){
             Coupons.pop();
             }else{}
             Coupons.push({code:"FIRSTTIME", discount:40});
@@ -32,7 +33,7 @@ document.querySelector(".reward2 button").addEventListener("click", function () 
         clicked2 = true;
         clicked1 = false;
         document.querySelector(".reward2").style.display = "none";
-        if(Coupons.length > 3){
+        if(Coupons.length > 4){
             Coupons.pop();
         }else{}
         Coupons.push({code:"TWENTYOFF", discount:20});

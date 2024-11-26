@@ -275,6 +275,7 @@ a {
   width:100%
 }
 #TestimonialSection{
+  overflow:hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -292,14 +293,14 @@ a {
   display:flex;
  transition: transform 0.5s ease-in-out;
  width:100%;
- margin-left:350px;
+ margin-left:200px;
  row-gap: 30px;
 
 }
 .Testimonial-Card{
-  display:flex;
-  flex-direction: column;
-  row-gap: 50px;;
+ display:flex;
+ flex-direction: column;
+ row-gap: 50px;
  padding:2% 0;
  font-size: 24px;
  font-style: italic;
@@ -356,6 +357,7 @@ a {
 }
 .footer-container:hover #SecretGus{
     bottom:0
+    
 }
 
 /* -----------------------------------------------End Of Secret--------------------------------------------------- */
@@ -385,6 +387,33 @@ footer ion-icon {
   display: flex;
   gap: 20px;
 }
+.SecretModal{
+  z-index: 1;
+  display:none;
+  position:fixed;
+  /* overflow: scroll; */
+  top:50%;
+  left:50%;
+  transform: translate( -50%, -50%);
+  width:100%;
+  height:100%;
+  background-color:hslhsl(0, 0%, 0%, 0.4)
+}
+.secretpopup-container{
+  margin: 6.5% 37%;
+  animation: animateTop 0.8s ;}
+  .SecretCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5% auto;
+  background-color: hsl(0, 0%, 97%);
+  height:100px;
+  width:250px;
+  padding:6%;
+  border-radius: 20px;
+  row-gap:20px
+  }
 /* -------------------------------------------------------------------------- */
 /*                                Modal pop up                              */
 /* -------------------------------------------------------------------------- */
