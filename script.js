@@ -749,7 +749,7 @@ else if (couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF")) {
      if( FinalOrderTransfer.length > 0){
       FinalOrderTransfer.pop()
      }else{
-      FinalOrderTransfer.push ({subtotal: CurrentSubTotal  ,tax:CurrentTaxTotal.toFixed(2) , discount:currentDiscountAmount, tip: CurrentTipTotal, orderTotal: CurrentOrderTotal })
+      FinalOrderTransfer.push ({subtotal: CurrentSubTotal  ,tax :CurrentTaxTotal , discount:currentDiscountAmount, tip: CurrentTipTotal, orderTotal: CurrentOrderTotal })
       localStorage.setItem("FinalOrderInfo", JSON.stringify(FinalOrderTransfer))}
     } 
   });
@@ -780,7 +780,7 @@ function initializeRecieptPage(){
   let TotalHeader = document.getElementById("Total-Header");
   let TotalsrowContent = document.createElement("div");
   // TotalsrowContent.className = "total-row";
-  TotalsrowContent.innerHTML = ` <div class = total-row> <p>SubTotal:</p><p>$${retrievedFinalOrderInfo[0].subtotal.toFixed(2)}</p> </div> <div class = total-row> <p>Discount:</p><p> - $${retrievedFinalOrderInfo[0].discount.toFixed(2)}</p> </div> <div class = total-row> <p>Tip:</p><p>$${retrievedFinalOrderInfo[0].tip.toFixed(2)}</p> </div> <div class = total-row> <p><strong>Order Total:</strong></p><p><strong>$${retrievedFinalOrderInfo[0].orderTotal.toFixed(2)}</strong></p> </div>`
+  TotalsrowContent.innerHTML = ` <div class = total-row> <p>SubTotal:</p><p>$${retrievedFinalOrderInfo[0].subtotal.toFixed(2)}</p> </div> <div class = total-row> <p>Discount:</p><p> - $${retrievedFinalOrderInfo[0].discount.toFixed(2)}</p> </div> <div class = total-row> <p>Tip:</p><p>$${retrievedFinalOrderInfo[0].tip.toFixed(2)}</p> </div> <div class = total-row> <p>Tax:</p><p>$${retrievedFinalOrderInfo[0].tax}</p> </div> <div class = total-row> <p><strong>Order Total:</strong></p><p><strong>$${retrievedFinalOrderInfo[0].orderTotal.toFixed(2)}</strong></p> </div>`
   
   Totalsrow.insertAdjacentElement("beforeEnd", TotalsrowContent);
 
@@ -830,6 +830,12 @@ function updateDateTime() {
 }
 
 updateDateTime();
+// ----------------------
+let CTABtn = document.getElementById("cta-button");
+CTABtn.addEventListener("click", function(){
+  localStorage.removeItem ("StoredItems")
+  location.replace("MenuPage.html")
+})
 }
 
 //  -----------------------------------------------------------------------
