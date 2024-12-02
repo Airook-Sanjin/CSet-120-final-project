@@ -172,22 +172,26 @@ function initializeMenuPage() {
       .getElementsByClassName("item-img")[0]
       .getElementsByTagName("img")[0].src;
     console.log(foodImage);
+    
 
     let ItemInfo = {
       foodTitle: Title,
       foodPrice: Price,
       foodImg: foodImage,
+      foodquantity: 1
     };
     let existingItems = JSON.parse(localStorage.getItem("StoredItems")) || [];
     
     let existingItemsindex = existingItems.findIndex(item =>item.foodTitle===Title);
-    if (existingItemsindex> - 1){
-      alert("Item is already in cart")
+    if (existingItemsindex > -1){
+      existingItems[existingItemsindex].foodquantity += 1
+      console.log(existingItems[existingItemsindex].foodquantity)
+      // alert("Item is already in cart")
     }else{
       existingItems.push(ItemInfo);
-      localStorage.setItem("StoredItems", JSON.stringify(existingItems));
+      // localStorage.setItem("StoredItems", JSON.stringify(existingItems));
     }
-
+    localStorage.setItem("StoredItems", JSON.stringify(existingItems));
     
   }
   //  -----------------------------------------------------------------------
@@ -251,6 +255,7 @@ function initializeMenuPage() {
   //  -----------------------------------------------------------------------
 }
 function initializeCheckoutPage() {
+  
   function ready() {
     let quantityInputs = document.getElementsByClassName("Cart-Quantity");
     for (let i = 0; i < quantityInputs.length; i++) {
@@ -285,7 +290,7 @@ function initializeCheckoutPage() {
                   type="number"
                   name="Quantity-Counter"
                   id="Quantity"
-                  value="1" min="1"
+                  value="${retrievedItems[i].foodquantity}" min="1"
                 />
               </div>
               <div class="Price-Container">
@@ -302,49 +307,9 @@ function initializeCheckoutPage() {
   });
   ready();
 
-  PlaceOrderBtn.addEventListener("click", function () {
-    let FirstName = document.getElementById("FirstName").value;
-    let LastName = document.getElementById("LastName").value;
-    let Email = document.getElementById("Email").value;
-    let ExpDate = document.getElementById("ExpDate").value;
-    let Cvv = document.getElementById("CVV").value;
-    let CardName = document.getElementById("CardName").value;
-    let CardNumber = document.getElementById("CardNumber").value;
-    let ExistingErrormsg = document.getElementsByClassName("Error-Msg")[0];
-    let existingSuccessMsg = document.getElementsByClassName("Success-Msg")[0];
-
-    if (ExistingErrormsg) {
-      ExistingErrormsg.remove();
-    }
-    if (existingSuccessMsg) {
-      existingSuccessMsg.remove();
-    }
-    let errorMessage = validateCard(
-      FirstName,
-      LastName,
-      Email,
-      CardName,
-      CardNumber,
-      ExpDate,
-      Cvv
-    );
-    if (errorMessage) {
-      let errorElement = document.createElement("p");
-      errorElement.className = "Error-Msg";
-      errorElement.style.color = "red";
-      errorElement.innerText = errorMessage;
-      PlaceOrderBtn.insertAdjacentElement("afterend", errorElement);
-    } else {
-      let SuccessMsg = document.createElement("p");
-      SuccessMsg.className = "Success-Msg";
-      SuccessMsg.style.color = "green";
-      SuccessMsg.innerText = "Purchase Successful";
-      PlaceOrderBtn.insertAdjacentElement("afterend", SuccessMsg);
-      resetPage();
-    }
-  });
+  
   function resetPage() {
-    localStorage.removeItem("StoredItems");
+    // localStorage.removeItem("StoredItems");
     CouponClicked = false;
     setTimeout(function () {
       location.reload(location.href);
@@ -459,8 +424,9 @@ function initializeCheckoutPage() {
   //                            Updating Total
   //  ------------------------------------------------------------------------
   let currentCouponCode = null;
+  let currentDiscountAmount = 0
   let currentDiscount = 0;
-  
+  let CurrentSubTotal = 0
   let CurrentTipTotal = 0
   console.log("Base currentTip" , CurrentTipTotal)
   let couponApplied = false
@@ -490,6 +456,7 @@ function initializeCheckoutPage() {
   CurrentTaxTotal = Taxtotal
   let TipTotal = 0;
   let orderTotal = total + Taxtotal + CurrentTipTotal;
+  
   console.log("current total", orderTotal)
   updateUI(total, TipTotal, Taxtotal, orderTotal);
   tipBtns(total,Taxtotal);
@@ -546,13 +513,15 @@ function initializeCheckoutPage() {
       couponApplied = true
       currentCouponCode = Coupon;
       currentDiscount = discount;
-        let total = parseFloat(document.getElementById("TotalPrice").innerText.replace("Total: $", ""));
+        let total = parseFloat(document.getElementById("TotalPrice").innerText.replace("Subtotal: $", ""));
         discountAmount = ((total + CurrentTaxTotal )* discount) / 100;
+        currentDiscountAmount = discountAmount
         console.log("InApplyCouponTipTotal", TipTotal)
         console.log("InApplyCouponDiscountAmount", discountAmount)
         console.log("InApplyCouponTotal", total)
 
         newTotal = (total - discountAmount) + TipTotal + CurrentTaxTotal
+        CurrentOrderTotal=newTotal
         console.log("InApplyCouponNewTotal", newTotal)
 
 
@@ -573,7 +542,8 @@ function initializeCheckoutPage() {
       }
         
       function updateUI(total, TipTotal, Taxtotal, orderTotal){
-        document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`;
+        document.getElementById("TotalPrice").innerText = `Subtotal: $${total.toFixed(2)}`;
+        CurrentSubTotal = total
         console.log("tipdeduction", TipTotal)
         document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
         document.getElementById("tax").innerText = `Tax: $${Taxtotal.toFixed(2)}`;
@@ -732,9 +702,135 @@ else if (couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF")) {
       currentDiscount = 0
       updateCartTotal();
   }}
+  console.log(CurrentSubTotal)
+  console.log(CurrentTaxTotal)
+  console.log(currentDiscount /100)
+  console.log(CurrentTipTotal)
+  console.log(CurrentOrderTotal)
+  
+  let FinalOrderTransfer = []
+  PlaceOrderBtn.addEventListener("click", function () {
+    let FirstName = document.getElementById("FirstName").value;
+    let LastName = document.getElementById("LastName").value;
+    let Email = document.getElementById("Email").value;
+    let ExpDate = document.getElementById("ExpDate").value;
+    let Cvv = document.getElementById("CVV").value;
+    let CardName = document.getElementById("CardName").value;
+    let CardNumber = document.getElementById("CardNumber").value;
+    let ExistingErrormsg = document.getElementsByClassName("Error-Msg")[0];
+    let existingSuccessMsg = document.getElementsByClassName("Success-Msg")[0];
 
+    if (ExistingErrormsg) {
+      ExistingErrormsg.remove();
+    }
+    if (existingSuccessMsg) {
+      existingSuccessMsg.remove();
+    }
+    let errorMessage = validateCard(
+      FirstName,
+      LastName,
+      Email,
+      CardName,
+      CardNumber,
+      ExpDate,
+      Cvv
+    );
+    if (errorMessage) {
+      let errorElement = document.createElement("p");
+      errorElement.className = "Error-Msg";
+      errorElement.style.color = "red";
+      errorElement.innerText = errorMessage;
+      PlaceOrderBtn.insertAdjacentElement("afterend", errorElement);
+    } else {
+      resetPage();
+      location.replace("receipt.html")
+      
+     localStorage.setItem("FinalOrderInfo", FinalOrderTransfer)
+     if( FinalOrderTransfer.length > 0){
+      FinalOrderTransfer.pop()
+     }else{
+      FinalOrderTransfer.push ({subtotal: CurrentSubTotal  ,tax:CurrentTaxTotal.toFixed(2) , discount:currentDiscountAmount, tip: CurrentTipTotal, orderTotal: CurrentOrderTotal })
+      localStorage.setItem("FinalOrderInfo", JSON.stringify(FinalOrderTransfer))}
+    } 
+  });
 }
 
+function initializeRecieptPage(){
+  let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
+  
+  let itemList = document.getElementsByClassName("item-list")[0];
+  for (let i = 0; i < retrievedItems.length; i++) {
+    let cartRowContent = document.createElement("li");
+    cartRowContent.className = "Item-List-Container";
+    cartRowContent.innerHTML = `<li>
+                    <div class="item-details">
+                        <p><strong>${retrievedItems[i].foodTitle}</strong> - ${retrievedItems[i].foodPrice} -${retrievedItems[i].foodquantity}X</p>
+                    </div>
+                </li>
+           `;
+    itemList.insertAdjacentElement("beforeEnd", cartRowContent);
+  }
+  let retrievedFinalOrderInfo = JSON.parse(localStorage.getItem("FinalOrderInfo")) || [];
+  console.log(retrievedFinalOrderInfo[0].tax)
+  console.log(retrievedFinalOrderInfo[0].discount)
+  console.log(retrievedFinalOrderInfo[0].tip)
+  console.log(retrievedFinalOrderInfo[0].orderTotal)
+  let Totalsrow = document.getElementById("totalSection");
+  console.log(Totalsrow)
+  let TotalHeader = document.getElementById("Total-Header");
+  let TotalsrowContent = document.createElement("div");
+  // TotalsrowContent.className = "total-row";
+  TotalsrowContent.innerHTML = ` <div class = total-row> <p>SubTotal:</p><p>$${retrievedFinalOrderInfo[0].subtotal.toFixed(2)}</p> </div> <div class = total-row> <p>Discount:</p><p> - $${retrievedFinalOrderInfo[0].discount.toFixed(2)}</p> </div> <div class = total-row> <p>Tip:</p><p>$${retrievedFinalOrderInfo[0].tip.toFixed(2)}</p> </div> <div class = total-row> <p><strong>Order Total:</strong></p><p><strong>$${retrievedFinalOrderInfo[0].orderTotal.toFixed(2)}</strong></p> </div>`
+  
+  Totalsrow.insertAdjacentElement("beforeEnd", TotalsrowContent);
+
+
+
+  /* -------------------------------------------------------------------------- */
+/*                                Progress Bar                                */
+/* -------------------------------------------------------------------------- */
+const steps = [
+  document.getElementById('received'),
+  document.getElementById('preparation'),
+  document.getElementById('delivery'),
+  document.getElementById('delivered')
+];
+
+let currentStep = 0; 
+
+function updateProgressBar() {
+  if (currentStep < steps.length) {
+      steps[currentStep].classList.add('active');
+      if (currentStep > 0) {
+          steps[currentStep - 1].classList.add('completed');
+      }
+      currentStep++;
+  }
+}
+
+
+setTimeout(updateProgressBar, 1000);
+setTimeout(updateProgressBar, 4000); 
+setTimeout(updateProgressBar, 7000); 
+setTimeout(updateProgressBar, 10000); 
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Date/Time                                 */
+/* -------------------------------------------------------------------------- */
+function updateDateTime() {
+  const currentDate = new Date();
+  
+
+  const date = currentDate.toLocaleDateString();  
+  const time = currentDate.toLocaleTimeString();  
+
+  document.getElementById('order-date').textContent = date;
+  document.getElementById('order-time').textContent = time;
+}
+
+updateDateTime();
+}
 
 //  -----------------------------------------------------------------------
 //                  Checks for Id to Load the right Functions
@@ -752,5 +848,9 @@ document.addEventListener("DOMContentLoaded", function () {
   } else if (document.getElementById("CheckoutPage")) {
     console.log("checkoutPage opening");
     initializeCheckoutPage();
+  }else if (document.getElementById("ReceiptPage")){
+    console.log("RecieptPage Open")
+    initializeRecieptPage();
+    
   }
 });

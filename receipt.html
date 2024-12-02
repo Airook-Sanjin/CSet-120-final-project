@@ -17,20 +17,20 @@
     <link rel="stylesheet" href="receipt.css">
 </head>
 <body>
-    <div class="header">
+    <div class="header" id ="ReceiptPage">
         <div class="logo">
             <img id = "logo" src="LosPollosHermanosLogo2.webp" alt="LosPollosHermanosLogo">
         </div>
         <div class="nav">
-            <a id ="Menu"href="http://" target="_blank" rel="noopener noreferrer">Menu</a>
-            <a id ="Who we are"href="http://" target="_blank" rel="noopener noreferrer">Who we are</a>
-            <a id ="Rewards"href="http://" target="_blank" rel="noopener noreferrer">Rewards</a>
-            <a id ="Menu"href="http://" target="_blank" rel="noopener noreferrer">Menu</a>
+            <a id ="Menu" href="MenuPage.html" target="_blank" rel="noopener noreferrer">Menu</a>
+            <a id ="Who we are" href="who.html" target="_blank" rel="noopener noreferrer">Who we are</a>
+            <a id ="Rewards" href="rewards.html" target="_blank" rel="noopener noreferrer">Rewards</a>
+            <a id ="Menu" href="MenuPage.html" target="_blank" rel="noopener noreferrer">Menu</a>
         </div>
         <div class="userNav">
-            <a id ="Set-a-location" href="http://" target="_blank" rel="noopener noreferrer">Set a Location</a>
+            <a id ="Set-a-location" href="Sign-in.html" target="_blank" rel="noopener noreferrer">Set a Location</a>
             <ion-icon  id="UserProf"name="person-circle-outline"></ion-icon>
-            <a class= "btnLink" href="http://" target="_blank" rel="noopener noreferrer">Order Now</a>
+            <a class= "btnLink" href="menu.html" target="_blank" rel="noopener noreferrer">Order Now</a>
         </div>
     </div>
     
@@ -41,7 +41,7 @@
             </div>
             <h1>Order Complete!</h1>
             <p>Thanks for choosing Los Pollos Hermanos</p>
-        </header>
+        </header >
 
         <!-- ----------------------------------------------------------------------- -->
         <!--                          Progress Bar Section                           -->
@@ -76,7 +76,7 @@
         <section class="items">
             <h2>What's Cookin'?</h2>
             <ul class="item-list">
-                <li>
+                <!-- <li>
                     <div class="item-details">
                         <p><strong>Crispy Chicken Sandwich</strong> - $4.99</p>
                     </div>
@@ -90,13 +90,13 @@
                     <div class="item-details">
                         <p><strong>Fountain Drink (Coca cola)</strong> - $1.30</p>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </section>
 
-        <section class="totals">
-            <h2>Your Total</h2>
-            <div class="total-row">
+        <section id = "totalSection"class="totals">
+            <h2 id = "Total-Header">Your Total</h2>
+            <!-- <div class="total-row">
                 <p>Subtotal:</p>
                 <p>$8.79</p>
             </div>
@@ -107,7 +107,7 @@
             <div class="total-row">
                 <p><strong>Total:</strong></p>
                 <p><strong>$11.29</strong></p>
-            </div>
+            </div> -->
         </section>
 
         <footer>
@@ -116,7 +116,13 @@
             </div>
         </footer>
     </div>
-<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-<script src = "progress.js"></script>
-</body>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="script.js"></script>
 </html>

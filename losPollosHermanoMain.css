@@ -276,6 +276,7 @@ a {
 }
 #TestimonialSection{
   overflow:hidden;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -293,7 +294,7 @@ a {
   display:flex;
  transition: transform 0.5s ease-in-out;
  width:100%;
- margin-left:200px;
+ margin-left:350px;
  row-gap: 30px;
 
 }
