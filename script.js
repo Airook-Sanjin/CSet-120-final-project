@@ -536,6 +536,8 @@ function initializeCheckoutPage() {
             
     
     DiscountElement.innerHTML = `Discount: -$${discountAmount.toFixed(2)}`;
+    console.log("AHHAHAHHA",discountAmount)
+    currentDiscountAmount = discountAmount
     document.getElementById("FinalTotal").innerText = `Order Total: $${newTotal.toFixed(2)}`;
             console.log("Coupon Applied Successfully")
     }
@@ -759,7 +761,7 @@ else if (couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF")) {
      if( FinalOrderTransfer.length > 0){
       FinalOrderTransfer.pop()
      }else{
-      FinalOrderTransfer.push ({subtotal: CurrentSubTotal  ,tax :CurrentTaxTotal , discount:currentDiscountAmount, tip: CurrentTipTotal, orderTotal: CurrentOrderTotal })
+      FinalOrderTransfer.push ({subtotal: CurrentSubTotal ,tax :CurrentTaxTotal , discount:currentDiscountAmount, tip: CurrentTipTotal, orderTotal: CurrentOrderTotal })
       localStorage.setItem("FinalOrderInfo", JSON.stringify(FinalOrderTransfer))}
     } 
   });
@@ -789,13 +791,17 @@ function initializeRecieptPage(){
   console.log(Totalsrow)
   function FInalOrderPriceInfo(retrievedFinalOrderInfo){
   let TotalsrowContent = ``
-    TotalsrowContent = `<div class = total-row> <p>SubTotal:</p><p>$${retrievedFinalOrderInfo[0].subtotal.toFixed(2)}</p> </div> <div class = total-row> <p>Tax:</p><p>$${retrievedFinalOrderInfo[0].tax}</p> </div> <div class = total-row> <p><strong>Order Total:</strong></p><p><strong>$${retrievedFinalOrderInfo[0].orderTotal.toFixed(2)}</strong></p> </div>`
-    if (retrievedFinalOrderInfo[0].discount.toFixed(2) !== 0){
-      TotalsrowContent += `<div class = total-row> <p>Discount:</p><p> - $${retrievedFinalOrderInfo[0].discount.toFixed(2)}</p> </div>`
+    TotalsrowContent = `<div class = total-row> <p>SubTotal:</p><p>$${retrievedFinalOrderInfo[0].subtotal.toFixed(2)}</p> </div> <div class = total-row> <p>Tax:</p><p>$${retrievedFinalOrderInfo[0].tax}</p> </div>` 
+    console.log("discount",retrievedFinalOrderInfo[0].discount )
+    if (retrievedFinalOrderInfo[0].discount !== 0){
+      console.log(retrievedFinalOrderInfo[0].discount)
+      TotalsrowContent += `<div class = total-row> <p>Discount:</p><p> - $${retrievedFinalOrderInfo[0].discount.toFixed(2)}</p> </div>` 
     }
-    if(retrievedFinalOrderInfo[0].tip.toFixed(2) !== 0 ){
+    if(retrievedFinalOrderInfo[0].tip !== 0 ){
+      console.log(retrievedFinalOrderInfo[0].tip)
       TotalsrowContent += `<div class = total-row> <p>Tip:</p><p>$${retrievedFinalOrderInfo[0].tip.toFixed(2)}</p> </div>`
     }
+    TotalsrowContent += `<div class = total-row> <p><strong>Order Total:</strong></p><p><strong>$${retrievedFinalOrderInfo[0].orderTotal.toFixed(2)}</strong></p> </div>`
     return TotalsrowContent
   }
   let TotalInfo = FInalOrderPriceInfo(retrievedFinalOrderInfo)
