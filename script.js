@@ -133,7 +133,7 @@ function initializeMenuPage() {
 	function addToCartClicked(event) {
 		let button = event.target;
 		console.log(button);
-		let shopItem = button.parentElement.parentElement;
+		let shopItem = button.parentElement.parentElement.parentElement;
 		console.log(shopItem);
 		let Title = shopItem.getElementsByClassName('item-header')[0].innerText;
 		console.log(Title);
@@ -257,7 +257,7 @@ function initializeCheckoutPage() {
                 <div class="Price-Container">
                   <p class ="Cart-Price">Total: $${retrievedItems[i].foodPrice}</p>
                 </div>
-                <button class = "remove-btn">Remove</button>
+                <button class = "remove-btn"><ion-icon class = "remove-btn" name="close"></ion-icon></button>
              `;
 		itemList.insertAdjacentElement('beforeEnd', cartRowContent);
 	}
@@ -482,3 +482,5 @@ document.addEventListener('DOMContentLoaded', function () {
 		initializeCheckoutPage();
 	}
 });
+
+/* -------------------------------- Card SVG -------------------------------- */
