@@ -3,15 +3,14 @@ function initializeSignInPage() {
   function signup() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
-    const passwordRequirements = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    const passwordRequirements = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}(?=.*[@$!%*#?&])/ ;
     //console.log(email);
     //console.log(pass);
+    localStorage.setItem("userStatus", "logged-in")
 
     localStorage.setItem(email, pass);
     if (!passwordRequirements.test(pass)) {
-      alert(
-        "Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number."
-      );
+      alert("Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special character.");
     }
     if (localStorage.getItem(email)) {
       if (passwordRequirements.test(pass)) {
@@ -21,15 +20,21 @@ function initializeSignInPage() {
       alert("User does not exist");
     }
   }
+  const managerInfo = {
+    email: "LosPollosManager81@gmail.com",
+    password: "GusFring2425",
+  }
 
   function login() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
     //console.log(email);
     //console.log(pass);
-
+    localStorage.setItem("userStatus", "logged-in")
+    
+    
     if (email == managerInfo.email && pass == managerInfo.password) {
-      location.replace("index.html");
+      location.replace("admin.html");
       alert("Logged in as manager");
     } else if (localStorage.getItem(email)) {
       if (pass == localStorage.getItem(email)) {
@@ -37,6 +42,7 @@ function initializeSignInPage() {
       } else {
         alert("Wrong Password");
       }
+
     } else {
       alert("User does not exist");
     }
@@ -44,6 +50,12 @@ function initializeSignInPage() {
   document.getElementById("Signup-btn").addEventListener("click", signup);
   document.getElementById("Login-btn").addEventListener("click", login);
 }
+
+function joinAsGuest() {
+  localStorage.setItem("userStatus", "guest");
+  window.location.replace("index.html");
+}
+
 // ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
   //  -----------------------------------------------------------------------
@@ -933,3 +945,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
   }
 });
+
+
+

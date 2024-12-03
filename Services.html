@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="rewards.css">
+    <link rel="stylesheet" href="Services.css">
+    <title>Document</title>
+</head>
+<body>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,21 +31,21 @@
           <a
           id="Home"
           href= "index.html"
-          
+          target="_blank"
           rel="noopener noreferrer"
           >Home</a
         >
-          <a id="Menu" href="MenuPage.html" rel="noopener noreferrer"
+          <a id="Menu" href="MenuPage.html" target="_blank" rel="noopener noreferrer"
             >Menu</a
           >
           <a
             id="Who we are"
             href= "Who.html"
-           
+            target="_blank"
             rel="noopener noreferrer"
             >Who we are</a
           >
-          <a id="Rewards" href="rewards.html" rel="noopener noreferrer"
+          <a id="Rewards" href="rewards.html" target="_blank" rel="noopener noreferrer"
             >Rewards</a
           >
           <input
@@ -56,7 +59,7 @@
           <a
             id="Set-a-location"
             href="http://"
-            
+            target="_blank"
             rel="noopener noreferrer"
           >
             <ion-icon name="location"></ion-icon>Set a Location</a
@@ -64,54 +67,48 @@
           <a href="Sign-in.html"
             ><ion-icon id="UserProf" name="person-circle-outline"></ion-icon
           ></a>
-          <a href="FinalCartpage.html"><ion-icon id="Cart" name="cart"></ion-icon></a>
-          <a id="Navbtn" href="MenuPage.html"  rel="noopener noreferrer"
+
+          <a href = "FinalCartpage.html">
+          <ion-icon id="Cart" name="cart"></ion-icon>
+          </a>
+
+          <a id="Navbtn" href="" target="_blank" rel="noopener noreferrer"
             >Order Now</a
           >
         </div>
       </header>
-      
-    <h1>Rewards</h1>
-    
-<div class = "rewards-container">
-    <div class = "reward">
-        <h2>40% OFF YOUR FIRST ORDER</h2>
-        <img src = "https://okdiario.com/look/img/2017/04/17/pollos-hermanos.jpg" alt = "reward1">
-        <button>CLAIM</button>
-    </div>
-    <div class = "reward2">
-        <h2>20% OFF ANY ORDER</h2>
-        <img src = "https://www.nme.com/wp-content/uploads/2021/08/Los-Pollos-Hermanos.jpg" alt = "reward2">
-        <button>CLAIM</button>
-    </div>
-  </div>
-    </div>
+    <div class = "container">
+    <h1>Services</h1>
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    
-    <script src="rewards.js"></script>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    const userStatus = localStorage.getItem("userStatus");
-    if (userStatus == "guest") {
-        document.getElementById("Rewards").style.display = "none";
-        document.getElementById("UserProf").style.display = "none";
-    }
-    else {
-        document.getElementById("Rewards").style.display = "block";
-        document.getElementById("UserProf").style.display = "block";
-    }
-});
 
-    </script>
+    <div class="service1">
+    <div class = "img-box">
+    <img src = "https://offloadmedia.feverup.com/secretchicago.com/wp-content/uploads/2019/10/28081652/los-pollos-hermanos-e1571769765635.jpg" alt = "Services">
+        </div>
+        <div class = "text-box1">
+            <h2>Catering</h2>
+            <p>At Los Pollos Hermanoes we offer only the best catering services. Bring many people for a special event and let us handle the cooking, serving, and cleanup!</p>
+        </div>
+     </div>
+
+
+    <div class="service2">
+    <div class = "img-box">
+        <img src = "https://mir-s3-cdn-cf.behance.net/project_modules/fs/53fed156571847.5a81a07a52d8a.jpg">
+        </div>
+        <div class = "text-box2">
+            <h2>Delivery</h2>
+            <p>At Los Pollos Hermanoes we offer only the best delivery services. Just click the delivery option when you go to the website and we will handle the rest</p>
+        </div>
+    </div>
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
     
 </body>
 </html>

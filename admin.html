@@ -26,7 +26,7 @@
     <div class="nav">
         <a id ="Menu"href="http://" target="_blank" rel="noopener noreferrer">Menu</a>
         <a id ="Who we are"href="http://" target="_blank" rel="noopener noreferrer">Who we are</a>
-        <a id ="Rewerds"href="http://" target="_blank" rel="noopener noreferrer">Rewards</a>
+        <a id ="Rewards"href="http://" target="_blank" rel="noopener noreferrer">Rewards</a>
         <a id ="Menu"href="http://" target="_blank" rel="noopener noreferrer">Menu</a>
     </div>
     <div class="userNav">
@@ -54,6 +54,9 @@
         </ul>
         
     </nav>
+    <div class = "ManHeader">
+        <h1>MANAGER PAGE</h1>
+    </div>
     
     
     <div class = "selection">    
@@ -92,6 +95,8 @@
            
                    
         </section>
+
+        
             
 <!-- --------------------------- Pollos Burritos --------------------------- -->
        
@@ -445,17 +450,13 @@
                 <img src = "media/polloscoffee.png" alt = "Coffee">
             </div>
         </div> 
-        <form id="add-item-form">
-            <label for="item-name">Item Name:</label>
-            <input type="text" id="item-name" name="item-name"><br><br>
-            <label for="item-description">Item Description:</label>
-            <textarea id="item-description" name="item-description"></textarea><br><br>
-            <label for="item-price">Item Price:</label>
-            <input type="number" id="item-price" name="item-price"><br><br>
-            
-            <button id="add-item-button">Add Item</button>
-          </form>
-          
+
+        
+      <section id = "create">
+        <div class = "items-container">
+
+            </div>
+      </section>
 
         
         <button onclick = "backToTop()" id = "topBtn" title = "Back to top">&uarr;</button>
@@ -466,9 +467,51 @@
 <!-- ----------------------------------------------------------------------- -->
 
 <!-- ----------------------------- Back to top ----------------------------- -->
+<div class = "items-container">
+<form id="addItemForm">
+    <label for="itemName">Item Name:</label>
+    <input type="text" id="itemName" name="itemName"><br><br>
+    <label for="itemPrice">Item Price:</label>
+    <input type="number" id="itemPrice" name="itemPrice"><br><br>
+    <label for="itemDescription">Item Description:</label>
+    <textarea id="itemDescription" name="itemDescription"></textarea><br><br>
+    <select name = "choice" id="choice">
+        <option value="Breakfast-Specialties">Breakfast Specialties</option>
+        <option value="Pollos-Burritos">Pollos Burritos</option>
+        <option value="Pollos-Specialties">Pollos Specialties</option>
+        <option value="Sides">Sides</option>
+        <option value="Sandwiches">Sandwiches</option>
+        <option value="Desserts">Desserts</option>
+        <option value="Beverages">Beverages</option>
+    </select>
+    <input type="submit" value="Add Item">
+    <button onclick ="event.preventDefault(); clearForm()" id = "clearBtn" title = "Clear form">Clear</button>
+  </form>
+  </div>
 
+<!-- <script>
+    function addItem(event) {
+        event.preventDefault();
+        const itemName = document.getElementById("itemName").value;
+        const itemPrice = document.getElementById("itemPrice").value;
+        const itemDescription = document.getElementById("itemDescription").value;
+        const itemCategory = document.getElementById("choice").value;
 
+        const newItem = {
+            name: itemName,
+            price: itemPrice,
+            description: itemDescription,
+            category: itemCategory
+        };
 
+        let menuItems = JSON.parse(local.Storage.getItem("menuItems")) || [];
+        menuItems.push(newItem);
+        local.Storage.setItem("menuItems", JSON.stringify(menuItems));
+
+        alert("Item added")
+        clearForm();
+    }
+</script>  -->
     </div>
     </div>
     </section>

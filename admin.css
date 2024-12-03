@@ -127,6 +127,13 @@ body {
 	margin-left: -20px;
 }
 
+.ManHeader {
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+    font-size: 2.1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 /* -------------------------------------------------------------------------- */
 /*                                 Card Styles                                */
 /* -------------------------------------------------------------------------- */
@@ -284,4 +291,75 @@ body {
 	.item-card {
 		width: 150%;
 	}
+}
+
+
+.item-info button {
+   background-color: var(--main-red);
+   width: 20px;
+   height: 20px;
+   margin-left: -10px;
+   
+   cursor: pointer;
+  
+}
+
+
+#addItemForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    font-family: "Arvo", serif;
+}
+
+#addItemForm label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+#addItemForm input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+#addItemForm button {
+    padding: 10px 20px;
+    background-color: var(--main-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#addItemForm button:hover {
+    background-color:darkred;
+}
+
+.items-container select {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    
+}
+
+#addItemForm input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color:#05C7F2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#addItemForm input[type="submit"]:hover{
+    background-color:#028dad;
 }

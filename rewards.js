@@ -45,3 +45,7 @@ document.querySelector(".reward2 button").addEventListener("click", function () 
         alert("A coupon has already been claimed")
     }
 });
+
+
+//apply coupon to Final Cart Page 
+
