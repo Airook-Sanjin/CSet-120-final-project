@@ -457,6 +457,7 @@ function initializeCheckoutPage() {
   let TipTotal = 0;
   let orderTotal = total + Taxtotal + CurrentTipTotal;
   
+  
   console.log("current total", orderTotal)
   updateUI(total, TipTotal, Taxtotal, orderTotal);
   tipBtns(total,Taxtotal);
@@ -485,9 +486,15 @@ function initializeCheckoutPage() {
         couponApplied = false
         let TipTotal = applyTip(tipBtnElement, total, Taxtotal);
         let DiscountElement = parseFloat(document.getElementById("Discount").innerText.replace("Discount: -$", ""));
+        if (isNaN(DiscountElement)){
+          DiscountElement = 0
+        }
         let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
         // applyCoupon(DiscountElement, couponIdRetrieved, CouponID.value, CurrentTipTotal);
         orderTotal = total + Taxtotal + CurrentTipTotal - DiscountElement;
+        console.log(DiscountElement)
+        console.log(TipTotal)
+        console.log(orderTotal)
         updateUI(total, TipTotal, Taxtotal, orderTotal);
           });
       }
@@ -547,7 +554,9 @@ function initializeCheckoutPage() {
         console.log("tipdeduction", TipTotal)
         document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
         document.getElementById("tax").innerText = `Tax: $${Taxtotal.toFixed(2)}`;
+        console.log(orderTotal)
         document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
+        CurrentOrderTotal = orderTotal
         console.log("UI Updated")
         }
 
@@ -555,7 +564,7 @@ function initializeCheckoutPage() {
   function applyTip(tipBtnElement, total, Taxtotal) {
     let Tip = parseFloat(tipBtnElement.innerText.replace(`Tip: $`, ``)) / 100 || 0;
     let TipTotal = 0;
-    let orderTotal;
+    let orderTotal = 0;
     if (isNaN(Tip)) {
       CurrentTipTotal = 0;
       CurrentTipTotal = TipTotal;
@@ -567,7 +576,7 @@ function initializeCheckoutPage() {
     }
     total = Math.round(total * 100) / 100;
     orderTotal = total + Taxtotal+ CurrentTipTotal;
-    
+    console.log(orderTotal)
 console.log("tipTotal", TipTotal)
     updateUI(total, CurrentTipTotal, Taxtotal, orderTotal);
   
@@ -700,6 +709,7 @@ else if (couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF")) {
       autoAppliedCoupon = true
       currentCouponCode= null
       currentDiscount = 0
+      currentDiscountAmount = 0
       updateCartTotal();
   }}
   console.log(CurrentSubTotal)
@@ -777,12 +787,25 @@ function initializeRecieptPage(){
   console.log(retrievedFinalOrderInfo[0].orderTotal)
   let Totalsrow = document.getElementById("totalSection");
   console.log(Totalsrow)
+  function FInalOrderPriceInfo(retrievedFinalOrderInfo){
+  let TotalsrowContent = ``
+    TotalsrowContent = `<div class = total-row> <p>SubTotal:</p><p>$${retrievedFinalOrderInfo[0].subtotal.toFixed(2)}</p> </div> <div class = total-row> <p>Tax:</p><p>$${retrievedFinalOrderInfo[0].tax}</p> </div> <div class = total-row> <p><strong>Order Total:</strong></p><p><strong>$${retrievedFinalOrderInfo[0].orderTotal.toFixed(2)}</strong></p> </div>`
+    if (retrievedFinalOrderInfo[0].discount.toFixed(2) !== 0){
+      TotalsrowContent += `<div class = total-row> <p>Discount:</p><p> - $${retrievedFinalOrderInfo[0].discount.toFixed(2)}</p> </div>`
+    }
+    if(retrievedFinalOrderInfo[0].tip.toFixed(2) !== 0 ){
+      TotalsrowContent += `<div class = total-row> <p>Tip:</p><p>$${retrievedFinalOrderInfo[0].tip.toFixed(2)}</p> </div>`
+    }
+    return TotalsrowContent
+  }
+  let TotalInfo = FInalOrderPriceInfo(retrievedFinalOrderInfo)
   let TotalHeader = document.getElementById("Total-Header");
-  let TotalsrowContent = document.createElement("div");
+  let TotalsrowElement = document.createElement("div");
+  TotalsrowElement.innerHTML = TotalInfo
   // TotalsrowContent.className = "total-row";
-  TotalsrowContent.innerHTML = ` <div class = total-row> <p>SubTotal:</p><p>$${retrievedFinalOrderInfo[0].subtotal.toFixed(2)}</p> </div> <div class = total-row> <p>Discount:</p><p> - $${retrievedFinalOrderInfo[0].discount.toFixed(2)}</p> </div> <div class = total-row> <p>Tip:</p><p>$${retrievedFinalOrderInfo[0].tip.toFixed(2)}</p> </div> <div class = total-row> <p>Tax:</p><p>$${retrievedFinalOrderInfo[0].tax}</p> </div> <div class = total-row> <p><strong>Order Total:</strong></p><p><strong>$${retrievedFinalOrderInfo[0].orderTotal.toFixed(2)}</strong></p> </div>`
   
-  Totalsrow.insertAdjacentElement("beforeEnd", TotalsrowContent);
+
+  Totalsrow.insertAdjacentElement("beforeEnd", TotalsrowElement);
 
 
 
