@@ -94,3 +94,12 @@ if (section) {
     function updateMenuData(data) {
         menuData = data;
     }
+
+
+    const deleteButton = document.getElementById("delete-button");
+    const itemId = deleteButton.dataset.itemId;
+
+    deleteButton.addEventListener("click", () => {
+        localStorage.removeItem(ItemId);
+        updateMenuPage();
+    });

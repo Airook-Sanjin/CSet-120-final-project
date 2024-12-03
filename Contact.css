@@ -59,8 +59,9 @@ h2 {
     width: 100px;
     height: 40px;
     border-radius: 15px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-shadow: 1px 1px 1px black;
+    border: 2px solid black;
     
 }
 
@@ -68,31 +69,30 @@ h2 {
     color: white;
     text-shadow: 1px 1px 1px black;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
 }
 
 .form-container input {
-    height: 30px;   
+    border: 1px solid black;
+    padding: 10px;
     border-radius: 15px;
-    border: none;
-    background-color: #fff;
-    color: #fff;
+    
+    
 }
 
 .form-container textarea {
     width: 100%;
     height: 40px;
     border-radius: 15px;
-    border: none;
+    border: 2px solid black;
 }
 
 .form-container button:hover {
-    background-color: #F20530;
-    color: #F2E205;
+    background-color: #6c95e7;
+    color: #fff;
 }
 
-input[type="email"]::placeholder {
-    background-color: #fff !important;
-}
+
 
 .container {
     position: relative;

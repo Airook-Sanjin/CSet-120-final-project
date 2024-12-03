@@ -587,5 +587,17 @@
   });
   
       </script>
+      <script src="admin.js"></script>
+
+      <script>
+        const menuItems = document.getElementById("menu-items");
+        function updateMenuPage() {
+            const storedItems = localStorage.getItem("menuItems");
+            const items = JSON.parse(storageItems);
+            const html = items.map((item) => {
+            }).join('');
+            menuItems.inner
+        }
+      </script>
 </body>
 </html>
