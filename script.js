@@ -159,7 +159,7 @@ function initializeMenuPage() {
   function addToCartClicked(event) {
     let button = event.target;
     console.log(button);
-    let shopItem = button.parentElement.parentElement;
+    let shopItem = button.parentElement.parentElement.parentElement;
     console.log(shopItem);
     let Title = shopItem.getElementsByClassName("item-header")[0].innerText;
     console.log(Title);
@@ -215,6 +215,33 @@ function initializeMenuPage() {
   logo.addEventListener("click", function () {
     location.replace("index.html");
   });
+  let CustomerLocInfo=[]
+  let cStreet   = document.getElementById("StreetAddress")
+  let cStreet2 = document.getElementById("AddressLine2")
+  let cCity    = document.getElementById("City")
+  let cSPR     = document.getElementById("State")
+  let cZIP      = document.getElementById("ZipCode");
+  let cDate     = document.getElementById("Date-Dropdown");
+  let cTime     = document.getElementById("time-Dropdown")
+  let Updatebtn = document.getElementById("UpdateBtn");
+
+  Updatebtn.addEventListener("click", function(){
+    if(CustomerLocInfo.length > 0){
+      CustomerLocInfo.pop();
+    }else{
+      console.log(
+        cStreet.value,
+        cStreet2.value,
+        cCity.value,
+        cSPR.value,
+        cZIP.value,
+        cDate.value,
+        cTime.value,)
+      CustomerLocInfo.push({StreetA:cStreet.value, Street2:cStreet2.value,City:cCity.value,SPR:cSPR.value, ZIP:cZIP.value,date:cDate.value,Time:cTime.value})
+      localStorage.setItem("CustomerLocInfos", JSON.stringify(CustomerLocInfo))
+    }
+    modal.style.display = "none"
+  })
   let Deliverybtn = document.getElementsByClassName("Delivery-Menu")[0];
   let Pickupbtn = document.getElementsByClassName("Pickup-Menu")[0];
   let indicator = document.getElementById("D-P-Indicator");
@@ -261,7 +288,24 @@ function initializeCheckoutPage() {
     for (let i = 0; i < quantityInputs.length; i++) {
       let input = quantityInputs[i];
       input.addEventListener("change", quantityChanged);
+
     }
+  let mStreet   = document.getElementById("StreetAddress")
+  let mStreet2 = document.getElementById("AddressLine2")
+  let mCity    = document.getElementById("City")
+  let mSPR     = document.getElementById("State")
+  let mZIP      = document.getElementById("ZipCode");
+  let TransferedCustomLocInfo = JSON.parse(localStorage.getItem("CustomerLocInfos"));
+  console.log(TransferedCustomLocInfo)
+  console.log(TransferedCustomLocInfo[0].StreetA)
+  if (TransferedCustomLocInfo.length > -1){
+    mStreet.value = TransferedCustomLocInfo[0].StreetA;
+    mStreet2.value = TransferedCustomLocInfo[0].Street2;
+    mCity.value = TransferedCustomLocInfo[0].City;
+    mSPR.value = TransferedCustomLocInfo[0].SPR;
+    mZIP.value = TransferedCustomLocInfo[0].ZIP
+  }
+  
   }
   //  -----------------------------------------------------------------------
   //                            retrieving and applying Coupons
@@ -296,7 +340,7 @@ function initializeCheckoutPage() {
               <div class="Price-Container">
                 <p class ="Cart-Price">Total: $${retrievedItems[i].foodPrice}</p>
               </div>
-              <button class = "remove-btn">Remove</button>
+              <button class = "remove-btn"><ion-icon class = "remove-btn" name="close"></ion-icon></button>
            `;
     itemList.insertAdjacentElement("beforeEnd", cartRowContent);
   }
