@@ -82,16 +82,28 @@ a {
 	color: white;
 	background-color: transparent;
 	border: none;
+	font-family: 'Lato', serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: medium;
 }
 .Modalbutton ion-icon {
 	color: #f2e205;
 }
+
+.Modalbutton:hover {
+	color: #f2e205;
+	cursor: pointer;
+}
+
 #Searchbar {
 	border-radius: 20px;
 	background-color: hsl(349, 96%, 45%);
 	border: none;
 	color: white;
 	padding: 10px;
+	font-family: 'Lato', serif;
+	font-weight: 600;
 }
 #Searchbar::placeholder {
 	/* color: hsl(0, 0%, 70%); */
@@ -109,18 +121,19 @@ a {
 }
 #Navbtn {
 	display: flex;
-	color: hsl(100, 100%, 100%);
 	background-color: #f2e205;
 	justify-content: center;
 	border-radius: 10px;
 	width: 120px;
 	padding: 3%;
+	color: rgb(205, 89, 0);
+	font-weight: 900;
 }
 #Navbtn:hover {
-	color: black;
+	color: rgb(205, 89, 0);
 	transform: scale(1.2);
 	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
-	transition: 0.9s;
+	transition: 0.4s;
 }
 
 /* --------------------------------------------End Of Header--------------------------- */
@@ -231,7 +244,7 @@ a {
 .btn:hover {
 	transform: scale(1.05);
 	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
-	transition: 0.9s;
+	transition: 0.3s;
 }
 /* ------------------------------------------End of Explore Section--------------------------------------------------------- */
 
@@ -329,7 +342,8 @@ a {
 	font-size: 50px;
 	-webkit-text-stroke-width: 2px;
 	font-weight: 500;
-	color: white;
+	margin-top: 1.55rem;
+	color: white !important;
 	/* -webkit-text-stroke-color: #002a86; */
 }
 
@@ -340,7 +354,7 @@ a {
 	flex-direction: column;
 	justify-content: center;
 	row-gap: 40px;
-	height: 500px;
+	height: 550px;
 	text-align: center;
 	padding: 3% 0;
 	background-size: 100%;
@@ -432,6 +446,25 @@ a {
 #Prev-TestBtn {
 	margin-left: 70%;
 }
+
+mark {
+	display: inline-block;
+	line-height: 1px;
+	padding-bottom: 0.5em;
+	background-color: #2d50a9;
+	color: white;
+}
+
+hr {
+	border: 3px solid red;
+	width: 20%;
+	align-self: center;
+	padding: 0;
+	margin-top: -2rem;
+	gap: 0;
+	border-radius: 6px;
+}
+
 /*---------------------------------------------End of Testimonial Section--------------------------------------------- */
 .secret {
 	display: flex;
@@ -481,6 +514,18 @@ footer ion-icon {
 	display: flex;
 	gap: 20px;
 }
+
+.Delivery-Main:active {
+	background-color: red;
+}
+
+.Delivery-Main,
+.Pickup-Main {
+	font-family: 'Lato', serif;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
 .SecretModal {
 	z-index: 1;
 	display: none;
@@ -552,15 +597,29 @@ footer ion-icon {
 }
 .popup-head {
 	display: flex;
+	justify-content: center;
 	flex-direction: row;
 	gap: 200px;
 }
+.popup-head h5 {
+	font-family: 'Arvo', 'Lato', serif;
+	justify-self: center;
+	transform: translate(7rem, 0%);
+	font-size: 1.6rem;
+	font-weight: 600;
+	width: max-content;
+	text-transform: uppercase;
+}
+
 .Closebtn {
 	background-color: transparent;
 	border: none;
 	width: 20px;
 	font-size: 30px;
+	transform: translate(-1rem, -1rem);
+	color: #b3b2b2;
 }
+
 .P-D-btns {
 	background-color: transparent;
 	border: none;
@@ -573,13 +632,87 @@ footer ion-icon {
 	justify-content: space-between;
 	width: 100%;
 	padding: 3%;
-	background-color: hsl(0, 0%, 70%);
+	/* background-color: hsl(0, 0%, 70%); */
 	border-radius: 20px;
 }
+
+.P-D-btns-container::after {
+	background-color: yellow;
+}
+
+.info-txt {
+	color: #333;
+	font-family: 'Lato', serif;
+}
+
+/* -------------------------------- ToggleBtn ------------------------------- */
+.toggleCheckbox {
+	display: none;
+}
+
+.toggleContainer {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 100%;
+	height: 2.5rem;
+	border: 3px solid red;
+	border-radius: 20px;
+	background: white;
+	padding-bottom: 5%;
+	font-weight: bold;
+	color: #343434;
+	cursor: pointer;
+	font-family: 'Arvo', serif;
+	text-transform: uppercase;
+}
+
+.toggleContainer::before {
+	content: '';
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	left: 0%;
+	border-radius: 20px;
+	background: #f2022f;
+	transition: all 0.3s;
+}
+
+.toggleContainer div {
+	padding: 6px;
+	text-align: center;
+	z-index: 1;
+}
+
+.toggleCheckbox:checked + .toggleContainer::before {
+	left: 50%;
+}
+
+.toggleCheckbox:checked + .toggleContainer div:first-child {
+	color: #f2022f;
+	transition: color 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer div:last-child {
+	color: white;
+	transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:first-child {
+	color: white;
+	transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:last-child {
+	color: #f2022f;
+	transition: color 0.3s;
+}
+
+/* ------------------------------ ToggleBtn End ----------------------------- */
+
 .form-container {
 	display: flex;
 	flex-direction: column;
 	row-gap: 20px;
+	font-family: 'Lato', serif;
+
 	/* height:100%; */
 }
 .form-container input,
@@ -589,18 +722,50 @@ footer ion-icon {
 	width: 100%;
 	border-radius: 20px;
 	padding: 2%;
+	font-family: 'Lato', serif;
 }
+
+.form-container input {
+	font-size: 1.15rem;
+}
+
+.form-container select {
+	font-size: 1rem;
+}
+input[type='text'] {
+	font-size: 1rem;
+}
+
+.form-container h4 {
+	color: #333;
+}
+
 option:value {
 	color: hsl(0, 0%, 70%);
 }
 .Update-btn {
 	/* display: flex; */
-
-	background-color: #f2e205;
+	/* background-color: #f2e205; */
+	background-color: #f2022f;
+	color: white;
+	font-family: 'Arvo', serif;
+	margin-top: 1rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1rem;
+	padding: 5%;
 	width: 80%;
-
 	height: fit-content;
 	padding: 3%;
 	border: none;
 	border-radius: 20px;
+}
+
+.Update-btn:hover {
+	/* background-color: #ddcf07; */
+	background-color: #d20329;
+}
+.Update-btn:active {
+	/* background-color: #ccbf08; */
+	background-color: #99041f;
 }

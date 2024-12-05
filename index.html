@@ -269,6 +269,7 @@
 		</section>
 		<section id="TestimonialSection">
 			<h3>Listen to What Our Family is Saying</h3>
+			<hr />
 			<div class="Testitmonial-Carousel">
 				<div class="Testimonial-Container">
 					<div class="Testimonial-Card">
@@ -396,12 +397,12 @@
 					id="Main-Delivery-modal"
 					class="popup-card">
 					<div class="popup-head">
-						<h5>Order details</h5>
+						<h5>ORDER DETAILS</h5>
 						<button class="Closebtn Main">&times;</button>
 					</div>
 
 					<div class="P-D-btns-container">
-						<button
+						<!-- <button
 							class="P-D-btns Delivery-Main"
 							id="Main-Deliverybtn">
 							Delivery
@@ -410,9 +411,19 @@
 							class="P-D-btns Pickup-Main"
 							id="Main-Pickupbtn">
 							Pickup
-						</button>
+						</button> -->
+						<input
+							type="checkbox"
+							id="toggle"
+							class="toggleCheckbox" />
+						<label
+							for="toggle"
+							class="toggleContainer">
+							<div class="Main-Deliverybtn">Delivery</div>
+							<div class="Main-Pickupbtn">Pickup</div>
+						</label>
 					</div>
-					<p>Place you Scheduled order right now</p>
+					<p class="info-txt">Set a Delivery Address or Schedule Pickup</p>
 					<div class="form-container">
 						<div class="Main-in-container">
 							<label for="Location"><h4>Deliver To:</h4></label>

@@ -68,17 +68,33 @@ function initializeMainPage() {
 	logo.addEventListener('click', function () {
 		location.replace('index.html');
 	});
-	let mainDeliverybtn = document.getElementsByClassName('Delivery-Main')[0];
-	let mainPickupbtn = document.getElementsByClassName('Pickup-Main')[0];
+	// let mainDeliverybtn = document.getElementsByClassName('Delivery-Main')[0];
+	// let mainPickupbtn = document.getElementsByClassName('Pickup-Main')[0];
 
+	// let maindeliveryForm =
+	// 	document.getElementsByClassName('Main-in-container')[0];
+	// mainDeliverybtn.addEventListener('click', function () {
+	// 	maindeliveryForm.style.display = 'block';
+	// });
+	// mainPickupbtn.addEventListener('click', function () {
+	// 	maindeliveryForm.style.display = 'none';
+	// });
+
+	/* ---------------------------- Toggle for Modal ---------------------------- */
+
+	let toggleCheckbox = document.getElementById('toggle');
 	let maindeliveryForm =
 		document.getElementsByClassName('Main-in-container')[0];
-	mainDeliverybtn.addEventListener('click', function () {
-		maindeliveryForm.style.display = 'block';
+
+	toggleCheckbox.addEventListener('change', function () {
+		if (toggleCheckbox.checked) {
+			maindeliveryForm.style.display = 'none';
+		} else {
+			maindeliveryForm.style.display = 'block';
+		}
 	});
-	mainPickupbtn.addEventListener('click', function () {
-		maindeliveryForm.style.display = 'none';
-	});
+	/* ---------------------------- Toggle for Modal End ---------------------------- */
+
 	//  -----------------------------------------------------------------------
 	//                                Testimonial Carousel
 	//  -----------------------------------------------------------------------

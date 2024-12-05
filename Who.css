@@ -1,4 +1,4 @@
-* {
+/* * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -6,6 +6,7 @@
 
 body {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	background-color: #ffdd0d;
 }
 
 .header {
@@ -13,6 +14,17 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	padding: 10px;
+}
+
+hr {
+	display: none;
+	border: 3px solid red;
+	width: 10%;
+	align-self: center;
+	padding: 0;
+	margin-top: -2rem;
+	gap: 0;
+	border-radius: 6px;
 }
 
 .container,
@@ -37,7 +49,11 @@ body {
 	max-width: 800px;
 	margin: 20px;
 	padding: 20px;
-	border: 1px solid black;
+	border: none;
+	background-color: white;
+	border-radius: 6px;
+	border: 5px solid red;
+	color: #333;
 }
 
 .GusMessage img,
@@ -51,7 +67,8 @@ body {
 	width: 80%;
 	max-width: 800px;
 	margin: 20px auto;
-	border: 2px solid black;
+	border: 10px solid #f20530;
+	border-radius: 6px;
 }
 
 h1 {
@@ -73,3 +90,9 @@ h2 {
 	color: #f20530;
 	text-shadow: 1px 1px 1px black;
 }
+
+.container p {
+	font-size: 1.15rem;
+	font-family: 'Lato', serif;
+	line-height: 1.5;
+} */
