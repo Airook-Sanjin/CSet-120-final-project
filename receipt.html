@@ -6,23 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Order Receipt - Los Pollos Hermanos</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bubblegum+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bubblegum+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="receipt.css">
 </head>
 <body>
-    <div class="header">
+    <div class="header" id ="ReceiptPage">
         <div class="logo">
             <img id = "logo" src="LosPollosHermanosLogo2.webp" alt="LosPollosHermanosLogo">
         </div>
         <div class="nav">
-            <a id ="Menu"href="http://" target="_blank" rel="noopener noreferrer">Menu</a>
-            <a id ="Who we are"href="http://" target="_blank" rel="noopener noreferrer">Who we are</a>
-            <a id ="Rewerds"href="http://" target="_blank" rel="noopener noreferrer">Rewards</a>
-            <a id ="Menu"href="http://" target="_blank" rel="noopener noreferrer">Menu</a>
+            <a id ="Menu" href="MenuPage.html" target="_blank" rel="noopener noreferrer">Menu</a>
+            <a id ="Who we are" href="who.html" target="_blank" rel="noopener noreferrer">Who we are</a>
+            <a id ="Rewards" href="rewards.html" target="_blank" rel="noopener noreferrer">Rewards</a>
+            <a id ="Menu" href="MenuPage.html" target="_blank" rel="noopener noreferrer">Menu</a>
         </div>
         <div class="userNav">
-            <a id ="Set-a-location" href="http://" target="_blank" rel="noopener noreferrer">Set a Location</a>
+            <a id ="Set-a-location" href="Sign-in.html" target="_blank" rel="noopener noreferrer">Set a Location</a>
             <ion-icon  id="UserProf"name="person-circle-outline"></ion-icon>
-            <a class= "btnLink" href="http://" target="_blank" rel="noopener noreferrer">Order Now</a>
+            <a class= "btnLink" href="MenuPage.html" target="_blank" rel="noopener noreferrer">Order Now</a>
         </div>
     </div>
     
@@ -33,9 +41,11 @@
             </div>
             <h1>Order Complete!</h1>
             <p>Thanks for choosing Los Pollos Hermanos</p>
-        </header>
+        </header >
 
-        <!-- Progress Bar Section -->
+        <!-- ----------------------------------------------------------------------- -->
+        <!--                          Progress Bar Section                           -->
+        <!-- ----------------------------------------------------------------------- -->
         <section class="order-status">
             <h2>Order Status</h2>
             <div class="progress-bar">
@@ -64,9 +74,9 @@
         </section>
 
         <section class="items">
-            <h2>Coming Right Up!</h2>
+            <h2>What's Cookin'?</h2>
             <ul class="item-list">
-                <li>
+                <!-- <li>
                     <div class="item-details">
                         <p><strong>Crispy Chicken Sandwich</strong> - $4.99</p>
                     </div>
@@ -80,15 +90,15 @@
                     <div class="item-details">
                         <p><strong>Fountain Drink (Coca cola)</strong> - $1.30</p>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </section>
 
-        <section class="totals">
-            <h2>Your Total</h2>
-            <div class="total-row">
+        <section id = "totalSection"class="totals">
+            <h2 id = "Total-Header">Your Total</h2>
+            <!-- <div class="total-row">
                 <p>Subtotal:</p>
-                <p>$10.47</p>
+                <p>$8.79</p>
             </div>
             <div class="total-row">
                 <p>Delivery Fee:</p>
@@ -96,16 +106,23 @@
             </div>
             <div class="total-row">
                 <p><strong>Total:</strong></p>
-                <p><strong>$12.97</strong></p>
-            </div>
+                <p><strong>$11.29</strong></p>
+            </div> -->
         </section>
 
         <footer>
             <div class="cta">
-                <a href="#" class="cta-button">Order Again</a>
+                <button href="MenuPage.html" id="cta-button">Order Again</button>
             </div>
         </footer>
     </div>
-
-</body>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="script.js"></script>
 </html>

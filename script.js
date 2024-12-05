@@ -1,6 +1,6 @@
+
 function initializeSignInPage() {
   function signup() {
-    
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
     const passwordRequirements = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}(?=.*[@$!%*#?&])/ ;
@@ -15,7 +15,7 @@ function initializeSignInPage() {
     if (localStorage.getItem(email)) {
       if (passwordRequirements.test(pass)) {
         location.replace("index.html");
-      } 
+      }
     } else {
       alert("User does not exist");
     }
@@ -92,6 +92,66 @@ function initializeMainPage() {
   mainPickupbtn.addEventListener("click", function () {
     maindeliveryForm.style.display = "none";
   });
+  //  -----------------------------------------------------------------------
+  //                                Testimonial Carousel
+  //  -----------------------------------------------------------------------
+  let currentTestimonialIndex = 0;
+  let TestimonialCards = document.querySelectorAll(".Testimonial-Card");
+  let totalTestimonialCards = TestimonialCards.length;
+  document
+    .getElementById("Next-TestBtn")
+    .addEventListener("click", function () {
+      if (currentTestimonialIndex < totalTestimonialCards - 1) {
+        currentTestimonialIndex++;
+      } else {
+        currentTestimonialIndex = 0;
+      }
+      updateTestimonial();
+    });
+  document
+    .getElementById("Prev-TestBtn")
+    .addEventListener("click", function () {
+      if (currentTestimonialIndex > 0) {
+        currentTestimonialIndex--;
+      } else {
+        currentTestimonialIndex = totalTestimonialCards - 1;
+      }
+      updateTestimonial();
+    });
+
+  function updateTestimonial() {
+    let TestimonialContainers = document.querySelector(
+      ".Testimonial-Container"
+    );
+
+    let testOffset = -currentTestimonialIndex * (700 + 450);
+    TestimonialContainers.style.transform = `translateX(${testOffset}px)`;
+  }
+  // --------------------gus--------------------------------------
+  let Footer = document.getElementsByTagName('footer')[0];
+  let secretGus = document.getElementById("SecretGus");
+  let SecretModal = document.getElementsByClassName("SecretModal Main")[0];
+  let scrollthreshold = 10;
+  let audio = document.getElementsByTagName('audio')[0];
+  Footer.addEventListener("mouseover", function(){
+    audio.play()
+  })
+secretGus.addEventListener("mouseover", function(){
+  SecretModal.style.display = "block"
+})
+window.onclick = function(event){
+  if(event.target=== SecretModal){
+    SecretModal.style.display = "none";
+  }
+}
+window.onscroll = function(){
+  
+    if(window.scrollY >= scrollthreshold ){
+      SecretModal.style.display = "none";
+    }
+  
+}
+  
 }
 // ---------------------------------------------------------------------------------------------------------
 function initializeMenuPage() {
@@ -111,7 +171,7 @@ function initializeMenuPage() {
   function addToCartClicked(event) {
     let button = event.target;
     console.log(button);
-    let shopItem = button.parentElement.parentElement;
+    let shopItem = button.parentElement.parentElement.parentElement;
     console.log(shopItem);
     let Title = shopItem.getElementsByClassName("item-header")[0].innerText;
     console.log(Title);
@@ -124,16 +184,27 @@ function initializeMenuPage() {
       .getElementsByClassName("item-img")[0]
       .getElementsByTagName("img")[0].src;
     console.log(foodImage);
+    
 
     let ItemInfo = {
       foodTitle: Title,
       foodPrice: Price,
       foodImg: foodImage,
+      foodquantity: 1
     };
     let existingItems = JSON.parse(localStorage.getItem("StoredItems")) || [];
-    existingItems.push(ItemInfo);
-
+    
+    let existingItemsindex = existingItems.findIndex(item =>item.foodTitle===Title);
+    if (existingItemsindex > -1){
+      existingItems[existingItemsindex].foodquantity += 1
+      console.log(existingItems[existingItemsindex].foodquantity)
+      // alert("Item is already in cart")
+    }else{
+      existingItems.push(ItemInfo);
+      // localStorage.setItem("StoredItems", JSON.stringify(existingItems));
+    }
     localStorage.setItem("StoredItems", JSON.stringify(existingItems));
+    
   }
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
@@ -156,6 +227,33 @@ function initializeMenuPage() {
   logo.addEventListener("click", function () {
     location.replace("index.html");
   });
+  let CustomerLocInfo=[]
+  let cStreet   = document.getElementById("StreetAddress")
+  let cStreet2 = document.getElementById("AddressLine2")
+  let cCity    = document.getElementById("City")
+  let cSPR     = document.getElementById("State")
+  let cZIP      = document.getElementById("ZipCode");
+  let cDate     = document.getElementById("Date-Dropdown");
+  let cTime     = document.getElementById("time-Dropdown")
+  let Updatebtn = document.getElementById("UpdateBtn");
+
+  Updatebtn.addEventListener("click", function(){
+    if(CustomerLocInfo.length > 0){
+      CustomerLocInfo.pop();
+    }else{
+      console.log(
+        cStreet.value,
+        cStreet2.value,
+        cCity.value,
+        cSPR.value,
+        cZIP.value,
+        cDate.value,
+        cTime.value,)
+      CustomerLocInfo.push({StreetA:cStreet.value, Street2:cStreet2.value,City:cCity.value,SPR:cSPR.value, ZIP:cZIP.value,date:cDate.value,Time:cTime.value})
+      localStorage.setItem("CustomerLocInfos", JSON.stringify(CustomerLocInfo))
+    }
+    modal.style.display = "none"
+  })
   let Deliverybtn = document.getElementsByClassName("Delivery-Menu")[0];
   let Pickupbtn = document.getElementsByClassName("Pickup-Menu")[0];
   let indicator = document.getElementById("D-P-Indicator");
@@ -196,20 +294,43 @@ function initializeMenuPage() {
   //  -----------------------------------------------------------------------
 }
 function initializeCheckoutPage() {
+  
+  function ready() {
+    let quantityInputs = document.getElementsByClassName("Cart-Quantity");
+    for (let i = 0; i < quantityInputs.length; i++) {
+      let input = quantityInputs[i];
+      input.addEventListener("change", quantityChanged);
 
- function ready(){
-  let quantityInputs = document.getElementsByClassName("Cart-Quantity")
-  for (let i = 0; i < quantityInputs.length; i++){
-    let input = quantityInputs[i];
-    input.addEventListener("change", quantityChanged);
+    }
+  let mStreet   = document.getElementById("StreetAddress")
+  let mStreet2 = document.getElementById("AddressLine2")
+  let mCity    = document.getElementById("City")
+  let mSPR     = document.getElementById("State")
+  let mZIP      = document.getElementById("ZipCode");
+  let TransferedCustomLocInfo = JSON.parse(localStorage.getItem("CustomerLocInfos"));
+  console.log(TransferedCustomLocInfo)
+  console.log(TransferedCustomLocInfo[0].StreetA)
+  if (TransferedCustomLocInfo.length > -1){
+    mStreet.value = TransferedCustomLocInfo[0].StreetA;
+    mStreet2.value = TransferedCustomLocInfo[0].Street2;
+    mCity.value = TransferedCustomLocInfo[0].City;
+    mSPR.value = TransferedCustomLocInfo[0].SPR;
+    mZIP.value = TransferedCustomLocInfo[0].ZIP
   }
- }
+  
+  }
+  //  -----------------------------------------------------------------------
+  //                            retrieving and applying Coupons
+  //  -----------------------------------------------------------------------
+
   //  -----------------------------------------------------------------------
   //                            retrieving Item info
   //  -----------------------------------------------------------------------
-  console.log("is this on?");
+  
+
   let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
-  console.log(retrievedItems);
+  let PlaceOrderBtn = document.getElementById("PlaceOrderBtn");
+  // --------------------------------------------------------------------
   let itemList = document.getElementsByClassName("Item-Qty-Price-List")[0];
   for (let i = 0; i < retrievedItems.length; i++) {
     let cartRowContent = document.createElement("div");
@@ -225,51 +346,128 @@ function initializeCheckoutPage() {
                   type="number"
                   name="Quantity-Counter"
                   id="Quantity"
-                  value="1" min="1"
+                  value="${retrievedItems[i].foodquantity}" min="1"
                 />
               </div>
               <div class="Price-Container">
                 <p class ="Cart-Price">Total: $${retrievedItems[i].foodPrice}</p>
               </div>
-              <button class = "remove-btn">Remove</button>
+              <button class = "remove-btn"><ion-icon class = "remove-btn" name="close"></ion-icon></button>
            `;
     itemList.insertAdjacentElement("beforeEnd", cartRowContent);
   }
-  itemList.addEventListener("click", function(event){
-    if(event.target.classList.contains ("remove-btn")){removeItem(event);}
-  })
-  ready();
-  document.getElementById("PlaceOrderBtn").addEventListener("click", function(){
-    alert("Purchased complete")
-  })
-   //  -----------------------------------------------------------------------
-  //                            Quantity Change
-  //  -----------------------------------------------------------------------
-  function quantityChanged(event){
-    
-    let input = event.target;
-    console.log(input)
-    if (isNaN(input.value) || input.value <=0) {
-      input.value = 1
+  itemList.addEventListener("click", function (event) {
+    if (event.target.classList.contains("remove-btn")) {
+      removeItem(event);
     }
-    updateCartTotal();
+  });
+  ready();
+
+  
+  function resetPage() {
+    // localStorage.removeItem("StoredItems");
+    CouponClicked = false;
+    setTimeout(function () {
+      location.reload(location.href);
+    }, 2000);
+  }
+
+  function validateCard(
+    FirstName,
+    LastName,
+    Email,
+    CardName,
+    CardNumber,
+    ExpDate,
+    Cvv
+  ) {
+    let errorMessage = "";
+    if (!FirstName) {
+      errorMessage += "Please Enter First Name\n";
+    }
+    if (!LastName) {
+      errorMessage += "Please Enter Last Name\n";
+    }
+    if (!Email) {
+      errorMessage += "Please Enter Email\n";
+    }
+    if (!CardName) {
+      errorMessage += "Please Enter Card Name\n";
+    }
+    if (!CardNumber || !/^\d{13,19}$/.test(CardNumber)) {
+      errorMessage += "Please Enter Card Number(13 to 19 digits)\n";
+    }
+    if (!ExpDate) {
+      errorMessage += "Please Fill the expiry Date (MM/YY)\n";
+    }
+    //--------------------------------------------------------------------------------------------------------------------//
+    if (!Cvv || !/^\d{3,4}$/.test(Cvv)) {
+      // This is a regular expression that match specific numbers
+      //"^" marks the start of the string and "$" marks the end of the string
+      // "/d" matches any digit (0 -9) and "{number,number}" specifies that the digit (element) must occur 3 or 4 times
+      errorMessage += " CVV is invalid (must be 3 or 4 digits)\n";
+    }
+    //-------------------------------------------------------------------------------------------------------------------------//
+    return errorMessage;
+  }
+
+  //  -----------------------------------------------------------------------
+  //                             Quantity Change
+  //  -----------------------------------------------------------------------
+  function quantityChanged(event) {
+    let input = event.target;
+    couponApplied = false;
+    
+    if (isNaN(input.value) || input.value <= 0) {
+      input.value = 1;
+    }
+    console.log("Quantity HAs Changed", input.value )
+    updateCartTotal()
+    // ========================
+    let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
+    let CouponID = document.getElementById("CouponID");
+    let DiscountElement = document.getElementById("Discount");
+    let discount = 0;
+    let CouponCode= CouponID.value;
+    if(CouponCode){
+    for (let coupon of couponIdRetrieved) {
+      if (coupon.code === CouponCode) {
+        discount = coupon.discount;
+        CouponCode = coupon.code
+
+        break;
+      }
+    }
+    
+
+    // ===================
+    
+    
+    
+    if(CouponID.value === ""){
+      resetCoupon()
+    }else{
+      applyCoupon(DiscountElement, discount,CouponCode)
+    }
+  }
+    
   }
   //  -----------------------------------------------------------------------
   //                            Remove Function
   //  -----------------------------------------------------------------------
-  function removeItem(event) 
-  {
-    console.log("RemoveItem Pressed?")
+  function removeItem(event) {
+    console.log("RemoveItem Pressed?");
     let buttonClicked = event.target;
-    console.log(buttonClicked)
+
     let itemContainer = buttonClicked.closest(".Item-List-Container");
-    console.log(itemContainer);
+
     // VVV this will find the index of the item we want to remove
     let itemTitle = itemContainer.getElementsByTagName("p")[0].textContent;
     console.log(itemTitle);
     let retrievedItems = JSON.parse(localStorage.getItem("StoredItems")) || [];
-    console.log(retrievedItems);
-    let itemIndex = retrievedItems.findIndex((item) => item.foodTitle === itemTitle); //this is a callback function that check each item in the retrievedItems array
+    let itemIndex = retrievedItems.findIndex(
+      (item) => item.foodTitle === itemTitle
+    ); //this is a callback function that check each item in the retrievedItems array
     // it checks if foodTitle matches itemTitle adn return the index of that item
     if (itemIndex > -1) {
       retrievedItems.splice(itemIndex, 1); //removes it from array'
@@ -281,66 +479,448 @@ function initializeCheckoutPage() {
   //  -----------------------------------------------------------------------
   //                            Updating Total
   //  ------------------------------------------------------------------------
-  // let quantityValue = document.getElementById("Quantity").value;
-  // console.log(quantityValue);
-  function updateCartTotal(){
-let itemContainer = document.getElementsByClassName("Item-Qty-Price-List")[0];
-let itemRow = itemContainer.getElementsByClassName("Item-List-Container");
-let total = 0;
-let taxtotal = 0.06;
-let orderTotal = 0;
-let TipTotal = 0;
-for(let i = 0; i <itemRow.length;i++){
-  let cartRow = itemRow[i];
-  let priceElement = cartRow.getElementsByClassName("Cart-Price")[0];
-  let quantityElement = cartRow.getElementsByClassName("Cart-Quantity")[0];
-  let price = parseFloat(priceElement.innerText.replace('Total: $',''));
-  let quantity = parseInt(quantityElement.value);
-  total += price * quantity;
+  let currentCouponCode = null;
+  let currentDiscountAmount = 0
+  let currentDiscount = 0;
+  let CurrentSubTotal = 0
+  let CurrentTipTotal = 0
+  console.log("Base currentTip" , CurrentTipTotal)
+  let couponApplied = false
+  let autoAppliedCoupon = false
+  let CouponBtn = document.getElementById("CouponBtn");
+  let CurrentOrderTotal = 0;
+  let CurrentTaxTotal = 0;
+  function updateCartTotal() {
+  let itemContainer = document.getElementsByClassName("Item-Qty-Price-List")[0];
+  let itemRow = itemContainer.getElementsByClassName("Item-List-Container");
+  let total = 0;
   
-  // ---------------------tips-------------------------------
-}
-taxtotal = total * 0.06;
+    
+    
+    
+  for (let i = 0; i < itemRow.length; i++) {
+    let cartRow = itemRow[i];
+    let priceElement = cartRow.getElementsByClassName("Cart-Price")[0];
+    let quantityElement = cartRow.getElementsByClassName("Cart-Quantity")[0];
+    let price = parseFloat(priceElement.innerText.replace("Total: $", ""));
+    let quantity = parseInt(quantityElement.value);
+    total += price * quantity;
+    // ---------------------tips-------------------------------
+    }
+  let Taxtotal = total * 0.06;
 
+  CurrentTaxTotal = Taxtotal
+  let TipTotal = 0;
+  let orderTotal = total + Taxtotal + CurrentTipTotal;
+  
+  
+  console.log("current total", orderTotal)
+  updateUI(total, TipTotal, Taxtotal, orderTotal);
+  tipBtns(total,Taxtotal);
+  couponInput();
 
+  
+  // ---------------------------------------------------Tip btns function
+  function tipBtns (total, Taxtotal){
+    let tipBtns = document.getElementsByClassName("tip-btn");
+    for (let e = 0; e < tipBtns.length; e++) {
+      let tipBtnElement = tipBtns[e];
+      // -----------------removes previous one so it doesn't get overwritten
+      tipBtnElement.removeEventListener("click", function () {
+        console.log("tipButtonPressed")
+        couponApplied = false
+        let TipTotal = applyTip(tipBtnElement, total, Taxtotal);
+        let DiscountElement = document.getElementById("Discount");
+        let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
+        // applyCoupon(DiscountElement, couponIdRetrieved, CouponID.value, CurrentTipTotal);
+        orderTotal = total + Taxtotal + CurrentTipTotal;
+        updateUI(total, TipTotal, Taxtotal, orderTotal);
+          });
+      // -------------------------------------------------------------------
+      tipBtnElement.addEventListener("click", function () {
+        console.log("tipButtonPressed")
+        couponApplied = false
+        let TipTotal = applyTip(tipBtnElement, total, Taxtotal);
+        let DiscountElement = parseFloat(document.getElementById("Discount").innerText.replace("Discount: -$", ""));
+        if (isNaN(DiscountElement)){
+          DiscountElement = 0
+        }
+        let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
+        // applyCoupon(DiscountElement, couponIdRetrieved, CouponID.value, CurrentTipTotal);
+        orderTotal = total + Taxtotal + CurrentTipTotal - DiscountElement;
+        console.log(DiscountElement)
+        console.log(TipTotal)
+        console.log(orderTotal)
+        updateUI(total, TipTotal, Taxtotal, orderTotal);
+          });
+      }
+    }
+    // ------------------------------------------------coupon input function
+  
 
-
-let tipBtns = document.getElementsByClassName("tip-btn");
-for(let e = 0; e < tipBtns.length; e++){
-  let tipBtnElement = tipBtns[e];
-  tipBtnElement.addEventListener("click", function (){
-    console.log(tipBtnElement);
-    Tip = parseFloat(tipBtnElement.innerText.replace(`Tip: $`,``)) /100;
-if (isNaN(Tip)){
-  TipTotal = 0;
-  total = Math.round(total*100)/100;
-orderTotal = total + taxtotal
-  console.log(Tip)
-}else{
-  TipTotal = total * Tip;
-  total = Math.round(total*100)/100;
-orderTotal = (total + taxtotal) + TipTotal
-}
-
-console.log(orderTotal)
-
-document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`;
-document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
-document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(2)}`;
-document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
-
-  })
-}
-total = Math.round(total*100)/100;
-orderTotal = (total + taxtotal) + TipTotal
-console.log(orderTotal)
-
-document.getElementById("TotalPrice").innerText = `Total: $${total.toFixed(2)}`;
-document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
-document.getElementById("tax").innerText = `Tax: $${taxtotal.toFixed(2)}`;
-document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
   }
+
   updateCartTotal();
+
+  
+//--------------------------APPLY COUPON function--------------------------------
+
+  function applyCoupon(DiscountElement, CurrentTaxTotal, discount, Coupon, TipTotal = CurrentTipTotal){
+    
+    let discountAmount;
+    let newTotal;
+    console.log("applying Coupon",Coupon);
+    console.log("Discount", discount)
+      // ---------------------------------------------------------------
+    if (discount > 0 && !couponApplied ) {
+      couponApplied = true
+      currentCouponCode = Coupon;
+      currentDiscount = discount;
+        let total = parseFloat(document.getElementById("TotalPrice").innerText.replace("Subtotal: $", ""));
+        discountAmount = ((total + CurrentTaxTotal )* discount) / 100;
+        currentDiscountAmount = discountAmount
+        console.log("InApplyCouponTipTotal", TipTotal)
+        console.log("InApplyCouponDiscountAmount", discountAmount)
+        console.log("InApplyCouponTotal", total)
+
+        newTotal = (total - discountAmount) + TipTotal + CurrentTaxTotal
+        CurrentOrderTotal=newTotal
+        console.log("InApplyCouponNewTotal", newTotal)
+
+
+    DiscountElement.style.display = "block";
+            
+    
+    DiscountElement.innerHTML = `Discount: -$${discountAmount.toFixed(2)}`;
+    console.log("AHHAHAHHA",discountAmount)
+    currentDiscountAmount = discountAmount
+    document.getElementById("FinalTotal").innerText = `Order Total: $${newTotal.toFixed(2)}`;
+            console.log("Coupon Applied Successfully")
+    }
+    else {
+      if(couponApplied){
+        console.log("Coupon is already Applied")
+        }else{
+        console.log("no valid coupon")
+      }
+    }
+      }
+        
+      function updateUI(total, TipTotal, Taxtotal, orderTotal){
+        document.getElementById("TotalPrice").innerText = `Subtotal: $${total.toFixed(2)}`;
+        CurrentSubTotal = total
+        console.log("tipdeduction", TipTotal)
+        document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
+        document.getElementById("tax").innerText = `Tax: $${Taxtotal.toFixed(2)}`;
+        console.log(orderTotal)
+        document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
+        CurrentOrderTotal = orderTotal
+        console.log("UI Updated")
+        }
+
+  // --------------------------------------------APPLY TIP --------------
+  function applyTip(tipBtnElement, total, Taxtotal) {
+    let Tip = parseFloat(tipBtnElement.innerText.replace(`Tip: $`, ``)) / 100 || 0;
+    let TipTotal = 0;
+    let orderTotal = 0;
+    if (isNaN(Tip)) {
+      CurrentTipTotal = 0;
+      CurrentTipTotal = TipTotal;
+      console.log("tip is NaN",Tip);
+    } else {
+      TipTotal = total * Tip;
+      CurrentTipTotal = TipTotal;
+      console.log("CurrentTip applied", CurrentTipTotal)
+    }
+    total = Math.round(total * 100) / 100;
+    orderTotal = total + Taxtotal+ CurrentTipTotal;
+    console.log(orderTotal)
+console.log("tipTotal", TipTotal)
+    updateUI(total, CurrentTipTotal, Taxtotal, orderTotal);
+  
+    if(currentCouponCode){
+      let DiscountElement = document.getElementById("Discount");
+      applyCoupon(DiscountElement,CurrentTaxTotal, currentDiscount, currentCouponCode, CurrentTipTotal)
+      
+    }
+
+    return CurrentTipTotal;
+  }
+function triggerInputEvent(element){
+  let event = new Event ( "input",{bubbles:true}); //creates and input event
+  element.dispatchEvent(event); // this puts the event onto the Input element
+}
+function couponInput(){
+
+
+  let couponIdRetrieved = JSON.parse(localStorage.getItem("Coupons")) || [];
+  let CouponID = document.getElementById("CouponID");
+  let DiscountElement = document.getElementById("Discount");
+  let discount = 0;
+  let CouponCode;
+    // -----------------removes previous one so it doesn't get overwritten
+    CouponBtn.removeEventListener("click", function () {
+      let Coupon = CouponID.value
+      for (let coupon of couponIdRetrieved) {
+          if (coupon.code === Coupon) {
+            discount = coupon.discount;
+            CouponCode = coupon.code
+    
+            break;
+          }
+        }
+      if(CouponCode === CouponID.value){
+        
+        console.log("Applying coupon")
+        applyCoupon(DiscountElement, discount, Coupon)
+        }});
+  
+        CouponID.removeEventListener("input",function(){
+          let Coupon = CouponID.value
+          if (Coupon === "") {
+            
+            resetCoupon()
+            }
+        });
+  
+    // --------------------------------------------------------------------
+
+  if(!couponApplied && !autoAppliedCoupon){
+    
+    
+    if (couponIdRetrieved.map((coupon) => coupon.code).includes("FIRSTTIME")) {
+      console.log("Reward Coupon Found AutoApplying")
+      CouponID.value = "FIRSTTIME";
+      couponApplied = false
+      autoAppliedCoupon = true;
+      triggerInputEvent(CouponID);
+      let Coupon = CouponID.value
+    for (let coupon of couponIdRetrieved) {
+        if (coupon.code === Coupon) {
+          discount = coupon.discount;
+          CouponCode = coupon.code
+  
+          break;
+        }
+      }
+      
+      applyCoupon(DiscountElement,CurrentTaxTotal, discount, Coupon )
+    
+    
+  }
+else if (couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF")) {
+      console.log("Reward Coupon Found AutoApplying")
+      CouponID.value = "TWENTYOFF";
+      couponApplied = false
+      autoAppliedCoupon = true;
+      triggerInputEvent(CouponID);
+      let Coupon = CouponID.value
+    for (let coupon of couponIdRetrieved) {
+        if (coupon.code === Coupon) {
+          discount = coupon.discount;
+          CouponCode = coupon.code
+  
+          break;
+        }
+      }
+      applyCoupon(DiscountElement, CurrentTaxTotal, discount, Coupon)
+  }
+
+  else if (Coupon === ""){
+    resetCoupon();
+  }
+  }
+  CouponID.addEventListener("input",function(){
+    let Coupon = CouponID.value
+    if (Coupon === "") {
+      resetCoupon();
+      }
+  });
+
+  
+
+  CouponBtn.addEventListener("click", function () {
+    let Coupon = CouponID.value
+    for (let coupon of couponIdRetrieved) {
+        if (coupon.code === Coupon) {
+          discount = coupon.discount;
+          CouponCode = coupon.code
+  
+          break;
+        }
+      }
+    if(CouponCode === CouponID.value){
+      
+      console.log("Applying coupon")
+      applyCoupon(DiscountElement, CurrentTaxTotal, discount, Coupon)
+      }});
+  }
+  function resetCoupon(){
+    let Coupon = CouponID.value
+    if (Coupon === "") {
+      
+      console.log("Reset");
+      let DiscountElement= document.getElementById("Discount");
+      DiscountElement.style.display = "none";
+      DiscountElement.innerText = "Discount: $0.00";
+      couponApplied = false
+      autoAppliedCoupon = true
+      currentCouponCode= null
+      currentDiscount = 0
+      currentDiscountAmount = 0
+      updateCartTotal();
+  }}
+  console.log(CurrentSubTotal)
+  console.log(CurrentTaxTotal)
+  console.log(currentDiscount /100)
+  console.log(CurrentTipTotal)
+  console.log(CurrentOrderTotal)
+  
+  let FinalOrderTransfer = []
+  PlaceOrderBtn.addEventListener("click", function () {
+    let FirstName = document.getElementById("FirstName").value;
+    let LastName = document.getElementById("LastName").value;
+    let Email = document.getElementById("Email").value;
+    let ExpDate = document.getElementById("ExpDate").value;
+    let Cvv = document.getElementById("CVV").value;
+    let CardName = document.getElementById("CardName").value;
+    let CardNumber = document.getElementById("CardNumber").value;
+    let ExistingErrormsg = document.getElementsByClassName("Error-Msg")[0];
+    let existingSuccessMsg = document.getElementsByClassName("Success-Msg")[0];
+
+    if (ExistingErrormsg) {
+      ExistingErrormsg.remove();
+    }
+    if (existingSuccessMsg) {
+      existingSuccessMsg.remove();
+    }
+    let errorMessage = validateCard(
+      FirstName,
+      LastName,
+      Email,
+      CardName,
+      CardNumber,
+      ExpDate,
+      Cvv
+    );
+    if (errorMessage) {
+      let errorElement = document.createElement("p");
+      errorElement.className = "Error-Msg";
+      errorElement.style.color = "red";
+      errorElement.innerText = errorMessage;
+      PlaceOrderBtn.insertAdjacentElement("afterend", errorElement);
+    } else {
+      resetPage();
+      location.replace("receipt.html")
+      
+     localStorage.setItem("FinalOrderInfo", FinalOrderTransfer)
+     if( FinalOrderTransfer.length > 0){
+      FinalOrderTransfer.pop()
+     }else{
+      FinalOrderTransfer.push ({subtotal: CurrentSubTotal ,tax :CurrentTaxTotal , discount:currentDiscountAmount, tip: CurrentTipTotal, orderTotal: CurrentOrderTotal })
+      localStorage.setItem("FinalOrderInfo", JSON.stringify(FinalOrderTransfer))}
+    } 
+  });
+}
+
+function initializeRecieptPage(){
+  let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
+  
+  let itemList = document.getElementsByClassName("item-list")[0];
+  for (let i = 0; i < retrievedItems.length; i++) {
+    let cartRowContent = document.createElement("li");
+    cartRowContent.className = "Item-List-Container";
+    cartRowContent.innerHTML = `<li>
+                    <div class="item-details">
+                        <p><strong>${retrievedItems[i].foodTitle}</strong> - ${retrievedItems[i].foodPrice} -${retrievedItems[i].foodquantity}X</p>
+                    </div>
+                </li>
+           `;
+    itemList.insertAdjacentElement("beforeEnd", cartRowContent);
+  }
+  let retrievedFinalOrderInfo = JSON.parse(localStorage.getItem("FinalOrderInfo")) || [];
+  console.log(retrievedFinalOrderInfo[0].tax)
+  console.log(retrievedFinalOrderInfo[0].discount)
+  console.log(retrievedFinalOrderInfo[0].tip)
+  console.log(retrievedFinalOrderInfo[0].orderTotal)
+  let Totalsrow = document.getElementById("totalSection");
+  console.log(Totalsrow)
+  function FInalOrderPriceInfo(retrievedFinalOrderInfo){
+  let TotalsrowContent = ``
+    TotalsrowContent = `<div class = total-row> <p>SubTotal:</p><p>$${retrievedFinalOrderInfo[0].subtotal.toFixed(2)}</p> </div> <div class = total-row> <p>Tax:</p><p>$${retrievedFinalOrderInfo[0].tax}</p> </div>` 
+    console.log("discount",retrievedFinalOrderInfo[0].discount )
+    if (retrievedFinalOrderInfo[0].discount !== 0){
+      console.log(retrievedFinalOrderInfo[0].discount)
+      TotalsrowContent += `<div class = total-row> <p>Discount:</p><p> - $${retrievedFinalOrderInfo[0].discount.toFixed(2)}</p> </div>` 
+    }
+    if(retrievedFinalOrderInfo[0].tip !== 0 ){
+      console.log(retrievedFinalOrderInfo[0].tip)
+      TotalsrowContent += `<div class = total-row> <p>Tip:</p><p>$${retrievedFinalOrderInfo[0].tip.toFixed(2)}</p> </div>`
+    }
+    TotalsrowContent += `<div class = total-row> <p><strong>Order Total:</strong></p><p><strong>$${retrievedFinalOrderInfo[0].orderTotal.toFixed(2)}</strong></p> </div>`
+    return TotalsrowContent
+  }
+  let TotalInfo = FInalOrderPriceInfo(retrievedFinalOrderInfo)
+  let TotalHeader = document.getElementById("Total-Header");
+  let TotalsrowElement = document.createElement("div");
+  TotalsrowElement.innerHTML = TotalInfo
+  // TotalsrowContent.className = "total-row";
+  
+
+  Totalsrow.insertAdjacentElement("beforeEnd", TotalsrowElement);
+
+
+
+  /* -------------------------------------------------------------------------- */
+/*                                Progress Bar                                */
+/* -------------------------------------------------------------------------- */
+const steps = [
+  document.getElementById('received'),
+  document.getElementById('preparation'),
+  document.getElementById('delivery'),
+  document.getElementById('delivered')
+];
+
+let currentStep = 0; 
+
+function updateProgressBar() {
+  if (currentStep < steps.length) {
+      steps[currentStep].classList.add('active');
+      if (currentStep > 0) {
+          steps[currentStep - 1].classList.add('completed');
+      }
+      currentStep++;
+  }
+}
+
+
+setTimeout(updateProgressBar, 1000);
+setTimeout(updateProgressBar, 4000); 
+setTimeout(updateProgressBar, 7000); 
+setTimeout(updateProgressBar, 10000); 
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Date/Time                                 */
+/* -------------------------------------------------------------------------- */
+function updateDateTime() {
+  const currentDate = new Date();
+  
+
+  const date = currentDate.toLocaleDateString();  
+  const time = currentDate.toLocaleTimeString();  
+
+  document.getElementById('order-date').textContent = date;
+  document.getElementById('order-time').textContent = time;
+}
+
+updateDateTime();
+// ----------------------
+let CTABtn = document.getElementById("cta-button");
+CTABtn.addEventListener("click", function(){
+  localStorage.removeItem ("StoredItems")
+  location.replace("MenuPage.html")
+})
 }
 
 //  -----------------------------------------------------------------------
@@ -359,56 +939,12 @@ document.addEventListener("DOMContentLoaded", function () {
   } else if (document.getElementById("CheckoutPage")) {
     console.log("checkoutPage opening");
     initializeCheckoutPage();
+  }else if (document.getElementById("ReceiptPage")){
+    console.log("RecieptPage Open")
+    initializeRecieptPage();
+    
   }
 });
 
 
-let 
 
-
-
-
-  // document.addEventListener("DOMContentLoaded", function() {
-  //     const menuItems = JSON.parse(localStorage.getItem("menuItems"));
-  //     const menuContainer = document.getElementById("menuContainer");
-
-  //     menuItems.forEach(item => {
-  //         const itemCard = document.createElement("div");
-  //         itemCard.className = "item-card";
-
-  //         itemCard.innerHTML = `
-  //         <div class ="item-info">
-  //             <h4 class="item-header">${item.name}</h4>
-  //             <p class="item-description">${item.description}</p>
-  //         </div>
-  //         <div class="price">$<span>${item.price}</span> <button class="btn menu-add">Add to Cart</button></div>
-  //         `;
-
-  //         menuContainer.appendChild(itemCard);
-
-  //     });
-  // });
-
-
-  const menuItems = JSON.parse(localStorage.getItem("menuItems"));
-
-  {
-    const menuContainer = document.getElementById("menuContainer");
-    menuItems.forEach(item => {
-        const itemCard = document.createElement("div");
-        itemCard.className = "item-card";
-
-        itemCard.innerHTML = `
-        <div class ="item-info">
-            <h4 class="item-header">${item.name}</h4>
-            <p class="item-description">${item.description}</p>
-        </div>
-        <div class="price">$<span>${item.price}</span> <button class="btn menu-add">Add to Cart</button></div>
-        `;
-
-        menuContainer.appendChild(itemCard);
-
-    });
-  }
-
- 
