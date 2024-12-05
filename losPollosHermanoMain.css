@@ -94,11 +94,12 @@ a {
 	padding: 10px;
 }
 #Searchbar::placeholder {
-	color: hsl(0, 0%, 70%);
+	/* color: hsl(0, 0%, 70%); */
+	color: white;
 }
 #Searchbar:focus {
-	outline: none;
-	border: none;
+	outline: yellow;
+	border: 0.1em solid yellow;
 	/* background-color: none; */
 }
 #UserProf,
