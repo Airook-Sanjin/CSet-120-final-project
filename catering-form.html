@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="catering-form.css" />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bubblegum+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bubblegum+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="logo">
+				<img
+					id="logo"
+					src="LosPollosHermanosLogo2.webp"
+					alt="LosPollosHermanosLogo" />
+			</div>
+			<div class="nav">
+				<a
+					id="Menu"
+					href="http://"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Menu</a
+				>
+				<a
+					id="Who we are"
+					href="http://"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Who We Are</a
+				>
+				<a
+					id="Rewards"
+					href="http://"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Rewards</a
+				>
+				<a
+					id="Catering"
+					href="http://"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Catering</a
+				>
+			</div>
+			<div class="userNav">
+				<a
+					id="Set-a-location"
+					href="http://"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Set a Location</a
+				>
+				<ion-icon
+					id="UserProf"
+					name="person-circle-outline"></ion-icon>
+				<a
+					class="btnLink"
+					href="http://"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Order Now</a
+				>
+			</div>
+		</header>
+
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                               Menu Start                                -->
+		<!-- ----------------------------------------------------------------------- -->
+
+		<div class="menu-body">
+			<nav class="menu-section">
+				<div class="cta">
+					<div class="cta-inner">
+						<!-- <img src="lph-logos.png" /> -->
+						<p>CATERING</p>
+						<button><a href = "catering.html">Order Now</a></button>
+					</div>
+				</div>
+
+				<!-- ----------------------------------------------------------------------- -->
+				<!--                              Info Section                               -->
+				<!-- ----------------------------------------------------------------------- -->
+				<div class="flex">
+					<section class="info">
+						<div class="info-container">
+							<div class="info-flex">
+								<div class="info-inner">
+									<h1>Did We Hear "Party"?</h1>
+									<blockquote class="info-description">
+										Whether it's a birthday party to celebrate life or a
+										team celebration, we'll be there with our party hats.
+										<br />
+										<br />
+										Don't know what to order for your group? Have instructions
+										for us to make your gathering extra special? Fill out the
+										form and we'll help you make your party one to remember.
+									</blockquote>
+									<br />
+									<blockquote class="info-description">
+										Need help sooner? Give Us a Call at
+										<span>(602)-642-3110</span>
+									</blockquote>
+								</div>
+
+								<div class="info-inner-right">
+									<img src="media/catering-party.png" />
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ----------------------------------------------------------------------- -->
+					<!--                               Form Start                                -->
+					<!-- ----------------------------------------------------------------------- -->
+					<section class="form-section">
+						<div class="form-container">
+							<img src="media/red-logo.png" />
+							<h2>Plan Your Event with Us</h2>
+							<p>
+								Get started by filling out this form, and we'll reach out to you
+								ASAP. 
+								<br>Know what you want? Head to our
+								<a href="catering.html">menu</a> to order!
+							</p>
+							<div class="form-inner">
+							<form
+								id="cateringForm"
+								class="catering-form"
+								>
+								<div class="form-group">
+									<label for="name">Full Name</label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										placeholder="Enter your full name"
+										required />
+								</div>
+								<div class="form-group">
+									<label for="name">Phone Number</label>
+									<input
+										type="tel"
+										id="tel"
+										name="tel"
+										placeholder="(    ) ___ - ___"
+										required />
+								</div>
+								<div class="form-group">
+									<label for="name">Time</label>
+									<input
+										type="time"
+										id="time"
+										name="time"
+										placeholder="Time"
+										required />
+								</div>
+								<div class="form-group">
+									<label for="guests">Guest Count</label>
+									<input
+										type="number"
+										id="guests"
+										name="guests"
+										min="0" max="500"
+										placeholder=""
+										required />
+								</div>
+					
+								<div class="form-group">
+									<label for="email">Email Address</label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										placeholder="Enter your email"
+										required />
+								</div>
+								<div class="form-group">
+									<label for="eventDate">Event Date</label>
+									<input
+										type="date"
+										id="eventDate"
+										name="eventDate"
+										required />
+								</div>
+								<div class="form-group">
+									<label for="eventType">Type of Event</label>
+									<select
+										id="eventType"
+										name="eventType"
+										required>
+										<option
+											value=""
+											disabled
+											selected>
+											Select event type
+										</option>
+										<option value="wedding">Wedding</option>
+										<option value="corporate">Corporate Event</option>
+										<option value="birthday">Birthday Party</option>
+										<option value="other">Other</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="notes">Additional Notes</label>
+									<textarea
+										type="text"
+										id="notes"
+										name="notes"
+										placeholder="Add any additional notes or requests here"
+										required ></textarea>
+								</div>
+								<button
+									type="submit"
+									class="form-button">
+									SUBMIT
+								</button>
+								
+							</form>
+						</div>
+					</section>
+				</div>
+			</nav>
+		</div>
+		    <!-- ----------------------------------------------------------------------- -->
+    <!--                            Footer Section                               -->
+    <!-- ----------------------------------------------------------------------- -->
+    <footer>
+		<div class="footer-container">
+		  <div class="about">
+			<a href="#">Services</a>
+			<a href="#">Testimonials</a>
+			<a href="#">Contact us</a>
+		  </div>
+		  <div class="icon-footer">
+			<a href="http://"><ion-icon name="logo-facebook"></ion-icon></a>
+			<a href="http://"><ion-icon name="logo-twitter"></ion-icon></a>
+			<a
+			  href="https://www.instagram.com/eatlospolloshermanos/"
+			  target="_blank"
+			  ><ion-icon name="logo-instagram"></ion-icon
+			></a>
+		  </div>
+		  <section class="secret">
+			<img
+			  id="SecretGus"
+			  src="media/Gus Frank Icon.svg"
+			  alt="GusSecret"
+			/>
+		  </section>
+		  <div class="copyright">
+		  <p>Los Pollos Hermanos Inc. is a registered trademark of Madrigal Electromotive GmbH</p>
+		</div>
+		</div>
+		
+	  </footer>
+	  <script
+		type="module"
+		src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+	  ></script>
+	  <script
+		nomodule
+		src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+	  ></script>
+  
+	</body>
+</html>
