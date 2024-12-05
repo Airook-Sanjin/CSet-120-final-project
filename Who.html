@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="Who.css" />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="losPollosHermanoMain.css" />
+		<link
+			rel="icon"
+			type="Image/x-icon"
+			href="LosPollosImages-gif/LosPollosHermanosLogo1.png" />
+		<title>WhoWeAre</title>
+	</head>
+	<body>
+		<header
+			id="Page1"
+			class="header">
+			<div class="logo">
+				<img
+					id="logo"
+					src="LosPollosImages-gif/LosPollosHermanosLogo2.webp"
+					alt="LosPollosHermanosLogo" />
+			</div>
+
+			<div class="nav">
+				<a
+					id="Home"
+					href="index.html"
+					rel="noopener noreferrer"
+					>Home</a
+				>
+				<a
+					id="Menu"
+					href="MenuPage.html"
+					rel="noopener noreferrer"
+					>Menu</a
+				>
+				<a
+					id="Who we are"
+					href="Who.html"
+					rel="noopener noreferrer"
+					>Who we are</a
+				>
+				<a
+					id="Rewards"
+					href="rewards.html"
+					rel="noopener noreferrer"
+					>Rewards</a
+				>
+				<input
+					type="search"
+					name="Searchbar"
+					id="Searchbar"
+					placeholder="Search" />
+			</div>
+			<div class="userNav">
+				<a
+					id="Set-a-location"
+					href="http://"
+					target="_blank"
+					rel="noopener noreferrer">
+					<ion-icon name="location"></ion-icon>Set a Location</a
+				>
+				<a href="Sign-in.html"
+					><ion-icon
+						id="UserProf"
+						name="person-circle-outline"></ion-icon
+				></a>
+				<a href="FinalCartpage.html"
+					><ion-icon
+						id="Cart"
+						name="cart"></ion-icon
+				></a>
+				<a
+					id="Navbtn"
+					href="MenuPage.html"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Order Now</a
+				>
+			</div>
+		</header>
+
+		<h1>WHO WE ARE</h1>
+
+		<div class="Vid">
+			<video
+				autoplay
+				loop
+				muted
+				plays-inline
+				class="video.mp4">
+				<source
+					src="LosPollosImages-gif/videoplayback (3).mp4"
+					type="video/mp4" />
+			</video>
+		</div>
+		<div class="Start">
+			<p>
+				Every meal we feed you will be FLAVORFUL, WARM, FRESH, and filled with
+				LOVE and CARE. That is our promise to you. Our motto is "Los Pollos
+				Hermanos! Taste the Family!"
+			</p>
+		</div>
+		<div class="container">
+			<div class="GusMessage">
+				<img
+					src="https://preview.redd.it/the-subtle-genius-of-gustavo-fring-v0-ln7sttu8f02a1.jpg?auto=webp&s=280acf027f823f715852d59eadaaf19c123380ec"
+					alt="Gus" />
+				<h2>A MESSAGE FROM OUR FOUNDER GUS</h2>
+				<p>
+					"In the little village where I was born, life moved at a slower pace,
+					yet felt all the richer for it. There was my brother and I and we were
+					known far and wide for our delicious cooking. We seasoned our zesty
+					chicken using only the freshest herbs and spices. People called us
+					"los pollos hermanos" ("the chicken brothers"). Today, we carry on the
+					tradition in a way that would make my my brother proud. The finest
+					ingredients are brought together with love and care, then slow-cooked
+					to perfection. Yes, the old ways are still best at Los Pollos
+					Hermanos. But don't take my word for it. One taste, and you'll
+					know..."
+				</p>
+			</div>
+		</div>
+		<div class="container">
+			<div class="About">
+				<img
+					src="https://www.metro.us/wp-content/uploads/2020/02/breaking-bad-los-pollos-hermanos_0-900x491.jpg"
+					alt="About" />
+				<h2>ABOUT US</h2>
+				<p>
+					Los Pollos Hermanos is a fast-growing casual family restaurant founded
+					by Gus Fring and his business partner Max Arciniega. Together, the
+					"chicken brothers" made a name for themselves and their small-town
+					eatery by using authentic flavors and spices to make the tastiest
+					chicken south of the border.Since then, Los Pollos Hermanos has opened
+					our doors in the United States, serving families just like yours. And
+					we look forward to continued growth!
+				</p>
+			</div>
+		</div>
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const userStatus = localStorage.getItem('userStatus');
+				if (userStatus == 'guest') {
+					document.getElementById('Rewards').style.display = 'none';
+					document.getElementById('UserProf').style.display = 'none';
+				} else {
+					document.getElementById('Rewards').style.display = 'block';
+					document.getElementById('UserProf').style.display = 'block';
+				}
+			});
+		</script>
+	</body>
+</html>
