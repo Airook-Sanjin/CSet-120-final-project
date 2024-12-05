@@ -110,8 +110,7 @@ a {
 	color: white;
 }
 #Searchbar:focus {
-	outline: yellow;
-	border: 0.1em solid yellow;
+	/* border: solid yellow; */
 	/* background-color: none; */
 }
 #UserProf,
@@ -271,6 +270,7 @@ a {
 }
 .Catercard h3 {
 	color: #f20530;
+	font-size: 1.56rem;
 }
 .Catercard .btn {
 	width: 300px;
