@@ -426,6 +426,7 @@ function initializeMainPage() {
 
   let Mainmodal = document.getElementsByClassName("modal Main")[0];
   let Mainclosebtn = document.getElementsByClassName("Closebtn Main")[0];
+  console.log
   MainmodalBtn.addEventListener("click", function () {
     console.log(MainmodalBtn);
     Mainmodal.style.display = "block";
@@ -442,11 +443,10 @@ function initializeMainPage() {
   logo.addEventListener("click", function () {
     location.replace("index.html");
   });
-  let mainDeliverybtn = document.getElementsByClassName("Delivery-Main")[0];
-  let mainPickupbtn = document.getElementsByClassName("Pickup-Main")[0];
+  let mainDeliverybtn = document.getElementsByClassName("Main-Deliverybtn")[0];
+  let mainPickupbtn = document.getElementsByClassName("Main-Pickupbtn")[0];
 
-  let maindeliveryForm =
-    document.getElementsByClassName("Main-in-container")[0];
+  let maindeliveryForm =document.getElementsByClassName("Main-in-container")[0];
   mainDeliverybtn.addEventListener("click", function () {
     maindeliveryForm.style.display = "block";
   });
@@ -627,7 +627,7 @@ function initializeMenuPage() {
   });
   let Deliverybtn = document.getElementsByClassName("Delivery-Menu")[0];
   let Pickupbtn = document.getElementsByClassName("Pickup-Menu")[0];
-  let indicator = document.getElementById("D-P-Indicator");
+  let indicator = document.getElementById("Main-D-P-Indicator");
   let deliveryForm = document.getElementsByClassName("in-container")[0];
   Deliverybtn.addEventListener("click", function () {
     indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Delivery`;

@@ -1,369 +1,471 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Los Pollos Hermanos</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="losPollosHermanoMain.css" />
-    <link
-      rel="icon"
-      type="Image/x-icon"
-      href="LosPollosImages-gif/LosPollosHermanosLogo1.png"
-    />
-  </head>
-  <body>
-  <!-- ----------------------------------------------------------------------- -->
-<!--                            Sticky Navigation                            -->
-<!-- ----------------------------------------------------------------------- -->
-    <header id="Page1" class="header">
-      <div class="logo">
-        <img
-          id="logo"
-          src="LosPollosImages-gif/LosPollosHermanosLogo2.webp"
-          alt="LosPollosHermanosLogo"
-        />
-      </div>
-      <div class="nav">
-        <a
-          id="Menu"
-          href="MenuPage.html"
-          rel="noopener noreferrer"
-          >Menu</a
-        >
-        <a
-          id="Who we are"
-          href= "Who.html"
-          rel="noopener noreferrer"
-          >Who we are</a
-        >
-        <a id="Rewards" href="rewards.html" target="_blank" rel="noopener noreferrer"
-          >Rewards</a
-        >
-        <input
-          type="search"
-          name="Searchbar"
-          id="Searchbar"
-          placeholder="Search"
-        />
-      </div>
-      <div class="userNav">
-        <button class = "Modalbutton Main">
-          <ion-icon name="location"></ion-icon>Set a Location
-        </button>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Los Pollos Hermanos</title>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="losPollosHermanoMain.css" />
+		<link
+			rel="icon"
+			type="Image/x-icon"
+			href="LosPollosImages-gif/LosPollosHermanosLogo1.png" />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="icon"
+			type="Image/x-icon"
+			href="LosPollosImages-gif/LosPollosHermanosLogo1.png" />
+		<link
+			href="https://blogfonts.com/css/aWQ9MTM4MzY5JnN1Yj0zNjkmYz1zJnR0Zj1TaGFubm9uLUJvbGQub3RmJm49c2hhbm5vbg/Shannon.otf"
+			rel="stylesheet"
+			type="text/css" />
+	</head>
+	<body>
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Sticky Navigation                            -->
+		<!-- ----------------------------------------------------------------------- -->
+		<header
+			id="Page1"
+			class="header">
+			<div class="logo">
+				<img
+					id="logo"
+					src="LosPollosHermanosLogo2.webp"
+					alt="LosPollosHermanosLogo" />
+			</div>
+			<div class="nav">
+				<a
+					id="Menu"
+					href="MenuPage.html"
+					rel="noopener noreferrer"
+					>Menu</a
+				>
+				<a
+					id="Who we are"
+					href="Who.html"
+					rel="noopener noreferrer"
+					>Who we are</a
+				>
+				<a
+					id="Rewards"
+					href="rewards.html"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Rewards</a
+				>
+				<input
+					type="search"
+					name="Searchbar"
+					id="Searchbar"
+					placeholder="Search" />
+			</div>
+			<div class="userNav">
+				<button class="Modalbutton Main">
+					<ion-icon name="location"></ion-icon>Set a Location
+				</button>
 
-        <a href="Sign-in.html"
-          ><ion-icon id="UserProf" name="person-circle-outline"></ion-icon
-        ></a>
-        <a href="FinalCartpage.html"><ion-icon id="Cart" name="cart"></ion-icon></a>
-        <a id="Navbtn" href="MenuPage.html" rel="noopener noreferrer"
-          >Order Now</a
-        >
-      </div>
-    </header>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    const userStatus = localStorage.getItem("userStatus");
-    if (userStatus == "guest") {
-        document.getElementById("Rewards").style.display = "none";
-        document.getElementById("UserProf").style.display = "none";
-    }
-    else {
-        document.getElementById("Rewards").style.display = "block";
-        document.getElementById("UserProf").style.display = "block";
-    }
-});
+				<a href="Sign-in.html"
+					><ion-icon
+						id="UserProf"
+						name="person-circle-outline"></ion-icon
+				></a>
+				<a href="FinalCartpage.html"
+					><ion-icon
+						id="Cart"
+						name="cart"></ion-icon
+				></a>
+				<a
+					id="Navbtn"
+					href="MenuPage.html"
+					rel="noopener noreferrer"
+					>Order Now</a
+				>
+			</div>
+		</header>
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            First Video Block                            -->
+		<!-- ----------------------------------------------------------------------- -->
+		<section class="Deal">
+			<div class="video">
+				<div class="circle">
+					<img
+						src="LosPollosImages-gif/lph-logos.png"
+						alt="Los Pollos Hermanos logo" />
+					<!-- <img src="LosPollosImages-gif/FoodIcon.svg" alt="MealBox" /> -->
+				</div>
+				<video
+					autoplay
+					loop
+					muted
+					plays-inline
+					class="back-vid">
+					<source
+						src="LosPollosImages-gif/FoodVideo-cutting.mp4"
+						type="video/mp4" />
+				</video>
+			</div>
+		</section>
+		<section class="exploreMenu">
+			<div class="MenuCard-Container">
+				<div class="Card">
+					<img
+						src="LosPollosImages-gif/Sandwiches.png"
+						alt="sandwhich" />
+					<div class="MenuCardInfo">
+						<h3>Discover Our Delicious Menu</h3>
+						<p>
+							From our Signature Fried Chicken Sandwich to mouth-watering sides
+							and drinks, there's something for everyone. Click here to explore
+							our full Menu!
+						</p>
+						<a
+							class="btn"
+							href="MenuPage.html"
+							target="_blank"
+							rel="noopener noreferrer"
+							>Let's Eat</a
+						>
+					</div>
+				</div>
+				<div class="Card">
+					<div class="MenuCardInfo">
+						<h3>Life's Better with Rewards</h3>
+						<p>
+							Enjoy exclusive perks with every bite! Join out Los Pollos Rewards
+							program and start earning points for free food, special discounts,
+							and surprise rewards. Because loyalty deserves something
+							delicious!
+						</p>
+						<a
+							class="btn"
+							href="Sign-in.html"
+							target="_blank"
+							rel="noopener noreferrer"
+							>Join Now</a
+						>
+					</div>
+					<img
+						id="Image2"
+						src="LosPollosImages-gif/EatingChickenSandwich.jpg"
+						alt="sandwich" />
+				</div>
+			</div>
+		</section>
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Cater Section                            -->
+		<!-- ----------------------------------------------------------------------- -->
+		<section class="Cater">
+			<div class="cater-container">
+				<div class="Card Catercard">
+					<h3>Make Your Next Event Unforgettable!</h3>
+					<p>
+						Whether it's a birthday, office party, or family gathering, let Los
+						Pollos Hermanos bring the flavor! Our Catering Packages are perfect
+						for any occasion, with our signature chicken and fresh sides
+						guaranteed to make your guests smile
+					</p>
+					<a
+						class="btn"
+						href="catering-form.html"
+						
+						rel="noopener noreferrer"
+						>Explore Catering Options</a
+					>
+				</div>
+			</div>
+		</section>
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Second Set of card Section                           -->
+		<!-- ----------------------------------------------------------------------- -->
+		<section class="explore2">
+			<div class="card-containers">
+				<div class="Card Square">
+					<div class="image">
+						<img
+							src="LosPollosImages-gif/Its-giving-thanksgiving.png"
+							alt="Table of Food" />
+					</div>
+					<div class="square-info">
+						<h3>Thanksgiving Made Easy</h3>
+						<p>
+							Enjoy more time with family and let us handle the feast! Order
+							your Los Pollos Thanksgiving favorites, from crispy chicken to
+							savory sides, perfect for any holiday table
+						</p>
+						<a
+							class="btn"
+							href="http://"
+							>Order Catering</a
+						>
+					</div>
+				</div>
+				<div class="Card Square">
+					<div class="image">
+						<img
+							src="LosPollosImages-gif/Slaw Goodman.png"
+							alt="Table of Food" />
+					</div>
+					<div class="square-info">
+						<h3>Try Our "Slaw Goodman"!</h3>
+						<p>
+							Bring some flair to your meal with the slaw that's got character!
+							Our "Slaw Goodman" is packed with flavor, crunch, and a touch of
+							attitude-- perfect for any dish
+						</p>
+						<a
+							class="btn"
+							href="http://"
+							>Order now</a
+						>
+					</div>
+				</div>
+				<div class="Card Square">
+					<div class="image">
+						<img
+							id="takeOut"
+							src="LosPollosImages-gif/Take Out.png"
+							alt="Table of Food" />
+					</div>
+					<div class="square-info">
+						<h3>Craving Los Pollos at Home?</h3>
+						<p>
+							Enjoy your favorites anytime, anywhere! Order Los Pollos Hermanos
+							for delivery or takeout and bring the flavor straight to your
+							door.
+						</p>
+						<div class="btn-container">
+							<a
+								id="deliver"
+								class="btn"
+								href="Pickup-Takeout.html"
+								>Take Home</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="TestimonialSection">
+			<h3>Listen to What Our Family is Saying</h3>
+			<hr />
+			<div class="Testitmonial-Carousel">
+				<div class="Testimonial-Container">
+					<div class="Testimonial-Card">
+						<p>
+							"The chicken is absolutely amazing—juicy, crispy, and always
+							fresh. The staff is friendly, and I feel like family every time I
+							walk in. Highly recommend."
+						</p>
+						<div class="Testimonial-Customer">
+							<img
+								src="LosPollosImages-gif/Customer -2.webp"
+								alt="Linda" />
+							<p>Linda Torres</p>
+						</div>
+					</div>
+					<div class="Testimonial-Card">
+						<p>
+							"Best chicken in the Southwest! Great atmosphere, but I could
+							swear there's more going on behind the counter... Just kidding! Or
+							am I?"
+						</p>
+						<div class="Testimonial-Customer">
+							<img
+								src="LosPollosImages-gif/SaulGoodmanTest.jpg"
+								alt="Saul" />
+							<p>Saul Goodman</p>
+						</div>
+					</div>
+					<div class="Testimonial-Card">
+						<p>
+							"Their sides are underrated! The mashed potatoes and mac & cheese
+							are as good as the chicken. Perfect for lunch or takeout. Five
+							stars!"
+						</p>
+						<div class="Testimonial-Customer">
+							<img
+								src="LosPollosImages-gif/Customer3.jpg"
+								alt="Carlos" />
+							<p>Carlos Ramirez</p>
+						</div>
+					</div>
+					<div class="Testimonial-Card">
+						<p>
+							"The food is... adequate. Let's just say I've had my fair share of
+							reasons to visit. Always a dependable choice for a quick meal."
+						</p>
+						<div class="Testimonial-Customer">
+							<img
+								src="LosPollosImages-gif/WalterWhiteTest.jpg"
+								alt="Walter" />
+							<p>Walter White</p>
+						</div>
+					</div>
+					<div class="Testimonial-Card">
+						<p>
+							"Such a clean and inviting restaurant! They always make you feel
+							welcome, and the flavors are incredible. My go-to place for
+							comfort food."
+						</p>
+						<div class="Testimonial-Customer">
+							<img
+								src="LosPollosImages-gif/Customer-1.webp"
+								alt="Sara" />
+							<p>Sara L</p>
+						</div>
+					</div>
+				</div>
+				<div class="buttons">
+					<button
+						class="slide"
+						id="Prev-TestBtn">
+						<ion-icon name="caret-back-outline"></ion-icon>
+					</button>
+					<button
+						class="slide"
+						id="Next-TestBtn">
+						<ion-icon name="caret-forward-outline"></ion-icon>
+					</button>
+				</div>
+			</div>
+		</section>
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Footer Section                           -->
+		<!-- ----------------------------------------------------------------------- -->
+		<footer>
+			<div class="footer-container">
+				<div class="about">
+					<a href="#">Services</a>
+					<a href="#">Contact us</a>
+				</div>
+				<div class="icon-footer">
+					<a href="http://"><ion-icon name="logo-facebook"></ion-icon></a>
+					<a href="http://"><ion-icon name="logo-twitter"></ion-icon></a>
+					<a
+						href="https://www.instagram.com/eatlospolloshermanos/"
+						target="_blank"
+						><ion-icon name="logo-instagram"></ion-icon
+					></a>
+				</div>
+				<section class="secret">
+					<img
+						id="SecretGus"
+						src="LosPollosImages-gif/Gus Frank Icon.svg"
+						alt="GusSecret" />
+					<audio
+						src="LosPollosImages-gif/Gustavo Frank saying hello.mp3"></audio>
+				</section>
+			</div>
+		</footer>
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                                Modal Boxes                                -->
+		<!-- ----------------------------------------------------------------------- -->
+		<section class="SecretModal Main">
+			<div class="secretpopup-container">
+				<div class="SecretCard">
+					<h3>Take this code</h3>
+					<p>RESTGUS</p>
+				</div>
+			</div>
+		</section>
+		<section class="modal Main">
+			<div class="popup-container">
+				<div
+					id="Main-Delivery-modal"
+					class="popup-card">
+					<div class="popup-head">
+						<h5>ORDER DETAILS</h5>
+						<button class="Closebtn Main">&times;</button>
+					</div>
 
-    </script>
-<!-- ----------------------------------------------------------------------- -->
-<!--                            First Video Block                            -->
-<!-- ----------------------------------------------------------------------- -->
-    <section class="Deal">
-      <div class="video">
-        <img src="LosPollosImages-gif/FoodIcon.svg" alt="MealBox" />
-        <video autoplay loop muted plays-inline class="back-vid">
-          <source
-            src="LosPollosImages-gif/FoodVideo-cutting.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </div>
-    </section>
-    <section class="exploreMenu">
-      <div class="MenuCard-Container">
-        <div class="Card">
-          <img src="LosPollosImages-gif/ChickenSandwich.png" alt="sandwhich" />
-          <div class="MenuCardInfo">
-            <h3>Discover Our Delicious Menu</h3>
-            <p>
-              From our Signature Fried Chicken Sandwich to mouth-watering sides
-              and drinks, there's something for everyone. Click here to explore
-              our full Menu!
-            </p>
-            <a
-              class="btn"
-              href="MenuPage.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Let's Eat</a
-            >
-          </div>
-        </div>
-        <div class="Card">
-          <div class="MenuCardInfo">
-            <h3>Life's Better with Rewards</h3>
-            <p>
-              Enjoy exclusive perks with every bite! Join out Los Pollos Rewrds
-              program and start earning points for free food, special discounts,
-              and surprise rewards. Because loyalty deserves something
-              delicious!
-            </p>
-            <a
-              class="btn"
-              href="Sign-in.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Join Now</a
-            >
-          </div>
-          <img
-            id="Image2"
-            src="LosPollosImages-gif/EatingChickenSandwich.jpg"
-            alt="sandwich"
-          />
-        </div>
-      </div>
-    </section>
-<!-- ----------------------------------------------------------------------- -->
-<!--                            Cater Section                            -->
-<!-- ----------------------------------------------------------------------- -->
-    <section class="Cater">
-      <div class="cater-container">
-        <div class="Card Catercard">
-          <h3>Make Your Next Event Unforgettable!</h3>
-          <p>
-            Whether it's a birthday, office party, or family gathering, let Los
-            Pollos Hermanos bring the flavor! Our Catering Packages are perfect
-            for any occastion, with our signature chicken and fresh sides
-            gauranteed to make your guests smile
-          </p>
-          <a
-            class="btn"
-            href="http://"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Explore Catering Options</a
-          >
-        </div>
-      </div>
-    </section>
-<!-- ----------------------------------------------------------------------- -->
-<!--                            Second Set of card Section                           -->
-<!-- ----------------------------------------------------------------------- -->
-    <section class="explore2">
-      <div class="card-containers">
-        <div class="Card Square">
-          <div class="image">
-            <img
-              src="LosPollosImages-gif/Its-giving-thanksgiving.png"
-              alt="Table of Food"
-            />
-          </div>
-          <div class="square-info">
-            <h3>Thanksgiving Made Easy</h3>
-            <p>
-              Enjoy more time with family and let us handle the feast! Order
-              your Los Pollos Thanksgiving favorites, from crispy chicken to
-              savory sides, perfect for any holiday table
-            </p>
-            <a class="btn" href="http://">Order Catering</a>
-          </div>
-        </div>
-        <div class="Card Square">
-          <div class="image">
-            <img
-              src="LosPollosImages-gif/Slaw Goodman.png"
-              alt="Table of Food"
-            />
-          </div>
-          <div class="square-info">
-            <h3>Try Our "Slaw Goodman"!</h3>
-            <p>
-              Bring some flair to your meal with the slaw that's got character!
-              Our "Slaw Goodman" is packed with flavor, crunch, and a touch of
-              attitude-- perfect for any dish
-            </p>
-            <a class="btn" href="http://">Order now</a>
-          </div>
-        </div>
-        <div class="Card Square">
-          <div class="image">
-            <img
-              id="takeOut"
-              src="LosPollosImages-gif/Take Out.png"
-              alt="Table of Food"
-            />
-          </div>
-          <div class="square-info">
-            <h3>Craving Los Pollos at Home?</h3>
-            <p>
-              Enjoy your favorites anytime, anywhere! Order Los Pollos Hermanos
-              for delivery or takeout and bring the flavor straight to your
-              door.
-            </p>
-            <div class="btn-container">
-              <a id="deliver" class="btn" href="Pickup-Takeout.html"
-                >Take Home</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="TestimonialSection">
-      
-      <h3>Listen to What Our Family is Saying</h3>
-      <div class="Testitmonial-Carousel">
-        <div class="Testimonial-Container">
-          <div class="Testimonial-Card">
-            <p>"The chicken is absolutely amazing—juicy, crispy, and always fresh. The staff is friendly, and I feel like family every time I walk in. Highly recommend"</p>
-            <div class="Testimonial-Customer">
-              <img src="LosPollosImages-gif/Customer -2.webp" alt="Linda">
-              <p>Linda Torres</p>
-            </div>
-          </div>
-          <div class="Testimonial-Card">
-            <p>""Best chicken in the Southwest! Great atmosphere, but I could swear there's more going on behind the counter... Just kidding! Or am I?"
-              "</p>
-            <div class="Testimonial-Customer">
-              <img src="LosPollosImages-gif/SaulGoodmanTest.jpg" alt="Saul">
-              <p>SaulGoodman</p>
-            </div>
-          </div>
-          <div class="Testimonial-Card">
-            <p>"Their sides are underrated! The mashed potatoes and mac & cheese are as good as the chicken. Perfect for lunch or takeout. Five stars!"</p>
-            <div class="Testimonial-Customer">
-              <img src="LosPollosImages-gif/Customer3.jpg" alt="Carlos">
-              <p>Carlos Ramirez</p>
-            </div>
-          </div>
-          <div class="Testimonial-Card">
-            <p>"The food is... adequate. Let's just say I've had my fair share of reasons to visit. Always a dependable choice for a quick meal."</p>
-            <div class="Testimonial-Customer">
-              <img src="LosPollosImages-gif/WalterWhiteTest.jpg" alt="Walter">
-              <p>Walter White</p>
-            </div>
-          </div>
-          <div class="Testimonial-Card">
-            <p>"Such a clean and inviting restaurant! They always make you feel welcome, and the flavors are incredible. My go-to place for comfort food.""</p>
-            <div class="Testimonial-Customer">
-              <img src="LosPollosImages-gif/Customer-1.webp" alt="Sara">
-              <p>Sara L</p>
-            </div>
-          </div>
-        </div>
-        <div class="buttons">
-          <button class="slide" id="Prev-TestBtn"><ion-icon name="caret-back-outline"></ion-icon></button>
-          <button class="slide" id ="Next-TestBtn"><ion-icon name="caret-forward-outline"></ion-icon></button>
-        </div>
-       
-      </div>
-
-    </section>
-<!-- ----------------------------------------------------------------------- -->
-<!--                            Footer Section                           -->
-<!-- ----------------------------------------------------------------------- -->
-    <footer>
-      <div class="footer-container">
-        <div class="about">
-          <a href="Services.html">Services</a>
-          <a href="#">Testimonials</a>
-          <a href="Contact.html">Contact us</a>
-        </div>
-        <div class="icon-footer">
-          <a href="https://www.facebook.com/eatlospolloshermanos/photos/"><ion-icon name="logo-facebook"></ion-icon></a>
-          <a href="http://"><ion-icon name="logo-twitter"></ion-icon></a>
-          <a
-            href="https://www.instagram.com/eatlospolloshermanos/"
-            target="_blank"
-            ><ion-icon name="logo-instagram"></ion-icon
-          ></a>
-        </div>
-        <section class="secret">
-          <img
-            id="SecretGus"
-            src="LosPollosImages-gif/Gus Frank Icon.svg"
-            alt="GusSecret"
-          />
-          <audio src="LosPollosImages-gif/Gustavo Frank saying hello.mp3"></audio>
-        </section>
-      </div>
-    </footer>
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                Modal Boxes                                -->
-    <!-- ----------------------------------------------------------------------- -->
-<section class ="SecretModal Main">
-  <div class="secretpopup-container">
-    <div class = "SecretCard">
-      <h3>Take this code</h3>
-      <p>RESTGUS</p>
-    </div>
-  </div>
-</section>
-    <section class="modal Main">
-      <div class="popup-container">
-        <div id="Main-Delivery-modal" class="popup-card">
-          <div class="popup-head">
-            <h5>Order details</h5>
-            <button class="Closebtn Main">&times;</button>
-          </div>
-
-          <div class="P-D-btns-container">
-            <button class="P-D-btns Delivery-Main" id="Main-Deliverybtn">Delivery</button>
-            <button class="P-D-btns Pickup-Main" id="Main-Pickupbtn">Pickup</button>
-          </div>
-          <p>Place you Scheduled order right now</p>
-          <div class="form-container">
-            <div class="Main-in-container">
-              <label for="Location"><h4>Deliver To:</h4></label>
-              <input name="location" type="text" placeholder="Enter Location" />
-            </div>
-            <div class="Main-in-container">
-              <label for="Date"><h4>Choose Date:</h4></label>
-              <select name="Date" id="Date-Dropdown">
-                <option value="option1">Today</option>
-                <option value="option2">tomorrow</option>
-                <option value="option3">11/10</option>
-                <option value="option4">11/11</option>
-              </select>
-            </div>
-            <div class="Main-in-container">
-              <label for="Time"><h4>Choose Time:</h4></label>
-              <select name="Date" id="time-Dropdown">
-                <option value="option1">12:00pm</option>
-                <option value="option2">12:30pm</option>
-                <option value="option3">1:00pm</option>
-                <option value="option4">1:30pm</option>
-              </select>
-            </div>
-          </div>
-          <button class="Update-btn">Update</button>
-        </div>
-      </div>
-    </section>
-    <script type="module" src="script.js"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
+					<div class="P-D-btns-container">
+						<!-- <button
+							class="P-D-btns Delivery-Main"
+							id="Main-Deliverybtn">
+							Delivery
+						</button>
+						<button
+							class="P-D-btns Pickup-Main"
+							id="Main-Pickupbtn">
+							Pickup
+						</button> -->
+						<input
+							type="checkbox"
+							id="toggle"
+							class="toggleCheckbox" />
+						<label
+							for="toggle"
+							class="toggleContainer">
+							<div class="Main-Deliverybtn">Delivery</div>
+							<div class="Main-Pickupbtn">Pickup</div>
+						</label>
+					</div>
+					<p class="info-txt">Set a Delivery Address or Schedule Pickup</p>
+					<div class="form-container">
+						<div class="Main-in-container">
+							<label for="Location"><h4>Deliver To:</h4></label>
+							<input
+								name="location"
+								type="text"
+								placeholder="Enter Location" />
+						</div>
+						<div class="Main-in-container">
+							<label for="Date"><h4>Choose Date:</h4></label>
+							<select
+								name="Date"
+								id="Date-Dropdown">
+								<option value="option1">Today</option>
+								<option value="option2">tomorrow</option>
+								<option value="option3">11/10</option>
+								<option value="option4">11/11</option>
+							</select>
+						</div>
+						<div class="Main-in-container">
+							<label for="Time"><h4>Choose Time:</h4></label>
+							<select
+								name="Date"
+								id="time-Dropdown">
+								<option value="option1">12:00pm</option>
+								<option value="option2">12:30pm</option>
+								<option value="option3">1:00pm</option>
+								<option value="option4">1:30pm</option>
+							</select>
+						</div>
+					</div>
+					<button class="Update-btn">Update</button>
+				</div>
+			</div>
+		</section>
+		<script
+			type="module"
+			src="script.js"></script>
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	</body>
 </html>

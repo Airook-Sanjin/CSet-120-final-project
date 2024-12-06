@@ -38,13 +38,10 @@ body {
 .header {
 	display: flex;
 	flex-direction: row;
-	background-color: #d71d3f;
+	background-color: #f20530;
 	flex-wrap: wrap;
 	width: 100%;
 	justify-content: space-around;
-	/* position: fixed; */
-	/* z-index: 99; */
-	transition: top 0.3s;
 }
 .header a {
 	color: white;
@@ -66,24 +63,35 @@ body {
 	color: white;
 	background-color: transparent;
 	border: none;
+	font-family: 'Lato', serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: medium;
 }
 .Modalbutton ion-icon {
 	color: #f2e205;
 }
+
+.Modalbutton:hover {
+	color: #f2e205;
+	cursor: pointer;
+}
+
 #Searchbar {
 	border-radius: 20px;
 	background-color: hsl(349, 96%, 45%);
 	border: none;
 	color: white;
 	padding: 10px;
+	font-family: 'Lato', serif;
+	font-weight: 600;
 }
 #Searchbar::placeholder {
+	/* color: hsl(0, 0%, 70%); */
 	color: white;
-	font-weight: 500;
 }
 #Searchbar:focus {
-	outline: none;
-	border: none;
+	/* border: solid yellow; */
 	/* background-color: none; */
 }
 #UserProf,
@@ -93,37 +101,19 @@ body {
 }
 #Navbtn {
 	display: flex;
-	color: hsl(100, 100%, 100%);
 	background-color: #f2e205;
 	justify-content: center;
 	border-radius: 10px;
 	width: 120px;
 	padding: 3%;
+	color: rgb(205, 89, 0);
+	font-weight: 900;
 }
 #Navbtn:hover {
-	color: black;
+	color: rgb(205, 89, 0);
 	transform: scale(1.2);
 	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
-	transition: 0.9s;
-}
-
-.cta {
-	display: flex;
-	place-content: center;
-	/* margin-top: 20px;
-	margin-bottom: 20px; */
-	background-image: url('LosPollosImages-gif/chicken-header.jpg');
-	background-position: 0 50%;
-	background-size: cover;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
-.cta img {
-	width: 500px;
-	height: 300px;
-	object-fit: fit;
-	border-radius: 10px;
+	transition: 0.4s;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -192,6 +182,24 @@ ion-icon {
 	border-style: none;
 	cursor: pointer;
 	margin-left: -20px;
+}
+.cta {
+	display: flex;
+	place-content: center;
+	/* margin-top: 20px;
+	margin-bottom: 20px; */
+	background-image: url('LosPollosImages-gif/chicken-header.jpg');
+	background-position: 0 50%;
+	background-size: cover;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.cta img {
+	width: 500px;
+	height: 300px;
+	object-fit: fit;
+	border-radius: 10px;
 }
 /* -------------------------------------------------------------------------- */
 /*                                 Card Styles                                */

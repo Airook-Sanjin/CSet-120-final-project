@@ -47,6 +47,157 @@ h1 {
     margin-left: 670px;
     margin-top: -100px
 }
+#logo {
+	width: 100px;
+}
+.header {
+	display: flex;
+	flex-direction: row;
+	background-color: #f20530;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-around;
+}
+.header a {
+	color: white;
+	text-decoration: none;
+}
+.userNav,
+.nav,
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
+
+.nav a:hover,
+.userNav a:hover {
+	color: #f2e205;
+}
+.Modalbutton {
+	color: white;
+	background-color: transparent;
+	border: none;
+	font-family: 'Lato', serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: medium;
+}
+.Modalbutton ion-icon {
+	color: #f2e205;
+}
+
+.Modalbutton:hover {
+	color: #f2e205;
+	cursor: pointer;
+}
+
+#Searchbar {
+	border-radius: 20px;
+	background-color: hsl(349, 96%, 45%);
+	border: none;
+	color: white;
+	padding: 10px;
+	font-family: 'Lato', serif;
+	font-weight: 600;
+}
+#Searchbar::placeholder {
+	/* color: hsl(0, 0%, 70%); */
+	color: white;
+}
+#Searchbar:focus {
+	/* border: solid yellow; */
+	/* background-color: none; */
+}
+#UserProf,
+#Cart {
+	font-size: 30px;
+	color: #f2e205;
+}
+#Navbtn {
+	display: flex;
+	background-color: #f2e205;
+	justify-content: center;
+	border-radius: 10px;
+	width: 120px;
+	padding: 3%;
+	color: rgb(205, 89, 0);
+	font-weight: 900;
+}
+#Navbtn:hover {
+	color: rgb(205, 89, 0);
+	transform: scale(1.2);
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+	transition: 0.4s;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Nav Styles                                 */
+/* -------------------------------------------------------------------------- */
+
+.menu-nav {
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	place-content: center;
+	z-index: 1000;
+	top: 0;
+	width: 100%;
+	background-color: var(--secondary-red);
+	color: white;
+	position: sticky;
+	top: 0;
+}
+
+.menu-nav a:hover {
+	border-bottom: 3px solid white;
+	transition: 0.3s;
+}
+
+.menu-nav a {
+	text-decoration: none;
+	color: white;
+}
+
+.menu-nav a:last-child:hover {
+	border-bottom: none;
+}
+
+.location-button {
+	display: block;
+	color: white;
+}
+
+ion-icon {
+	font-size: 20px;
+}
+
+.menu-nav li {
+	margin-right: 2.5rem;
+	font-size: 1rem;
+	font-family: 'Arvo', serif;
+	color: white;
+	text-transform: uppercase;
+	font-weight: 550;
+}
+
+.menu-nav li:hover {
+	cursor: pointer;
+}
+
+.menu-nav::after {
+	content: button;
+}
+
+.location-button {
+	font-size: 1rem;
+	background-color: transparent;
+	border-style: none;
+	cursor: pointer;
+	margin-left: -20px;
+}
 
 .rewards-container {
     display: flex;
