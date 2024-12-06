@@ -55,6 +55,7 @@ body {
 .logo {
 	display: flex;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	width: 20%;
 	align-items: center;
 	gap: 20px;
@@ -62,6 +63,11 @@ body {
 	align-items: center;
 	gap: 40px;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	width: 20%;
+	align-items: center;
+	gap: 20px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 
 .nav a:hover,
@@ -85,11 +91,15 @@ body {
 }
 #Searchbar::placeholder {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	color: hsl(0, 0%, 70%);
 =======
 	color: white;
 	font-weight: 500;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	color: hsl(0, 0%, 70%);
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 #Searchbar:focus {
 	outline: none;
@@ -123,10 +133,14 @@ body {
 	/* margin-top: 20px;
 	margin-bottom: 20px; */
 <<<<<<< HEAD
+<<<<<<< HEAD
 	background-image: url('media/chicken-header.jpg');
 =======
 	background-image: url('LosPollosImages-gif/chicken-header.jpg');
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	background-image: url('media/chicken-header.jpg');
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	background-position: 0 50%;
 	background-size: cover;
 	padding-top: 20px;
@@ -202,10 +216,14 @@ ion-icon {
 
 .location-button {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	font-size: 16px;
 =======
 	font-size: 1rem;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	font-size: 16px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	background-color: transparent;
 	border-style: none;
 	cursor: pointer;
@@ -221,10 +239,14 @@ ion-icon {
 	margin-top: 0.5%;
 	justify-content: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	font-size: 40px;
 =======
 	font-size: 2.5rem;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	font-size: 40px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	font-family: 'Arvo', serif;
 	/* color: #ff4742; */
 	font-weight: 900;
@@ -234,6 +256,7 @@ ion-icon {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* .title-style {
 	content: '';
 	background-image: url(/media/zigzag.svg);
@@ -242,6 +265,11 @@ ion-icon {
 	content: '';
 	background-image: url(LosPollosImages-gif/zigzag.svg);
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+/* .title-style {
+	content: '';
+	background-image: url(/media/zigzag.svg);
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	background-position: 0 200%;
 	background-repeat: repeat-x;
 	background-size: contain;
@@ -256,6 +284,7 @@ ion-icon {
 	margin-left: 11%;
 	transform: translatey(220%);
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 #tenders img[src^='media/chicken-tenders.webp'] {
@@ -264,6 +293,11 @@ ion-icon {
 
 #tenders img[src^='LosPoillosImages/chicken-tenders.webp'] {
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+}
+
+#tenders img[src^='media/chicken-tenders.webp'] {
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	height: 10rem;
 }
 
@@ -290,12 +324,17 @@ ion-icon {
 	flex-direction: row;
 	background-color: white;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	padding-left: 10px;
 	border-radius: 10px;
 =======
 	padding-left: 0.625rem;
 	border-radius: 0.625rem;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	padding-left: 10px;
+	border-radius: 10px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	transition: transform 0.4s ease;
 	width: 90%;
@@ -305,14 +344,19 @@ ion-icon {
 
 .item-card:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	box-shadow: 0 0 0 0 50px rgba(0, 0, 0, 0.2);
 =======
 	box-shadow: 0 0 0 0 3.125rem rgba(0, 0, 0, 0.2);
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	box-shadow: 0 0 0 0 50px rgba(0, 0, 0, 0.2);
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	transform: scale(1.05);
 }
 
 .menu-add {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	margin-top: 15px;
 	background-color: #666;
@@ -322,11 +366,19 @@ ion-icon {
 	background-color: #666;
 	width: 6.25rem;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	margin-top: 15px;
+	background-color: #666;
+	width: 100px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	display: block;
 	position: absolute;
 	/* transform: translateY(220%); */
 	background: var(--main-red);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	border: 1px solid var(--main-red);
 	border-radius: 6px;
 	box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
@@ -337,6 +389,7 @@ ion-icon {
 	font-weight: 800;
 	min-height: 40px;
 	padding: 12px 14px;
+<<<<<<< HEAD
 =======
 	border: .0625rem solid var(--main-red);
 	border-radius: .375rem;
@@ -349,6 +402,8 @@ ion-icon {
 	min-height: 2.5rem;
 	padding: .75rem .875rem;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	text-align: center;
 }
 
@@ -360,11 +415,15 @@ ion-icon {
 .item-info {
 	margin-top: 2rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	margin-left: 20px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
 	width: 280px;
+<<<<<<< HEAD
 =======
 	margin-left: 1.25rem;
 	display: flex;
@@ -372,10 +431,13 @@ ion-icon {
 	flex-direction: column;
 	width: 17.5rem;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	font-family: 'Montserrat', serif;
 	font-size: 1rem;
 }
 .item-card img {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	margin-top: 15px;
 	padding-top: 5px;
@@ -383,6 +445,10 @@ ion-icon {
 	margin-top: .9375rem;
 	padding-top: .3125rem;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	margin-top: 15px;
+	padding-top: 5px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	height: 10rem;
 	width: 10rem;
 	object-fit: contain;
@@ -400,27 +466,37 @@ ion-icon {
 
 .item-description {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	font-size: 13px;
 }
 
 #desserts img[src='media/applepie.png'] {
+<<<<<<< HEAD
 =======
 	font-size: .8125rem;
 }
 
 #desserts img[src='LosPollosImages-gif/applepie.png'] {
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	height: 10rem;
 	width: 8rem;
 	object-fit: cover;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 #desserts img[src='media/frenchstix.png'] {
 	object-fit: cover;
 	height: 100px;
 	width: 8rem;
 	transform: translateY(50px);
+<<<<<<< HEAD
 =======
 #desserts img[src='LosPollosImages-gif/frenchstix.png'] {
 	object-fit: cover;
@@ -428,6 +504,8 @@ ion-icon {
 	width: 8rem;
 	transform: translateY(3.125rem);
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 
 /* -------------------------------- backtotop ------------------------------- */
@@ -435,12 +513,17 @@ ion-icon {
 	display: none;
 	position: fixed;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	bottom: 20px;
 	right: 30px;
 =======
 	bottom: 1.25rem;
 	right: 1.875rem;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	bottom: 20px;
+	right: 30px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	z-index: 99;
 	border: none;
 	background-color: var(--secondary-red);
@@ -449,12 +532,17 @@ ion-icon {
 	font-size: 1rem;
 	font-weight: 800;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	padding: 15px 20px;
 	border-radius: 60px;
 =======
 	padding: .938rem 1.25rem;
 	border-radius: 3.75rem;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	padding: 15px 20px;
+	border-radius: 60px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	text-align: center;
 	transition: 0.3s;
 	text-transform: uppercase;
@@ -471,10 +559,14 @@ ion-icon {
 /*                                Media Queries                               */
 /* -------------------------------------------------------------------------- */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @media (max-width: 768px) {
 =======
 @media (max-width: 48rem) {
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+@media (max-width: 768px) {
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	.item-card {
 		width: 150%;
 	}
@@ -484,6 +576,9 @@ ion-icon {
 /* -------------------------------------------------------------------------- */
 @keyframes animateTop {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	from {
 		top: -300px;
 		opacity: 0;
@@ -510,6 +605,7 @@ ion-icon {
 	background-color: hsl(0, 0%, 0%, 0.4);
 }
 .popup-card {
+<<<<<<< HEAD
 =======
 	from{top:-18.75rem;
 		 opacity: 0;}
@@ -551,12 +647,17 @@ ion-icon {
   }
   .popup-card{
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: 5% auto;
 	background-color: hsl(0, 0%, 97%);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	height: 500px;
 	width: 350px;
 	padding: 6%;
@@ -618,6 +719,7 @@ option:value {
 	border-radius: 20px;
 }
 
+<<<<<<< HEAD
 =======
 	height:31.25rem;
 	width:25rem;
@@ -679,6 +781,8 @@ option:value {
 	border-radius: 20px;
   }
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 /* ---------------------------------------------------- */
 /* ------               Footer Section       ---------- */
 /* ---------------------------------------------------- */
@@ -716,7 +820,11 @@ footer ion-icon {
 	text-align: center;
 	color: #850e19;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+}
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52

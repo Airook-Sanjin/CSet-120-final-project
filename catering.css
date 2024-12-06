@@ -17,16 +17,21 @@ html {
 	--teal: #05c7f2;
 	--warm-blue: #4aa3e3;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	--main-red: #f2022f;
 =======
 	--main-red: #f20519;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	--main-red: #f2022f;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	--secondary-red: #f20530;
 	--main-yellow: #f2e205;
 	--warm-yellow: #f0af02;
 	--light-grey: #666;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 .menu-body {
@@ -39,6 +44,8 @@ html {
 }
 
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 body {
 	height: 100vh;
 	background-color: whitesmoke;
@@ -48,6 +55,9 @@ body {
 /*                                Page Navigation                               */
 /* -------------------------------------------------------------------------- */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 #logo {
 	width: 100px;
 }
@@ -141,20 +151,27 @@ body {
 }
 
 .cta {
+<<<<<<< HEAD
 =======
 
 /* ----------------------------------- CTA ---------------------------------- */
 .cta {
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	display: flex;
 	place-content: center;
 	/* margin-top: 20px;
 	margin-bottom: 20px; */
 <<<<<<< HEAD
+<<<<<<< HEAD
 	background-image: url('media/header.jpg');
 =======
 	background-image: url('LosPollosImages-gif/Header2.jpg');
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	background-image: url('media/header.jpg');
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	background-position: 0 50%;
 	background-size: cover;
 	padding-top: 20px;
@@ -167,6 +184,7 @@ body {
 	object-fit: fit;
 	border-radius: 10px;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /* 
@@ -183,6 +201,8 @@ body {
 	z-index: 99;
 } */
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 
 /* -------------------------------- CTA end -------------------------------- */
 
@@ -236,6 +256,7 @@ body {
 	padding-bottom: 2rem;
 	place-content: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	z-index: 1000;
 	top: 0;
 	width: 100%;
@@ -248,17 +269,24 @@ body {
 .menu-nav a {
 =======
 	/* z-index: 99; */
+=======
+	z-index: 1000;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	top: 0;
 	width: 100%;
-	/* background-color: #5d9bd3; */
 	background-color: var(--secondary-red);
 	color: white;
+	position: sticky;
+	top: 0;
 }
 
 .menu-nav a {
+<<<<<<< HEAD
 	/* background-color: #edebed; */
 	/* color: #1f4e95; */
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	color: white;
 	padding: 10px 15px;
 	padding-top: 10px;
@@ -278,11 +306,14 @@ body {
 	display: block;
 	color: white;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	/* font-family: 'Arvo', serif;
 	font-weight: 200;
 	text-transform: uppercase; */
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 
 ion-icon {
@@ -324,6 +355,7 @@ ion-icon {
 	margin-top: 0.5%;
 	justify-content: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	font-size: 40px;
 	font-family: 'Arvo', serif;
 	/* color: #ff4742; */
@@ -351,11 +383,15 @@ ion-icon {
 	border-width: 4px;
 =======
 	font-size: 30px;
+=======
+	font-size: 40px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	font-family: 'Arvo', serif;
-	color: #ff4742;
-	font-weight: 800;
+	/* color: #ff4742; */
+	font-weight: 900;
 	-webkit-text-stroke-width: 1px;
 	-webkit-text-stroke-color: #761512;
+<<<<<<< HEAD
 	/* color: var(--main-red);
 	-webkit-text-stroke-width: 1.5px;
 	-webkit-text-stroke-color: black; */
@@ -376,6 +412,9 @@ ion-icon {
 	font-weight: 500;
 	font-family: 'Montserrat', serif;
 	color: #333;
+=======
+	color: var(--main-red);
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 
 .price {
@@ -383,6 +422,7 @@ ion-icon {
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
 }
 
+<<<<<<< HEAD
 .menu-heading p {
 	color: rgb(109, 109, 109);
 <<<<<<< HEAD
@@ -395,27 +435,60 @@ ion-icon {
 =======
 }
 
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 .menu-heading {
 	display: flex;
 	flex-direction: column;
 	place-content: center;
-	transform: translatey(100%);
+	transform: translatey(5rem);
 	margin-left: 10%;
+	background-color: white;
+	width: 900px;
+	padding: 40px 30px;
+	border-radius: 8px;
+	border: solid red;
+	border-width: 4px;
+}
+
+.catering-title {
+	text-transform: capitalize;
+	color: white;
+	font-size: 40px;
+	font-weight: 600;
+	font-family: 'Rum Raisin', serif;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: var(--main-red);
+}
+
+.menu-heading p {
+	color: rgb(109, 109, 109);
+	font-size: 1.2rem;
+	font-family: 'Quicksand', sans-serif;
 }
 
 .menu-heading a {
+<<<<<<< HEAD
 	color: #ff4742;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	color: var(--main-red);
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	font-weight: 400;
 	text-decoration: none;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 .menu-heading a:hover {
 	color: #da3530;
 	transition: 5ms;
 }
 
+<<<<<<< HEAD
 .title-style {
 	display: flex;
 	justify-content: left;
@@ -428,6 +501,13 @@ ion-icon {
 	margin-left: 10%;
 	transform: translatey(300%);
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+.title-style {
+	display: flex;
+	justify-content: left;
+	margin-left: 11%;
+	transform: translatey(220%);
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 
 .items-container {
@@ -438,9 +518,13 @@ ion-icon {
 	margin-right: 10rem;
 	margin-top: 10%;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	padding-bottom: 1rem;
 =======
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	padding-bottom: 1rem;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 
 .card-bottom {
@@ -452,6 +536,7 @@ ion-icon {
 	flex-direction: row;
 	background-color: white;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	padding-left: 10px;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -462,6 +547,12 @@ ion-icon {
 	transition: transform 0.4s ease;
 	/* width: 30rem; */
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	padding-left: 10px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	transition: transform 0.4s ease;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	width: 90%;
 	height: 13rem;
 	margin-right: 5rem;
@@ -480,12 +571,17 @@ ion-icon {
 	position: absolute;
 	/* transform: translateY(220%); */
 <<<<<<< HEAD
+<<<<<<< HEAD
 	background: var(--main-red);
 	border: 1px solid var(--main-red);
 =======
 	background: #ff4742;
 	border: 1px solid #ff4742;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	background: var(--main-red);
+	border: 1px solid var(--main-red);
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	border-radius: 6px;
 	box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
 	color: #ffffff;
@@ -517,9 +613,13 @@ ion-icon {
 	height: 5rem;
 	width: 5rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	object-fit: fill;
 =======
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	object-fit: fill;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 
 .item-info p {
@@ -541,12 +641,17 @@ ion-icon {
 	display: none;
 	position: fixed;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	bottom: 40px;
 	right: 80px;
 =======
 	bottom: 20px;
 	right: 30px;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	bottom: 40px;
+	right: 80px;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	z-index: 99;
 	border: none;
 	background-color: var(--secondary-red);
@@ -558,10 +663,14 @@ ion-icon {
 	border-radius: 60px;
 	text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	transition: 0.2s;
 =======
 	transition: 0.3s;
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+	transition: 0.2s;
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	text-transform: uppercase;
 }
 
@@ -575,6 +684,9 @@ ion-icon {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 /* ---------------------------------------------------- */
 /* ------               Footer Section       ---------- */
 /* ---------------------------------------------------- */
@@ -613,8 +725,11 @@ footer ion-icon {
 	color: #850e19;
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
+=======
+>>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 /* -------------------------------------------------------------------------- */
 /*                             Breakfast container                            */
 /* -------------------------------------------------------------------------- */
