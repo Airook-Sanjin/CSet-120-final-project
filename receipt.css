@@ -35,51 +35,77 @@ body {
 /*                                 Navigation                                 */
 /* -------------------------------------------------------------------------- */
 
-#logo{
-  width:100px
+#logo {
+	width: 100px;
 }
-.header{
-  display: flex;
-  flex-direction: row;
-  background-color: #d71d3f;
-  flex-wrap: wrap;
-  width:100%;
-  justify-content: space-around;
-  /* position: fixed; */
-  /* z-index: 99; */
-  transition: top 0.3s;
-
+.header {
+	display: flex;
+	flex-direction: row;
+	background-color: #f20530;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-around;
 }
-.header a{
-  color:white;
-  text-decoration: none;
+.header a {
+	color: white;
+	text-decoration: none;
 }
-.userNav,.nav,.logo{
-  display: flex;
-  width:20%;
-  align-items: center;
-  gap:20px
-}
-#UserProf{
-  font-size:30px;
-}
-.btnLink{
-  color:hsl(0, 0%, 0%);
-  background-color: #F2E205;
-  border-radius: 10px;
-  width:100px;
-  height: 40px;
-  padding:2%;
+.userNav,
+.nav,
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 40px;
 }
 
-.logo-small img { 
-  max-width: 10rem;
-  max-height: 10rem;
+.nav a:hover,
+.userNav a:hover {
+	color: #f2e205;
 }
-
-.logo-small {
-  display: flex;
-  place-content: center;
+.Modalbutton {
+	color: white;
+	background-color: transparent;
+	border: none;
+}
+.Modalbutton ion-icon {
+	color: #f2e205;
+}
+#Searchbar {
+	border-radius: 20px;
+	background-color: hsl(349, 96%, 45%);
+	border: none;
+	color: white;
+	padding: 10px;
+}
+#Searchbar::placeholder {
+	/* color: hsl(0, 0%, 70%); */
+	color: white;
+	font-weight: 500;
+}
+#Searchbar:focus {
+	outline: none;
+	border: none;
+	/* background-color: none; */
+}
+#UserProf,
+#Cart {
+	font-size: 30px;
+	color: #f2e205;
+}
+#Navbtn {
+	display: flex;
+	color: hsl(100, 100%, 100%);
+	background-color: #f2e205;
+	justify-content: center;
+	border-radius: 10px;
+	width: 120px;
+	padding: 3%;
+}
+#Navbtn:hover {
+	color: black;
+	transform: scale(1.2);
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+	transition: 0.9s;
 }
 
 

@@ -1153,6 +1153,7 @@ function initializeCheckoutPage() {
   let FinalOrderTransfer = [];
   PlaceOrderBtn.addEventListener("click", function () {
     let FirstName = document.getElementById("FirstName").value;
+    console.log(FirstName)
     let LastName = document.getElementById("LastName").value;
     let Email = document.getElementById("Email").value;
     let ExpDate = document.getElementById("ExpDate").value;
