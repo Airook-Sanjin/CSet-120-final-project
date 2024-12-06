@@ -18,7 +18,7 @@
 </head>
 <body>
     <header
-		
+		id ="ReceiptPage"
 			class="header">
 			<div class="logo">
 				<img
@@ -85,40 +85,48 @@
             <p>Thanks for choosing Los Pollos Hermanos</p>
         </header >
 
-        <!-- ----------------------------------------------------------------------- -->
-        <!--                          Progress Bar Section                           -->
-        <!-- ----------------------------------------------------------------------- -->
-        <section class="order-status">
-            <h2>Order Status</h2>
-            <div class="progress-bar">
-                <div class="progress-step" id="received">
-                    <span>Order Received</span>
-                </div>
-                <div class="progress-step" id="preparation">
-                    <span>In Preparation</span>
-                </div>
-                <div class="progress-step" id="delivery">
-                    <span>On Its Way</span>
-                </div>
-                <div class="progress-step" id="delivered">
-                    <span>Delivered</span>
-                </div>
-            </div>
-        </section>
+			<!-- ----------------------------------------------------------------------- -->
+			<!--                          Progress Bar Section                           -->
+			<!-- ----------------------------------------------------------------------- -->
+			<section class="order-status">
+				<h2>Order Status</h2>
+				<div class="progress-bar">
+					<div
+						class="progress-step"
+						id="received">
+						<span>Order Received</span>
+					</div>
+					<div
+						class="progress-step"
+						id="preparation">
+						<span>In Preparation</span>
+					</div>
+					<div
+						class="progress-step"
+						id="delivery">
+						<span>On Its Way</span>
+					</div>
+					<div
+						class="progress-step"
+						id="delivered">
+						<span>Delivered</span>
+					</div>
+				</div>
+			</section>
 
-        <section class="order-summary">
-            <h2>Order Summary</h2>
-            <div class="order-details">
-                <p><strong>Order Number:</strong> #987654</p>
-                <p><strong>Date:</strong> <span id="order-date"></span></p>
-                <p><strong>Time:</strong> <span id="order-time"></span></p>
-            </div>
-        </section>
+			<section class="order-summary">
+				<h2>Order Summary</h2>
+				<div class="order-details">
+					<p><strong>Order Number:</strong> #987654</p>
+					<p><strong>Date:</strong> <span id="order-date"></span></p>
+					<p><strong>Time:</strong> <span id="order-time"></span></p>
+				</div>
+			</section>
 
         <section class="items">
             <h2>What's Cookin'?</h2>
             <ul class="item-list">
-                <!-- <li>
+                <li>
                     <div class="item-details">
                         <p><strong>Crispy Chicken Sandwich</strong> - $4.99</p>
                     </div>
@@ -132,7 +140,7 @@
                     <div class="item-details">
                         <p><strong>Fountain Drink (Coca cola)</strong> - $1.30</p>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </section>
 
@@ -154,7 +162,7 @@
 
         <footer>
             <div class="cta">
-                <button href="MenuPage.html" id="cta-button">Order Again</button>
+                <button href="MenuPage.html" class="cta-button">Order Again</button>
             </div>
         </footer>
     </div>

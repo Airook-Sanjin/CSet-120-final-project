@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   /* background-color: var(--background-white); */
   /* background-color: var(white); */
   background-image: url("LosPollosImages-gif/lphbackground.webp");
@@ -16,103 +16,108 @@ body {
   line-height: 1.6;
 }
 
-:root { 
---dark-blue: #021F59;
---teal: #05C7F2;
---warm-blue: #4aa3e3;
---main-red: #F20519;
---secondary-red: #F20530;
---main-yellow: #F2E205;
---warm-yellow : #f0af02;
---light-grey: #666;
---accent-orange: #ff7043;
---background-white: #f4f4f4;
-
+:root {
+  --dark-blue: #021f59;
+  --teal: #05c7f2;
+  --warm-blue: #4aa3e3;
+  --main-red: #f20519;
+  --secondary-red: #f20530;
+  --main-yellow: #f2e205;
+  --warm-yellow: #f0af02;
+  --light-grey: #666;
+  --accent-orange: #ff7043;
+  --background-white: #f4f4f4;
 }
-
 
 /* -------------------------------------------------------------------------- */
 /*                                 Navigation                                 */
 /* -------------------------------------------------------------------------- */
 
 #logo {
-	width: 100px;
+  width: 100px;
 }
 .header {
-	display: flex;
-	flex-direction: row;
-	background-color: #f20530;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  background-color: #f20530;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
 }
 .header a {
-	color: white;
-	text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 .userNav,
 .nav,
 .logo {
-	display: flex;
-	align-items: center;
-	gap: 40px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .nav a:hover,
 .userNav a:hover {
-	color: #f2e205;
+  color: #f2e205;
 }
 .Modalbutton {
-	color: white;
-	background-color: transparent;
-	border: none;
+  color: white;
+  background-color: transparent;
+  border: none;
 }
 .Modalbutton ion-icon {
-	color: #f2e205;
+  color: #f2e205;
 }
 #Searchbar {
-	border-radius: 20px;
-	background-color: hsl(349, 96%, 45%);
-	border: none;
-	color: white;
-	padding: 10px;
+  border-radius: 20px;
+  background-color: hsl(349, 96%, 45%);
+  border: none;
+  color: white;
+  padding: 10px;
 }
 #Searchbar::placeholder {
-	/* color: hsl(0, 0%, 70%); */
-	color: white;
-	font-weight: 500;
+  /* color: hsl(0, 0%, 70%); */
+  color: white;
+  font-weight: 500;
 }
 #Searchbar:focus {
-	outline: none;
-	border: none;
-	/* background-color: none; */
+  outline: none;
+  border: none;
+  /* background-color: none; */
 }
 #UserProf,
 #Cart {
-	font-size: 30px;
-	color: #f2e205;
+  font-size: 30px;
+  color: #f2e205;
 }
 #Navbtn {
-	display: flex;
-	color: hsl(100, 100%, 100%);
-	background-color: #f2e205;
-	justify-content: center;
-	border-radius: 10px;
-	width: 120px;
-	padding: 3%;
+  display: flex;
+  color: hsl(100, 100%, 100%);
+  background-color: #f2e205;
+  justify-content: center;
+  border-radius: 10px;
+  width: 120px;
+  padding: 3%;
 }
 #Navbtn:hover {
-	color: black;
-	transform: scale(1.2);
-	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
-	transition: 0.9s;
+  color: black;
+  transform: scale(1.2);
+  box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+  transition: 0.9s;
 }
-
 
 /* -------------------------------------------------------------------------- */
 /*                                   Receipt                                  */
 /* -------------------------------------------------------------------------- */
+.logo-small {
+  display: flex;
+  place-content: center;
+}
 
+.logo-small img {
+  max-width: 10rem;
+  max-height: 10rem;
+}
 
 .receipt-container {
   max-width: 900px;
@@ -140,7 +145,6 @@ header p {
   font-size: 1.2rem;
   color: #555;
 }
-
 
 /* -------------------------------------------------------------------------- */
 /*                                Progress Bar                                */
@@ -194,7 +198,7 @@ header p {
 }
 
 .progress-step:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 100%;
@@ -271,7 +275,7 @@ footer {
   gap: 20px;
 }
 
-#cta-button {
+.cta-button {
   padding: 12px 25px;
   background-color: var(--secondary-red);
   color: white;
@@ -279,13 +283,49 @@ footer {
   border-radius: 30px;
   font-weight: 600;
   text-align: center;
-  transition: all 0.3s ease;
-  border:none;
+  transition: background-color 0.3s ease;
+  border: none;
 }
 
-#cta-button:hover {
+.cta-button:hover {
   background-color: #ba0425;
   transform: translateY(-2px);
   box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
 }
 
+/* ---------------------------------------------------- */
+/* ------               Footer Section       ---------- */
+/* ---------------------------------------------------- */
+footer a {
+  color: hsl(100, 100%, 100%);
+  text-decoration: none;
+}
+footer ion-icon {
+  font-size: 30px;
+  color: hsl(349, 96%, 28%);
+}
+.footer-container {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: hsl(349, 96%, 44%);
+  height: 200px;
+  position: relative;
+}
+.about {
+  display: flex;
+  gap: 20px;
+}
+.icon-footer {
+  display: flex;
+  gap: 20px;
+}
+
+.copyright {
+  display: block;
+  width: 30%;
+  text-wrap: wrap;
+  text-align: center;
+  color: #850e19;
+}

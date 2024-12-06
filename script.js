@@ -1306,7 +1306,7 @@ function initializeRecieptPage() {
 
   updateDateTime();
   // ----------------------
-  let CTABtn = document.getElementById("cta-button");
+  let CTABtn = document.querySelector(".cta-button");
   CTABtn.addEventListener("click", function () {
     localStorage.removeItem("StoredItems");
     location.replace("MenuPage.html");
