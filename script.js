@@ -416,9 +416,10 @@ function joinAsGuest() {
   localStorage.setItem("userStatus", "guest");
   window.location.replace("index.html");
 }
-
+let firstTime = true
 // ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
+  
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
   //  -----------------------------------------------------------------------
