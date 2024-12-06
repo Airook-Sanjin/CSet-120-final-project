@@ -948,23 +948,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-window.addEventListener("storage", () => {
-  const removeApplePie = localStorage.getItem("removeApplePie");
-  if (removeApplePie === "true") {
-    //remove the apple pie from the menu 
-    const applePieCard = document.getElementById("apple");
-    applePieCard.remove();
-    localStorage.removeItem("removeApplePie");
-  }
-});
-
-
-window.addEventListener("storage", () => {
-  const removeApplePie = localStorage.getItem("removeApplePie");
-  if (removeApplePie === "true") {
-    // Remove the apple pie from the menu
-    const applePieElement = document.getElementById("apple-pie");
-    applePieElement.style.display = "none";
-    localStorage.removeItem("removeApplePie");
-  }
-});
