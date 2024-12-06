@@ -385,7 +385,7 @@ function initializeSignInPage() {
   }
   const managerInfo = {
     email: "LosPollosManager81@gmail.com",
-    password: "GusFring2425",
+    password: "GusFring2425!",
   };
 
   function login() {
@@ -413,9 +413,10 @@ function initializeSignInPage() {
 }
 
 function joinAsGuest() {
-	localStorage.setItem('userStatus', 'guest');
+	localStorage.setItem('userStatus', "guest");
 	window.location.replace('index.html');
-}
+  }
+
 
 // ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
