@@ -406,7 +406,9 @@ a {
 	transform: translate(41rem, 11rem);
 }
 
-.icon-inner {
+span {
+	color: #dd052d;
+	font-weight: 800;
 }
 
 .Testimonial-Customer {
@@ -447,13 +449,13 @@ a {
 	margin-left: 70%;
 }
 
-mark {
+/* mark {
 	display: inline-block;
 	line-height: 1px;
 	padding-bottom: 0.5em;
 	background-color: #2d50a9;
 	color: white;
-}
+} */
 
 hr {
 	border: 3px solid red;
@@ -616,7 +618,7 @@ footer ion-icon {
 	border: none;
 	width: 20px;
 	font-size: 30px;
-	transform: translate(-1rem, -1rem);
+	transform: translate(-3.5rem, -1rem);
 	color: #b3b2b2;
 }
 
@@ -723,6 +725,8 @@ footer ion-icon {
 	border-radius: 20px;
 	padding: 2%;
 	font-family: 'Lato', serif;
+	margin-top: 5px;
+	color: grey;
 }
 
 .form-container input {
