@@ -95,4 +95,14 @@ if (section) {
     });
 
 
-    
+   const closeButton = document.getElementById("close-button");
+   closeButton.addEventListener("click", function () {
+       localStorage.setItem("removeApplePie", "true");
+   }) 
+
+   const doButton = document.getElementById("do-button");
+
+doButton.addEventListener("click", () => {
+  // Send a message to the menu page to change the HTML to red
+  localStorage.setItem("changeToRed", "true");
+});
