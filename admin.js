@@ -1,6 +1,34 @@
+document.addEventListener("DOMContentLoaded", function(){
+    menuDisplay()
+})
+document.querySelectorAll(".item-card .close-button").forEach(button => {
+    button.addEventListener("click", function () {
+        this.closest(".item-card").style.display = "none";
+    }); 
+});
+
+//  const addItemForm = document.getElementById("addItemForm");
+
+//  addItemForm.addEventListener("submit", function (event) {
+//      event.preventDefault();
+//      const itemName = document.getElementById("itemName").value;
+//     const itemPrice = document.getElementById("itemPrice").value;
+//     const itemDescription = document.getElementById("itemDescription").value;
+
+//     const addItemDisplay = document.querySelector(".add-item-display");
+//      const itemCard = addItemDisplay.querySelector(".item-card");
+
+//     itemCard.querySelector(".item-header").textContent = itemName;
+//      itemCard.querySelector(".item-description").textContent = itemDescription;
+//     itemCard.querySelector(".price span:nth-child(2)").textContent =`$${itemPrice}`;
+//  });
+
+//   function clearForm() {
+//      document.getElementById("addItemForm").reset();
+//  }
 
 
-//Delete item
+
 document.querySelectorAll(".item-card .close-button").forEach(button => {
     button.addEventListener("click", function () {
         this.closest(".item-card").style.display = "none";

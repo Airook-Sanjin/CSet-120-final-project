@@ -22,28 +22,64 @@
     <!-- ----------------------------------------------------------------------- -->
     <!--                            Sticky Navigation                            -->
     <!-- ----------------------------------------------------------------------- -->
-    <header id="MenuPage" class="header">
-        <div class="logo">
-            <img id = "logo" src="LosPollosHermanosLogo2.webp" alt="LosPollosHermanosLogo">
-        </div>
-        <div class="nav">
-            <a id ="Menu">Menu</a>
-            <a id ="Who we are"href="Who.html" rel="noopener noreferrer">Who we are</a>
-            <a id ="Rewerds"href="http://" target="_blank" rel="noopener noreferrer">Rewards</a>
-            <a id ="Menu"href="http://" target="_blank" rel="noopener noreferrer">Menu</a>
-            <a id ="Featured"href="features.html" rel="noopener noreferrer">Featured Items</a>
-        </div>
-        <div class="userNav">
-            <button class="Modalbutton Menu"><ion-icon name="location"></ion-icon>Set a Location</button>
-            <a href="Sign-in.html"
-              ><ion-icon id="UserProf" name="person-circle-outline"></ion-icon
-            ></a>
-            <a href="FinalCartpage.html"><ion-icon id="Cart" name="cart"></ion-icon></a>
-            <a id="Navbtn" href="MenuPage.html"noopener noreferrer"
-              >Order Now</a
-            >
-        </div>
-    </header>
+    <header
+			id="MenuPage"
+			class="header">
+			<div class="logo">
+				<img
+					id="logo"
+					src="LosPollosHermanosLogo2.webp"
+					alt="LosPollosHermanosLogo" />
+			</div>
+			<div class="nav">
+				<a
+					id="Menu"
+					href="MenuPage.html"
+					rel="noopener noreferrer"
+					>Menu</a
+				>
+				<a
+					id="Who we are"
+					href="Who.html"
+					rel="noopener noreferrer"
+					>Who we are</a
+				>
+				<a
+					id="Rewards"
+					href="rewards.html"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Rewards</a
+				>
+				<input
+					type="search"
+					name="Searchbar"
+					id="Searchbar"
+					placeholder="Search" />
+			</div>
+			<div class="userNav">
+				<button class="Modalbutton Menu">
+					<ion-icon name="location"></ion-icon>Set a Location
+				</button>
+
+				<a href="Sign-in.html"
+					><ion-icon
+						id="UserProf"
+						name="person-circle-outline"></ion-icon
+				></a>
+				<a href="FinalCartpage.html"
+					><ion-icon
+						id="Cart"
+						name="cart"></ion-icon
+				></a>
+				<a
+					id="Navbtn"
+					href="MenuPage.html"
+					rel="noopener noreferrer"
+					>Order Now</a
+				>
+			</div>
+		</header>
 
     <!-- ----------------------------------------------------------------------- -->
     <!--                               Menu Start                                -->
@@ -54,29 +90,14 @@
           <img src="LosPollosImages-gif/lph-logos.png" />
         </div>
 
-        <div class="menu-body">
+        <div  class="menu-body">
           <ul class="menu-nav">
-            <li>
-              <a href="#breakfast-specialties"> Breakfast Specialties</a>
-            </li>
-
-            <li>
-              <a href="#pollos-burritos">Pollos Burritos</a>
-            </li>
-
-            <li>
-              <a href="#pollo-specialties"> Pollos Specialties</a>
-            </li>
-
-            <li>
-              <a href="#sandwiches"> Sandwiches</a>
-            </li>
-            <li>
-              <a href="#desserts"> Desserts</a>
-            </li>
-            <li>
-              <a href="#beverages"> Beverages</a>
-            </li>
+            <li><a href="#BreakfastSpecialtiess">Breakfast Specialties</a></li>
+          <li><a href="#PollosBurritos">Pollos Burritos</a></li>
+          <li><a href="#PolloSpecialties">Pollo Specialties</a></li>
+          <li><a href="#Sandwiches">Sandwiches</a></li>
+          <li><a href="#Desserts">Desserts</a></li>
+          <li><a href="#Beverages">Beverages</a></li>
             <li>
               <button id="D-P-Indicator" class="location-button">
                 <ion-icon name="pin"></ion-icon>
@@ -84,526 +105,8 @@
             </li>
           </ul>
 
-          <div class="selection">
-            <section id="breakfast-specialties">
-              <div class="menu-heading title-style">
-                <h2 class="section-title">Breakfast Specialties</h2>
-              </div>
-              <div class="items-container">
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/huevorancheros.png"
-                      alt="huevos rancheros"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Huevos Rancheros</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Fried eggs (3) served on a lightly fried corn tortillas in
-                      cooked salsa. A Mexican breakfast classic.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/avocadorancheros.webp"
-                      alt="carne avocado rancheros"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Carne Avocado Rancheros</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Grilled steak, creamy avocado, and zesty ranchero sauce,
-                      served with warm corn tortillas.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- --------------------------- Pollos Burritos --------------------------- -->
-
-            <section id="pollos-burritos">
-              <div class="menu-heading title-style">
-                <h2 class="section-title">Pollos Burritos</h2>
-              </div>
-              <div class="items-container">
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/potato.jpg"
-                      alt="classic burrito"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Classic Burrito</h4>
-                    <div class="price">$<span>2.49</span></div>
-                    <p class="item-description">Egg & potato</p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/combo.jpg"
-                      alt="New Mexico burrito"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">New Mexico</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Ground beef, refried beans, & melted cheese
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/albuquerque.png"
-                      alt="Albuquerque burrito"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Albuquerque burrito</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Sausage, egg, potato, red chile & cheese
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/elasado.jpg"
-                      alt="South valley burrito"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">South Valley Burrito</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Chicken, egg, potato, red chile & cheese
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <!-- ------------------------------- Pollo Platters ------------------------------- -->
-
-            <section id="pollo-specialties">
-              <div class="menu-heading title-style">
-                <h2 class="section-title">Pollos Specialties</h2>
-              </div>
-              <div class="items-container">
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/classicplatter.webp"
-                      alt="Pollo platter A"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Pollo Platter A</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Three piece chicken with two sides
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/polloplatter2.webp"
-                      alt="chicken-tenders"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Pollo Platter B</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Two piece chicken with one side
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/chickenbox.png"
-                      alt="pollo box 10pc"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">10 pc Pollo Box</h4>
-                    <div class="price">$<span>9.99</span></div>
-                    <p class="item-description">
-                      Ten pieces of our signature pollo chicken (5 legs, 5
-                      thighs) with your choice of side
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/chickenbox.png"
-                      alt="pollo box 6pc"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">6 pc Pollo Bucket</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Six pieces of our signature pollo chicken
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- --------------------------- Sides  --------------------------- -->
-
-            <section id="sides">
-              <div class="menu-heading title-style">
-                <h2 class="section-title">Sides</h2>
-              </div>
-              <div class="items-container">
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/chicken-tenders.webp"
-                      alt="chicken tenders"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">6 pc Pollo Tenders</h4>
-                    <div class="price">$<span>4.99</span></div>
-                    <p class="item-description">
-                      Golden, crispy chicken strips served with your choice of
-                      dipping sauce (6pc).
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      class="item-img"
-                      src="LosPollosImages-gif/pollofries.png"
-                      alt="french fries"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Pollo Curly fries</h4>
-                    <div class="price">$<span>2.50</span></div>
-                    <p class="item-description">
-                      Our signature crispy, golden fries served hot and salted
-                      to perfection.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      class="item-img"
-                      src="LosPollosImages-gif/nuggets.png"
-                      alt="Chicken nuggets"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Chicken Nuggets</h4>
-                    <div class="price">$<span>4.99</span></div>
-                    <p class="item-description">
-                      Crispy, tender chicken bites served with your choice of
-                      dipping sauce (6pc).
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img src="LosPollosImages-gif/nachos.jpg" alt="nachos" />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Nachos</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Crispy tortilla chips topped with melted cheese, juicy
-                      tomato, refried beans and your choice of meat.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <!-- --------------------------- Sandwiches --------------------------- -->
-            <section id="sandwiches">
-              <div class="menu-heading title-style">
-                <h2 class="section-title">Sandwiches</h2>
-              </div>
-              <div class="items-container">
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/ChickenSandwich.png"
-                      alt="chicken sandwich"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Crispy Chicken Sandwich</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Juicy, crispy chicken breast on a soft bun with lettuce,
-                      tomato, and your choice of sauce.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/grilledsandwich.png"
-                      alt="Grilled chicken sandwich"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Grilled Chicken Sandwich</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Tender, seasoned grilled chicken breast with lettuce,
-                      tomato, and your choice of sauce on a soft bun.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/avocadosandwich.png"
-                      alt="el aguacate sandwich"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Avocado Chicken Sandwich</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Grilled chicken, creamy avocado, lettuce, tomato, and mayo
-                      on a toasted bun.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/spicychicken.png"
-                      alt="Spicy chicken sandwich"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Spicy Chicken Sandwich</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Crispy, spicy chicken fillet with pickles, lettuce, and
-                      spicy mayo on a toasted bun.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <!-- ------------------------------- Desserts ------------------------------- -->
-            <section id="desserts">
-              <div class="menu-heading title-style">
-                <h2 class="section-title">Desserts</h2>
-              </div>
-              <div class="items-container">
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/applepie.png"
-                      alt="Apple pie"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Apple Pie</h4>
-                    <div class="price">$<span>5.99</span></div>
-                    <p class="item-description">
-                      Warm, buttery crust filled with sweet cinnamon-spiced
-                      apples
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/milkshake.png"
-                      alt="strawberry milkshake"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Milkshake</h4>
-                    <div class="price">$<span>3.19</span></div>
-                    <p class="item-description">
-                      Creamy, thick, and indulgent—choose from classic vanilla,
-                      chocolate, or strawberry.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/frenchstix.png"
-                      alt="french toast sticks"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">French Toast Stix</h4>
-                    <div class="price">$<span>4.99</span></div>
-                    <p class="item-description">
-                      Golden, crispy sticks of cinnamon-sugar French toast,
-                      served with warm syrup for dipping.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img src="LosPollosImages-gif/churros.png" alt="churros" />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Churros</h4>
-                    <div class="price">$<span>4.99</span></div>
-                    <p class="item-description">
-                      Crispy, cinnamon-sugar-coated treats, served warm with a
-                      side of chocolate dipping sauce (4pc).
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- --------------------------- Beverages --------------------------- -->
-            <section id="beverages">
-              <div class="menu-heading title-style">
-                <h2 class="section-title">Beverages</h2>
-              </div>
-              <div class="items-container">
-                <div class="item-card">
-                  <div class="item-img">
-                    <img src="LosPollosImages-gif/coke.webp" alt="Coke" />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Fountain Drink</h4>
-                    <div class="price">$<span>0.99</span></div>
-                    <p class="item-description">
-                      Your choice of Sprite, Dr. Pepper, Coca Cola, or Diet
-                      Coke, served ice cold
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item-card">
-                  <div class="item-img">
-                    <img
-                      src="LosPollosImages-gif/polloscoffee.png"
-                      alt="Coffee"
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h4 class="item-header">Coffee</h4>
-                    <div class="price">$<span>2.99</span></div>
-                    <p class="item-description">
-                      Freshly brewed, rich and aromatic—served hot or iced for
-                      your perfect pick-me-up.
-                    </p>
-                    <div class="card-bottom">
-                      <button class="btn menu-add">Order Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <button id="topBtn" title="Back to top">&uarr;</button>
+          <div  id = "MenuContainer"class="selection">
+           
           </div>
           <!-- </nav> -->
         </div>
