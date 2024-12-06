@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rewards.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="losPollosHermanoMain.css" />
+    <link
+      rel="icon"
+      type="Image/x-icon"
+      href="LosPollosImages-gif/LosPollosHermanosLogo1.png"
+    />
+    <title>Rewards</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header
+			
+			class="header">
+			<div class="logo">
+				<img
+					id="logo"
+					src="LosPollosHermanosLogo2.webp"
+					alt="LosPollosHermanosLogo" />
+			</div>
+			<div class="nav">
+				<a
+					id="Menu"
+					href="MenuPage.html"
+					rel="noopener noreferrer"
+					>Menu</a
+				>
+				<a
+					id="Who we are"
+					href="Who.html"
+					rel="noopener noreferrer"
+					>Who we are</a
+				>
+				<a
+					id="Rewards"
+					href="rewards.html"
+					
+					rel="noopener noreferrer"
+					>Rewards</a
+				>
+				<input
+					type="search"
+					name="Searchbar"
+					id="Searchbar"
+					placeholder="Search" />
+			</div>
+			<div class="userNav">
+				<button class="Modalbutton Main">
+					<ion-icon name="location"></ion-icon>Set a Location
+				</button>
+
+				<a href="Sign-in.html"
+					><ion-icon
+						id="UserProf"
+						name="person-circle-outline"></ion-icon
+				></a>
+				<a href="FinalCartpage.html"
+					><ion-icon
+						id="Cart"
+						name="cart"></ion-icon
+				></a>
+				<a
+					id="Navbtn"
+					href="MenuPage.html"
+					rel="noopener noreferrer"
+					>Order Now</a
+				>
+			</div>
+		</header>
+      
+    <h1>Rewards</h1>
+    
+<div class = "rewards-container">
+    <div class = "reward">
+        <h2>40% OFF YOUR FIRST ORDER</h2>
+        <img src = "https://okdiario.com/look/img/2017/04/17/pollos-hermanos.jpg" alt = "reward1">
+        <button>CLAIM</button>
+    </div>
+    <div class = "reward2">
+        <h2>20% OFF ANY ORDER</h2>
+        <img src = "https://www.nme.com/wp-content/uploads/2021/08/Los-Pollos-Hermanos.jpg" alt = "reward2">
+        <button>CLAIM</button>
+    </div>
+  </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    
+    <script src="rewards.js"></script>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    const userStatus = localStorage.getItem("userStatus");
+    if (userStatus == "guest") {
+        document.getElementById("Rewards").style.display = "none";
+        document.getElementById("UserProf").style.display = "none";
+    }
+    else {
+        document.getElementById("Rewards").style.display = "block";
+        document.getElementById("UserProf").style.display = "block";
+    }
+});
+
+    </script>
+    
+</body>
+</html>

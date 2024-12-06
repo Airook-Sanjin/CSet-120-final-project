@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bubblegum+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bubblegum+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                            Page Navigation                            -->
+    <!-- ----------------------------------------------------------------------- -->
+    <header class="header">
+      <div class="logo">
+        <img
+          id="logo"
+          src="LosPollosHermanosLogo2.webp"
+          alt="LosPollosHermanosLogo"
+        />
+      </div>
+      <div class="nav">
+        <a id="Menu" href="MenuPage.html"  rel="noopener noreferrer"
+          >Menu</a
+        >
+        <a
+          id="Who we are"
+          href="Who.html"
+          
+          rel="noopener noreferrer"
+          >Who we are</a
+        >
+        <a id="Rewards" href="rewards.html"  rel="noopener noreferrer"
+          >Rewards</a
+        >
+       
+      </div>
+      <div class="userNav">
+        <a
+          id="Set-a-location"
+          href="http://"
+          
+          rel="noopener noreferrer"
+          >Set a Location</a
+        >
+        <ion-icon id="UserProf" name="person-circle-outline"></ion-icon>
+        <a
+          class="btnLink"
+          href="MenuPage.html"
+          
+          rel="noopener noreferrer"
+          >Order Now</a
+        >
+      </div>
+    </header>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                               Menu Start                                -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <div class="menu-body">
+      <nav class="menu-section">
+        <ul class="menu-nav">
+          <li><a href="#BreakfastSpecialtiess">Breakfast Specialties</a></li>
+          <li><a href="#PollosBurritos">Pollos Burritos</a></li>
+          <li><a href="#PolloSpecialties">Pollo Specialties</a></li>
+          <li><a href="#Sandwiches">Sandwiches</a></li>
+          <li><a href="#Desserts">Desserts</a></li>
+          <li><a href="#Beverages">Beverages</a></li>
+          <li>
+            <button class="location-button">
+              <ion-icon name="pin"></ion-icon> Delivery
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <div id="ManagerPage" class="ManHeader">
+        <h1>MANAGER PAGE</h1>
+      </div>
+
+      <div id="MenuContainer" class="selection">
+        <!-- ----------------------------------------------------------------------- -->
+        <!--                                Menu end                                 -->
+        <!-- ----------------------------------------------------------------------- -->
+
+        <!-- ----------------------------- Back to top ----------------------------- -->
+        <div class="items-container">
+            <button id ="AddItemsButton">Add Item</button>
+        </div>
+        <div class = "items-container">
+<form id="addItemForm">
+    <label for="itemName">Item Name:</label>
+    <input type="text" id="itemName" name="itemName"><br><br>
+    <label for="itemPrice">Item Price:</label>
+    <input type="number" id="itemPrice" name="itemPrice"><br><br>
+    <label for="itemDescription">Item Description:</label>
+    <textarea id="itemDescription" name="itemDescription"></textarea><br><br>
+    <select name = "ItemCategory " id="ItemCategory">
+        <option value="BreakfastSpecialties">Breakfast Specialties</option>
+        <option value="PollosBurritos">Pollos Burritos</option>
+        <option value="PollosSpecialties">Pollos Specialties</option>
+        <option value="Sides">Sides</option>
+        <option value="Sandwiches">Sandwiches</option>
+        <option value="Desserts">Desserts</option>
+        <option value="Beverages">Beverages</option>
+    </select><br><br>
+    <label for="itemImage">Item Image:</label>
+    <input type="text" id="itemImage" name="itemImage"><br><br>
+    <input type="submit" value="Add Item">
+    <button onclick ="event.preventDefault(); clearForm()" id = "clearBtn" title = "Clear form">Clear</button>
+  </form>
+  </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

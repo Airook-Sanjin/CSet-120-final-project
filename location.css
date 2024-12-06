@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #6c95e7;
+}
+
+button {
+    background-color: red;
+    color: white;
+    padding: 40px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+   
+   
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+}

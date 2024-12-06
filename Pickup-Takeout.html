@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pick Up - Take out</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Pickup-Takeout.css" />
+  </head>
+  <body>
+    <header id="Page1" class="header">
+      <div class="logo">
+        <img
+          id="logo"
+          src="LosPollosImages-gif/LosPollosHermanosLogo2.webp"
+          alt="LosPollosHermanosLogo"
+        />
+      </div>
+      <div class="nav">
+        <a id="Menu" href="http://" target="_blank" rel="noopener noreferrer"
+          >Menu</a
+        >
+        <a
+          id="Who we are"
+          href="http://"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Who we are</a
+        >
+        <a id="Rewards" href="http://" target="_blank" rel="noopener noreferrer"
+          >Rewards</a
+        >
+        <input
+          type="search"
+          name="Searchbar"
+          id="Searchbar"
+          placeholder="Search"
+        />
+      </div>
+      <div class="userNav">
+        <button id ="Modalbutton"><ion-icon name="location"></ion-icon>Set a Location</button>
+        <a href="Sign-in.html"
+          ><ion-icon id="UserProf" name="person-circle-outline"></ion-icon
+        ></a>
+        <ion-icon id="Cart" name="cart"></ion-icon>
+        <a id="Navbtn" href="http://" target="_blank" rel="noopener noreferrer"
+          >Order Now</a
+        >
+      </div>
+    </header>
+    <section id ="Mymodal" class="modal">
+      <div class="popup-container">
+        <div id="Delivery-modal" class="popup-card">
+          <h5>Order details</h5>
+          <div class="P-D-btns-container">
+            <button class = "P-D-btns"id="Delivery">Delivery</button>
+            <button class = "P-D-btns"id="Pickup">Pickup</button>
+          </div>
+          <p>Place you Scheduled order right now</p>
+          <div class="form-container">
+            <div class="in-container">
+              <label for="Location"><h4>Deliver To:</h4></label>
+              <input name="location" type="text" placeholder="Enter Location" />
+            </div>
+            <div class="in-container">
+              <label for="Date"><h4>Choose Date:</h4></label>
+              <select name="Date" id="Date-Dropdown">
+                <option value="option1">Today</option>
+                <option value="option2">tomorrow</option>
+                <option value="option3">11/10</option>
+                <option value="option4">11/11</option>
+              </select>
+            </div>
+            <div class="in-container">
+              <label for="Time"><h4>Choose Time:</h4></label>
+              <select name="Date" id="Date-Dropdown">
+                <option value="option1">12:00pm</option>
+                <option value="option2">12:30pm</option>
+                <option value="option3">1:00pm</option>
+                <option value="option4">1:30pm</option>
+              </select>
+            </div>
+          </div>
+          <button class ="Update-btn">Update</button>
+        </div>
+        <!-- <div id="Pickup-modal"class="popup-card">
+            <h5>Order details</h5>
+            <div class="P-D-btns-container">
+              <button class ="P-D-btns"id="Delivery">Delivery</button>
+              <button class ="P-D-btns"id="Pickup">Pickup</button>
+            </div>
+            <p>Place you Scheduled order right now</p>
+            <div class="form-container">
+              <div class="in-container">
+                <label for="Date"><h4>Choose Date:</h4></label>
+                <select name="Date" id="Date-Dropdown">
+                  <option value="option1">Today</option>
+                  <option value="option2">tomorrow</option>
+                  <option value="option3">11/10</option>
+                  <option value="option4">11/11</option>
+                </select>
+              </div>
+              <div class="in-container">
+                <label for="Time"><h4>Choose Time:</h4></label>
+                <select name="Date" id="Date-Dropdown">
+                  <option value="option1">12:00pm</option>
+                  <option value="option2">12:30pm</option>
+                  <option value="option3">1:00pm</option>
+                  <option value="option4">1:30pm</option>
+                </select>
+              </div>
+            </div>
+            <button class ="Update-btn">Update</button>
+          </div> -->
+          
+      </div>
+    </section>
+    <footer>
+      <div class="footer-container">
+        <div class="about">
+          <a href="#">About us</a>
+          <a href="#">Services</a>
+          <a href="#">Testimonials</a>
+          <a href="#">Contact us</a>
+        </div>
+        <div class="icon-footer">
+          <a href="http://"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a href="http://"><ion-icon name="logo-twitter"></ion-icon></a>
+          <a
+            href="https://www.instagram.com/eatlospolloshermanos/"
+            target="_blank"
+            ><ion-icon name="logo-instagram"></ion-icon
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
