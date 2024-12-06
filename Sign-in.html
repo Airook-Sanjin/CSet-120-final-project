@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="Sign-inStyle.css" />
     <title>SignUp/LogIn</title>
     <link
       rel="icon"
@@ -18,19 +18,23 @@
       />
       <h1>WELCOME</h1>
 
-      <input type="text" id="email" placeholder="Email" />
+      <input type="text" id="email" placeholder="Email" autocomplete="off"/>
       <br />
-      <input type="text" id="password" placeholder="Password" />
+      <input type="text" id="password" placeholder="Password" autocomplete="off"/>
       <br />
       <button id="Signup-btn">SIGN UP</button>
       <br />
       <button id="Login-btn">LOGIN</button>
+      <br />
+      <button onclick="joinAsGuest();">JOIN AS GUEST</button>
+      
     </div>
     <div class="video">
       <video autoplay loop muted plays-inline class="background-clip">
         <source src="LosPollosImages-gif/Gus (1).mp4" type="video/mp4" />
       </video>
     </div>
+    <script src ="manager.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

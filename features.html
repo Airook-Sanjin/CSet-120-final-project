@@ -4,24 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="featured.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="losPollosHermanoMain.css" />
+    <link
+      rel="icon"
+      type="Image/x-icon"
+      href="LosPollosImages-gif/LosPollosHermanosLogo1.png"
+    />
     <title>Featured Items</title>
 </head>
 <body>
-    <h1>Featured Items</h1>
+  
+  <header
+  id="Page1"
+  class="header">
+  <div class="logo">
+    <img
+      id="logo"
+      src="LosPollosHermanosLogo2.webp"
+      alt="LosPollosHermanosLogo" />
+  </div>
+  <div class="nav">
+    <a
+      id="Menu"
+      href="MenuPage.html"
+      rel="noopener noreferrer"
+      >Menu</a
+    >
+    <a
+      id="Who we are"
+      href="Who.html"
+      rel="noopener noreferrer"
+      >Who we are</a
+    >
+    <a
+      id="Rewards"
+      href="rewards.html"
+      rel="noopener noreferrer"
+      >Rewards</a
+    >
+    <a
+      id="Incoming"
+      href="features.html"
+      rel="noopener noreferrer"
+      >Incoming Items</a
+    >
+    <input
+      type="search"
+      name="Searchbar"
+      id="Searchbar"
+      placeholder="Search" />
+  </div>
+  <div class="userNav">
+    <button class="Modalbutton Main">
+      <ion-icon name="location"></ion-icon>Set a Location
+    </button>
 
+    <a href="Sign-in.html"
+      ><ion-icon
+        id="UserProf"
+        name="person-circle-outline"></ion-icon
+    ></a>
+    <a href="FinalCartpage.html"
+      ><ion-icon
+        id="Cart"
+        name="cart"></ion-icon
+    ></a>
+    <a
+      id="Navbtn"
+      href="MenuPage.html"
+      rel="noopener noreferrer"
+      >Order Now</a
+    >
+  </div>
+</header>
+    <h1>Incoming Items</h1>
+    
     <div class="container">
         <div class = "Fish">
-            <h3>Fried Fish Sandwich</h3>
             <img src = "https://assets.bonappetit.com/photos/5b084e259570db5acbd02557/master/pass/fried-fish-sandwiches-with-cucumbers-and-tartar-sauce.jpg" alt = "Fish">
+            <h3>Fried Fish Sandwich</h3>
+            <p>Looking for a crunchy fish sandwich<br> that delivers on flavor? Then our Crispy<br> Fried Fish Sandwich recipe is what you crave! Breaded fish fillets made extra crispy.</p>
+            <h4>$4.99</h4>
+        </div>
+        <div class = "OreoMilkshake">
+            <img src = "https://funmoneymom.com/wp-content/uploads/2021/02/LR-9671b-scaled.jpg" alt = "Milkshake">
+            <h3>Oreo Milkshake</h3>
+            <p>This Oreo Milkshake is a creamy<br> blend of vanilla ice cream, Oreo cookies,<br> and whipped cream. This is a great treat for<br> any time of the year.Try it Today!</p>
+            <h4>$3.19</h4>
         </div>
 
         <div class = "SugarCookie">
-            <h3>Sugar Cookie</h3>
             <img src = "https://brownedbutterblondie.com/wp-content/uploads/2022/09/SugarCookiesRecipe.jpg" alt = "Cookie">
+            <h3>Sugar Cookies</h3>
+            <p>Our brand new sugar cookies are a delicious<br> treat that will satisfy your sweet tooth<br> everytime. The soft sweet bite of these cookies<br> are made with only the finest ingredients.</p>
+            <h4>$3.99</h4>
         </div>
+        
 
     </div>
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
 
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const userStatus = localStorage.getItem("userStatus");
+  if (userStatus == "guest") {
+      document.getElementById("Rewards").style.display = "none";
+      document.getElementById("UserProf").style.display = "none";
+  }
+  else {
+      document.getElementById("Rewards").style.display = "block";
+      document.getElementById("UserProf").style.display = "block";
+  }
+});
+
+  </script>
 </body>
 </html>

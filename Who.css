@@ -1,0 +1,228 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	background-color: #ffdd0d;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.p {
+	line-height: 1.5;
+}
+
+/* ----------------------------- Polaroid Start ----------------------------- */
+.picture-container {
+	margin-top: 5%;
+	margin-bottom: 10%;
+}
+
+.polaroid img {
+	object-fit: cover;
+	overflow: hidden;
+	height: 400px;
+	width: 400px;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.polaroid img:hover {
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+	transition: 0.3s;
+}
+
+.picture-container .polaroid {
+	position: absolute;
+	border: 1px solid darkgrey;
+	background-color: white;
+	padding: 15px 15px 100px 15px;
+	box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.269);
+}
+
+.picture-container .polaroid:after {
+	content: attr(polaroid-caption);
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: calc(100% - 2rem);
+	font-weight: bold;
+	padding: 10px;
+	font-size: 2rem;
+	text-align: center;
+	font-family: 'Indie Flower', serif;
+	text-transform: uppercase;
+}
+
+.picture-container .p-1 {
+	transform: rotate(-20deg);
+	-ms-transform: rotate(-20deg);
+	-webkit-transform: rotate(-20deg);
+}
+
+.picture-container .p-3 {
+	left: 800px;
+	transform: rotate(20deg);
+	-ms-transform: rotate(20deg);
+	-webkit-transform: rotate(20deg);
+}
+
+.picture-container .p-2 {
+	left: 400px;
+	transform: rotate(20deg);
+	-ms-transform: rotate(20deg);
+	-webkit-transform: rotate(20deg);
+}
+
+/* ------------------------------ Polaroid End ------------------------------ */
+
+.cta {
+	display: flex;
+	place-content: center;
+	/* margin-top: 20px;
+	margin-bottom: 20px; */
+	background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400/02117356571847.5a81a435b1c26.jpg');
+	background-position: 0 50%;
+	background-size: cover;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	height: 50vh;
+}
+
+.cta img {
+	width: 500px;
+	height: 300px;
+	object-fit: fit;
+	border-radius: 10px;
+}
+
+.cta h1 {
+	place-content: center;
+	padding-bottom: 5%;
+	text-align: center;
+	font-size: 5rem;
+	color: red;
+	font-weight: 800;
+	font-family: 'Arvo', 'Franklin Gothic Medium', serif;
+	margin-top: 40px;
+	text-shadow: 1px 1px 1px black;
+}
+
+hr {
+	display: none;
+	border: 3px solid red;
+	width: 10%;
+	align-self: center;
+	padding: 0;
+	margin-top: -2rem;
+	gap: 0;
+	border-radius: 6px;
+}
+
+.container,
+.container2,
+.Start,
+.Vid {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.GusMessage {
+	transform: translate(5rem, 15rem);
+}
+
+.GusMessage,
+.About,
+.Message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 80%;
+	max-width: 800px;
+	/* margin: 20px; */
+	margin-top: 200px;
+	padding: 20px;
+	border: none;
+	background-color: white;
+	border-radius: 6px;
+	border: 5px solid red;
+	color: #333;
+}
+
+.Message {
+	margin-top: 2px;
+	place-self: center;
+	padding-bottom: 2%;
+}
+
+.Vid video {
+	width: 80%;
+	max-width: 800px;
+	margin: 20px auto;
+	border: 10px solid #f20530;
+	border-radius: 6px;
+	object-fit: cover;
+	height: 60vh;
+}
+
+h1 {
+	text-align: center;
+	font-size: 3.5rem;
+	color: #f20530;
+	margin-top: 40px;
+	text-shadow: 1px 1px 1px black;
+}
+
+.Start p {
+	font-size: 2rem;
+	color: #f20530;
+	text-align: center;
+	text-shadow: 1px 1px 1px black;
+}
+
+h2 {
+	color: #f20530;
+	text-shadow: 1px 1px 1px black;
+	margin-bottom: 1rem;
+	font-size: 2rem;
+}
+
+.container p {
+	font-size: 1.25rem;
+	font-family: 'Lato', serif;
+	line-height: 1.5;
+	font-weight: 510;
+}
+
+.Message p {
+	font-size: 1.25rem;
+	font-family: 'Lato', serif;
+	line-height: 1.5;
+	font-weight: 510;
+}
+
+.footer-container {
+	margin-top: 20%;
+}
+
+mark {
+	display: inline-block;
+	line-height: 1px;
+	padding-bottom: 0.5em;
+	background-color: #ffde10;
+	color: #333;
+}

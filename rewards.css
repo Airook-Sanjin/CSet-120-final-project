@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #6c95e7;
+    
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #F2E205;
+    
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    
+}
+
+main {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #F2E205;
+    text-shadow: 1px 1px 1px black;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    margin-left: 670px;
+    margin-top: -100px
+}
+#logo {
+	width: 100px;
+}
+.header {
+	display: flex;
+	flex-direction: row;
+	background-color: #f20530;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-around;
+}
+.header a {
+	color: white;
+	text-decoration: none;
+}
+.userNav,
+.nav,
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
+
+.nav a:hover,
+.userNav a:hover {
+	color: #f2e205;
+}
+.Modalbutton {
+	color: white;
+	background-color: transparent;
+	border: none;
+	font-family: 'Lato', serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: medium;
+}
+.Modalbutton ion-icon {
+	color: #f2e205;
+}
+
+.Modalbutton:hover {
+	color: #f2e205;
+	cursor: pointer;
+}
+
+#Searchbar {
+	border-radius: 20px;
+	background-color: hsl(349, 96%, 45%);
+	border: none;
+	color: white;
+	padding: 10px;
+	font-family: 'Lato', serif;
+	font-weight: 600;
+}
+#Searchbar::placeholder {
+	/* color: hsl(0, 0%, 70%); */
+	color: white;
+}
+#Searchbar:focus {
+	/* border: solid yellow; */
+	/* background-color: none; */
+}
+#UserProf,
+#Cart {
+	font-size: 30px;
+	color: #f2e205;
+}
+#Navbtn {
+	display: flex;
+	background-color: #f2e205;
+	justify-content: center;
+	border-radius: 10px;
+	width: 120px;
+	padding: 3%;
+	color: rgb(205, 89, 0);
+	font-weight: 900;
+}
+#Navbtn:hover {
+	color: rgb(205, 89, 0);
+	transform: scale(1.2);
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+	transition: 0.4s;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Nav Styles                                 */
+/* -------------------------------------------------------------------------- */
+
+.menu-nav {
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	place-content: center;
+	z-index: 1000;
+	top: 0;
+	width: 100%;
+	background-color: var(--secondary-red);
+	color: white;
+	position: sticky;
+	top: 0;
+}
+
+.menu-nav a:hover {
+	border-bottom: 3px solid white;
+	transition: 0.3s;
+}
+
+.menu-nav a {
+	text-decoration: none;
+	color: white;
+}
+
+.menu-nav a:last-child:hover {
+	border-bottom: none;
+}
+
+.location-button {
+	display: block;
+	color: white;
+}
+
+ion-icon {
+	font-size: 20px;
+}
+
+.menu-nav li {
+	margin-right: 2.5rem;
+	font-size: 1rem;
+	font-family: 'Arvo', serif;
+	color: white;
+	text-transform: uppercase;
+	font-weight: 550;
+}
+
+.menu-nav li:hover {
+	cursor: pointer;
+}
+
+.menu-nav::after {
+	content: button;
+}
+
+.location-button {
+	font-size: 1rem;
+	background-color: transparent;
+	border-style: none;
+	cursor: pointer;
+	margin-left: -20px;
+}
+
+.rewards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.reward {
+    max-width: 800px;
+    text-align: center;
+}
+ 
+.reward h2 {
+    font-size: 40px;
+    color: white;
+    text-shadow: 4px 4px 4px black;
+     margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.reward img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 20px;
+    
+}
+
+.reward button {
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #F20530;
+    background-color: #F2E205;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reward button:hover {
+    background-color: #F20530;
+    color: #F2E205;
+}
+
+
+
+.reward2 {
+    max-width: 800px;
+    text-align: center;
+}
+ 
+.reward2 h2 {
+    font-size: 40px;
+    color: white;
+    text-shadow: 4px 4px 4px black;
+     margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.reward2 img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 20px;
+    
+}
+
+.reward2 button {
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #F20530;
+    background-color: #F2E205;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reward2 button:hover {
+    background-color: #F20530;
+    color: #F2E205;
+}
+
+
