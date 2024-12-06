@@ -1,232 +1,313 @@
 // const { json } = require("stream/consumers");
 
-let LosPollosMenu = {
-  BreakfastSpecialties: [
-    {
-      id: "001",
-      Name: "Huevos Rancheros",
-      Price: 5.99,
-      Description:
-        "Fried eggs (3) served on a lightly fried corn tortillas in cooked salsa. A Mexican breakfast classic.",
-      image: "LosPollosImages-gif/huevorancheros.png",
-    },
-    {
-      id: "002",
-      Name: "Carne Avocado Rancheros",
-      Price: 5.99,
-      Description:
-        "Grilled steak, creamy avocado, and zesty ranchero sauce, served with warm corn tortillas.",
-      image: "LosPollosImages-gif/avocadorancheros.webp",
-    },
-  ],
-  PollosBurritos: [
-    {
-      id: "003",
-      Name: "Classic Burrito",
-      Price: 2.49,
-      Description: "Egg & potato",
-      image: "LosPollosImages-gif/potato.jpg",
-    },
-    {
-      id: "004",
-      Name: "New Mexico Burrito",
-      Price: 5.99,
-      Description: "Ground beef, refried beans, & melted cheese",
-      image: "LosPollosImages-gif/combo.jpg",
-    },
-    {
-      id: "005",
-      Name: "Albequerque Burrito",
-      Price: 5.99,
-      Description: "Sausage, egg, potato, red chile & cheese",
-      image: "LosPollosImages-gif/albuquerque.png",
-    },
-    {
-      id: "006",
-      Name: "South Valley Burrito",
-      Price: 5.99,
-      Description: "Chicken, egg, potato, red chile and cheese",
-      image: "LosPollosImages-gif/elasado.jpg",
-    },
-  ],
-  PolloSpecialties: [
-    {
-      id: "007",
-      Name: "Pollo Platter A",
-      Price: 5.99,
-      Description: "Three piece chikcen with two sides",
-      image: "LosPollosImages-gif/classicplatter.webp",
-    },
-    {
-      id: "008",
-      Name: "Pollo Platter B",
-      Price: 5.99,
-      Description: "Two piece chicken with one side",
-      image: "LosPollosImages-gif/polloplatter2.webp",
-    },
-    {
-      id: "009",
-      Name: "10 Pc Pollo Box",
-      Price: 9.99,
-      Description:
-        "Ten pieces of our signature pollo chicken (5 legs, 5 thighs) with your choice of side",
-      image: "LosPollosImages-gif/chickenbox.png",
-    },
-    {
-      id: "010",
-      Name: "6 Pc Pollo Bucket",
-      Price: 5.99,
-      Description: "Six pieces of our signature pollo chicken",
-      image: "LosPollosImages-gif/chickenbox.png",
-    },
-  ],
-  Sides: [
-    {
-      id: "011",
-      Name: "6 Pc Pollo Tenders",
-      Price: 4.99,
-      Description:
-        "Golden, crispy chicken strips served with your choice dipping sauce (6Pc)",
-      image: "LosPollosImages-gif/chicken-tenders.webp",
-    },
-    {
-      id: "012",
-      Name: "Pollo Curly Fries",
-      Price: 2.5,
-      Description:
-        "Our signature crispy, golden fries served hot and salted to perfection",
-      image: "LosPollosImages-gif/pollofries.png",
-    },
-    {
-      id: "013",
-      Name: "Chicken Nuggets",
-      Price: 4.99,
-      Description:
-        "Cripsy, tender chicken bites served with your choice of dipping sauce (6Pc)",
-      image: "LosPollosImages-gif/nuggets.png",
-    },
-    {
-      id: "014",
-      Name: "Nachos",
-      Price: 5.99,
-      Description:
-        "Crispy tortilla chips topped with melted cheese, juicy tomato, refried beans and your choice of meat",
-      image: "LosPollosImages-gif/nachos.jpg",
-    },
-  ],
-  Sandwiches: [
-    {
-      id: "015",
-      Name: "Cripsy Chicken Sandwich",
-      Price: 5.99,
-      Description:
-        "Juicy, crispy chicken breast on a soft bun with lettuce, tomato, and your choice of sauce",
-      image: "LosPollosImages-gif/ChickenSandwich.png",
-    },
-    {
-      id: "016",
-      Name: "Grilled Chicken Sandwich",
-      Price: 5.99,
-      Description:
-        "Tender, seasoned grilled chicken breaast with lettue, tomato, and your choice of sauce on a soft bun",
-      image: "LosPollosImages-gif/grilledsandwich.png",
-    },
-    {
-      id: "017",
-      Name: "Avocado Chicken Sandwich",
-      Price: 5.99,
-      Description:
-        "Grilled chicekn, creamy avocado, lettuce, tomato, and mayo on a toasted bun.",
-      image: "LosPollosImages-gif/avocadosandwich.png",
-    },
-    {
-      id: "018",
-      Name: "Spicy Chicken Sandwich",
-      Price: 5.99,
-      Description:
-        "Crispy, spicy chicken fillet with pickles, lettuce, and spicy mayo on a toasted bun",
-      image: "LosPollosImages-gif/spicychicken.png",
-    },
-  ],
-  Desserts: [
-    {
-      id: "019",
-      Name: "Apple Pie",
-      Price: 5.99,
-      Description:
-        "Warm, buttery crust filled with sweet cinnamon-spiced apples",
-      image: "LosPollosImages-gif/applepie.png",
-    },
-    {
-      id: "020",
-      Name: "MilkShake",
-      Price: 3.19,
-      Description:
-        "Creamy, thick, and indulgent-choose from classic vanilla, chocolate, or strawberry",
-      image: "LosPollosImages-gif/milkshake.png",
-    },
-    {
-      id: "021",
-      Name: "French Toast Stix",
-      Price: 4.99,
-      Description:
-        "Golden, cripsy sticks of cinnamon-sugar French Toast, served with warm syrup for dipping",
-      image: "LosPollosImages-gif/frenchstix.png",
-    },
-    {
-      id: "022",
-      Name: "Churros",
-      Price: 4.99,
-      Description:
-        "Crispy, cinnamon-sugar-coated treats, served warm with a side of chocolate dipping sauce (4Pc)",
-      image: "LosPollosImages-gif/churros.png",
-    },
-  ],
-  Beverages: [
-    {
-      id: "023",
-      Name: "Coke",
-      Price: 0.99,
-      Description:
-        "Your Choice of Sprite, Dr. Pepper, Coca Cola, or Diet Coke, served ice cold",
-      image: "LosPollosImages-gif/coke.webp",
-    },
-    {
-      id: "024",
-      Name: "Coffee",
-      Price: 2.99,
-      Description:
-        "Freshly brewed, rich and aromatic- served hot or iced for your perfect pick-me-up",
-      image: "LosPollosImages-gif/polloscoffee.png",
-    },
-  ],
-};
-localStorage.setItem("LosPollosMenu", JSON.stringify(LosPollosMenu));
+
+let storedLosPollosMenu = JSON.parse(localStorage.getItem("LosPollosMenu"));
+if(!storedLosPollosMenu){
+  let InititalLosPollosMenu = {
+    BreakfastSpecialties: [
+      {
+        Itemid: 1,
+        Name: "Huevos Rancheros",
+        Price: 5.99,
+        Description:
+          "Fried eggs (3) served on a lightly fried corn tortillas in cooked salsa. A Mexican breakfast classic.",
+        image: "LosPollosImages-gif/huevorancheros.png",
+      },
+      {
+        Itemid: 2,
+        Name: "Carne Avocado Rancheros",
+        Price: 5.99,
+        Description:
+          "Grilled steak, creamy avocado, and zesty ranchero sauce, served with warm corn tortillas.",
+        image: "LosPollosImages-gif/avocadorancheros.webp",
+      },
+    ],
+    PollosBurritos: [
+      {
+        Itemid: 1,
+        Name: "Classic Burrito",
+        Price: 2.49,
+        Description: "Egg & potato",
+        image: "LosPollosImages-gif/potato.jpg",
+      },
+      {
+        Itemid: 2,
+        Name: "New Mexico Burrito",
+        Price: 5.99,
+        Description: "Ground beef, refried beans, & melted cheese",
+        image: "LosPollosImages-gif/combo.jpg",
+      },
+      {
+        Itemid: 3,
+        Name: "Albequerque Burrito",
+        Price: 5.99,
+        Description: "Sausage, egg, potato, red chile & cheese",
+        image: "LosPollosImages-gif/albuquerque.png",
+      },
+      {
+        Itemid: 4,
+        Name: "South Valley Burrito",
+        Price: 5.99,
+        Description: "Chicken, egg, potato, red chile and cheese",
+        image: "LosPollosImages-gif/elasado.jpg",
+      },
+    ],
+    PollosSpecialties: [
+      {
+        Itemid: 1,
+        Name: "Pollo Platter A",
+        Price: 5.99,
+        Description: "Three piece chikcen with two sides",
+        image: "LosPollosImages-gif/classicplatter.webp",
+      },
+      {
+        Itemid: 2,
+        Name: "Pollo Platter B",
+        Price: 5.99,
+        Description: "Two piece chicken with one side",
+        image: "LosPollosImages-gif/polloplatter2.webp",
+      },
+      {
+        Itemid: 3,
+        Name: "10 Pc Pollo Box",
+        Price: 9.99,
+        Description:
+          "Ten pieces of our signature pollo chicken (5 legs, 5 thighs) with your choice of side",
+        image: "LosPollosImages-gif/chickenbox.png",
+      },
+      {
+        Itemid:4,
+        Name: "6 Pc Pollo Bucket",
+        Price: 5.99,
+        Description: "Six pieces of our signature pollo chicken",
+        image: "LosPollosImages-gif/chickenbox.png",
+      },
+    ],
+    Sides: [
+      {
+        Itemid: 1,
+        Name: "6 Pc Pollo Tenders",
+        Price: 4.99,
+        Description:
+          "Golden, crispy chicken strips served with your choice dipping sauce (6Pc)",
+        image: "LosPollosImages-gif/chicken-tenders.webp",
+      },
+      {
+        Itemid: 2,
+        Name: "Pollo Curly Fries",
+        Price: 2.5,
+        Description:
+          "Our signature crispy, golden fries served hot and salted to perfection",
+        image: "LosPollosImages-gif/pollofries.png",
+      },
+      {
+        Itemid: 3,
+        Name: "Chicken Nuggets",
+        Price: 4.99,
+        Description:
+          "Cripsy, tender chicken bites served with your choice of dipping sauce (6Pc)",
+        image: "LosPollosImages-gif/nuggets.png",
+      },
+      {
+        Itemid: 4,
+        Name: "Nachos",
+        Price: 5.99,
+        Description:
+          "Crispy tortilla chips topped with melted cheese, juicy tomato, refried beans and your choice of meat",
+        image: "LosPollosImages-gif/nachos.jpg",
+      },
+    ],
+    Sandwiches: [
+      {
+        Itemid: 1,
+        Name: "Cripsy Chicken Sandwich",
+        Price: 5.99,
+        Description:
+          "Juicy, crispy chicken breast on a soft bun with lettuce, tomato, and your choice of sauce",
+        image: "LosPollosImages-gif/ChickenSandwich.png",
+      },
+      {
+        Itemid: 2,
+        Name: "Grilled Chicken Sandwich",
+        Price: 5.99,
+        Description:
+          "Tender, seasoned grilled chicken breaast with lettue, tomato, and your choice of sauce on a soft bun",
+        image: "LosPollosImages-gif/grilledsandwich.png",
+      },
+      {
+        Itemid: 3,
+        Name: "Avocado Chicken Sandwich",
+        Price: 5.99,
+        Description:
+          "Grilled chicekn, creamy avocado, lettuce, tomato, and mayo on a toasted bun.",
+        image: "LosPollosImages-gif/avocadosandwich.png",
+      },
+      {
+        Itemid: 4,
+        Name: "Spicy Chicken Sandwich",
+        Price: 5.99,
+        Description:
+          "Crispy, spicy chicken fillet with pickles, lettuce, and spicy mayo on a toasted bun",
+        image: "LosPollosImages-gif/spicychicken.png",
+      },
+    ],
+    Desserts: [
+      {
+        Itemid:1,
+        Name: "Apple Pie",
+        Price: 5.99,
+        Description:
+          "Warm, buttery crust filled with sweet cinnamon-spiced apples",
+        image: "LosPollosImages-gif/applepie.png",
+      },
+
+      {
+        Itemid: 2,
+        Name: "French Toast Stix",
+        Price: 4.99,
+        Description:
+          "Golden, cripsy sticks of cinnamon-sugar French Toast, served with warm syrup for dipping",
+        image: "LosPollosImages-gif/frenchstix.png",
+      },
+      {
+        Itemid: 3,
+        Name: "Churros",
+        Price: 4.99,
+        Description:
+          "Crispy, cinnamon-sugar-coated treats, served warm with a side of chocolate dipping sauce (4Pc)",
+        image: "LosPollosImages-gif/churros.png",
+      },
+    ],
+    Beverages: [
+      {
+        Itemid: 1,
+        Name: "Coke",
+        Price: 0.99,
+        Description:
+          "Your Choice of Sprite, Dr. Pepper, Coca Cola, or Diet Coke, served ice cold",
+        image: "LosPollosImages-gif/coke.webp",
+      },
+      {
+        Itemid: 2,
+        Name: "MilkShake",
+        Price: 3.19,
+        Description:
+          "Creamy, thick, and indulgent-choose from classic vanilla, chocolate, or strawberry",
+        image: "LosPollosImages-gif/milkshake.png",
+      },
+      {
+        Itemid: 3,
+        Name: "Coffee",
+        Price: 2.99,
+        Description:
+          "Freshly brewed, rich and aromatic- served hot or iced for your perfect pick-me-up",
+        image: "LosPollosImages-gif/polloscoffee.png",
+      },
+    ],
+  };
+  localStorage.setItem("LosPollosMenu", JSON.stringify(InititalLosPollosMenu));
+  storedLosPollosMenu = InititalLosPollosMenu;
+}
+
+
 
 function menuDisplay() {
+  
   console.log("displayingMenu");
 
-  let storedLosPollosMenu = JSON.parse(localStorage.getItem("LosPollosMenu"));
+  
   if (storedLosPollosMenu) {
     let menuContainer = document.getElementById("MenuContainer");
-    // menuContainer.innerHTML ="";
+    if(document.getElementById("MenuPage")){
+      menuContainer.innerHTML = ``;
+    }
+    else if (document.getElementById("ManagerPage")){
+      menuContainer.innerHTML = `<div class="items-container">
+            <button id ="AddItemsButton">Add Item</button>
+        </div>
+        <section class = "Modal Manager">
+        <div class="popup-container">
+<form id="addItemForm" class="popup-card">
+    <label for="itemName">Item Name:</label>
+    <input required placeholder="Enter Item Name" type="text" id="itemName" name="itemName"><br><br>
+    <label  for="itemPrice">Item Price:</label>
+    <input step="any" required placeholder="Enter Price Ex:00.00" type="number" id="itemPrice" name="itemPrice"><br><br>
+    <label for="itemDescription">Item Description:</label>
+    <textarea required placeholder="Enter Item Description" id="itemDescription" name="itemDescription"></textarea><br><br>
+    <select required name = "ItemCategory" id="ItemCategory">
+    <option value="" >-ChooseCategory</option>
+        <option value="BreakfastSpecialties">Breakfast Specialties</option>
+        <option value="PollosBurritos">Pollos Burritos</option>
+        <option value="PollosSpecialties">Pollos Specialties</option>
+        <option value="Sides">Sides</option>
+        <option value="Sandwiches">Sandwiches</option>
+        <option value="Desserts">Desserts</option>
+        <option value="Beverages">Beverages</option>
+    </select><br><br>
+    <label for="itemImage">Item Image:</label>
+    <input required placeholder="Enter Image url" type="text" id="itemImage" name="itemImage"><br><br>
+    <img class ="PlaceholderImage" src=""/><br><br>
+    <input id ="SubmitItem" type="submit" value="Add Item">
     
-    let bttBtn = document.createElement("button")
-    bttBtn.id ="topBtn";
-    bttBtn.title = "Back To Top"
-    bttBtn.innerHTML ="&uarr;"
+  </form>
+  </div>
+  </section>
+  <section class = "Modal ManagerEDIT">
+        <div class="popup-container">
+<form id="addItemForm" class="popup-card">
+    <label for="itemName">Item Name:</label>
+    <input required placeholder="Enter Item Name" type="text" id="EDITitemName" name="itemName"><br><br>
+    <label for="itemPrice">Item Price:</label>
+    <input step="any" required placeholder="Enter Price Ex:00.00" type="number" id="EDITitemPrice" name="itemPrice"><br><br>
+    <label for="itemDescription">Item Description:</label>
+    <textarea required placeholder="Enter Item Description" id="EDITitemDescription" name="itemDescription"></textarea><br><br>
+    <select required name = "ItemCategory" id="EDITItemCategory">
+    <option value="" >-ChooseCategory</option>
+        <option value="BreakfastSpecialties">Breakfast Specialties</option>
+        <option value="PollosBurritos">Pollos Burritos</option>
+        <option value="PollosSpecialties">Pollos Specialties</option>
+        <option value="Sides">Sides</option>
+        <option value="Sandwiches">Sandwiches</option>
+        <option value="Desserts">Desserts</option>
+        <option value="Beverages">Beverages</option>
+    </select><br><br>
+    <label for="itemImage">Item Image:</label>
+    <input required placeholder="Enter Image url" type="text" id="EDITitemImage" name="itemImage"><br><br>
+    <img class ="PlaceholderImage" src=""/><br><br>
+    <input id ="UpdateItem" type="submit" value="Update Item">
     
+  </form>
+  </div>
+  </section>
+  `;
+    }
+    
+
+    let bttBtn = document.createElement("button");
+    bttBtn.id = "topBtn";
+    bttBtn.title = "Back To Top";
+    bttBtn.innerHTML = "&uarr;";
 
     for (let section in storedLosPollosMenu) {
       let headerSection = document.createElement("section");
-      headerSection.id = section.replace(/\$1/g,'').replace(/([A-Z])/g, `$1`).trim("");
-      menuContainer.appendChild(headerSection);
+      headerSection.id = section
+        .replace(/\$1/g, "")
+        .replace(/([A-Z])/g, `$1`)
+        .trim("");
+      
+      if(document.getElementById("MenuPage")){
+        menuContainer.appendChild(headerSection);
+      }
+      else if (document.getElementById("ManagerPage")){
+        menuContainer.insertAdjacentElement("afterbegin", headerSection);
+      }
       let menuHeading = document.createElement("div");
       menuHeading.className = "menu-heading title-style";
       headerSection.appendChild(menuHeading);
       let sectionHeader = document.createElement("h2");
       sectionHeader.innerText = section.replace(/([A-Z])/g, ` $1`); //Formatting of category name
-      sectionHeader.className= "section-title"
+      sectionHeader.className = "section-title";
+      
       menuHeading.appendChild(sectionHeader);
       let itemsContainer = document.createElement("div");
       itemsContainer.className = "items-container";
@@ -240,29 +321,27 @@ function menuDisplay() {
         let ItemImage = document.createElement("img");
         ItemImage.src = item.image;
         ItemImage.alt = item.Name;
-        ItemImgDiv.appendChild(ItemImage)
-        
+        ItemImgDiv.appendChild(ItemImage);
+
         let ItemInfoDiv = document.createElement("div");
         ItemInfoDiv.className = "item-info";
-        
 
         let ItemName = document.createElement("h4");
         ItemName.className = "item-header";
-        ItemName.innerText = item.Name
-        
+        ItemName.innerText = item.Name;
+
         let priceDiv = document.createElement("div");
         priceDiv.className = "price";
         priceDiv.innerHTML = `$<span>${item.Price}</span`;
-        
+
         let itemDescription = document.createElement("p");
         itemDescription.innerText = item.Description;
-        
+
         let cardBottom = document.createElement("div");
         cardBottom.className = "card-bottom";
         let menuAddBtn = document.createElement("button");
         menuAddBtn.className = "btn menu-add";
         menuAddBtn.innerHTML = "Order Now";
-        
 
         itemCard.appendChild(ItemImgDiv);
         ItemInfoDiv.appendChild(ItemName);
@@ -270,15 +349,14 @@ function menuDisplay() {
         ItemInfoDiv.appendChild(itemDescription);
         ItemInfoDiv.appendChild(cardBottom);
         cardBottom.appendChild(menuAddBtn);
-        itemCard.appendChild(ItemInfoDiv)
+        itemCard.appendChild(ItemInfoDiv);
         itemsContainer.appendChild(itemCard);
-        menuContainer.appendChild(bttBtn)
+        menuContainer.appendChild(bttBtn);
       });
     }
-  }else{
-    console.log("No More Items Found In Storage")
+  } else {
+    console.log("No More Items Found In Storage");
   }
-  
 }
 
 function initializeSignInPage() {
@@ -436,10 +514,11 @@ function initializeMainPage() {
 // ---------------------------------------------------------------------------------------------------------
 function initializeMenuPage() {
   document.addEventListener("DOMContentLoaded", ready);
-  
+
   ready();
-  
+
   function ready() {
+    storedLosPollosMenu = JSON.parse(localStorage.getItem("LosPollosMenu"))|| {};
     menuDisplay();
     // makes sure the each add to cart buttons work
     let AddtoCart = document.getElementsByClassName("menu-add");
@@ -1233,136 +1312,202 @@ function initializeRecieptPage() {
   });
 }
 
-
-
-function initiateManagerPage(){ //MANAGER
+function initiateManagerPage() {
+  //MANAGER
+  storedLosPollosMenu = JSON.parse(localStorage.getItem("LosPollosMenu"))|| {};
   ready();
-  function ready(){
+  function ready() {
     menuDisplay();
+    let cards = document.querySelectorAll(".item-card");
+  cards.forEach((card) => {
+    let cardBottom = card.querySelector(".card-bottom");
+    let deleteBtn = document.createElement("button");
+    deleteBtn.className = "DeleteBtn";
+    deleteBtn.innerText = "X";
+    
+    cardBottom.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener("click", itemRemoval);
+    let EditBtn = document.createElement("button");
+    EditBtn.className = "EditBtn";
+    EditBtn.innerText = "Edit Item";
+    cardBottom.appendChild(EditBtn)
+    EditBtn.addEventListener("click", editItem )
+  });
+  }
+function modal(){
+  console.log("MODAL")
+  let modal = document.getElementsByClassName("Modal Manager")[0];
+    modal.style.display = "block";
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+}
+
+
+  
+  let AddBtn = document.getElementById("AddItemsButton");
+AddBtn.addEventListener("click", modal);
+let AddItemBtn = document.getElementById("SubmitItem");
+AddItemBtn.addEventListener("click", addItem)
+  function addItem(){
+    
+  
+  let ItemName = document.getElementById('itemName').value
+  let ItemPrice = parseFloat(document.getElementById("itemPrice").value).toFixed(2)
+  let ItemDescription = document.getElementById("itemDescription").value
+  let ItemImage = document.getElementById('itemImage').value;
+  let ItemCategory = document.getElementById("ItemCategory").value
+  let newitemId; 
+  if(!storedLosPollosMenu[ItemCategory]){
+    storedLosPollosMenu[ItemCategory] = [];
+  }
+  let itemsInCategory = storedLosPollosMenu[ItemCategory];
+  if (itemsInCategory.length >0){
+    newitemId = itemsInCategory[itemsInCategory.length - 1].Itemid + 1;
+  }else{
+    newitemId = 1;
+  }
+  let newItem = {
+  Itemid:newitemId,
+  Name:ItemName,
+  Price:ItemPrice,
+  image:ItemImage,
+  Description:ItemDescription,
   }
 
   
-let cards =document.querySelectorAll(".item-card")
-cards.forEach(card => {
-  let cardBottom = card.querySelector(".card-bottom")
-  let deleteBtn = document.createElement("button")
-  deleteBtn.className ="DeleteBtn"
-  deleteBtn.innerText="X"
-  cardBottom.appendChild(deleteBtn)
-})
-// .forEach(button => {
-//     button.addEventListener("click", function () {
-//         this.closest(".item-card").style.display = "none";
-//     }); 
-// });
+  if(!storedLosPollosMenu[ItemCategory]){
+    storedLosPollosMenu[ItemCategory] = []; //This will create a new Category if it hasnt been made already
+  }
+  storedLosPollosMenu[ItemCategory].push(newItem)
+  localStorage.setItem('LosPollosMenu', JSON.stringify(storedLosPollosMenu))
+  ready()
+  
+  }
+  function itemRemoval(event){
+    let buttonClicked = event.target
+    let ItemCard = buttonClicked.closest(".item-card");
+    let itemName = ItemCard.querySelector(".item-header").innerText
+    console.log(itemName)
+    for (let category in storedLosPollosMenu){
+      let items = storedLosPollosMenu[category];
+      for(let i =0; i < items.length; i++){
+        let item = items[i];
+        if(item.Name === itemName){
+          console.log(item.Itemid)
+          console.log(item)
+          items.splice(i,1)
+          localStorage.setItem("LosPollosMenu", JSON.stringify(storedLosPollosMenu))
+          ready()
+          break;
+        }
+      }
+    }
+    
+  }
+  function editItem(event){
+    let buttonClicked = event.target
+    
+    // editModal()
+    let ItemCard = buttonClicked.closest(".item-card");
+    let itemName = ItemCard.querySelector(".item-header").innerText;
+    for (let category in storedLosPollosMenu){
+      let items = storedLosPollosMenu[category];
+      for(let i =0; i < items.length; i++){
+        let item = items[i];
+        if(item.Name === itemName){
+          console.log(item.Itemid)
+          console.log(item)
+          console.log("EDIT")
+    
 
+  document.getElementById('EDITitemName').value = item.Name
+  
+  let PriceNum = item.Price
+  console.log(PriceNum)
+  document.getElementById("EDITitemPrice").value = PriceNum
+  document.getElementById("EDITitemDescription").value = item.Description;
 
-//  const addItemForm = document.getElementById("addItemForm");
-
-//  addItemForm.addEventListener("submit", function (event) {
-//      event.preventDefault();
-//      const itemName = document.getElementById("itemName").value;
-//     const itemPrice = document.getElementById("itemPrice").value;
-//     const itemDescription = document.getElementById("itemDescription").value;
-
-//     const addItemDisplay = document.querySelector(".add-item-display");
-//      const itemCard = addItemDisplay.querySelector(".item-card");
-
-//     itemCard.querySelector(".item-header").textContent = itemName;
-//      itemCard.querySelector(".item-description").textContent = itemDescription;
-//     itemCard.querySelector(".price span:nth-child(2)").textContent =`$${itemPrice}`;
-//  });
-
-//   function clearForm() {
-//      document.getElementById("addItemForm").reset();
-//  }
-
-
-
-// document.querySelectorAll(".item-card .close-button").forEach(button => {
-//     button.addEventListener("click", function () {
-//         this.closest(".item-card").style.display = "none";
-//     });
-// });
-
-// const addItemForm = document.getElementById("addItemForm");
-// addItemForm.addEventListener("submit", function (event) {
-//     event.preventDefault();
-//     const itemName = document.getElementById("itemName").value;
-//     const itemPrice = document.getElementById("itemPrice").value;
-//     const itemDescription = document.getElementById("itemDescription").value;
-//     const choice = document.getElementById("choice").value;
-
-//     const itemsContainer =  document.querySelector("#create .items-container");
-
-//     const newItemCard = document.createElement("div");
-//     newItemCard.classList.add("item-card");
-
-//     newItemCard.innerHTML = `
-//     <div class="item-info">
-//     <h4 class="item-header">${itemName}</h4>
-//     <p class="item-description">${itemDescription}</p>
-//     <button class="close-button">X</button>
-//     </div>
-//     <div class="price"><span>$</span>${itemPrice}<span> <button class = "btn menu-add">Order Now</button></span></div>
-//     <div class = "item-image">
-//     <img src = " " alt = "${itemName}">
-//     </div>
-//     `;
-// const sectionId = choice.toLowerCase().replace(/ /g, '-');
-// const section = document.getElementById(sectionId);
-// if (section) {
-//     section.querySelector(".items-container").appendChild(newItemCard);
-// }
+  let IMGInput = document.getElementById("EDITitemImage")
+  let IMGprev = document.querySelector(".PlaceholderImage")
+  IMGInput.value = item.image
   
 
-
-//     newItemCard.querySelector(".close-button").addEventListener("click", function () {
-//         this.closest(".item-card").style.display = "none";
-//     });
-
-//     clearForm();
-//     });
-//     function clearForm() {
-//        document.getElementById("itemName").value = "";
-//        document.getElementById("itemPrice").value = "";
-//        document.getElementById("itemDescription").value = "";
-       
-//     }
-
-
-//     //Update menu data in LocalStorage 
-//     localStorage.setItem("menuItems", JSON.stringify(menuItems));
-
-//     //listen for changes to menu data in LocalStorage
-//     window.addEventListener("storage", function(event) {
-//         if (event.key === "menuData") {
-//             menuItems = JSON.parse(event.newValue);
-//             //update the menu items on the page
-//         }
-//     });
-
-//     let menuData = [];
-
-//     function updateMenuData(data) {
-//         menuData = data;
-//     }
+  IMGInput.addEventListener("input", function(){
+    let IMGurl = IMGInput.value
+    IMGprev.src = IMGurl || "default.jpg"
+    console.log(IMGurl)
+  })
+  console.log(IMGprev.src)
+  
+  
+  document.getElementById("EDITItemCategory").value = category;
+  console.log(category)
+  let modal = document.getElementsByClassName("Modal ManagerEDIT")[0];
+    modal.style.display = "block";
+    let Updatebtn = document.getElementById("UpdateItem");
+    Updatebtn.addEventListener("click",function(){
+       itemUpdate(item)})
 
 
-//     const deleteButton = document.getElementById("delete-button");
-//     const itemId = deleteButton.dataset.itemId;
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+    break;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
 
-//     deleteButton.addEventListener("click", () => {
-//         localStorage.removeItem(ItemId);
-//         updateMenuPage();
-//     });
+  function itemUpdate(item){
+  let UpdatedItemName = document.getElementById('EDITitemName').value
+  let UpdatedItemPrice = parseFloat(document.getElementById("EDITitemPrice").value).toFixed(2)
+  let UpdatedItemDescription = document.getElementById("EDITitemDescription").value
+  let UpdatedItemImage = document.getElementById('EDITitemImage').value;
+  let UpdatedItemCategory = document.getElementById("EDITItemCategory").value
+
+  for (let category in storedLosPollosMenu){
+    let items = storedLosPollosMenu[category];
+      let itemIndex = items.findIndex(i => i.Itemid ===item.Itemid);
+      if(item.Name !== -1){
+        items.splice(itemIndex,1);
+        break;
+        }
+item.Name = UpdatedItemName;
+item.Price = UpdatedItemPrice;
+item.Description= UpdatedItemDescription;
+item.image = UpdatedItemImage;
+
+if(!storedLosPollosMenu[UpdatedItemCategory]){
+  storedLosPollosMenu[UpdatedItemCategory]=[]
+}
+storedLosPollosMenu[UpdatedItemCategory].push(item)
+
+
+localStorage.setItem("LosPollosMenu", JSON.stringify(storedLosPollosMenu))
+let modal = document.getElementsByClassName("Modal Manager")[0];
+modal.style.display = "none";
+  
+}
+
+  
+  }
 }
 
 //  -----------------------------------------------------------------------
 //                  Checks for Id to Load the right Functions
 //  -----------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
-
   if (document.getElementById("Page1")) {
     console.log("MainPage opening");
     initializeMainPage();
@@ -1378,9 +1523,8 @@ document.addEventListener("DOMContentLoaded", function () {
   } else if (document.getElementById("ReceiptPage")) {
     console.log("RecieptPage Open");
     initializeRecieptPage();
-  } else if (document.getElementById("ManagerPage")){
+  } else if (document.getElementById("ManagerPage")) {
     console.log("ManagerPage Opening");
     initiateManagerPage();
-
   }
 });

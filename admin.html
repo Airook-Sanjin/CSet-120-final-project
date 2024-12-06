@@ -37,20 +37,20 @@
         />
       </div>
       <div class="nav">
-        <a id="Menu" href="http://" target="_blank" rel="noopener noreferrer"
+        <a id="Menu" href="MenuPage.html"  rel="noopener noreferrer"
           >Menu</a
         >
         <a
           id="Who we are"
-          href="http://"
-          target="_blank"
+          href="Who.html"
+          
           rel="noopener noreferrer"
           >Who we are</a
         >
-        <a id="Rewards" href="http://" target="_blank" rel="noopener noreferrer"
+        <a id="Rewards" href="rewards.html" target="_blank" rel="noopener noreferrer"
           >Rewards</a
         >
-        <a id="Menu" href="http://" target="_blank" rel="noopener noreferrer"
+        <a id="Menu" href="MenuPage.html" target="_blank" rel="noopener noreferrer"
           >Menu</a
         >
       </div>
@@ -58,15 +58,15 @@
         <a
           id="Set-a-location"
           href="http://"
-          target="_blank"
+          
           rel="noopener noreferrer"
           >Set a Location</a
         >
         <ion-icon id="UserProf" name="person-circle-outline"></ion-icon>
         <a
           class="btnLink"
-          href="http://"
-          target="_blank"
+          href="MenuPage.html"
+          
           rel="noopener noreferrer"
           >Order Now</a
         >
@@ -103,6 +103,9 @@
         <!-- ----------------------------------------------------------------------- -->
 
         <!-- ----------------------------- Back to top ----------------------------- -->
+        <div class="items-container">
+            <button id ="AddItemsButton">Add Item</button>
+        </div>
         <div class = "items-container">
 <form id="addItemForm">
     <label for="itemName">Item Name:</label>
@@ -111,15 +114,17 @@
     <input type="number" id="itemPrice" name="itemPrice"><br><br>
     <label for="itemDescription">Item Description:</label>
     <textarea id="itemDescription" name="itemDescription"></textarea><br><br>
-    <select name = "choice" id="choice">
-        <option value="Breakfast-Specialties">Breakfast Specialties</option>
-        <option value="Pollos-Burritos">Pollos Burritos</option>
-        <option value="Pollos-Specialties">Pollos Specialties</option>
+    <select name = "ItemCategory " id="ItemCategory">
+        <option value="BreakfastSpecialties">Breakfast Specialties</option>
+        <option value="PollosBurritos">Pollos Burritos</option>
+        <option value="PollosSpecialties">Pollos Specialties</option>
         <option value="Sides">Sides</option>
         <option value="Sandwiches">Sandwiches</option>
         <option value="Desserts">Desserts</option>
         <option value="Beverages">Beverages</option>
-    </select>
+    </select><br><br>
+    <label for="itemImage">Item Image:</label>
+    <input type="text" id="itemImage" name="itemImage"><br><br>
     <input type="submit" value="Add Item">
     <button onclick ="event.preventDefault(); clearForm()" id = "clearBtn" title = "Clear form">Clear</button>
   </form>

@@ -189,7 +189,12 @@ body {
 }
 
 .card-bottom {
+	display: flex;
+	flex-wrap:wrap;
+	margin-top: 0.9375rem;
+	flex-direction: row;
 	padding-bottom: 3rem;
+	column-gap:6%;
 }
 
 .item-card {
@@ -211,11 +216,10 @@ body {
 }
 
 .menu-add {
-	margin-top: 0.9375rem;
+	
 	background-color: #666;
 	width: 6.25rem;
 	display: block;
-	position: absolute;
 	/* transform: translateY(220%); */
 	background: var(--main-red);
 	border: .0625rem solid var(--main-red);
@@ -240,7 +244,7 @@ body {
 	margin-top: 2rem;
 	margin-left: 1.25rem;
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	flex-direction: column;
 	width: 17.5rem;
 	font-family: 'Montserrat', serif;
@@ -253,7 +257,13 @@ body {
 	width: 10rem;
 	object-fit: contain;
 }
-
+.PlaceholderImage{
+	margin-top: .9375rem;
+	padding-top: .3125rem;
+	height: 10rem;
+	width: 10rem;
+	object-fit: contain;
+}
 .item-info p {
 	color: #737272;
 	line-height: 1.2;
@@ -317,36 +327,74 @@ body {
 	}
 }
 
-
+#AddItemsButton{
+	background-color: #666;
+	width: 6.25rem;
+	display: block;
+	/* transform: translateY(220%); */
+	background: var(--main-red);
+	border: .0625rem solid var(--main-red);
+	border-radius: .375rem;
+	box-shadow: rgba(0, 0, 0, 0.1) .0625rem .125rem .25rem;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: 'Monsterrat', sans-serif;
+	font-size: .75rem;
+	font-weight: 800;
+	min-height: 2.5rem;
+	padding: .75rem .875rem;
+	text-align: center;
+}
+#AddItemsButton:hover{
+	background: #cd3530;
+	transition: 0.2s;
+}
 .item-info .DeleteBtn {
-	display: flex;
+	
 	outline:none;
    background-color: var(--warm-blue);
-   justify-self: flex-end;
+   width: 3.25rem;
+   min-height: 2.5rem;
    margin-left: -10px;
+   padding:.5%;
    cursor: pointer;
   
+}
+.EditBtn{
+	min-height: 2.5rem;
+	outline:none;
+   background-color: var(--warm-blue);
+   width: 6.25rem;
+   margin-left: -10px;
+   cursor: pointer;
+   padding:1%;
 }
 
 
 #addItemForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+   
     font-family: "Arvo", serif;
 }
 
 #addItemForm label {
     margin-bottom: 10px;
     font-weight: bold;
-    color: white;
+    color: var(--secondary-red);
+}
+#itemDescription, #EDITitemDescription{
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+    border-radius: 5px;
+	min-height: 20%;
+	min-width: 20%;
 }
 
 #addItemForm input {
     padding: 5px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
     border-radius: 5px;
 }
 
@@ -367,10 +415,19 @@ body {
 .items-container select {
     padding: 5px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
     width: 100%;
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
     
+}
+#ItemCategory,#EDITItemCategory{
+	padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
 }
 
 #addItemForm input[type="submit"] {
@@ -387,3 +444,33 @@ body {
 #addItemForm input[type="submit"]:hover{
     background-color:#028dad;
 }
+.Modal{
+	z-index: 1001;
+	display:none;
+	position:fixed;
+	/* overflow: hidden; */
+	top:50%;
+	left:50%;
+	transform: translate( -50%, -50%);
+	width:100%;
+	height:100%;
+	background-color:hsl(0, 0%, 0%, 0.4)
+  }
+  .popup-container{
+	margin: 6.5% 37%;
+	animation: animateTop 0.8s ;
+  
+  }
+  .popup-card{
+	overflow: scroll; 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 5% auto;
+	background-color: hsl(0, 0%, 97%);
+	height:31.25rem;
+	width:25rem;
+	padding:6%;
+	border-radius: 20px;
+	row-gap:20px
+  }
