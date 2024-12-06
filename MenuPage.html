@@ -50,6 +50,12 @@
 					rel="noopener noreferrer"
 					>Rewards</a
 				>
+        <a
+					id="Incoming"
+					href="features.html"
+					rel="noopener noreferrer"
+					>Incoming Items</a
+				>
 				<input
 					type="search"
 					name="Searchbar"
@@ -266,6 +272,20 @@
           nomodule
           src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
         ></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+        const userStatus = localStorage.getItem("userStatus");
+        if (userStatus == "guest") {
+            document.getElementById("Rewards").style.display = "none";
+            document.getElementById("UserProf").style.display = "none";
+        }
+        else {
+            document.getElementById("Rewards").style.display = "block";
+            document.getElementById("UserProf").style.display = "block";
+        }
+    });
+    
+        </script>
         
       </nav>
     </div>
