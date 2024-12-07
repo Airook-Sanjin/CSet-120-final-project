@@ -217,18 +217,8 @@ ion-icon {
 	color: var(--main-red);
 }
 
-/* *.title-style {
-	content: '';
-	background-image: url(LosPollosImages-gif/zigzag.svg);
-	background-position: 0 200%;
-	background-repeat: repeat-x;
-	background-size: contain;
-	width: fit-content;
-} */
-
 .title-style {
-	/* display: block;
-	transform: translatey(200%); */
+	
 	display: flex;
 	justify-content: left;
 	margin-left: 11%;
@@ -238,10 +228,6 @@ ion-icon {
 #tenders img[src^='LosPoillosImages/chicken-tenders.webp'] {
 	height: 10rem;
 }
-
-/* .item-card [src^='media/applepie.png'] {
-	height: 10rem;
-} */
 
 .items-container {
 	display: grid;
