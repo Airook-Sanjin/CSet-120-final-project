@@ -145,43 +145,11 @@ body {
 
 /* -------------------------------- CTA end -------------------------------- */
 
-#logo {
-	width: 100px;
-}
-.header {
-	display: flex;
-	flex-direction: row;
-	background-color: #d71d3f;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-around;
-	/* position: fixed; */
-	/* z-index: 99; */
-	transition: top 0.3s;
-}
-.header a {
-	color: white;
-	text-decoration: none;
-}
-.userNav,
-.nav,
-.logo {
-	display: flex;
-	width: 20%;
-	align-items: center;
-	gap: 20px;
-}
-#UserProf {
-	font-size: 30px;
-}
-.btnLink {
-	color: hsl(0, 0%, 0%);
-	background-color: #f2e205;
-	border-radius: 10px;
-	width: 100px;
-	height: 40px;
-	padding: 2%;
-}
+
+
+
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                                 Nav Styles                                 */
