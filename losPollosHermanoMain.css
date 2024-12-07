@@ -110,8 +110,8 @@ a {
 	color: white;
 }
 #Searchbar:focus {
-	/* border: solid yellow; */
-	/* background-color: none; */
+	border: solid yellow;
+	background-color: none;
 }
 #UserProf,
 #Cart {

@@ -413,17 +413,16 @@ function initializeSignInPage() {
 }
 
 function joinAsGuest() {
-	localStorage.setItem('userStatus', "guest");
-	window.location.replace('index.html');
-  }
-
+  localStorage.setItem("userStatus", "guest");
+  window.location.replace("index.html");
+}
 
 // ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
-	//  -----------------------------------------------------------------------
-	//                                Modal Boxes
-	//  -----------------------------------------------------------------------
-	let MainmodalBtn = document.getElementsByClassName('Modalbutton Main')[0];
+  //  -----------------------------------------------------------------------
+  //                                Modal Boxes
+  //  -----------------------------------------------------------------------
+  let MainmodalBtn = document.getElementsByClassName("Modalbutton Main")[0];
 
   let Mainmodal = document.getElementsByClassName("modal Main")[0];
   let Mainclosebtn = document.getElementsByClassName("Closebtn Main")[0];
@@ -698,14 +697,14 @@ function initializeCheckoutPage() {
   //                            retrieving Item info
   //  -----------------------------------------------------------------------
 
-	let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
-	let PlaceOrderBtn = document.getElementById('PlaceOrderBtn');
-	// --------------------------------------------------------------------
-	let itemList = document.getElementsByClassName('Item-Qty-Price-List')[0];
-	for (let i = 0; i < retrievedItems.length; i++) {
-		let cartRowContent = document.createElement('div');
-		cartRowContent.className = 'Item-List-Container';
-		cartRowContent.innerHTML = `
+  let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
+  let PlaceOrderBtn = document.getElementById("PlaceOrderBtn");
+  // --------------------------------------------------------------------
+  let itemList = document.getElementsByClassName("Item-Qty-Price-List")[0];
+  for (let i = 0; i < retrievedItems.length; i++) {
+    let cartRowContent = document.createElement("div");
+    cartRowContent.className = "Item-List-Container";
+    cartRowContent.innerHTML = `
   
               <div class="Item-Container">
                 <img id="Item-img" src="${retrievedItems[i].foodImg}" alt="ItemImg" />
@@ -741,44 +740,44 @@ function initializeCheckoutPage() {
     }, 2000);
   }
 
-	function validateCard(
-		FirstName,
-		LastName,
-		Email,
-		CardName,
-		CardNumber,
-		ExpDate,
-		Cvv
-	) {
-		let errorMessage = '';
-		if (!FirstName) {
-			errorMessage += 'Please Enter First Name\n';
-		}
-		if (!LastName) {
-			errorMessage += 'Please Enter Last Name\n';
-		}
-		if (!Email) {
-			errorMessage += 'Please Enter Email\n';
-		}
-		if (!CardName) {
-			errorMessage += 'Please Enter Card Name\n';
-		}
-		if (!CardNumber || !/^\d{13,19}$/.test(CardNumber)) {
-			errorMessage += 'Please Enter Card Number(13 to 19 digits)\n';
-		}
-		if (!ExpDate) {
-			errorMessage += 'Please Fill the expiry Date (MM/YY)\n';
-		}
-		//--------------------------------------------------------------------------------------------------------------------//
-		if (!Cvv || !/^\d{3,4}$/.test(Cvv)) {
-			// This is a regular expression that match specific numbers
-			//"^" marks the start of the string and "$" marks the end of the string
-			// "/d" matches any digit (0 -9) and "{number,number}" specifies that the digit (element) must occur 3 or 4 times
-			errorMessage += ' CVV is invalid (must be 3 or 4 digits)\n';
-		}
-		//-------------------------------------------------------------------------------------------------------------------------//
-		return errorMessage;
-	}
+  function validateCard(
+    FirstName,
+    LastName,
+    Email,
+    CardName,
+    CardNumber,
+    ExpDate,
+    Cvv
+  ) {
+    let errorMessage = "";
+    if (!FirstName) {
+      errorMessage += "Please Enter First Name\n";
+    }
+    if (!LastName) {
+      errorMessage += "Please Enter Last Name\n";
+    }
+    if (!Email) {
+      errorMessage += "Please Enter Email\n";
+    }
+    if (!CardName) {
+      errorMessage += "Please Enter Card Name\n";
+    }
+    if (!CardNumber || !/^\d{13,19}$/.test(CardNumber)) {
+      errorMessage += "Please Enter Card Number(13 to 19 digits)\n";
+    }
+    if (!ExpDate) {
+      errorMessage += "Please Fill the expiry Date (MM/YY)\n";
+    }
+    //--------------------------------------------------------------------------------------------------------------------//
+    if (!Cvv || !/^\d{3,4}$/.test(Cvv)) {
+      // This is a regular expression that match specific numbers
+      //"^" marks the start of the string and "$" marks the end of the string
+      // "/d" matches any digit (0 -9) and "{number,number}" specifies that the digit (element) must occur 3 or 4 times
+      errorMessage += " CVV is invalid (must be 3 or 4 digits)\n";
+    }
+    //-------------------------------------------------------------------------------------------------------------------------//
+    return errorMessage;
+  }
 
   //  -----------------------------------------------------------------------
   //                             Quantity Change
@@ -1154,6 +1153,7 @@ function initializeCheckoutPage() {
   let FinalOrderTransfer = [];
   PlaceOrderBtn.addEventListener("click", function () {
     let FirstName = document.getElementById("FirstName").value;
+    console.log(FirstName)
     let LastName = document.getElementById("LastName").value;
     let Email = document.getElementById("Email").value;
     let ExpDate = document.getElementById("ExpDate").value;
@@ -1306,7 +1306,7 @@ function initializeRecieptPage() {
 
   updateDateTime();
   // ----------------------
-  let CTABtn = document.getElementById("cta-button");
+  let CTABtn = document.querySelector(".cta-button");
   CTABtn.addEventListener("click", function () {
     localStorage.removeItem("StoredItems");
     location.replace("MenuPage.html");

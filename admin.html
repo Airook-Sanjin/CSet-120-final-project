@@ -47,12 +47,10 @@
           rel="noopener noreferrer"
           >Who we are</a
         >
-        <a id="Rewards" href="rewards.html" target="_blank" rel="noopener noreferrer"
+        <a id="Rewards" href="rewards.html"  rel="noopener noreferrer"
           >Rewards</a
         >
-        <a id="Menu" href="MenuPage.html" target="_blank" rel="noopener noreferrer"
-          >Menu</a
-        >
+       
       </div>
       <div class="userNav">
         <a
@@ -141,5 +139,19 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    const userStatus = localStorage.getItem("userStatus");
+    if (userStatus == "guest") {
+        document.getElementById("Rewards").style.display = "none";
+        document.getElementById("UserProf").style.display = "none";
+    }
+    else {
+        document.getElementById("Rewards").style.display = "block";
+        document.getElementById("UserProf").style.display = "block";
+    }
+});
+
+    </script>
   </body>
 </html>

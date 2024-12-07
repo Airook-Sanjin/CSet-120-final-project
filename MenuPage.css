@@ -51,20 +51,8 @@ body {
 .nav,
 .logo {
 	display: flex;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	width: 20%;
-	align-items: center;
-	gap: 20px;
-=======
 	align-items: center;
 	gap: 40px;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-	width: 20%;
-	align-items: center;
-	gap: 20px;
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 
 .nav a:hover,
@@ -189,15 +177,7 @@ ion-icon {
 }
 
 .location-button {
-<<<<<<< HEAD
-<<<<<<< HEAD
-	font-size: 16px;
-=======
 	font-size: 1rem;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-	font-size: 16px;
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	background-color: transparent;
 	border-style: none;
 	cursor: pointer;
@@ -230,15 +210,7 @@ ion-icon {
 	display: flex;
 	margin-top: 0.5%;
 	justify-content: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	font-size: 40px;
-=======
 	font-size: 2.5rem;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-	font-size: 40px;
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	font-family: 'Arvo', serif;
 	/* color: #ff4742; */
 	font-weight: 900;
@@ -247,21 +219,9 @@ ion-icon {
 	color: var(--main-red);
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* .title-style {
-	content: '';
-	background-image: url(/media/zigzag.svg);
-=======
 /* *.title-style {
 	content: '';
 	background-image: url(LosPollosImages-gif/zigzag.svg);
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-/* .title-style {
-	content: '';
-	background-image: url(/media/zigzag.svg);
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	background-position: 0 200%;
 	background-repeat: repeat-x;
 	background-size: contain;
@@ -275,21 +235,9 @@ ion-icon {
 	justify-content: left;
 	margin-left: 11%;
 	transform: translatey(220%);
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-
-#tenders img[src^='media/chicken-tenders.webp'] {
-=======
-}*/
 
 #tenders img[src^='LosPoillosImages/chicken-tenders.webp'] {
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-}
-
-#tenders img[src^='media/chicken-tenders.webp'] {
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	height: 10rem;
 }
 
@@ -315,18 +263,8 @@ ion-icon {
 	display: flex;
 	flex-direction: row;
 	background-color: white;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	padding-left: 10px;
-	border-radius: 10px;
-=======
 	padding-left: 0.625rem;
 	border-radius: 0.625rem;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-	padding-left: 10px;
-	border-radius: 10px;
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	transition: transform 0.4s ease;
 	width: 90%;
@@ -335,54 +273,18 @@ ion-icon {
 }
 
 .item-card:hover {
-<<<<<<< HEAD
-<<<<<<< HEAD
-	box-shadow: 0 0 0 0 50px rgba(0, 0, 0, 0.2);
-=======
 	box-shadow: 0 0 0 0 3.125rem rgba(0, 0, 0, 0.2);
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-	box-shadow: 0 0 0 0 50px rgba(0, 0, 0, 0.2);
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	transform: scale(1.05);
 }
 
 .menu-add {
-<<<<<<< HEAD
-<<<<<<< HEAD
-	margin-top: 15px;
-	background-color: #666;
-	width: 100px;
-=======
 	margin-top: 0.9375rem;
 	background-color: #666;
 	width: 6.25rem;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-	margin-top: 15px;
-	background-color: #666;
-	width: 100px;
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	display: block;
 	position: absolute;
 	/* transform: translateY(220%); */
 	background: var(--main-red);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
-	border: 1px solid var(--main-red);
-	border-radius: 6px;
-	box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
-	color: #ffffff;
-	cursor: pointer;
-	font-family: 'Monsterrat', sans-serif;
-	font-size: 12px;
-	font-weight: 800;
-	min-height: 40px;
-	padding: 12px 14px;
-<<<<<<< HEAD
-=======
 	border: .0625rem solid var(--main-red);
 	border-radius: .375rem;
 	box-shadow: rgba(0, 0, 0, 0.1) .0625rem .125rem .25rem;
@@ -393,9 +295,6 @@ ion-icon {
 	font-weight: 800;
 	min-height: 2.5rem;
 	padding: .75rem .875rem;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	text-align: center;
 }
 
@@ -406,41 +305,17 @@ ion-icon {
 
 .item-info {
 	margin-top: 2rem;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
-	margin-left: 20px;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	width: 280px;
-<<<<<<< HEAD
-=======
 	margin-left: 1.25rem;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
 	width: 17.5rem;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	font-family: 'Montserrat', serif;
 	font-size: 1rem;
 }
 .item-card img {
-<<<<<<< HEAD
-<<<<<<< HEAD
-	margin-top: 15px;
-	padding-top: 5px;
-=======
 	margin-top: .9375rem;
 	padding-top: .3125rem;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-	margin-top: 15px;
-	padding-top: 5px;
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	height: 10rem;
 	width: 10rem;
 	object-fit: contain;
@@ -457,65 +332,28 @@ ion-icon {
 }
 
 .item-description {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
-	font-size: 13px;
-}
-
-#desserts img[src='media/applepie.png'] {
-<<<<<<< HEAD
-=======
 	font-size: .8125rem;
 }
 
 #desserts img[src='LosPollosImages-gif/applepie.png'] {
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	height: 10rem;
 	width: 8rem;
 	object-fit: cover;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
-#desserts img[src='media/frenchstix.png'] {
-	object-fit: cover;
-	height: 100px;
-	width: 8rem;
-	transform: translateY(50px);
-<<<<<<< HEAD
-=======
 #desserts img[src='LosPollosImages-gif/frenchstix.png'] {
 	object-fit: cover;
 	height: 6.25rem;
 	width: 8rem;
 	transform: translateY(3.125rem);
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 }
 
 /* -------------------------------- backtotop ------------------------------- */
 #topBtn {
 	display: none;
 	position: fixed;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	bottom: 20px;
-	right: 30px;
-=======
 	bottom: 1.25rem;
 	right: 1.875rem;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-	bottom: 20px;
-	right: 30px;
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	z-index: 99;
 	border: none;
 	background-color: var(--secondary-red);
@@ -523,18 +361,8 @@ ion-icon {
 	cursor: pointer;
 	font-size: 1rem;
 	font-weight: 800;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	padding: 15px 20px;
-	border-radius: 60px;
-=======
 	padding: .938rem 1.25rem;
 	border-radius: 3.75rem;
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-	padding: 15px 20px;
-	border-radius: 60px;
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	text-align: center;
 	transition: 0.3s;
 	text-transform: uppercase;
@@ -550,15 +378,7 @@ ion-icon {
 /* -------------------------------------------------------------------------- */
 /*                                Media Queries                               */
 /* -------------------------------------------------------------------------- */
-<<<<<<< HEAD
-<<<<<<< HEAD
-@media (max-width: 768px) {
-=======
 @media (max-width: 48rem) {
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-@media (max-width: 768px) {
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	.item-card {
 		width: 150%;
 	}
@@ -567,38 +387,6 @@ ion-icon {
 /*                                Modal pop up                              */
 /* -------------------------------------------------------------------------- */
 @keyframes animateTop {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
-	from {
-		top: -300px;
-		opacity: 0;
-	}
-	to {
-		top: 0;
-		opacity: 1;
-	}
-}
-.popup-container {
-	margin: 6.5% 37%;
-	animation: animateTop 0.8s;
-}
-.modal {
-	z-index: 1;
-	display: none;
-	position: fixed;
-	/* overflow: scroll; */
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 100%;
-	height: 100%;
-	background-color: hsl(0, 0%, 0%, 0.4);
-}
-.popup-card {
-<<<<<<< HEAD
-=======
 	from{top:-18.75rem;
 		 opacity: 0;}
 	to{top:0;
@@ -638,81 +426,11 @@ ion-icon {
 	flex-direction: column;
   }
   .popup-card{
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: 5% auto;
 	background-color: hsl(0, 0%, 97%);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
-	height: 500px;
-	width: 350px;
-	padding: 6%;
-	border-radius: 20px;
-	row-gap: 20px;
-}
-.popup-head {
-	display: flex;
-	flex-direction: row;
-	gap: 200px;
-}
-.Closebtn {
-	background-color: transparent;
-	border: none;
-	width: 20px;
-	font-size: 30px;
-}
-.P-D-btns {
-	background-color: transparent;
-	border: none;
-}
-.popup-card button:hover {
-	cursor: pointer;
-}
-.P-D-btns-container {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	padding: 3%;
-	background-color: hsl(0, 0%, 70%);
-	border-radius: 20px;
-}
-.form-container {
-	display: flex;
-	flex-direction: column;
-	row-gap: 20px;
-	/* height:100%; */
-}
-.form-container input,
-.form-container select {
-	border: none;
-	background-color: hsl(0, 0%, 89%);
-	width: 100%;
-	border-radius: 20px;
-	padding: 2%;
-}
-option:value {
-	color: hsl(0, 0%, 70%);
-}
-.Update-btn {
-	/* display: flex; */
-
-	background-color: #f2e205;
-	width: 80%;
-
-	height: fit-content;
-	padding: 3%;
-	border: none;
-	border-radius: 20px;
-}
-
-<<<<<<< HEAD
-=======
 	height:31.25rem;
 	width:25rem;
 	padding:6%;
@@ -772,9 +490,6 @@ option:value {
 	border:none;
 	border-radius: 20px;
   }
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
 /* ---------------------------------------------------- */
 /* ------               Footer Section       ---------- */
 /* ---------------------------------------------------- */
@@ -811,12 +526,4 @@ footer ion-icon {
 	text-wrap: wrap;
 	text-align: center;
 	color: #850e19;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 6a4116a9d7c303aae4767b13092b4babc6870865
-=======
-}
->>>>>>> 51b9cf18a987a3ba236112f9e77b060736727f52
