@@ -208,6 +208,7 @@ if(!storedLosPollosMenu){
   localStorage.setItem("LosPollosMenu", JSON.stringify(InititalLosPollosMenu));
   storedLosPollosMenu = InititalLosPollosMenu;
 }
+
 let modalClicked = false
 function delOrPickModal(){
   let deliveryForm = document.getElementsByClassName("form-container")[0];
@@ -857,10 +858,11 @@ function initializeMenuPage() {
       let AddtoCartBtn = AddtoCart[i];
       AddtoCartBtn.addEventListener("click", addToCartClicked);
     }
-    //  -----------------------------------------------------------------------
-    //                                Adding to Cart
-    //  -----------------------------------------------------------------------
+
   }
+  //  -----------------------------------------------------------------------
+  //                                Adding to Cart
+  //  -----------------------------------------------------------------------
   function addToCartClicked(event) {
     let button = event.target;
     console.log(button);
