@@ -211,8 +211,6 @@ if(!storedLosPollosMenu){
 
 function delOrPickModal(){
   
- 
-  
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
