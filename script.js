@@ -680,6 +680,7 @@ function initializeCheckoutPage() {
       localStorage.getItem("CustomerLocInfos")
     );
     console.log(TransferedCustomLocInfo);
+    if(TransferedCustomLocInfo){
     console.log(TransferedCustomLocInfo[0].StreetA);
     if (TransferedCustomLocInfo.length > -1) {
       mStreet.value = TransferedCustomLocInfo[0].StreetA;
@@ -688,6 +689,13 @@ function initializeCheckoutPage() {
       mSPR.value = TransferedCustomLocInfo[0].SPR;
       mZIP.value = TransferedCustomLocInfo[0].ZIP;
     }
+  }else if(!TransferedCustomLocInfo){
+    mStreet.value = "";
+    mStreet2.value = "";
+    mCity.value = "";
+    mSPR.value = "";
+    mZIP.value = "";
+  }
   }
   //  -----------------------------------------------------------------------
   //                            retrieving and applying Coupons
