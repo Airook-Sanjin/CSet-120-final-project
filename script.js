@@ -212,12 +212,7 @@ if(!storedLosPollosMenu){
 function delOrPickModal(){
   
  
-  let closebtn = document.getElementsByClassName("Closebtn")[0];
-  let modal = document.getElementsByClassName("modal")[0];
-  modal.style.display="block"
-  closebtn.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
+  
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
@@ -423,6 +418,12 @@ function delOrPickModal(){
                     <option value="1:30pm">1:30pm</option>
                   </select>
                 </div>`;
+  });
+  let closebtn = document.getElementsByClassName("Closebtn")[0];
+  let modal = document.getElementsByClassName("modal")[0];
+  modal.style.display="block"
+  closebtn.addEventListener("click", function () {
+    modal.style.display = "none";
   });
 }
 
