@@ -100,9 +100,7 @@ button {
 	padding: 10px;
 }
 #Searchbar::placeholder {
-	/* color: hsl(0, 0%, 70%); */
-	color: white;
-	font-weight: 500;
+	color: hsl(0, 0%, 70%);
 }
 #Searchbar:focus {
 	outline: none;

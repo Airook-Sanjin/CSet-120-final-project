@@ -102,16 +102,14 @@ a {
 	border: none;
 	color: white;
 	padding: 10px;
-	font-family: 'Lato', serif;
-	font-weight: 600;
 }
 #Searchbar::placeholder {
-	/* color: hsl(0, 0%, 70%); */
-	color: white;
+	color: hsl(0, 0%, 70%);
 }
 #Searchbar:focus {
-	border: solid yellow;
-	background-color: none;
+	outline: none;
+	border: none;
+	/* background-color: none; */
 }
 #UserProf,
 #Cart {
@@ -574,7 +572,7 @@ footer ion-icon {
 	animation: animateTop 0.8s;
 }
 .modal {
-	z-index: 1;
+	z-index: 1001;
 	display: none;
 	position: fixed;
 	/* overflow: scroll; */
@@ -587,11 +585,12 @@ footer ion-icon {
 }
 .popup-card {
 	display: flex;
+	/* overflow: scroll; */
 	flex-direction: column;
 	align-items: center;
 	margin: 5% auto;
 	background-color: hsl(0, 0%, 97%);
-	height: 500px;
+	height: 41.25rem;
 	width: 350px;
 	padding: 6%;
 	border-radius: 20px;
@@ -747,7 +746,7 @@ input[type='text'] {
 option:value {
 	color: hsl(0, 0%, 70%);
 }
-.Update-btn {
+.Update-Btn {
 	/* display: flex; */
 	/* background-color: #f2e205; */
 	background-color: #f2022f;
@@ -765,11 +764,11 @@ option:value {
 	border-radius: 20px;
 }
 
-.Update-btn:hover {
+.Update-Btn:hover {
 	/* background-color: #ddcf07; */
 	background-color: #d20329;
 }
-.Update-btn:active {
+.Update-Btn:active {
 	/* background-color: #ccbf08; */
 	background-color: #99041f;
 }
