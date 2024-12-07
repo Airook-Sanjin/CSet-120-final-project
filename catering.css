@@ -123,6 +123,7 @@ body {
 	-webkit-text-stroke: 3px #f2022f;
 }
 
+/* ----------------------------------- CTA ---------------------------------- */
 .cta {
 	display: flex;
 	place-content: center;
@@ -286,6 +287,60 @@ ion-icon {
 	border-radius: 8px;
 	border: solid red;
 	border-width: 4px;
+
+	font-size: 30px;
+
+	font-family: 'Arvo', serif;
+	/* color: #ff4742; */
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #761512;
+
+}
+
+.catering-title {
+	text-transform: capitalize;
+	color: white;
+	font-size: 40px;
+	font-weight: 600;
+	font-family: 'Rum Raisin', serif;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: var(--main-red);
+
+}
+
+.price {
+	font-weight: 300;
+
+}
+
+
+.menu-heading p {
+	color: rgb(109, 109, 109);
+
+	font-size: 1.2rem;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.menu-heading a {
+	color: var(--main-red);
+
+}
+
+
+.menu-heading {
+	display: flex;
+	flex-direction: column;
+	place-content: center;
+	transform: translatey(5rem);
+	margin-left: 10%;
+	background-color: white;
+	width: 900px;
+	padding: 40px 30px;
+	border-radius: 8px;
+	border: solid red;
+	border-width: 4px;
 }
 
 .catering-title {
@@ -310,6 +365,7 @@ ion-icon {
 	font-weight: 400;
 	text-decoration: none;
 }
+
 
 .menu-heading a:hover {
 	color: #da3530;
@@ -477,6 +533,8 @@ footer ion-icon {
 	text-align: center;
 	color: #850e19;
 }
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                             Breakfast container                            */

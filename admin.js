@@ -35,6 +35,7 @@ document.querySelectorAll(".item-card .close-button").forEach(button => {
     });
 });
 
+//add item
 const addItemForm = document.getElementById("addItemForm");
 addItemForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -73,6 +74,8 @@ if (section) {
 
     clearForm();
     });
+
+    //clear form
     function clearForm() {
        document.getElementById("itemName").value = "";
        document.getElementById("itemPrice").value = "";
@@ -80,29 +83,54 @@ if (section) {
        
     }
 
+    //Store deleted items in an array 
+    const deletedItems = [];
 
-    //Update menu data in LocalStorage 
-    localStorage.setItem("menuItems", JSON.stringify(menuItems));
+    //Delete item function 
+    document.querySelectorAll(".item-card .close-button").forEach(button => {
+        button.addEventListener("click", function () {
+            const itemCard = this.closest(".item-card");
+            const itemData = {
+                itemName: itemCard.querySelector(".item-header").textContent,
+                itemDescription: itemCard.querySelector(".item-description").textContent,
+                itemPrice: itemCard.querySelector(".price span").textContent,
+            };
+            deletedItems.push(itemData);
+            itemCard.style.display = "none";
+        });
+    });
+    
+    //Respawn all items button 
+    const respawnButton = document.getElementById("respawnButton");
 
-    //listen for changes to menu data in LocalStorage
-    window.addEventListener("storage", function(event) {
-        if (event.key === "menuData") {
-            menuItems = JSON.parse(event.newValue);
-            //update the menu items on the page
-        }
+    respawnButton.addEventListener("click", function () {
+        deletedItems.forEach(itemData => {
+        const newItemCard = document.createElement("div");
+        newItemCard.classList.add("item-card");
+        newItemCard.innerHTML = `
+        <div class="item-info">
+        <h4 class="item-header">${itemData.itemName}</h4>
+        <p class="item-description">${itemData.itemDescription}</p>
+        </div>
+        <div class="price"><span>$</span>${itemData.itemPrice}</div>
+        `;
+
+        const itemsContainer = document.querySelector("items.container");
+        itemsContainer.appendChild(newItemCard);
+        });
+
+        deletedItems.length = 0;
     });
 
-    let menuData = [];
 
-    function updateMenuData(data) {
-        menuData = data;
-    }
+   const closeButton = document.getElementById("close-button");
+   closeButton.addEventListener("click", function () {
+       localStorage.setItem("removeApplePie", "true");
+   }) 
 
+   const doButton = document.getElementById("do-button");
 
-    const deleteButton = document.getElementById("delete-button");
-    const itemId = deleteButton.dataset.itemId;
-
-    deleteButton.addEventListener("click", () => {
-        localStorage.removeItem(ItemId);
-        updateMenuPage();
-    });
+doButton.addEventListener("click", () => {
+  // Send a message to the menu page to change the HTML to red
+  localStorage.setItem("changeToRed", "true");
+});

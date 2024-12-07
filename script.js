@@ -385,7 +385,7 @@ function initializeSignInPage() {
   }
   const managerInfo = {
     email: "LosPollosManager81@gmail.com",
-    password: "GusFring2425",
+    password: "GusFring2425!",
   };
 
   function login() {
@@ -413,12 +413,14 @@ function initializeSignInPage() {
 }
 
 function joinAsGuest() {
-  localStorage.setItem("userStatus", "guest");
-  window.location.replace("index.html");
-}
+	localStorage.setItem('userStatus', "guest");
+	window.location.replace('index.html');
+  }
+
 
 // ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
+  
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
   //  -----------------------------------------------------------------------
@@ -480,10 +482,10 @@ function initializeMainPage() {
       updateTestimonial();
     });
 
-  function updateTestimonial() {
-    let TestimonialContainers = document.querySelector(
-      ".Testimonial-Container"
-    );
+	function updateTestimonial() {
+		let TestimonialContainers = document.querySelector(
+			'.Testimonial-Container'
+		);
 
     let testOffset = -currentTestimonialIndex * (700 + 450);
     TestimonialContainers.style.transform = `translateX(${testOffset}px)`;
@@ -638,31 +640,31 @@ function initializeMenuPage() {
     deliveryForm.style.display = "none";
   });
 
-  //  -----------------------------------------------------------------------
-  //                            onscroll Function
-  //  -----------------------------------------------------------------------
-  let topButton = document.getElementById("topBtn");
-  window.onscroll = function () {
-    scrollFunction();
-  };
+	//  -----------------------------------------------------------------------
+	//                            onscroll Function
+	//  -----------------------------------------------------------------------
+	let topButton = document.getElementById('topBtn');
+	window.onscroll = function () {
+		scrollFunction();
+	};
 
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      topButton.style.display = "block";
-    } else {
-      topButton.style.display = "none";
-    }
-  }
-  topButton.addEventListener("click", backToTop);
-  function backToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-  //  -----------------------------------------------------------------------
-  //                            Onscroll function end
-  //  -----------------------------------------------------------------------
+	function scrollFunction() {
+		if (
+			document.body.scrollTop > 20 ||
+			document.documentElement.scrollTop > 20
+		) {
+			topButton.style.display = 'block';
+		} else {
+			topButton.style.display = 'none';
+		}
+	}
+	topButton.addEventListener('click', backToTop);
+	function backToTop() {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+	//  -----------------------------------------------------------------------
+	//                            Onscroll function end
+	//  -----------------------------------------------------------------------
 }
 function initializeCheckoutPage() {
   function ready() {
@@ -831,7 +833,7 @@ function initializeCheckoutPage() {
     console.log("RemoveItem Pressed?");
     let buttonClicked = event.target;
 
-    let itemContainer = buttonClicked.closest(".Item-List-Container");
+		let itemContainer = buttonClicked.closest('.Item-List-Container');
 
     // VVV this will find the index of the item we want to remove
     let itemTitle = itemContainer.getElementsByTagName("p")[0].textContent;
