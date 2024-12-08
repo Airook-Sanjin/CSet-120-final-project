@@ -13,13 +13,6 @@ body {
 	overflow-x: hidden;
 }
 
-/* h3 {
-	font-family: 'Goblin One', serif;
-	font-weight: 400;
-	font-style: normal;
-	color: #f20530;
-} */
-
 h3 {
 	font-family: 'Arvo', serif;
 	font-weight: 700;
@@ -342,7 +335,6 @@ a {
 	font-weight: 500;
 	margin-top: 1.55rem;
 	color: white !important;
-	/* -webkit-text-stroke-color: #002a86; */
 }
 
 #TestimonialSection {
@@ -378,7 +370,7 @@ a {
 	font-size: 24px;
 	font-style: italic;
 	min-width: 700px;
-	margin-right: 450px;
+	margin-right: 465px;
 	box-sizing: border-box;
 	color: black;
 	text-wrap: wrap;

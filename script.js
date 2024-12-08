@@ -1,8 +1,14 @@
 // const { json } = require("stream/consumers");
 
-
 let storedLosPollosMenu = JSON.parse(localStorage.getItem("LosPollosMenu"));
-if(!storedLosPollosMenu){
+for (let category in storedLosPollosMenu) {
+  //
+  storedLosPollosMenu[category].forEach((item, index) => {
+    //this will asign items based on the index
+    item.Itemid = index + 1;
+  });
+}
+if (!storedLosPollosMenu) {
   let InititalLosPollosMenu = {
     BreakfastSpecialties: [
       {
@@ -76,7 +82,7 @@ if(!storedLosPollosMenu){
         image: "LosPollosImages-gif/chickenbox.png",
       },
       {
-        Itemid:4,
+        Itemid: 4,
         Name: "6 Pc Pollo Bucket",
         Price: 5.99,
         Description: "Six pieces of our signature pollo chicken",
@@ -153,7 +159,7 @@ if(!storedLosPollosMenu){
     ],
     Desserts: [
       {
-        Itemid:1,
+        Itemid: 1,
         Name: "Apple Pie",
         Price: 5.99,
         Description:
@@ -205,34 +211,57 @@ if(!storedLosPollosMenu){
       },
     ],
   };
+
   localStorage.setItem("LosPollosMenu", JSON.stringify(InititalLosPollosMenu));
   storedLosPollosMenu = InititalLosPollosMenu;
+  console.log(storedLosPollosMenu.length);
 }
 
-let modalClicked = false
-function search_Items(){
+
+function search_Items() {
   // item-header
-  let input= document.getElementById("Searchbar").value;
+  let input = document.getElementById("Searchbar").value;
   input = input.toLowerCase();
-  let items = document.getElementsByClassName("item-header")
-  for(let item of items){
-    if(!item.innerHTML.toLowerCase().includes(input)){
-      item.closest(".items-container").parentElement.style.display = "none"
-      console.log(item.closest(".items-container").parentElement)
-      item.parentElement.parentElement.style.display ="none"
-      item.parentElement.style.display ="none"
-      item.style.display="none"
-      console.log("Item not found")
-    }else{
-      item.closest(".items-container").parentElement.style.display = "block"
-      item.parentElement.parentElement.style.display ="flex"
-      item.parentElement.style.display ="block"
-      item.style.display="block"
-      console.log("Item found")
+  console.log(input);
+  let items = document.getElementsByClassName("item-header");
+  for (let item of items) {
+    if (!item.innerHTML.toLowerCase().includes(input) && input !== "") {
+      item
+        .closest(".items-container")
+        .parentElement.querySelectorAll(".title-style")[0].style.display =
+        "none";
+      item.closest(".items-container").style.display = "flex";
+      item.closest(".items-container").style.flexWrap = "wrap";
+      item.closest(".items-container").style.marginTop = "2%";
+      item.closest(".items-container").style.paddingBottom = ".25rem";
+      item.parentElement.parentElement.style.display = "none";
+      console.log("Item NOT FOUND", item.innerText);
+    } else if (item.innerHTML.toLowerCase().includes(input) && input !== "") {
+      item
+        .closest(".items-container")
+        .parentElement.querySelectorAll(".title-style")[0].style.display =
+        "none";
+      item.closest(".items-container").style.display = "flex";
+      item.closest(".items-container").style.flexWrap = "wrap";
+      item.closest(".items-container").style.marginTop = "2%";
+      item.closest(".items-container").style.paddingBottom = ".25rem";
+      item.parentElement.parentElement.style.display = "flex";
+      console.log("Item FOUND", item.innerText);
+    } else if (input === "") {
+      console.log("MENU RESET");
+      item
+        .closest(".items-container")
+        .parentElement.querySelectorAll(".title-style")[0].style.display =
+        "flex";
+      item.closest(".items-container").style.display = "grid";
+
+      item.closest(".items-container").style.marginTop = "10%";
+      item.closest(".items-container").style.paddingBottom = "1rem";
+      item.parentElement.parentElement.style.display = "flex";
     }
   }
 }
-function delOrPickModal(){
+function delOrPickModal() {
   let deliveryForm = document.getElementsByClassName("form-container")[0];
   window.onclick = function (event) {
     if (event.target == modal) {
@@ -242,11 +271,13 @@ function delOrPickModal(){
   let Deliverybtn = document.getElementsByClassName("DeliveryDiv")[0];
   let Pickupbtn = document.getElementsByClassName("PickupDiv")[0];
   let indicator = document.getElementsByClassName("location-button")[0];
-  
-  console.log(deliveryForm)
+
+  console.log(deliveryForm);
   Deliverybtn.addEventListener("click", function () {
-    if(indicator){indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Delivery`;}
-    
+    if (indicator) {
+      indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Delivery`;
+    }
+
     deliveryForm.innerHTML = `<div class="Main Loc-container">
                   <div class="Address-Container">
                     <div class="Address">
@@ -369,8 +400,10 @@ function delOrPickModal(){
                 </div>`;
   });
   Pickupbtn.addEventListener("click", function () {
-    if(indicator){indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Pick Up`;}
-    
+    if (indicator) {
+      indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Pick Up`;
+    }
+
     deliveryForm.innerHTML = `
     <div class="Address-Container">
                     <div class="Address">
@@ -404,11 +437,11 @@ function delOrPickModal(){
   });
   let closebtn = document.getElementsByClassName("Closebtn")[0];
   let modal = document.getElementsByClassName("modal")[0];
-  modal.style.display="block"
+  modal.style.display = "block";
   closebtn.addEventListener("click", function () {
     modal.style.display = "none";
   });
-  
+
   let CustomerLocInfo = [];
   let cStreet = document.getElementById("StreetAddress");
   let cStreet2 = document.getElementById("AddressLine2");
@@ -445,27 +478,23 @@ function delOrPickModal(){
     }
     modal.style.display = "none";
   });
-  
-  
 }
 
 function menuDisplay() {
-  
   console.log("displayingMenu");
 
   
   if (storedLosPollosMenu) {
     let menuContainer = document.getElementById("MenuContainer");
-    if(document.getElementById("MenuPage")){
+    if (document.getElementById("MenuPage")) {
       menuContainer.innerHTML = ``;
-    }
-    else if (document.getElementById("ManagerPage")){
+    } else if (document.getElementById("ManagerPage")) {
       menuContainer.innerHTML = `<div class="items-container">
             <button id ="AddItemsButton">Add Item</button>
         </div>
         <section class = "Modal Manager">
         <div class="popup-container">
-<form id="addItemForm" class="popup-card">
+<div id="addItemForm" class="popup-card">
     <label for="itemName">Item Name:</label>
     <input required placeholder="Enter Item Name" type="text" id="itemName" name="itemName"><br><br>
     <label  for="itemPrice">Item Price:</label>
@@ -485,14 +514,14 @@ function menuDisplay() {
     <label for="itemImage">Item Image:</label>
     <input required placeholder="Enter Image url" type="text" id="itemImage" name="itemImage"><br><br>
     <img class ="PlaceholderImage" src=""/><br><br>
-    <input id ="SubmitItem" type="submit" value="Add Item">
+    <button id ="SubmitItem">Add Item</button>
     
-  </form>
+  </div>
   </div>
   </section>
   <section class = "Modal ManagerEDIT">
         <div class="popup-container">
-<form id="addItemForm" class="popup-card">
+<div id="addItemForm" class="popup-card">
     <label for="itemName">Item Name:</label>
     <input required placeholder="Enter Item Name" type="text" id="EDITitemName" name="itemName"><br><br>
     <label for="itemPrice">Item Price:</label>
@@ -512,14 +541,13 @@ function menuDisplay() {
     <label for="itemImage">Item Image:</label>
     <input required placeholder="Enter Image url" type="text" id="EDITitemImage" name="itemImage"><br><br>
     <img class ="PlaceholderImage" src=""/><br><br>
-    <input id ="UpdateItem" type="submit" value="Update Item">
+   <button id ="UpdateItem">Update Item</button>
     
-  </form>
+  </div>
   </div>
   </section>
   `;
     }
-    
 
     let bttBtn = document.createElement("button");
     bttBtn.id = "topBtn";
@@ -532,11 +560,10 @@ function menuDisplay() {
         .replace(/\$1/g, "")
         .replace(/([A-Z])/g, `$1`)
         .trim("");
-      
-      if(document.getElementById("MenuPage")){
+
+      if (document.getElementById("MenuPage")) {
         menuContainer.appendChild(headerSection);
-      }
-      else if (document.getElementById("ManagerPage")){
+      } else if (document.getElementById("ManagerPage")) {
         menuContainer.appendChild(headerSection);
       }
       let menuHeading = document.createElement("div");
@@ -545,7 +572,7 @@ function menuDisplay() {
       let sectionHeader = document.createElement("h2");
       sectionHeader.innerText = section.replace(/([A-Z])/g, ` $1`); //Formatting of category name
       sectionHeader.className = "section-title";
-      
+
       menuHeading.appendChild(sectionHeader);
       let itemsContainer = document.createElement("div");
       itemsContainer.className = "items-container";
@@ -651,29 +678,28 @@ function initializeSignInPage() {
 }
 
 function joinAsGuest() {
-	localStorage.setItem('userStatus', "guest");
-	window.location.replace('index.html');
-  }
-
-
+  localStorage.setItem("userStatus", "guest");
+  window.location.replace("index.html");
+}
+let modalClicked = false;
 // ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
+  let LogoDiv = document.getElementsByClassName("logo")[0];
+  console.log(LogoDiv);
+  LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
-  })
+  });
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
   //  -----------------------------------------------------------------------
   let modalBtn = document.getElementsByClassName("Modalbutton")[0];
-  modalBtn.addEventListener("click", function(){
+  modalBtn.addEventListener("click", function () {
     let deliveryForm = document.getElementsByClassName("form-container")[0];
-    if(!modalClicked){
-      modalClicked = true
+    if (!modalClicked) {
+      modalClicked = true;
       deliveryForm.innerHTML = `<div class="Main Loc-container">
     <div class="Address-Container">
       <div class="Address">
@@ -795,10 +821,10 @@ function initializeMainPage() {
     </select>
   </div>`;
     }
-    
-    delOrPickModal()
-  })
-  
+
+    delOrPickModal();
+  });
+
   //  -----------------------------------------------------------------------
   //                                Testimonial Carousel
   //  -----------------------------------------------------------------------
@@ -826,15 +852,17 @@ function initializeMainPage() {
       updateTestimonial();
     });
 
-	function updateTestimonial() {
-		let TestimonialContainers = document.querySelector(
-			'.Testimonial-Container'
-		);
+  function updateTestimonial() {
+    let TestimonialContainers = document.querySelector(
+      ".Testimonial-Container"
+    );
 
-    let testOffset = -currentTestimonialIndex * (700 + 450);
+    let testOffset = -currentTestimonialIndex * (700 + 465);
     TestimonialContainers.style.transform = `translateX(${testOffset}px)`;
   }
-  // --------------------gus--------------------------------------
+  //  -----------------------------------------------------------------------
+  //                                Secret Gus
+  //  -----------------------------------------------------------------------
   let Footer = document.getElementsByTagName("footer")[0];
   let secretGus = document.getElementById("SecretGus");
   let SecretModal = document.getElementsByClassName("SecretModal Main")[0];
@@ -863,17 +891,18 @@ function initializeMenuPage() {
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
+  let LogoDiv = document.getElementsByClassName("logo")[0];
+  console.log(LogoDiv);
+  LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
-  })
-  
+  });
+
   ready();
 
   search_Items;
   function ready() {
-    storedLosPollosMenu = JSON.parse(localStorage.getItem("LosPollosMenu"))|| {};
+    storedLosPollosMenu =
+      JSON.parse(localStorage.getItem("LosPollosMenu")) || {};
     menuDisplay();
     // makes sure the each add to cart buttons work
     let AddtoCart = document.getElementsByClassName("menu-add");
@@ -881,7 +910,6 @@ function initializeMenuPage() {
       let AddtoCartBtn = AddtoCart[i];
       AddtoCartBtn.addEventListener("click", addToCartClicked);
     }
-
   }
   //  -----------------------------------------------------------------------
   //                                Adding to Cart
@@ -929,10 +957,10 @@ function initializeMenuPage() {
   //                                Modal Boxes
   //  -----------------------------------------------------------------------
   let modalBtn = document.getElementsByClassName("Modalbutton")[0];
-  modalBtn.addEventListener("click", function(){
+  modalBtn.addEventListener("click", function () {
     let deliveryForm = document.getElementsByClassName("form-container")[0];
-    if(!modalClicked){
-      modalClicked = true
+    if (!modalClicked) {
+      modalClicked = true;
       deliveryForm.innerHTML = `<div class="Main Loc-container">
     <div class="Address-Container">
       <div class="Address">
@@ -1054,51 +1082,50 @@ function initializeMenuPage() {
     </select>
   </div>`;
     }
-    
-    delOrPickModal()
-  })
 
-	//  -----------------------------------------------------------------------
-	//                            onscroll Function
-	//  -----------------------------------------------------------------------
-	let topButton = document.getElementById('topBtn');
-	window.onscroll = function () {
-		scrollFunction();
-	};
+    delOrPickModal();
+  });
 
-	function scrollFunction() {
-		if (
-			document.body.scrollTop > 20 ||
-			document.documentElement.scrollTop > 20
-		) {
-			topButton.style.display = 'block';
-		} else {
-			topButton.style.display = 'none';
-		}
-	}
-	topButton.addEventListener('click', backToTop);
-	function backToTop() {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}
-	//  -----------------------------------------------------------------------
-	//                            Onscroll function end
-	//  -----------------------------------------------------------------------
-   //  -----------------------------------------------------------------------
+  //  -----------------------------------------------------------------------
+  //                            onscroll Function
+  //  -----------------------------------------------------------------------
+  let topButton = document.getElementById("topBtn");
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      topButton.style.display = "block";
+    } else {
+      topButton.style.display = "none";
+    }
+  }
+  topButton.addEventListener("click", backToTop);
+  function backToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  //  -----------------------------------------------------------------------
+  //                            Onscroll function end
+  //  -----------------------------------------------------------------------
+  //  -----------------------------------------------------------------------
   //                                SearchBar function
   //  -----------------------------------------------------------------------
-  let input= document.getElementById("Searchbar")
-  input.addEventListener("input", search_Items)
-
+  let input = document.getElementById("Searchbar");
+  input.addEventListener("input", search_Items);
 }
 function initializeCheckoutPage() {
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
+  let LogoDiv = document.getElementsByClassName("logo")[0];
+  console.log(LogoDiv);
+  LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
-  })
+  });
   function ready() {
     let quantityInputs = document.getElementsByClassName("Cart-Quantity");
     for (let i = 0; i < quantityInputs.length; i++) {
@@ -1114,28 +1141,28 @@ function initializeCheckoutPage() {
       localStorage.getItem("CustomerLocInfos")
     );
     console.log(TransferedCustomLocInfo);
-    if(TransferedCustomLocInfo){
-    console.log(TransferedCustomLocInfo[0].StreetA);
-    if (TransferedCustomLocInfo.length > -1) {
-      mStreet.value = TransferedCustomLocInfo[0].StreetA;
-      mStreet2.value = TransferedCustomLocInfo[0].Street2;
-      mCity.value = TransferedCustomLocInfo[0].City;
-      mSPR.value = TransferedCustomLocInfo[0].SPR;
-      mZIP.value = TransferedCustomLocInfo[0].ZIP;
+    if (TransferedCustomLocInfo) {
+      console.log(TransferedCustomLocInfo[0].StreetA);
+      if (TransferedCustomLocInfo.length > -1) {
+        mStreet.value = TransferedCustomLocInfo[0].StreetA;
+        mStreet2.value = TransferedCustomLocInfo[0].Street2;
+        mCity.value = TransferedCustomLocInfo[0].City;
+        mSPR.value = TransferedCustomLocInfo[0].SPR;
+        mZIP.value = TransferedCustomLocInfo[0].ZIP;
+      }
+    } else if (!TransferedCustomLocInfo) {
+      mStreet.value = "";
+      mStreet2.value = "";
+      mCity.value = "";
+      mSPR.value = "";
+      mZIP.value = "";
     }
-  }else if(!TransferedCustomLocInfo){
-    mStreet.value = "";
-    mStreet2.value = "";
-    mCity.value = "";
-    mSPR.value = "";
-    mZIP.value = "";
-  }
   }
   let modalBtn = document.getElementsByClassName("Modalbutton")[0];
-  modalBtn.addEventListener("click", function(){
+  modalBtn.addEventListener("click", function () {
     let deliveryForm = document.getElementsByClassName("form-container")[0];
-    if(!modalClicked){
-      modalClicked = true
+    if (!modalClicked) {
+      modalClicked = true;
       deliveryForm.innerHTML = `<div class="Main Loc-container">
     <div class="Address-Container">
       <div class="Address">
@@ -1257,11 +1284,9 @@ function initializeCheckoutPage() {
     </select>
   </div>`;
     }
-    
-    delOrPickModal()
-  })
-  
 
+    delOrPickModal();
+  });
 
   //  -----------------------------------------------------------------------
   //                            retrieving Item info
@@ -1393,7 +1418,7 @@ function initializeCheckoutPage() {
     console.log("RemoveItem Pressed?");
     let buttonClicked = event.target;
 
-		let itemContainer = buttonClicked.closest('.Item-List-Container');
+    let itemContainer = buttonClicked.closest(".Item-List-Container");
 
     // VVV this will find the index of the item we want to remove
     let itemTitle = itemContainer.getElementsByTagName("p")[0].textContent;
@@ -1442,7 +1467,7 @@ function initializeCheckoutPage() {
     }
     let Taxtotal = total * 0.06;
 
-    CurrentTaxTotal = Taxtotal
+    CurrentTaxTotal = Taxtotal;
     let TipTotal = 0;
     let orderTotal = total + Taxtotal + CurrentTipTotal;
 
@@ -1549,14 +1574,18 @@ function initializeCheckoutPage() {
   }
 
   function updateUI(total, TipTotal, Taxtotal, orderTotal) {
-    document.getElementById("TotalPrice").innerText = `Subtotal: $${total.toFixed(2)}`;
+    document.getElementById(
+      "TotalPrice"
+    ).innerText = `Subtotal: $${total.toFixed(2)}`;
     CurrentSubTotal = total;
     console.log("tipdeduction", TipTotal);
     document.getElementById("tip").innerText = `Tip: $${TipTotal.toFixed(2)}`;
     document.getElementById("tax").innerText = `Tax: $${Taxtotal.toFixed(2)}`;
-    CurrentTaxTotal = Taxtotal
+    CurrentTaxTotal = Taxtotal;
     console.log(orderTotal);
-    document.getElementById("FinalTotal").innerText = `Order Total: $${orderTotal.toFixed(2)}`;
+    document.getElementById(
+      "FinalTotal"
+    ).innerText = `Order Total: $${orderTotal.toFixed(2)}`;
     CurrentOrderTotal = orderTotal;
     console.log("UI Updated");
   }
@@ -1669,12 +1698,14 @@ function initializeCheckoutPage() {
           }
         }
         applyCoupon(DiscountElement, CurrentTaxTotal, discount, Coupon);
-      } else if (!couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF")&& !couponIdRetrieved.map((coupon) => coupon.code).includes("FIRSTTIME")) {
-
+      } else if (
+        !couponIdRetrieved.map((coupon) => coupon.code).includes("TWENTYOFF") &&
+        !couponIdRetrieved.map((coupon) => coupon.code).includes("FIRSTTIME")
+      ) {
         let Coupon = CouponID.value;
-      if (Coupon === "") {
-        resetCoupon();
-      }
+        if (Coupon === "") {
+          resetCoupon();
+        }
       }
     }
     CouponID.addEventListener("input", function () {
@@ -1724,7 +1755,7 @@ function initializeCheckoutPage() {
   let FinalOrderTransfer = [];
   PlaceOrderBtn.addEventListener("click", function () {
     let FirstName = document.getElementById("FirstName").value;
-    console.log(FirstName)
+    console.log(FirstName);
     let LastName = document.getElementById("LastName").value;
     let Email = document.getElementById("Email").value;
     let ExpDate = document.getElementById("ExpDate").value;
@@ -1783,19 +1814,19 @@ function initializeRecieptPage() {
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
+  let LogoDiv = document.getElementsByClassName("logo")[0];
+  console.log(LogoDiv);
+  LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
-  })
+  });
   //  -----------------------------------------------------------------------
   //                                Modal
   //  -----------------------------------------------------------------------
   let modalBtn = document.getElementsByClassName("Modalbutton")[0];
-  modalBtn.addEventListener("click", function(){
+  modalBtn.addEventListener("click", function () {
     let deliveryForm = document.getElementsByClassName("form-container")[0];
-    if(!modalClicked){
-      modalClicked = true
+    if (!modalClicked) {
+      modalClicked = true;
       deliveryForm.innerHTML = `<div class="Main Loc-container">
     <div class="Address-Container">
       <div class="Address">
@@ -1917,9 +1948,9 @@ function initializeRecieptPage() {
     </select>
   </div>`;
     }
-    
-    delOrPickModal()
-  })
+
+    delOrPickModal();
+  });
 
   let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
 
@@ -2029,218 +2060,252 @@ function initiateManagerPage() {
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
+  let LogoDiv = document.getElementsByClassName("logo")[0];
+  console.log(LogoDiv);
+  LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
-  })
+  });
   //MANAGER
-  storedLosPollosMenu = JSON.parse(localStorage.getItem("LosPollosMenu"))|| {};
+  search_Items;
+  console.log(storedLosPollosMenu);
   ready();
   function ready() {
     menuDisplay();
     let cards = document.querySelectorAll(".item-card");
-  cards.forEach((card) => {
-    let cardBottom = card.querySelector(".card-bottom");
-    let deleteBtn = document.createElement("button");
-    deleteBtn.className = "DeleteBtn";
-    deleteBtn.innerText = "X";
-    
-    cardBottom.appendChild(deleteBtn);
+    cards.forEach((card) => {
+      let cardBottom = card.querySelector(".card-bottom");
+      let deleteBtn = document.createElement("button");
+      deleteBtn.className = "DeleteBtn";
+      deleteBtn.innerText = "X";
 
-    deleteBtn.addEventListener("click", itemRemoval);
-    let EditBtn = document.createElement("button");
-    EditBtn.className = "EditBtn";
-    EditBtn.innerText = "Edit Item";
-    cardBottom.appendChild(EditBtn)
-    EditBtn.addEventListener("click", editItem )
-  });
-  }
-function modal(){
-  console.log("MODAL")
-  let modal = document.getElementsByClassName("Modal Manager")[0];
-    modal.style.display = "block";
+      cardBottom.appendChild(deleteBtn);
+
+      deleteBtn.addEventListener("click", itemRemoval);
+      let EditBtn = document.createElement("button");
+      EditBtn.className = "EditBtn";
+      EditBtn.innerText = "Edit Item";
+      cardBottom.appendChild(EditBtn);
+      EditBtn.addEventListener("click", editItem);
+      let AddBtn = document.getElementById("AddItemsButton");
+  AddBtn.addEventListener("click", function(){
+    let Addmodal = document.getElementsByClassName("Modal Manager")[0];
+    Addmodal.style.display = "block";
 
     window.onclick = function (event) {
       if (event.target == modal) {
-        modal.style.display = "none";
+        Addmodal.style.display = "none";
       }
     };
-}
-
-
+  });
+  let AddItemBtn = document.getElementById("SubmitItem");
+  AddItemBtn.addEventListener("click", addItem);
+    });
+  }
   
-  let AddBtn = document.getElementById("AddItemsButton");
-AddBtn.addEventListener("click", modal);
-let AddItemBtn = document.getElementById("SubmitItem");
-AddItemBtn.addEventListener("click", addItem)
-  function addItem(){
-    
-  
-  let ItemName = document.getElementById('itemName').value
-  let ItemPrice = parseFloat(document.getElementById("itemPrice").value).toFixed(2)
-  let ItemDescription = document.getElementById("itemDescription").value
-  let ItemImage = document.getElementById('itemImage').value;
-  let ItemCategory = document.getElementById("ItemCategory").value
-  let newitemId; 
-  if(!storedLosPollosMenu[ItemCategory]){
-    storedLosPollosMenu[ItemCategory] = [];
-  }
-  let itemsInCategory = storedLosPollosMenu[ItemCategory];
-  if (itemsInCategory.length >0){
-    newitemId = itemsInCategory[itemsInCategory.length - 1].Itemid + 1;
-  }else{
-    newitemId = 1;
-  }
-  let newItem = {
-  Itemid:newitemId,
-  Name:ItemName,
-  Price:ItemPrice,
-  image:ItemImage,
-  Description:ItemDescription,
-  }
 
   
-  if(!storedLosPollosMenu[ItemCategory]){
-    storedLosPollosMenu[ItemCategory] = []; //This will create a new Category if it hasnt been made already
+  function addItem() {
+    let ItemName = document.getElementById("itemName").value;
+    let ItemPrice = parseFloat(
+      document.getElementById("itemPrice").value
+    ).toFixed(2);
+    let ItemDescription = document.getElementById("itemDescription").value;
+    let ItemImage = document.getElementById("itemImage").value;
+    let ItemCategory = document.getElementById("ItemCategory").value;
+    let newitemId;
+    if (!storedLosPollosMenu[ItemCategory]) {
+      storedLosPollosMenu[ItemCategory] = [];
+    }
+    let itemsInCategory = storedLosPollosMenu[ItemCategory];
+    if (itemsInCategory.length > 0) {
+      newitemId = itemsInCategory[itemsInCategory.length - 1].Itemid + 1;
+    } else {
+      newitemId = 1;
+    }
+    let newItem = {
+      Itemid: newitemId,
+      Name: ItemName,
+      Price: ItemPrice,
+      image: ItemImage,
+      Description: ItemDescription,
+    };
+
+    if (!storedLosPollosMenu[ItemCategory]) {
+      storedLosPollosMenu[ItemCategory] = []; //This will create a new Category if it hasnt been made already
+    }
+    storedLosPollosMenu[ItemCategory].push(newItem);
+    localStorage.setItem("LosPollosMenu", JSON.stringify(storedLosPollosMenu));
+    ready();
   }
-  storedLosPollosMenu[ItemCategory].push(newItem)
-  localStorage.setItem('LosPollosMenu', JSON.stringify(storedLosPollosMenu))
-  ready()
-  
-  }
-  function itemRemoval(event){
-    let buttonClicked = event.target
+  function itemRemoval(event) {
+    let buttonClicked = event.target;
     let ItemCard = buttonClicked.closest(".item-card");
-    let itemName = ItemCard.querySelector(".item-header").innerText
-    console.log(itemName)
-    for (let category in storedLosPollosMenu){
+    let itemName = ItemCard.querySelector(".item-header").innerText;
+    console.log(itemName);
+    for (let category in storedLosPollosMenu) {
       let items = storedLosPollosMenu[category];
-      for(let i =0; i < items.length; i++){
+      for (let i = 0; i < items.length; i++) {
         let item = items[i];
-        if(item.Name === itemName){
-          console.log(item.Itemid)
-          console.log(item)
-          items.splice(i,1)
-          localStorage.setItem("LosPollosMenu", JSON.stringify(storedLosPollosMenu))
-          ready()
+        if (item.Name.replace(/\s+/g, "") === itemName.replace(/\s+/g, "")) {
+          console.log(item.Itemid);
+          console.log(item);
+          items.splice(i, 1);
+          
+            //
+            storedLosPollosMenu[category].forEach((item, index) => {
+              //this will asign items based on the index
+              item.Itemid = index + 1;
+            });
+          
+          localStorage.setItem(
+            "LosPollosMenu",
+            JSON.stringify(storedLosPollosMenu)
+          );
+          ready();
           break;
         }
       }
     }
-    
   }
-  function editItem(event){
-    let buttonClicked = event.target
+  function itemUpdate(item) {
+    let UpdatedItemName = document.getElementById("EDITitemName").value;
+    let UpdatedItemPrice = parseFloat(document.getElementById("EDITitemPrice").value).toFixed(2);
+    let UpdatedItemDescription = document.getElementById("EDITitemDescription").value;
+    let UpdatedItemImage = document.getElementById("EDITitemImage").value;
+    let UpdatedItemCategory = document.getElementById("EDITItemCategory").value;
+
+    item.Name = UpdatedItemName;
+    item.Price = UpdatedItemPrice;
+    item.Description = UpdatedItemDescription;
+    item.image = UpdatedItemImage;
+
+    console.log(UpdatedItemName);
+    let currentCategory = null;
+    for (let category in storedLosPollosMenu) {
+      let items = storedLosPollosMenu[category];
+      let itemIndex = items.findIndex((i) => i.Itemid === item.Itemid);
+      console.log(itemIndex);console.log(item.Itemid + 1)
+      console.log(item);
+
+      if (itemIndex > -1) {
+        //Checks for the item
+        currentCategory = category
+        break;
+      }
+      
+    } //Updates the Item Properties
     
+
+    console.log("Item UPDATED");
+
+    if (UpdatedItemCategory !== currentCategory) {
+      if(currentCategory){
+        let oldcatItems = storedLosPollosMenu[currentCategory];
+        console.log(oldcatItems)
+        let itemIndex = oldcatItems.findIndex(i => i.Itemid === item.Itemid)
+        if(itemIndex > -1){
+          oldcatItems.splice(itemIndex, 1)
+        }
+      }
+      //checks if the category has changed and if the category even exists
+      if (!storedLosPollosMenu[UpdatedItemCategory]) {
+        storedLosPollosMenu[UpdatedItemCategory] = [];
+      }
+    }else{
+      if(currentCategory){
+        let items = storedLosPollosMenu[currentCategory];
+        let itemIndex = items.findIndex(i => i.Itemid === item.Itemid)
+        if(itemIndex > -1){
+          items[itemIndex] = item
+        }
+      }
+    }
+
+    console.log(storedLosPollosMenu);
+  
+    localStorage.setItem("LosPollosMenu", JSON.stringify(storedLosPollosMenu));
+    let modal = document.getElementsByClassName("Modal ManagerEDIT")[0];
+    modal.style.display = "none";
+    ready();
+  }
+  function editItem(event) {
+    let buttonClicked = event.target;
+    console.log(buttonClicked);
+
     // editModal()
     let ItemCard = buttonClicked.closest(".item-card");
     let itemName = ItemCard.querySelector(".item-header").innerText;
-    for (let category in storedLosPollosMenu){
+    for (let category in storedLosPollosMenu) {
       let items = storedLosPollosMenu[category];
-      for(let i =0; i < items.length; i++){
+      for (let i = 0; i < items.length; i++) {
+       
         let item = items[i];
-        if(item.Name === itemName){
-          console.log(item.Itemid)
-          console.log(item)
-          console.log("EDIT")
-    
-
-  document.getElementById('EDITitemName').value = item.Name
-  
-  let PriceNum = item.Price
-  console.log(PriceNum)
-  document.getElementById("EDITitemPrice").value = PriceNum
-  document.getElementById("EDITitemDescription").value = item.Description;
-
-  let IMGInput = document.getElementById("EDITitemImage")
-  let IMGprev = document.querySelector(".PlaceholderImage")
-  IMGInput.value = item.image
-  
-
-  IMGInput.addEventListener("input", function(){
-    let IMGurl = IMGInput.value
-    IMGprev.src = IMGurl || "default.jpg"
-    console.log(IMGurl)
-  })
-  console.log(IMGprev.src)
-  
-  
-  document.getElementById("EDITItemCategory").value = category;
-  console.log(category)
-  let modal = document.getElementsByClassName("Modal ManagerEDIT")[0];
-    modal.style.display = "block";
-    let Updatebtn = document.getElementById("UpdateItem");
-    Updatebtn.addEventListener("click",function(){
-       itemUpdate(item)})
-
-
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-    break;
-        }
         
-      }
-      
-    }
-    
-  }
-  
+        if (item.Name.replace(/\s+/g, "") === itemName.replace(/\s+/g, "")) {
+          console.log("EDIT");
+          document.getElementById("EDITitemName").value = item.Name;
 
-  function itemUpdate(item){
-  let UpdatedItemName = document.getElementById('EDITitemName').value
-  let UpdatedItemPrice = parseFloat(document.getElementById("EDITitemPrice").value).toFixed(2)
-  let UpdatedItemDescription = document.getElementById("EDITitemDescription").value
-  let UpdatedItemImage = document.getElementById('EDITitemImage').value;
-  let UpdatedItemCategory = document.getElementById("EDITItemCategory").value
+          let PriceNum = item.Price;
+          document.getElementById("EDITitemPrice").value = PriceNum;
+          document.getElementById("EDITitemDescription").value =
+            item.Description;
 
-  for (let category in storedLosPollosMenu){
-    let items = storedLosPollosMenu[category];
-      let itemIndex = items.findIndex(i => i.Itemid ===item.Itemid);
-      if(item.Name !== -1){
-        items.splice(itemIndex,1);
-        break;
+          let IMGInput = document.getElementById("EDITitemImage");
+          let IMGprev = document.querySelector(".PlaceholderImage");
+          IMGInput.value = item.image;
+
+          IMGInput.addEventListener("input", function () {
+            let IMGurl = IMGInput.value;
+            IMGprev.src = IMGurl || "default.jpg";
+            console.log(IMGurl);
+          });
+          console.log(IMGprev.src);
+
+          document.getElementById("EDITItemCategory").value = category;
+          console.log(category);
+          let modal = document.getElementsByClassName("Modal ManagerEDIT")[0];
+          modal.style.display = "block";
+          let Updatebtn = document.getElementById("UpdateItem");
+          Updatebtn.addEventListener("click", function () {
+            //prevents the form to really submit
+            itemUpdate(item);
+          });
+
+          window.onclick = function (event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          };
+          break;
         }
-item.Name = UpdatedItemName;
-item.Price = UpdatedItemPrice;
-item.Description= UpdatedItemDescription;
-item.image = UpdatedItemImage;
-
-if(!storedLosPollosMenu[UpdatedItemCategory]){
-  storedLosPollosMenu[UpdatedItemCategory]=[]
-}
-storedLosPollosMenu[UpdatedItemCategory].push(item)
-
-
-localStorage.setItem("LosPollosMenu", JSON.stringify(storedLosPollosMenu))
-let modal = document.getElementsByClassName("Modal Manager")[0];
-modal.style.display = "none";
-  
-}
-
-  
+      }
+    }
   }
+  
+  //  -----------------------------------------------------------------------
+  //                                SearchBar function
+  //  -----------------------------------------------------------------------
+  let input = document.getElementById("Searchbar");
+  input.addEventListener("input", search_Items);
 }
-function initializeWhoPage(){
+
+function initializeWhoPage() {
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
+  let LogoDiv = document.getElementsByClassName("logo")[0];
+  console.log(LogoDiv);
+  LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
-  })
+  });
   //  -----------------------------------------------------------------------
   //                                Modal
   //  -----------------------------------------------------------------------
   let modalBtn = document.getElementsByClassName("Modalbutton")[0];
-  modalBtn.addEventListener("click", function(){
+  modalBtn.addEventListener("click", function () {
     let deliveryForm = document.getElementsByClassName("form-container")[0];
-    if(!modalClicked){
-      modalClicked = true
+    if (!modalClicked) {
+      modalClicked = true;
       deliveryForm.innerHTML = `<div class="Main Loc-container">
     <div class="Address-Container">
       <div class="Address">
@@ -2362,27 +2427,27 @@ function initializeWhoPage(){
     </select>
   </div>`;
     }
-    
-    delOrPickModal()
-  })
+
+    delOrPickModal();
+  });
 }
-function initiateCaterFormPage(){
+function initiateCaterFormPage() {
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
+  let LogoDiv = document.getElementsByClassName("logo")[0];
+  console.log(LogoDiv);
+  LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
-  })
+  });
   //  -----------------------------------------------------------------------
   //                                Modal
   //  -----------------------------------------------------------------------
   let modalBtn = document.getElementsByClassName("Modalbutton")[0];
-  modalBtn.addEventListener("click", function(){
+  modalBtn.addEventListener("click", function () {
     let deliveryForm = document.getElementsByClassName("form-container")[0];
-    if(!modalClicked){
-      modalClicked = true
+    if (!modalClicked) {
+      modalClicked = true;
       deliveryForm.innerHTML = `<div class="Main Loc-container">
     <div class="Address-Container">
       <div class="Address">
@@ -2504,27 +2569,27 @@ function initiateCaterFormPage(){
     </select>
   </div>`;
     }
-    
-    delOrPickModal()
-  })
+
+    delOrPickModal();
+  });
 }
-function inititalizeIncomingPage(){
+function inititalizeIncomingPage() {
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
+  let LogoDiv = document.getElementsByClassName("logo")[0];
+  console.log(LogoDiv);
+  LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
-  })
+  });
   //  -----------------------------------------------------------------------
   //                                Modal
   //  -----------------------------------------------------------------------
   let modalBtn = document.getElementsByClassName("Modalbutton")[0];
-  modalBtn.addEventListener("click", function(){
+  modalBtn.addEventListener("click", function () {
     let deliveryForm = document.getElementsByClassName("form-container")[0];
-    if(!modalClicked){
-      modalClicked = true
+    if (!modalClicked) {
+      modalClicked = true;
       deliveryForm.innerHTML = `<div class="Main Loc-container">
     <div class="Address-Container">
       <div class="Address">
@@ -2646,9 +2711,9 @@ function inititalizeIncomingPage(){
     </select>
   </div>`;
     }
-    
-    delOrPickModal()
-  })
+
+    delOrPickModal();
+  });
 }
 //  -----------------------------------------------------------------------
 //                  Checks for Id to Load the right Functions
@@ -2672,11 +2737,11 @@ document.addEventListener("DOMContentLoaded", function () {
   } else if (document.getElementById("ManagerPage")) {
     console.log("ManagerPage Opening");
     initiateManagerPage();
-  } else if (document.getElementById("WhoPage")){
+  } else if (document.getElementById("WhoPage")) {
     initializeWhoPage();
-  } else if (document.getElementById("CaterFormPage")){
+  } else if (document.getElementById("CaterFormPage")) {
     initiateCaterFormPage();
-  }else if ( document.getElementById("IncomingPage")){
-    inititalizeIncomingPage()
+  } else if (document.getElementById("IncomingPage")) {
+    inititalizeIncomingPage();
   }
 });

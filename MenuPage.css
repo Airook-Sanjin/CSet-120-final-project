@@ -202,7 +202,10 @@ ion-icon {
 /* -------------------------------------------------------------------------- */
 /*                                 Card Styles                                */
 /* -------------------------------------------------------------------------- */
-
+.selection{
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
 .section-title {
 	text-transform: uppercase;
 	display: flex;

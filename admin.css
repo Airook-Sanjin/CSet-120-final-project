@@ -23,14 +23,7 @@ html {
 	--light-grey: #666;
 }
 
-.menu-body {
-	/* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100vh;
-    align-items: center; */
-	overflow: auto;
-}
+
 
 body {
 	height: 100vh;
@@ -47,13 +40,10 @@ body {
 .header {
 	display: flex;
 	flex-direction: row;
-	background-color: #d71d3f;
+	background-color: #f20530;
 	flex-wrap: wrap;
 	width: 100%;
 	justify-content: space-around;
-	/* position: fixed; */
-	/* z-index: 99; */
-	transition: top 0.3s;
 }
 .header a {
 	color: white;
@@ -63,20 +53,67 @@ body {
 .nav,
 .logo {
 	display: flex;
-	width: 20%;
 	align-items: center;
-	gap: 20px;
+	gap: 40px;
 }
-#UserProf {
+
+.nav a:hover,
+.userNav a:hover {
+	color: #f2e205;
+}
+.Modalbutton {
+	color: white;
+	background-color: transparent;
+	border: none;
+	font-family: 'Lato', serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: medium;
+}
+.Modalbutton ion-icon {
+	color: #f2e205;
+}
+
+.Modalbutton:hover {
+	color: #f2e205;
+	cursor: pointer;
+}
+
+#Searchbar {
+	border-radius: 20px;
+	background-color: hsl(349, 96%, 45%);
+	border: none;
+	color: white;
+	padding: 10px;
+}
+#Searchbar::placeholder {
+	color: hsl(0, 0%, 70%);
+}
+#Searchbar:focus {
+	outline: none;
+	border: none;
+	/* background-color: none; */
+}
+#UserProf,
+#Cart {
 	font-size: 30px;
+	color: #f2e205;
 }
-.btnLink {
-	color: hsl(0, 0%, 0%);
+#Navbtn {
+	display: flex;
 	background-color: #f2e205;
+	justify-content: center;
 	border-radius: 10px;
-	width: 100px;
-	height: 40px;
-	padding: 2%;
+	width: 120px;
+	padding: 3%;
+	color: rgb(205, 89, 0);
+	font-weight: 900;
+}
+#Navbtn:hover {
+	color: rgb(205, 89, 0);
+	transform: scale(1.2);
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+	transition: 0.4s;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -152,14 +189,7 @@ body {
 	color: var(--main-red);
 }
 
-/* *.title-style {
-	content: '';
-	background-image: url(LosPollosImages-gif/zigzag.svg);
-	background-position: 0 200%;
-	background-repeat: repeat-x;
-	background-size: contain;
-	width: fit-content;
-} */
+
 
 .title-style {
 	/* display: block;
@@ -168,15 +198,8 @@ body {
 	justify-content: left;
 	margin-left: 11%;
 	transform: translatey(220%);
-}*/
-
-#tenders img[src^='LosPoillosImages/chicken-tenders.webp'] {
-	height: 10rem;
 }
 
-/* .item-card [src^='media/applepie.png'] {
-	height: 10rem;
-} */
 
 .items-container {
 	display: grid;
@@ -278,18 +301,6 @@ body {
 	font-size: .8125rem;
 }
 
-#desserts img[src='LosPollosImages-gif/applepie.png'] {
-	height: 10rem;
-	width: 8rem;
-	object-fit: cover;
-}
-
-#desserts img[src='LosPollosImages-gif/frenchstix.png'] {
-	object-fit: cover;
-	height: 6.25rem;
-	width: 8rem;
-	transform: translateY(3.125rem);
-}
 /* -------------------------------- backtotop ------------------------------- */
 #topBtn {
 	display: none;
@@ -331,9 +342,8 @@ body {
 	background-color: #666;
 	width: 6.25rem;
 	display: block;
-	/* transform: translateY(220%); */
 	background: var(--main-red);
-	border: .0625rem solid var(--main-red);
+	border:none;
 	border-radius: .375rem;
 	box-shadow: rgba(0, 0, 0, 0.1) .0625rem .125rem .25rem;
 	color: #ffffff;
@@ -349,25 +359,40 @@ body {
 	background: #cd3530;
 	transition: 0.2s;
 }
-.item-info .DeleteBtn {
+.DeleteBtn {
 	
-	outline:none;
-   background-color: var(--warm-blue);
-   width: 3.25rem;
-   min-height: 2.5rem;
-   margin-left: -10px;
-   padding:.5%;
-   cursor: pointer;
+	border:none;
+  	background-color: var(--warm-blue);
+   	width: 2.5rem;
+   	border-radius: .375rem;
+	box-shadow: rgba(0, 0, 0, 0.1) .0625rem .125rem .25rem;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: 'Monsterrat', sans-serif;
+	font-size: .75rem;
+	font-weight: 800;
+	min-height: 1.5rem;
+	
   
 }
 .EditBtn{
 	min-height: 2.5rem;
-	outline:none;
+	border:none;
    background-color: var(--warm-blue);
-   width: 6.25rem;
-   margin-left: -10px;
+   border-radius: .375rem;
+   box-shadow: rgba(0, 0, 0, 0.1) .0625rem .125rem .25rem;
+   color: #ffffff;
    cursor: pointer;
-   padding:1%;
+   font-family: 'Monsterrat', sans-serif;
+   font-size: .75rem;
+   font-weight: 800;
+   min-height: 2.5rem;
+   padding: .75rem .875rem;
+   text-align: center;
+}
+.EditBtn:hover,.DeleteBtn:hover{
+	background-color:hsl(205, 73%, 49%);
+	transition: 0.2s;
 }
 
 
@@ -388,6 +413,7 @@ body {
     border-radius: 5px;
 	min-height: 20%;
 	min-width: 20%;
+	width:60%;
 }
 
 #addItemForm input {
