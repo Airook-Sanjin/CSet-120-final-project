@@ -210,6 +210,28 @@ if(!storedLosPollosMenu){
 }
 
 let modalClicked = false
+function search_Items(){
+  // item-header
+  let input= document.getElementById("Searchbar").value;
+  input = input.toLowerCase();
+  let items = document.getElementsByClassName("item-header")
+  for(let item of items){
+    if(!item.innerHTML.toLowerCase().includes(input)){
+      item.closest(".items-container").parentElement.style.display = "none"
+      console.log(item.closest(".items-container").parentElement)
+      item.parentElement.parentElement.style.display ="none"
+      item.parentElement.style.display ="none"
+      item.style.display="none"
+      console.log("Item not found")
+    }else{
+      item.closest(".items-container").parentElement.style.display = "block"
+      item.parentElement.parentElement.style.display ="flex"
+      item.parentElement.style.display ="block"
+      item.style.display="block"
+      console.log("Item found")
+    }
+  }
+}
 function delOrPickModal(){
   let deliveryForm = document.getElementsByClassName("form-container")[0];
   window.onclick = function (event) {
@@ -515,7 +537,7 @@ function menuDisplay() {
         menuContainer.appendChild(headerSection);
       }
       else if (document.getElementById("ManagerPage")){
-        menuContainer.insertAdjacentElement("afterbegin", headerSection);
+        menuContainer.appendChild(headerSection);
       }
       let menuHeading = document.createElement("div");
       menuHeading.className = "menu-heading title-style";
@@ -849,6 +871,7 @@ function initializeMenuPage() {
   
   ready();
 
+  search_Items;
   function ready() {
     storedLosPollosMenu = JSON.parse(localStorage.getItem("LosPollosMenu"))|| {};
     menuDisplay();
@@ -899,6 +922,7 @@ function initializeMenuPage() {
       existingItems.push(ItemInfo);
       // localStorage.setItem("StoredItems", JSON.stringify(existingItems));
     }
+
     localStorage.setItem("StoredItems", JSON.stringify(existingItems));
   }
   //  -----------------------------------------------------------------------
@@ -1059,6 +1083,12 @@ function initializeMenuPage() {
 	//  -----------------------------------------------------------------------
 	//                            Onscroll function end
 	//  -----------------------------------------------------------------------
+   //  -----------------------------------------------------------------------
+  //                                SearchBar function
+  //  -----------------------------------------------------------------------
+  let input= document.getElementById("Searchbar")
+  input.addEventListener("input", search_Items)
+
 }
 function initializeCheckoutPage() {
   //  -----------------------------------------------------------------------
