@@ -192,6 +192,7 @@
 					<a
 						class="btn"
 						href="catering-form.html"
+						
 						rel="noopener noreferrer"
 						>Explore Catering Options</a
 					>
@@ -261,7 +262,7 @@
 							<a
 								id="deliver"
 								class="btn"
-								href="MenuPage.html"
+								href="Pickup-Takeout.html"
 								>Take Home</a
 							>
 						</div>
@@ -400,28 +401,26 @@
 					<div class="popup-head">
 						<h5>ORDER DETAILS</h5>
 						<button class="Closebtn Main">&times;</button>
-					</div>
-
-					<div class="P-D-btns-container">
+					  </div>
+		
+					  <div class="P-D-btns-container">
 						<input
-							type="checkbox"
-							id="toggle"
-							class="toggleCheckbox" />
-						<label
-							for="toggle"
-							class="toggleContainer">
-							<div class="DeliveryDiv Main">Delivery</div>
-							<div class="PickupDiv Main">Pickup</div>
-						</label>
-					</div>
-					<p class="info-txt">Set a Delivery Address or Schedule Pickup</p>
-					<div class="form-container"></div>
-					<button
-						id="UpdateBtn"
-						class="Update-Btn">
-						Update
-					</button>
-				</div>
+									type="checkbox"
+									id="toggle"
+									class="toggleCheckbox" />
+								<label
+									for="toggle"
+									class="toggleContainer">
+									<div class="DeliveryDiv Main">Delivery</div>
+									<div class="PickupDiv Main">Pickup</div>
+								</label>
+					  </div>
+					  <p class = "info-txt">Set a Delivery Address or Schedule Pickup</p>
+					  <div class="form-container">
+						
+					  </div>
+					  <button id="UpdateBtn" class="Update-Btn">Update</button>
+				  </div>
 			</div>
 		</section>
 		<script
@@ -433,20 +432,25 @@
 		<script
 			nomodule
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+			
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+      const userStatus = localStorage.getItem("userStatus");
+      if (userStatus === "guest") {
+          document.getElementById("Rewards").style.display = "none";
+        
+      }
+      else if (userStatus === "logged-in") {
+          document.getElementById("UserProf").style.display = "block";
+		  document.getElementById("Rewards").style.display = "none";
+      }
+	  else {
+		  document.getElementById("Rewards").style.display = "block";
+		  document.getElementById("UserProf").style.display = "block";
+	  }
+  });
 
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				const userStatus = localStorage.getItem('userStatus');
-				if (userStatus === 'guest') {
-					document.getElementById('Rewards').style.display = 'none';
-				} else if (userStatus === 'logged-in') {
-					document.getElementById('UserProf').style.display = 'block';
-					document.getElementById('Rewards').style.display = 'none';
-				} else {
-					document.getElementById('Rewards').style.display = 'block';
-					document.getElementById('UserProf').style.display = 'block';
-				}
-			});
-		</script>
+  
+      </script>
 	</body>
 </html>
