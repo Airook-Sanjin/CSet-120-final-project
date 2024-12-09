@@ -618,6 +618,7 @@ option:value {
 footer a {
 	color: hsl(100, 100%, 100%);
 	text-decoration: none;
+	font-family: 'Lato', serif;
 }
 footer ion-icon {
 	font-size: 30px;
