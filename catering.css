@@ -148,12 +148,6 @@ body {
 
 /* -------------------------------- CTA end -------------------------------- */
 
-
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 /*                                 Nav Styles                                 */
 /* -------------------------------------------------------------------------- */
@@ -251,7 +245,7 @@ ion-icon {
 	padding-bottom: 1rem;
 }
 .card-bottom {
-	padding-bottom: .25rem;
+	padding-bottom: 0.25rem;
 }
 
 .item-card {
@@ -279,16 +273,16 @@ ion-icon {
 	position: absolute;
 	/* transform: translateY(220%); */
 	background: var(--main-red);
-	border: .0625rem solid var(--main-red);
-	border-radius: .375rem;
-	box-shadow: rgba(0, 0, 0, 0.1) .0625rem .125rem .25rem;
+	border: 0.0625rem solid var(--main-red);
+	border-radius: 0.375rem;
+	box-shadow: rgba(0, 0, 0, 0.1) 0.0625rem 0.125rem 0.25rem;
 	color: #ffffff;
 	cursor: pointer;
 	font-family: 'Monsterrat', sans-serif;
-	font-size: .75rem;
+	font-size: 0.75rem;
 	font-weight: 800;
 	min-height: 2.5rem;
-	padding: .75rem .875rem;
+	padding: 0.75rem 0.875rem;
 	text-align: center;
 }
 
@@ -306,14 +300,11 @@ ion-icon {
 	letter-spacing: 3px;
 	text-transform: uppercase;
 	color: var(--main-red);
-
 }
 
 .price {
 	font-weight: 300;
-
 }
-
 
 .menu-heading p {
 	color: rgb(109, 109, 109);
@@ -324,9 +315,7 @@ ion-icon {
 
 .menu-heading a {
 	color: var(--main-red);
-
 }
-
 
 .menu-heading {
 	display: flex;
@@ -342,11 +331,10 @@ ion-icon {
 	border-width: 4px;
 	font-size: 30px;
 	font-family: 'Arvo', serif;
-	
+
 	font-weight: 900;
 	-webkit-text-stroke-width: 1px;
 	-webkit-text-stroke-color: #761512;
-
 }
 
 .menu-heading a:hover {
@@ -360,13 +348,13 @@ ion-icon {
 	flex-wrap: wrap;
 	flex-direction: column;
 	width: 17.5rem;
-	max-height:13rem;
+	max-height: 13rem;
 	font-family: 'Montserrat', serif;
 	font-size: 1rem;
 }
 .item-card img {
-	margin-top: .9375rem;
-	padding-top: .3125rem;
+	margin-top: 0.9375rem;
+	padding-top: 0.3125rem;
 	height: 8rem;
 	/* width: 8rem; */
 	object-fit: contain;
@@ -449,8 +437,6 @@ footer ion-icon {
 	text-align: center;
 	color: #850e19;
 }
-
-
 
 /* -------------------------------------------------------------------------- */
 /*                                Modal pop up                              */
