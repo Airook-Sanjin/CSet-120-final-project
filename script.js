@@ -625,7 +625,6 @@ function initializeSignInPage() {
 	if (!storedUsers) {
 		let users = [];
 
-<<<<<<< HEAD
 		localStorage.setItem('Users', JSON.stringify(users));
 		storedUsers = users;
 	} else {
@@ -692,34 +691,6 @@ function initializeSignInPage() {
 	}
 	document.getElementById('Signup-btn').addEventListener('click', signup);
 	document.getElementById('Login-btn').addEventListener('click', login);
-=======
-  function login() {
-    let email = document.getElementById("email").value;
-    let pass = document.getElementById("password").value;
-    email = email.toLowerCase()
-    
-    for (let user of storedUsers){
-    if (email === managerInfo.email && pass === managerInfo.password) {
-      location.replace("admin.html");
-      alert("Logged in as manager");
-    } else if (email === user.UserEmail && pass === user.Password){
-      status = "logged-in";
-      localStorage.setItem("userStatus", status)
-      alert(status)
-      return;
-    }
-     else {
-      alert("User does not exist");
-    }
-  }
-}
-  document.getElementById("Signup-btn").addEventListener("click", signup);
-  document.getElementById("Login-btn").addEventListener("click", login);
-  document.getElementById("Guest-btn").addEventListener("click",function(){
-    joinAsGuest;
-    location.replace("index.html")
-  })
->>>>>>> 738f049d93588ba2035bd7bde22624bf95e094da
 }
 
 function joinAsGuest() {
