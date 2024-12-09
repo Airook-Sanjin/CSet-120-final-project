@@ -132,6 +132,7 @@ body {
 	color: white;
 	position: sticky;
 	top: 0;
+	font-family: 'Lato', serif;
 }
 
 .menu-nav a:hover {
@@ -142,6 +143,7 @@ body {
 .menu-nav a {
 	text-decoration: none;
 	color: white;
+	font-family: 'Lato', serif;
 }
 
 .menu-nav a:last-child:hover {

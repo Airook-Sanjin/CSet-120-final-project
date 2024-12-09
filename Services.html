@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Services.css">
     <title>Document</title>
-</head>
-<body>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+			href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet" />
     <link rel="stylesheet" href="losPollosHermanoMain.css" />
+    <link
+			href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet" />
     <link
       rel="icon"
       type="Image/x-icon"
@@ -21,94 +26,198 @@
     />
     <title>Rewards</title>
 </head>
-<body>
-  <div class="wrapper">
-    <header id="Page1" class="header">
-        
-       
-          
-        <div class="nav">
-          <a
-          id="Home"
-          href= "index.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Home</a
-        >
-          <a id="Menu" href="MenuPage.html" target="_blank" rel="noopener noreferrer"
-            >Menu</a
-          >
-          <a
-            id="Who we are"
-            href= "Who.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Who we are</a
-          >
-          <a id="Rewards" href="rewards.html" target="_blank" rel="noopener noreferrer"
-            >Rewards</a
-          >
-          <input
-            type="search"
-            name="Searchbar"
-            id="Searchbar"
-            placeholder="Search"
-          />
-        </div>
-        <div class="userNav">
-          <a
-            id="Set-a-location"
-            href="http://"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ion-icon name="location"></ion-icon>Set a Location</a
-          >
-          <a href="Sign-in.html"
-            ><ion-icon id="UserProf" name="person-circle-outline"></ion-icon
-          ></a>
 
-          <a href = "FinalCartpage.html">
-          <ion-icon id="Cart" name="cart"></ion-icon>
-          </a>
 
-          <a id="Navbtn" href="" target="_blank" rel="noopener noreferrer"
-            >Order Now</a
-          >
-        </div>
-      </header>
+   
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Sticky Navigation                            -->
+		<!-- ----------------------------------------------------------------------- -->
+     <body>
+		<header
+    id="Page1"
+    class="header">
+    <div class="logo">
+      <img
+        id="logo"
+        src="LosPollosHermanosLogo2.webp"
+        alt="LosPollosHermanosLogo" />
+    </div>
+    <div class="nav">
+      <a
+        id="Menu"
+        href="MenuPage.html"
+        rel="noopener noreferrer"
+        >Menu</a
+      >
+      <a
+        id="Who we are"
+        href="Who.html"
+        rel="noopener noreferrer"
+        >Who we are</a
+      >
+      <a
+        id="Rewards"
+        href="rewards.html"
+        rel="noopener noreferrer"
+        >Rewards</a
+      >
+      <a
+        id="Incoming"
+        href="features.html"
+        rel="noopener noreferrer"
+        >Incoming Items</a
+      >
+      <input
+        type="search"
+        name="Searchbar"
+        id="Searchbar"
+        placeholder="Search" />
+    </div>
+    <div class="userNav">
+      <button class="Modalbutton Main">
+        <ion-icon name="location"></ion-icon>Set a Location
+      </button>
+
+      <a href="Sign-in.html"
+        ><ion-icon
+          id="UserProf"
+          name="person-circle-outline"></ion-icon
+      ></a>
+      <a href="FinalCartpage.html"
+        ><ion-icon
+          id="Cart"
+          name="cart"></ion-icon
+      ></a>
+      <a
+        id="Navbtn"
+        href="MenuPage.html"
+        rel="noopener noreferrer"
+        >Order Now</a
+      >
+    </div>
+  </header>
     <div class = "container">
     <h1>Services</h1>
 
 
     <div class="service1">
     <div class = "img-box">
-    <img src = "https://offloadmedia.feverup.com/secretchicago.com/wp-content/uploads/2019/10/28081652/los-pollos-hermanos-e1571769765635.jpg" alt = "Services">
+    <img src = "LosPollosImages-gif/EatingChickenSandwich.jpg" alt = "Services">
         </div>
         <div class = "text-box1">
             <h2>Catering</h2>
-            <p>At Los Pollos Hermanoes we offer only the best catering services. Bring many people for a special event and let us handle the cooking, serving, and cleanup!</p>
-        </div>
+            <p>At Los Pollos Hermanoes we offer only the best catering services! Our delicious catering makes feeding a crowd easy—no cooking, no cleanup, just great food and good times!</p>
+          <a href="catering.html"><button class="catering-btn btn-x">Order Catering</button></a>
+          </div>
      </div>
 
 
     <div class="service2">
     <div class = "img-box">
-        <img src = "https://mir-s3-cdn-cf.behance.net/project_modules/fs/53fed156571847.5a81a07a52d8a.jpg">
+        <img src = "LosPollosImages-gif/van.png">
         </div>
         <div class = "text-box2">
             <h2>Delivery</h2>
-            <p>At Los Pollos Hermanoes we offer only the best delivery services. Just click the delivery option when you go to the website and we will handle the rest</p>
-        </div>
+            <p>Craving Los Pollos Hermanos at home? Simply choose the delivery option when checking out or click the location button and we’ll take care of the rest—hot, fresh, and straight to your door!</p>
+            <a href="MenuPage.html"><button class="takeout-btn btn-x">Go to Menu</button></a>
+
+          </div>
     </div>
-    <script
-    type="module"
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-  ></script>
-  <script
-    nomodule
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-  ></script>
-    
-</body>
+</div>
+</div>
+
+
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Footer Section                           -->
+		<!-- ----------------------------------------------------------------------- -->
+		<footer>
+			<div class="footer-container">
+				<div class="about">
+					<a href="Services.html">Services</a>
+					<a href="Contact.html">Contact us</a>
+				</div>
+				<div class="icon-footer">
+					<a href="http://"><ion-icon name="logo-facebook"></ion-icon></a>
+					<a href="http://"><ion-icon name="logo-twitter"></ion-icon></a>
+					<a
+						href="https://www.instagram.com/eatlospolloshermanos/"
+						target="_blank"
+						><ion-icon name="logo-instagram"></ion-icon
+					></a>
+				</div>
+				<section class="secret">
+					<img
+						id="SecretGus"
+						src="LosPollosImages-gif/Gus Frank Icon.svg"
+						alt="GusSecret" />
+					<audio
+						src="LosPollosImages-gif/Gustavo Frank saying hello.mp3"></audio>
+				</section>
+			</div>
+		</footer>
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                                Modal Boxes                                -->
+		<!-- ----------------------------------------------------------------------- -->
+		<section class="SecretModal Main">
+			<div class="secretpopup-container">
+				<div class="SecretCard">
+					<h3>Take this code</h3>
+					<p>RESTGUS</p>
+				</div>
+			</div>
+		</section>
+		<section class="modal Main">
+			<div class="popup-container">
+				<div
+					id="Main-Delivery-modal"
+					class="popup-card">
+					<div class="popup-head">
+						<h5>ORDER DETAILS</h5>
+						<button class="Closebtn Main">&times;</button>
+					  </div>
+		
+					  <div class="P-D-btns-container">
+						<input
+									type="checkbox"
+									id="toggle"
+									class="toggleCheckbox" />
+								<label
+									for="toggle"
+									class="toggleContainer">
+									<div class="DeliveryDiv Main">Delivery</div>
+									<div class="PickupDiv Main">Pickup</div>
+								</label>
+					  </div>
+					  <p class = "info-txt">Set a Delivery Address or Schedule Pickup</p>
+					  <div class="form-container">
+						
+					  </div>
+					  <button id="UpdateBtn" class="Update-Btn">Update</button>
+				  </div>
+			</div>
+		</section>
+		<script
+			type="module"
+			src="script.js"></script>
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+			  const userStatus = localStorage.getItem("userStatus");
+			  if (userStatus == "guest") {
+				  document.getElementById("Rewards").style.display = "none";
+				  document.getElementById("UserProf").style.display = "none";
+			  }
+			  else {
+				  document.getElementById("Rewards").style.display = "block";
+				  document.getElementById("UserProf").style.display = "block";
+			  }
+		  });
+		  
+			  </script>
+	</body>
 </html>
