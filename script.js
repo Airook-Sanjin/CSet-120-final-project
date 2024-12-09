@@ -1,4 +1,4 @@
-// const { json } = require("stream/consumers");
+
 
 let storedLosPollosMenu = JSON.parse(localStorage.getItem("LosPollosMenu"));
 for (let category in storedLosPollosMenu) {
@@ -625,30 +625,52 @@ function menuDisplay() {
 }
 
 function initializeSignInPage() {
+  let storedUsers = JSON.parse(localStorage.getItem("Users"));
+  if(!storedUsers){
+    let users = []
+  
+  localStorage.setItem("Users",JSON.stringify(users));
+  storedUsers = users
+  }else{
+    users=storedUsers
+  }
   
   
+  
+  let status = localStorage.getItem("userStatus")
+    console.log(status)
   function signup() {
+    
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
     const passwordRequirements =
       /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}(?=.*[@$!%*#?&])/;
-    //console.log(email);
-    //console.log(pass);
-    localStorage.setItem("userStatus", "logged-in");
-
-    localStorage.setItem(email, pass);
+    
+    email = email.toLowerCase()
+    
     if (!passwordRequirements.test(pass)) {
       alert(
         "Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special character."
       );
+      return;
     }
-    if (localStorage.getItem(email)) {
-      if (passwordRequirements.test(pass)) {
+  
+    let UserExists=false   
+        for(let user of storedUsers){
+          if (user.UserEmail === email){
+            UserExists = true;
+            break;
+          }
+        }
+        if(!UserExists){
+          status="logged-in"
+          storedUsers.push({UserEmail: email, Password:pass})
+          localStorage.setItem("userStatus",status)
+          localStorage.setItem("Users",JSON.stringify(storedUsers))
         location.replace("index.html");
-      }
-    } else {
-      alert("User does not exist");
-    }
+        }else{
+          alert("User exists")
+        }
   }
   const managerInfo = {
     email: "LosPollosManager81@gmail.com",
@@ -658,35 +680,46 @@ function initializeSignInPage() {
   function login() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
-    //console.log(email);
-    //console.log(pass);
-    localStorage.setItem("userStatus", "logged-in");
-
-    if (email == managerInfo.email && pass == managerInfo.password) {
+    email = email.toLowerCase()
+    
+    for (let user of storedUsers){
+    if (email === managerInfo.email && pass === managerInfo.password) {
       location.replace("admin.html");
       alert("Logged in as manager");
-    } else if (localStorage.getItem(email)) {
-      if (pass == localStorage.getItem(email)) {
-        location.replace("index.html");
-      } else {
-        alert("Wrong Password");
-      }
-    } else {
+    } else if (email === user.UserEmail && pass === user.Password){
+      status = "logged-in";
+      localStorage.setItem("userStatus", status)
+      alert(status)
+      return;
+    }
+     else {
       alert("User does not exist");
     }
   }
+}
   document.getElementById("Signup-btn").addEventListener("click", signup);
   document.getElementById("Login-btn").addEventListener("click", login);
 }
 
 function joinAsGuest() {
-  console.log("Logged as guest")
+  let hasJoinedAsGuest = false;
+  let status = localStorage.getItem("userStatus");
+  if(!status || !status.includes("guest")){
+    console.log("Logged as guest")
   localStorage.setItem("userStatus", "guest");
-  window.location.replace("index.html");
+    hasJoinedAsGuest = true
+  }
+
 }
+
 let modalClicked = false;
 // ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
+  document.addEventListener("DOMContentLoaded", function(){
+    joinAsGuest();
+    
+  });
+  
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
@@ -695,7 +728,6 @@ function initializeMainPage() {
   LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
   });
-  joinAsGuest;
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
   //  -----------------------------------------------------------------------
@@ -891,8 +923,11 @@ function initializeMainPage() {
 }
 // ---------------------------------------------------------------------------------------------------------
 function initializeMenuPage() {
-  joinAsGuest;
-  document.addEventListener("DOMContentLoaded", ready);
+  
+  document.addEventListener("DOMContentLoaded", function(){
+    joinAsGuest;
+    ready;
+  });
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------

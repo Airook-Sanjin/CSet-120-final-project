@@ -1,8 +1,14 @@
 function joinAsGuest() {
+    let hasJoinedAsGuest = false;
+    let status = localStorage.getItem("userStatus");
+    if(!status || !status.includes("guest")){
+      console.log("Logged as guest")
     localStorage.setItem("userStatus", "guest");
-    window.location.replace("index.html");
+      hasJoinedAsGuest = true
+    }
+  
   }
-  joinAsGuest;
+  joinAsGuest();
 /* -------------------------------------------------------------------------- */
 /*                                Progress Bar                                */
 /* -------------------------------------------------------------------------- */
