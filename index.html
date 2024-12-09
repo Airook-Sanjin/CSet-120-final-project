@@ -148,7 +148,6 @@
 						<a
 							class="btn"
 							href="MenuPage.html"
-							target="_blank"
 							rel="noopener noreferrer"
 							>Let's Eat</a
 						>
@@ -166,7 +165,6 @@
 						<a
 							class="btn"
 							href="Sign-in.html"
-							target="_blank"
 							rel="noopener noreferrer"
 							>Join Now</a
 						>
@@ -438,11 +436,11 @@
       <script>
         document.addEventListener("DOMContentLoaded", function () {
       const userStatus = localStorage.getItem("userStatus");
-      if (userStatus == "guest") {
+      if (userStatus === "guest") {
           document.getElementById("Rewards").style.display = "none";
         
       }
-      else if (userStatus == "use") {
+      else if (userStatus === "use") {
           document.getElementById("UserProf").style.display = "block";
 		  document.getElementById("Rewards").style.display = "none";
       }

@@ -1,4 +1,10 @@
 
+function joinAsGuest() {
+  localStorage.setItem("userStatus", "guest");
+  window.location.replace("index.html");
+}
+joinAsGuest;
+
 let StoredLosPollosCaterMenu = JSON.parse(localStorage.getItem("LosPollosCaterMenu"));
 	if(!StoredLosPollosCaterMenu){
 		let InitialLosPollosCaterMenu = 

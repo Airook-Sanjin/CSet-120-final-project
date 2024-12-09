@@ -1,3 +1,8 @@
+function joinAsGuest() {
+    localStorage.setItem("userStatus", "guest");
+    window.location.replace("index.html");
+  }
+  joinAsGuest;
 /* -------------------------------------------------------------------------- */
 /*                                Progress Bar                                */
 /* -------------------------------------------------------------------------- */

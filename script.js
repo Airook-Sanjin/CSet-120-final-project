@@ -680,6 +680,7 @@ function initializeSignInPage() {
 }
 
 function joinAsGuest() {
+  console.log("Logged as guest")
   localStorage.setItem("userStatus", "guest");
   window.location.replace("index.html");
 }
@@ -694,6 +695,7 @@ function initializeMainPage() {
   LogoDiv.addEventListener("click", function () {
     location.replace("index.html");
   });
+  joinAsGuest;
   //  -----------------------------------------------------------------------
   //                                Modal Boxes
   //  -----------------------------------------------------------------------
@@ -889,6 +891,7 @@ function initializeMainPage() {
 }
 // ---------------------------------------------------------------------------------------------------------
 function initializeMenuPage() {
+  joinAsGuest;
   document.addEventListener("DOMContentLoaded", ready);
   //  -----------------------------------------------------------------------
   //                                Nav logo
@@ -1120,6 +1123,7 @@ function initializeMenuPage() {
   input.addEventListener("input", search_Items);
 }
 function initializeCheckoutPage() {
+  joinAsGuest;
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
@@ -1813,6 +1817,7 @@ function initializeCheckoutPage() {
 }
 
 function initializeRecieptPage() {
+  joinAsGuest;
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
@@ -2059,6 +2064,7 @@ function initializeRecieptPage() {
 }
 
 function initiateManagerPage() {
+  joinAsGuest;
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
@@ -2292,6 +2298,7 @@ function initiateManagerPage() {
 }
 
 function initializeWhoPage() {
+  joinAsGuest;
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
@@ -2434,6 +2441,7 @@ function initializeWhoPage() {
   });
 }
 function initiateCaterFormPage() {
+  joinAsGuest;
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
@@ -2576,6 +2584,7 @@ function initiateCaterFormPage() {
   });
 }
 function inititalizeIncomingPage() {
+  joinAsGuest;
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
