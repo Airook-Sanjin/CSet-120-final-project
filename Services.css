@@ -1,22 +1,135 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Universals                                 */
+/* -------------------------------------------------------------------------- */
 * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
-    body {
-        background-color: #6c95e7;
-    }
+html,body  {
+	width: 100%;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
 
-    h1 {
-        text-align: center;
-        margin-top: 50px;
-        font-size: 50px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        color: #F2E205;
-        
-        text-shadow: 1px 1px 1px black;
-    }
+/* --------------------------------- colors --------------------------------- */
+:root {
+	--dark-blue: #021f59;
+	--teal: #05c7f2;
+	--warm-blue: #4aa3e3;
+	--main-red: #f20519;
+	--secondary-red: #f20530;
+	--main-yellow: #f2e205;
+	--warm-yellow: #f0af02;
+	--light-grey: #666;
+}
+
+body {
+	background-color: whitesmoke;
+}
+h3 {
+	font-family: 'Arvo', serif;
+	font-weight: 700;
+	line-height: 1.5;
+	font-style: normal;
+	color: #f20530;
+}
+p {
+	font-family: 'Lato', serif;
+	font-weight: 400;
+	font-style: normal;
+}
+a {
+	font-family: 'Lato', serif;
+	font-weight: 600;
+	font-style: normal;
+}
+/* -------------------------------------------------------------------------- */
+/*                                Sticky header                               */
+/* -------------------------------------------------------------------------- */
+
+#logo {
+	width: 100px;
+}
+.header {
+	display: flex;
+	flex-direction: row;
+	background-color: #f20530;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-around;
+}
+.header a {
+	color: white;
+	text-decoration: none;
+}
+.userNav,
+.nav,
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
+
+.nav a:hover,
+.userNav a:hover {
+	color: #f2e205;
+}
+.Modalbutton {
+	color: white;
+	background-color: transparent;
+	border: none;
+	font-family: 'Lato', serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: medium;
+}
+.Modalbutton ion-icon {
+	color: #f2e205;
+}
+
+.Modalbutton:hover {
+	color: #f2e205;
+	cursor: pointer;
+}
+
+#Searchbar {
+	border-radius: 20px;
+	background-color: hsl(349, 96%, 45%);
+	border: none;
+	color: white;
+	padding: 10px;
+}
+#Searchbar::placeholder {
+	color: hsl(0, 0%, 70%);
+}
+#Searchbar:focus {
+	outline: none;
+	border: none;
+	/* background-color: none; */
+}
+#UserProf,
+#Cart {
+	font-size: 30px;
+	color: #f2e205;
+}
+#Navbtn {
+	display: flex;
+	background-color: #f2e205;
+	justify-content: center;
+	border-radius: 10px;
+	width: 120px;
+	padding: 3%;
+	color: rgb(205, 89, 0);
+	font-weight: 900;
+}
+#Navbtn:hover {
+	color: rgb(205, 89, 0);
+	transform: scale(1.2);
+	box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+	transition: 0.4s;
+}
 
     .header {
         display: flex;
@@ -131,4 +244,289 @@
         transition: 0.5s ease-in-out;
 
     }
+    /* -----------------------------------------------End Of Secret--------------------------------------------------- */
+
+footer a {
+	color: hsl(100, 100%, 100%);
+	text-decoration: none;
+}
+footer ion-icon {
+	font-size: 30px;
+	color: hsl(349, 96%, 28%);
+}
+.footer-container {
+	display: flex;
+	overflow: hidden;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: hsl(349, 96%, 44%);
+	height: 200px;
+	position: relative;
+}
+.about {
+	display: flex;
+	gap: 20px;
+}
+.icon-footer {
+	display: flex;
+	gap: 20px;
+}
+
+.Delivery-Main:active {
+	background-color: red;
+}
+
+.Delivery-Main,
+.Pickup-Main {
+	font-family: 'Lato', serif;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.SecretModal {
+	z-index: 1;
+	display: none;
+	position: fixed;
+	/* overflow: scroll; */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	background-color: hslhsl(0, 0%, 0%, 0.4);
+}
+.secretpopup-container {
+	margin: 6.5% 37%;
+	animation: animateTop 0.8s;
+}
+.SecretCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 5% auto;
+	background-color: hsl(0, 0%, 97%);
+	height: 100px;
+	width: 250px;
+	padding: 6%;
+	border-radius: 20px;
+	row-gap: 20px;
+}
+/* -------------------------------------------------------------------------- */
+/*                                Modal pop up                              */
+/* -------------------------------------------------------------------------- */
+@keyframes animateTop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+.popup-container {
+	margin: 6.5% 37%;
+	animation: animateTop 0.8s;
+}
+.modal {
+	z-index: 1001;
+	display: none;
+	position: fixed;
+	/* overflow: scroll; */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	background-color: hsl(0, 0%, 0%, 0.4);
+}
+.popup-card {
+	display: flex;
+	/* overflow: scroll; */
+	flex-direction: column;
+	align-items: center;
+	margin: 5% auto;
+	background-color: hsl(0, 0%, 97%);
+	height: 41.25rem;
+	width: 350px;
+	padding: 6%;
+	border-radius: 20px;
+	row-gap: 20px;
+}
+.popup-head {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	gap: 200px;
+}
+.popup-head h5 {
+	font-family: 'Arvo', 'Lato', serif;
+	justify-self: center;
+	transform: translate(7rem, 0%);
+	font-size: 1.6rem;
+	font-weight: 600;
+	width: max-content;
+	text-transform: uppercase;
+}
+
+.Closebtn {
+	background-color: transparent;
+	border: none;
+	width: 20px;
+	font-size: 30px;
+	transform: translate(-3.5rem, -1rem);
+	color: #b3b2b2;
+}
+
+.P-D-btns {
+	background-color: transparent;
+	border: none;
+}
+.popup-card button:hover {
+	cursor: pointer;
+}
+.P-D-btns-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 3%;
+	/* background-color: hsl(0, 0%, 70%); */
+	border-radius: 20px;
+}
+
+.P-D-btns-container::after {
+	background-color: yellow;
+}
+
+.info-txt {
+	color: #333;
+	font-family: 'Lato', serif;
+}
+
+/* -------------------------------- ToggleBtn ------------------------------- */
+.toggleCheckbox {
+	display: none;
+}
+
+.toggleContainer {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 100%;
+	height: 2.5rem;
+	border: 3px solid red;
+	border-radius: 20px;
+	background: white;
+	padding-bottom: 5%;
+	font-weight: bold;
+	color: #343434;
+	cursor: pointer;
+	font-family: 'Arvo', serif;
+	text-transform: uppercase;
+}
+
+.toggleContainer::before {
+	content: '';
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	left: 0%;
+	border-radius: 20px;
+	background: #f2022f;
+	transition: all 0.3s;
+}
+
+.toggleContainer div {
+	padding: 6px;
+	text-align: center;
+	z-index: 1;
+}
+
+.toggleCheckbox:checked + .toggleContainer::before {
+	left: 50%;
+}
+
+.toggleCheckbox:checked + .toggleContainer div:first-child {
+	color: #f2022f;
+	transition: color 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer div:last-child {
+	color: white;
+	transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:first-child {
+	color: white;
+	transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:last-child {
+	color: #f2022f;
+	transition: color 0.3s;
+}
+
+/* ------------------------------ ToggleBtn End ----------------------------- */
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+	font-family: 'Lato', serif;
+
+	/* height:100%; */
+}
+.form-container input,
+.form-container select {
+	border: none;
+	background-color: hsl(0, 0%, 89%);
+	width: 100%;
+	border-radius: 20px;
+	padding: 2%;
+	font-family: 'Lato', serif;
+	margin-top: 5px;
+	color: grey;
+}
+
+.form-container input {
+	font-size: 1.15rem;
+}
+
+.form-container select {
+	font-size: 1rem;
+}
+input[type='text'] {
+	font-size: 1rem;
+}
+
+.form-container h4 {
+	color: #333;
+}
+
+option:value {
+	color: hsl(0, 0%, 70%);
+}
+.Update-Btn {
+	/* display: flex; */
+	/* background-color: #f2e205; */
+	background-color: #f2022f;
+	color: white;
+	font-family: 'Arvo', serif;
+	margin-top: 1rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1rem;
+	padding: 5%;
+	width: 80%;
+	height: fit-content;
+	padding: 3%;
+	border: none;
+	border-radius: 20px;
+}
+
+.Update-Btn:hover {
+	/* background-color: #ddcf07; */
+	background-color: #d20329;
+}
+.Update-Btn:active {
+	/* background-color: #ccbf08; */
+	background-color: #99041f;
+}
     
