@@ -41,13 +41,6 @@
 			href="https://blogfonts.com/css/aWQ9MTM4MzY5JnN1Yj0zNjkmYz1zJnR0Zj1TaGFubm9uLUJvbGQub3RmJm49c2hhbm5vbg/Shannon.otf"
 			rel="stylesheet"
 			type="text/css" />
-		<script>
-			$(function () {
-				$('#svgIncludes').load(
-					'https://s3-us-west-2.amazonaws.com/s.cdpn.io/40839/svgdefs-2_copy.svg'
-				);
-			});
-		</script>
 	</head>
 	<body>
 		<!-- ----------------------------------------------------------------------- -->
@@ -127,6 +120,8 @@
 									<div class="nameEmailcard">
 										<h6>Name <span class="star">*</span></h6>
 										<input
+
+											id="FirstName"
 											class="Name"
 											type="text"
 											placeholder="First Name"
@@ -135,6 +130,8 @@
 									<div class="nameEmailcard">
 										<h6>Last Name <span class="star">*</span></h6>
 										<input
+											id="LastName"
+
 											class="Name Last"
 											type="text"
 											placeholder="Last Name" />
@@ -449,21 +446,7 @@
 							<h4 id="P">Price</h4>
 						</div>
 						<div class="Item-Qty-Price-List">
-							<!-- <div class="Item-Container">
-                <img id="Item-img" src="" alt="ItemImg" />
-                <p>Itemname</p>
-              </div>
-              <div class="Qty-Container">
-                <input
-                  type="number"
-                  name="Quantity-Counter"
-                  id="Quantity"
-                  value="1"
-                />
-              </div>
-              <div class="Price-Container">
-                <p>Price</p>
-              </div> -->
+							
 						</div>
 					</div>
 
@@ -506,5 +489,24 @@
 			nomodule
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 		<script src="script.js"></script>
+		<script>
+        document.addEventListener("DOMContentLoaded", function () {
+      const userStatus = localStorage.getItem("userStatus");
+      if (userStatus === "guest") {
+          document.getElementById("Rewards").style.display = "none";
+        
+      }
+      else if (userStatus === "logged-in") {
+          document.getElementById("UserProf").style.display = "block";
+		  document.getElementById("Rewards").style.display = "none";
+      }
+	  else {
+		  document.getElementById("Rewards").style.display = "block";
+		  document.getElementById("UserProf").style.display = "block";
+	  }
+  });
+
+  
+      </script>
 	</body>
 </html>

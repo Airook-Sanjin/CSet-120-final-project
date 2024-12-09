@@ -1,80 +1,82 @@
 let Coupons = [
-    {code:"EARLYBIRD", discount:30},
-    {code:"WEFAMILY", discount:50},
-    {code:"WALTER", discount:15},
-    {code:"RESTGUS", discount:80}
-
-    ];
-let modalClicked = false
-    localStorage.setItem("Coupons", JSON.stringify(Coupons));
+	{ code: 'EARLYBIRD', discount: 30 },
+	{ code: 'WEFAMILY', discount: 50 },
+	{ code: 'WALTER', discount: 15 },
+	{ code: 'RESTGUS', discount: 80 },
+];
+let modalClicked = false;
+localStorage.setItem('Coupons', JSON.stringify(Coupons));
 let clicked1 = false;
 let clicked2 = false;
-document.querySelector(".reward button").addEventListener("click", function () {
-    if (!clicked1)
-       {clicked1 = true;
-        clicked2 = false;
-        document.querySelector(".reward").style.display = "none";
-            if(Coupons.length > 4){
-            Coupons.pop();
-            }else{}
-            Coupons.push({code:"FIRSTTIME", discount:40});
-            document.querySelector(".reward2").style.display = "block";
-        
-            localStorage.setItem("Coupons", JSON.stringify(Coupons));
-            alert("Claimed!");
-    }
-    else{
-        alert("A coupon has already been claimed")
-    }
-    
+document.querySelector('.reward button').addEventListener('click', function () {
+	if (!clicked1) {
+		clicked1 = true;
+		clicked2 = false;
+		document.querySelector('.reward').style.display = 'none';
+		if (Coupons.length > 4) {
+			Coupons.pop();
+		} else {
+		}
+		Coupons.push({ code: 'FIRSTTIME', discount: 40 });
+		document.querySelector('.reward2').style.display = 'block';
+
+		localStorage.setItem('Coupons', JSON.stringify(Coupons));
+		alert('Claimed!');
+	} else {
+		alert('A coupon has already been claimed');
+	}
 });
 
-document.querySelector(".reward2 button").addEventListener("click", function () {
-    if(!clicked2){
-        clicked2 = true;
-        clicked1 = false;
-        document.querySelector(".reward2").style.display = "none";
-        if(Coupons.length > 4){
-            Coupons.pop();
-        }else{}
-        Coupons.push({code:"TWENTYOFF", discount:20});
-        document.querySelector(".reward").style.display = "block";
-        
-        localStorage.setItem("Coupons", JSON.stringify(Coupons));
-        alert("Claimed!");
-    }else{
-        alert("A coupon has already been claimed")
-    }
+document
+	.querySelector('.reward2 button')
+	.addEventListener('click', function () {
+		if (!clicked2) {
+			clicked2 = true;
+			clicked1 = false;
+			document.querySelector('.reward2').style.display = 'none';
+			if (Coupons.length > 4) {
+				Coupons.pop();
+			} else {
+			}
+			Coupons.push({ code: 'TWENTYOFF', discount: 20 });
+			document.querySelector('.reward').style.display = 'block';
+
+			localStorage.setItem('Coupons', JSON.stringify(Coupons));
+			alert('Claimed!');
+		} else {
+			alert('A coupon has already been claimed');
+		}
+	});
+
+//  -----------------------------------------------------------------------
+//                                Nav logo
+//  -----------------------------------------------------------------------
+let LogoDiv = document.getElementsByClassName('logo')[0];
+console.log(LogoDiv);
+LogoDiv.addEventListener('click', function () {
+	location.replace('index.html');
 });
+//  -----------------------------------------------------------------------
+//                                Modal
+//  -----------------------------------------------------------------------
+function delOrPickModal() {
+	let deliveryForm = document.getElementsByClassName('form-container')[0];
+	window.onclick = function (event) {
+		if (event.target == modal) {
+			modal.style.display = 'none';
+		}
+	};
+	let Deliverybtn = document.getElementsByClassName('DeliveryDiv')[0];
+	let Pickupbtn = document.getElementsByClassName('PickupDiv')[0];
+	let indicator = document.getElementsByClassName('location-button')[0];
 
+	console.log(deliveryForm);
+	Deliverybtn.addEventListener('click', function () {
+		if (indicator) {
+			indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Delivery`;
+		}
 
- //  -----------------------------------------------------------------------
-  //                                Nav logo
-  //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
-    location.replace("index.html");
-  })
-  //  -----------------------------------------------------------------------
-  //                                Modal
-  //  -----------------------------------------------------------------------
-  function delOrPickModal(){
-    let deliveryForm = document.getElementsByClassName("form-container")[0];
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-    let Deliverybtn = document.getElementsByClassName("DeliveryDiv")[0];
-    let Pickupbtn = document.getElementsByClassName("PickupDiv")[0];
-    let indicator = document.getElementsByClassName("location-button")[0];
-    
-    console.log(deliveryForm)
-    Deliverybtn.addEventListener("click", function () {
-      if(indicator){indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Delivery`;}
-      
-      deliveryForm.innerHTML = `<div class="Main Loc-container">
+		deliveryForm.innerHTML = `<div class="Main Loc-container">
                     <div class="Address-Container">
                       <div class="Address">
                         <h6>Street Address <span class="star">*</span></h6>
@@ -194,11 +196,13 @@ document.querySelector(".reward2 button").addEventListener("click", function () 
                       <option value="1:30pm">1:30pm</option>
                     </select>
                   </div>`;
-    });
-    Pickupbtn.addEventListener("click", function () {
-      if(indicator){indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Pick Up`;}
-      
-      deliveryForm.innerHTML = `
+	});
+	Pickupbtn.addEventListener('click', function () {
+		if (indicator) {
+			indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Pick Up`;
+		}
+
+		deliveryForm.innerHTML = `
       <div class="Address-Container">
                       <div class="Address">
                         <h6>Store Address <span class="star">*</span></h6>
@@ -228,59 +232,57 @@ document.querySelector(".reward2 button").addEventListener("click", function () 
                       <option value="1:30pm">1:30pm</option>
                     </select>
                   </div>`;
-    });
-    let closebtn = document.getElementsByClassName("Closebtn")[0];
-    let modal = document.getElementsByClassName("modal")[0];
-    modal.style.display="block"
-    closebtn.addEventListener("click", function () {
-      modal.style.display = "none";
-    });
-    
-    let CustomerLocInfo = [];
-    let cStreet = document.getElementById("StreetAddress");
-    let cStreet2 = document.getElementById("AddressLine2");
-    let cCity = document.getElementById("City");
-    let cSPR = document.getElementById("State");
-    let cZIP = document.getElementById("ZipCode");
-    let cDate = document.getElementById("Date-Dropdown");
-    let cTime = document.getElementById("time-Dropdown");
-    let Updatebtn = document.getElementsByClassName("Update-Btn")[0];
-  
-    Updatebtn.addEventListener("click", function () {
-      if (CustomerLocInfo.length > 0) {
-        CustomerLocInfo.pop();
-      } else {
-        console.log(
-          cStreet.value,
-          cStreet2.value,
-          cCity.value,
-          cSPR.value,
-          cZIP.value,
-          cDate.value,
-          cTime.value
-        );
-        CustomerLocInfo.push({
-          StreetA: cStreet.value,
-          Street2: cStreet2.value,
-          City: cCity.value,
-          SPR: cSPR.value,
-          ZIP: cZIP.value,
-          date: cDate.value,
-          Time: cTime.value,
-        });
-        localStorage.setItem("CustomerLocInfos", JSON.stringify(CustomerLocInfo));
-      }
-      modal.style.display = "none";
-    });
-    
-    
-  }
-  let modalBtn = document.getElementsByClassName("Modalbutton")[0];
-  modalBtn.addEventListener("click", function(){
-    let deliveryForm = document.getElementsByClassName("form-container")[0];
-    if(!modalClicked){
-      modalClicked = true
-      deliveryForm.innerHTML = `<div class="Main Loc-container">
+	});
+	let closebtn = document.getElementsByClassName('Closebtn')[0];
+	let modal = document.getElementsByClassName('modal')[0];
+	modal.style.display = 'block';
+	closebtn.addEventListener('click', function () {
+		modal.style.display = 'none';
+	});
+
+	let CustomerLocInfo = [];
+	let cStreet = document.getElementById('StreetAddress');
+	let cStreet2 = document.getElementById('AddressLine2');
+	let cCity = document.getElementById('City');
+	let cSPR = document.getElementById('State');
+	let cZIP = document.getElementById('ZipCode');
+	let cDate = document.getElementById('Date-Dropdown');
+	let cTime = document.getElementById('time-Dropdown');
+	let Updatebtn = document.getElementsByClassName('Update-Btn')[0];
+
+	Updatebtn.addEventListener('click', function () {
+		if (CustomerLocInfo.length > 0) {
+			CustomerLocInfo.pop();
+		} else {
+			console.log(
+				cStreet.value,
+				cStreet2.value,
+				cCity.value,
+				cSPR.value,
+				cZIP.value,
+				cDate.value,
+				cTime.value
+			);
+			CustomerLocInfo.push({
+				StreetA: cStreet.value,
+				Street2: cStreet2.value,
+				City: cCity.value,
+				SPR: cSPR.value,
+				ZIP: cZIP.value,
+				date: cDate.value,
+				Time: cTime.value,
+			});
+			localStorage.setItem('CustomerLocInfos', JSON.stringify(CustomerLocInfo));
+		}
+		modal.style.display = 'none';
+	});
+}
+let modalBtn = document.getElementsByClassName('Modalbutton')[0];
+modalBtn.addEventListener('click', function () {
+	let deliveryForm = document.getElementsByClassName('form-container')[0];
+	if (!modalClicked) {
+		modalClicked = true;
+		deliveryForm.innerHTML = `<div class="Main Loc-container">
     <div class="Address-Container">
       <div class="Address">
         <h6>Street Address <span class="star">*</span></h6>
@@ -400,11 +402,9 @@ document.querySelector(".reward2 button").addEventListener("click", function () 
       <option value="1:30pm">1:30pm</option>
     </select>
   </div>`;
-    }
-    
-    delOrPickModal()
-  })
+	}
 
+	delOrPickModal();
+});
 
-//apply coupon to Final Cart Page 
-
+//apply coupon to Final Cart Page
