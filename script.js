@@ -111,7 +111,7 @@ if (!storedLosPollosMenu) {
 				Name: 'Chicken Nuggets',
 				Price: 4.99,
 				Description:
-					'Cripsy, tender chicken bites served with your choice of dipping sauce (6Pc)',
+					'Crispy, tender chicken bites served with your choice of dipping sauce (6Pc)',
 				image: 'LosPollosImages-gif/nuggets.png',
 			},
 			{
@@ -126,7 +126,7 @@ if (!storedLosPollosMenu) {
 		Sandwiches: [
 			{
 				Itemid: 1,
-				Name: 'Cripsy Chicken Sandwich',
+				Name: 'Crispy Chicken Sandwich',
 				Price: 5.99,
 				Description:
 					'Juicy, crispy chicken breast on a soft bun with lettuce, tomato, and your choice of sauce',
@@ -172,7 +172,7 @@ if (!storedLosPollosMenu) {
 				Name: 'French Toast Stix',
 				Price: 4.99,
 				Description:
-					'Golden, cripsy sticks of cinnamon-sugar French Toast, served with warm syrup for dipping',
+					'Golden, crispy sticks of cinnamon-sugar French Toast, served with warm syrup for dipping',
 				image: 'LosPollosImages-gif/frenchstix.png',
 			},
 			{

@@ -1,164 +1,170 @@
-
-let StoredLosPollosCaterMenu = JSON.parse(localStorage.getItem("LosPollosCaterMenu"));
-	if(!StoredLosPollosCaterMenu){
-		let InitialLosPollosCaterMenu = 
-	{
+let StoredLosPollosCaterMenu = JSON.parse(
+	localStorage.getItem('LosPollosCaterMenu')
+);
+if (!StoredLosPollosCaterMenu) {
+	let InitialLosPollosCaterMenu = {
 		SandwichPartyPackage: [
-		  {
-			Itemid: 1,
-			Name: "15 Person Sandwich Party",
-			Price: 299,
-			Description:
-			  "Includes: Choice of Chicken Sandwiches, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, Choice of 2 Sauces, Napkins, Plates, and Serving Utensils.",
-			image: "menu2/side-party.jpg",
-		  },
-		  {
-			Itemid: 2,
-			Name: "30 Person Sandwich Party",
-			Price: 399,
-			Description:
-			  "Includes: Choice of Chicken Sandwiches, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, Choice of 2 Sauces, Napkins, Plates, and Serving Utensils.",
-			image: "menu2/sando-party.jpg",
-		  },{
-			Itemid: 3,
-			Name: "40 Person Sandwich Party",
-			Price: 599,
-			Description:
-			  "Includes: Choice of Chicken Sandwiches, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, Choice of 2 Sauces, Napkins, Plates, and Serving Utensils.",
-			image: "menu2/sando-party.jpg",
-		  },
-		  {
-			Itemid: 4,
-			Name: "50 Person Sandwich Party",
-			Price: 399,
-			Description:
-			  "Includes: Choice of Chicken Sandwiches, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, Choice of 2 Sauces, Napkins, Plates, and Serving Utensils.",
-			image: "menu2/sando-party.jpg",
-		  }
+			{
+				Itemid: 1,
+				Name: '15 Person Sandwich Party',
+				Price: 299,
+				Description:
+					'Includes: Choice of Chicken Sandwiches, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, Choice of 2 Sauces, Napkins, Plates, and Serving Utensils.',
+				image: 'menu2/side-party.jpg',
+			},
+			{
+				Itemid: 2,
+				Name: '30 Person Sandwich Party',
+				Price: 399,
+				Description:
+					'Includes: Choice of Chicken Sandwiches, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, Choice of 2 Sauces, Napkins, Plates, and Serving Utensils.',
+				image: 'menu2/sando-party.jpg',
+			},
+			{
+				Itemid: 3,
+				Name: '40 Person Sandwich Party',
+				Price: 599,
+				Description:
+					'Includes: Choice of Chicken Sandwiches, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, Choice of 2 Sauces, Napkins, Plates, and Serving Utensils.',
+				image: 'menu2/sando-party.jpg',
+			},
+			{
+				Itemid: 4,
+				Name: '50 Person Sandwich Party',
+				Price: 399,
+				Description:
+					'Includes: Choice of Chicken Sandwiches, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, Choice of 2 Sauces, Napkins, Plates, and Serving Utensils.',
+				image: 'menu2/sando-party.jpg',
+			},
 		],
-		ChickenBuffetPackage:[
-		  {
-			Itemid: 1,
-			Name: "15 Person Pollo Buffet Paackage",
-			Price: 244,
-			Description:
-			  "Package Includes: 1/4 Chicken Per Person, Choice of 3 Sides, Choice of 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/sando-party.jpg",
-		  },
-		  {
-			Itemid: 2,
-			Name: "30 Person Pollo Buffet Paackage",
-			Price: 449,
-			Description:
-			  "Package Includes: 1/4 Chicken Per Person, Choice of 3 Sides, Choice of 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/sando-party.jpg",
-		  },
-		  {
-			Itemid: 3,
-			Name: "40 Person Pollo Buffet Paackage",
-			Price: 599,
-			Description:
-			  "Package Includes: 1/4 Chicken Per Person, Choice of 3 Sides, Choice of 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/sando-party.jpg",
-		  },
-		  {
-			Itemid: 4,
-			Name: "15 Person Pollo Buffet Paackage",
-			Price: 749,
-			Description:
-			  "Package Includes: 1/4 Chicken Per Person, Choice of 3 Sides, Choice of 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/sando-party.jpg",
-		  }
+		ChickenBuffetPackage: [
+			{
+				Itemid: 1,
+				Name: '15 Person Pollo Buffet Paackage',
+				Price: 244,
+				Description:
+					'Package Includes: 1/4 Chicken Per Person, Choice of 3 Sides, Choice of 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/sando-party.jpg',
+			},
+			{
+				Itemid: 2,
+				Name: '30 Person Pollo Buffet Paackage',
+				Price: 449,
+				Description:
+					'Package Includes: 1/4 Chicken Per Person, Choice of 3 Sides, Choice of 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/sando-party.jpg',
+			},
+			{
+				Itemid: 3,
+				Name: '40 Person Pollo Buffet Paackage',
+				Price: 599,
+				Description:
+					'Package Includes: 1/4 Chicken Per Person, Choice of 3 Sides, Choice of 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/sando-party.jpg',
+			},
+			{
+				Itemid: 4,
+				Name: '15 Person Pollo Buffet Paackage',
+				Price: 749,
+				Description:
+					'Package Includes: 1/4 Chicken Per Person, Choice of 3 Sides, Choice of 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/sando-party.jpg',
+			},
 		],
-		TendersFriesPackage:[
-		  {
-			Itemid: 1,
-			Name: "25 Person Tenders and Fries Package",
-			Price: 35,
-			Description:
-			  "Package Includes: Boxes of Pollo Signature Tenders and Curly Fries, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/tender-party.jpg",
-		  },
-		  {
-			Itemid: 2,
-			Name: "50 Person Tenders and Fries Package",
-			Price: 64,
-			Description:
-			  "Package Includes: Boxes of Pollo Signature Tenders and Curly Fries, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/tender-party.jpg",
-		  },
-		  {
-			Itemid: 3,
-			Name: "100 Person Tenders and Fries Package",
-			Price: 100,
-			Description:
-			  "Package Includes: Boxes of Pollo Signature Tenders and Curly Fries, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/tender-party.jpg",
-		  },
-		  {
-			Itemid: 4,
-			Name: "150 Person Tenders and Fries Package",
-			Price: 160,
-			Description:
-			  "Package Includes: Boxes of Pollo Signature Tenders and Curly Fries, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/tender-party.jpg",
-		  }
+		TendersFriesPackage: [
+			{
+				Itemid: 1,
+				Name: '25 Person Tenders and Fries Package',
+				Price: 35,
+				Description:
+					'Package Includes: Boxes of Pollo Signature Tenders and Curly Fries, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/tender-party.jpg',
+			},
+			{
+				Itemid: 2,
+				Name: '50 Person Tenders and Fries Package',
+				Price: 64,
+				Description:
+					'Package Includes: Boxes of Pollo Signature Tenders and Curly Fries, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/tender-party.jpg',
+			},
+			{
+				Itemid: 3,
+				Name: '100 Person Tenders and Fries Package',
+				Price: 100,
+				Description:
+					'Package Includes: Boxes of Pollo Signature Tenders and Curly Fries, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/tender-party.jpg',
+			},
+			{
+				Itemid: 4,
+				Name: '150 Person Tenders and Fries Package',
+				Price: 160,
+				Description:
+					'Package Includes: Boxes of Pollo Signature Tenders and Curly Fries, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/tender-party.jpg',
+			},
 		],
-		SideLoversPackage:[
-		  {
-			Itemid: 1,
-			Name: "15 Person Side Lovers Package",
-			Price: 99,
-			Description:
-			  "Package Includes: Chicken Nuggets, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/tender-party.jpg",
-		  },
-		  {
-			Itemid: 2,
-			Name: "30 Person Side Lovers Package",
-			Price: 99,
-			Description:
-			  "Package Includes: Chicken Nuggets, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/tender-party.jpg",
-		  },
-		  {
-			Itemid: 3,
-			Name: "50 Person Side Lovers Package",
-			Price: 399,
-			Description:
-			  "Package Includes: Chicken Nuggets, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/tender-party.jpg",
-		  },
-		  {
-			Itemid: 4,
-			Name: "100 Person Side Lovers Package",
-			Price: 499,
-			Description:
-			  "Package Includes: Chicken Nuggets, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils",
-			image: "menu2/tender-party.jpg",
-		  }
-			]
-	 	 };
-	localStorage.setItem("LosPollosCaterMenu",JSON.stringify(InitialLosPollosCaterMenu))
-	StoredLosPollosCaterMenu = InitialLosPollosCaterMenu
-	}
-	let modalClicked = false;
-function delOrPickModal(){
-    let deliveryForm = document.getElementsByClassName("form-container")[0];
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-    let Deliverybtn = document.getElementsByClassName("DeliveryDiv")[0];
-    let Pickupbtn = document.getElementsByClassName("PickupDiv")[0];
-    let indicator = document.getElementsByClassName("location-button")[0];
-    
-    console.log(deliveryForm)
-    Deliverybtn.addEventListener("click", function () {
-      if(indicator){indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Delivery`;}
-      
-      deliveryForm.innerHTML = `<div class="Main Loc-container">
+		SideLoversPackage: [
+			{
+				Itemid: 1,
+				Name: '15 Person Side Lovers Package',
+				Price: 99,
+				Description:
+					'Package Includes: Chicken Nuggets, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/tender-party.jpg',
+			},
+			{
+				Itemid: 2,
+				Name: '30 Person Side Lovers Package',
+				Price: 99,
+				Description:
+					'Package Includes: Chicken Nuggets, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/tender-party.jpg',
+			},
+			{
+				Itemid: 3,
+				Name: '50 Person Side Lovers Package',
+				Price: 399,
+				Description:
+					'Package Includes: Chicken Nuggets, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/tender-party.jpg',
+			},
+			{
+				Itemid: 4,
+				Name: '100 Person Side Lovers Package',
+				Price: 499,
+				Description:
+					'Package Includes: Chicken Nuggets, Chicken Tenders, Large Fries, Nachos, Choice of 1 Extra Side, 2 Sauces, Napkins, Utensils, Plates, and Serving Utensils',
+				image: 'menu2/tender-party.jpg',
+			},
+		],
+	};
+	localStorage.setItem(
+		'LosPollosCaterMenu',
+		JSON.stringify(InitialLosPollosCaterMenu)
+	);
+	StoredLosPollosCaterMenu = InitialLosPollosCaterMenu;
+}
+let modalClicked = false;
+function delOrPickModal() {
+	let deliveryForm = document.getElementsByClassName('form-container')[0];
+	window.onclick = function (event) {
+		if (event.target == modal) {
+			modal.style.display = 'none';
+		}
+	};
+	let Deliverybtn = document.getElementsByClassName('DeliveryDiv')[0];
+	let Pickupbtn = document.getElementsByClassName('PickupDiv')[0];
+	let indicator = document.getElementsByClassName('location-button')[0];
+
+	console.log(deliveryForm);
+	Deliverybtn.addEventListener('click', function () {
+		if (indicator) {
+			indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Delivery`;
+		}
+
+		deliveryForm.innerHTML = `<div class="Main Loc-container">
                     <div class="Address-Container">
                       <div class="Address">
                         <h6>Street Address <span class="star">*</span></h6>
@@ -278,11 +284,13 @@ function delOrPickModal(){
                       <option value="1:30pm">1:30pm</option>
                     </select>
                   </div>`;
-    });
-    Pickupbtn.addEventListener("click", function () {
-      if(indicator){indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Pick Up`;}
-      
-      deliveryForm.innerHTML = `
+	});
+	Pickupbtn.addEventListener('click', function () {
+		if (indicator) {
+			indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Pick Up`;
+		}
+
+		deliveryForm.innerHTML = `
       <div class="Address-Container">
                       <div class="Address">
                         <h6>Store Address <span class="star">*</span></h6>
@@ -312,63 +320,60 @@ function delOrPickModal(){
                       <option value="1:30pm">1:30pm</option>
                     </select>
                   </div>`;
-    });
-    let closebtn = document.getElementsByClassName("Closebtn")[0];
-    let modal = document.getElementsByClassName("modal")[0];
-    modal.style.display="block"
-    closebtn.addEventListener("click", function () {
-      modal.style.display = "none";
-    });
-    
-    let CustomerLocInfo = [];
-    let cStreet = document.getElementById("StreetAddress");
-    let cStreet2 = document.getElementById("AddressLine2");
-    let cCity = document.getElementById("City");
-    let cSPR = document.getElementById("State");
-    let cZIP = document.getElementById("ZipCode");
-    let cDate = document.getElementById("Date-Dropdown");
-    let cTime = document.getElementById("time-Dropdown");
-    let Updatebtn = document.getElementsByClassName("Update-Btn")[0];
-  
-    Updatebtn.addEventListener("click", function () {
-      if (CustomerLocInfo.length > 0) {
-        CustomerLocInfo.pop();
-      } else {
-        console.log(
-          cStreet.value,
-          cStreet2.value,
-          cCity.value,
-          cSPR.value,
-          cZIP.value,
-          cDate.value,
-          cTime.value
-        );
-        CustomerLocInfo.push({
-          StreetA: cStreet.value,
-          Street2: cStreet2.value,
-          City: cCity.value,
-          SPR: cSPR.value,
-          ZIP: cZIP.value,
-          date: cDate.value,
-          Time: cTime.value,
-        });
-        localStorage.setItem("CustomerLocInfos", JSON.stringify(CustomerLocInfo));
-      }
-      modal.style.display = "none";
-    });
-    
-    
-  }
-  
-  function caterDisplay(){
-	console.log("DisplayCater")
-	if(StoredLosPollosCaterMenu){
-	let menuContainer = document.getElementById("MenuContainer");
-	if(document.getElementById("CaterMenuPage")){
-	  menuContainer.innerHTML = ``;
-	}
-	else if (document.getElementById("ManagerPage")){
-	  menuContainer.innerHTML = `<div class="items-container">
+	});
+	let closebtn = document.getElementsByClassName('Closebtn')[0];
+	let modal = document.getElementsByClassName('modal')[0];
+	modal.style.display = 'block';
+	closebtn.addEventListener('click', function () {
+		modal.style.display = 'none';
+	});
+
+	let CustomerLocInfo = [];
+	let cStreet = document.getElementById('StreetAddress');
+	let cStreet2 = document.getElementById('AddressLine2');
+	let cCity = document.getElementById('City');
+	let cSPR = document.getElementById('State');
+	let cZIP = document.getElementById('ZipCode');
+	let cDate = document.getElementById('Date-Dropdown');
+	let cTime = document.getElementById('time-Dropdown');
+	let Updatebtn = document.getElementsByClassName('Update-Btn')[0];
+
+	Updatebtn.addEventListener('click', function () {
+		if (CustomerLocInfo.length > 0) {
+			CustomerLocInfo.pop();
+		} else {
+			console.log(
+				cStreet.value,
+				cStreet2.value,
+				cCity.value,
+				cSPR.value,
+				cZIP.value,
+				cDate.value,
+				cTime.value
+			);
+			CustomerLocInfo.push({
+				StreetA: cStreet.value,
+				Street2: cStreet2.value,
+				City: cCity.value,
+				SPR: cSPR.value,
+				ZIP: cZIP.value,
+				date: cDate.value,
+				Time: cTime.value,
+			});
+			localStorage.setItem('CustomerLocInfos', JSON.stringify(CustomerLocInfo));
+		}
+		modal.style.display = 'none';
+	});
+}
+
+function caterDisplay() {
+	console.log('DisplayCater');
+	if (StoredLosPollosCaterMenu) {
+		let menuContainer = document.getElementById('MenuContainer');
+		if (document.getElementById('CaterMenuPage')) {
+			menuContainer.innerHTML = ``;
+		} else if (document.getElementById('ManagerPage')) {
+			menuContainer.innerHTML = `<div class="items-container">
 			<button id ="AddItemsButton">Add Item</button>
 		</div>
 		<section class = "Modal Manager">
@@ -426,166 +431,150 @@ function delOrPickModal(){
   </div>
   </section>
   `;
+		}
+
+		let bttBtn = document.createElement('button');
+		bttBtn.id = 'topBtn';
+		bttBtn.title = 'Back To Top';
+		bttBtn.innerHTML = '&uarr;';
+
+		for (let section in StoredLosPollosCaterMenu) {
+			let headerSection = document.createElement('section');
+			headerSection.id = section
+				.replace(/\$1/g, '')
+				.replace(/([A-Z])/g, `$1`)
+				.trim('');
+
+			if (document.getElementById('CaterMenuPage')) {
+				menuContainer.appendChild(headerSection);
+			} else if (document.getElementById('ManagerPage')) {
+				menuContainer.insertAdjacentElement('afterbegin', headerSection);
+			}
+			let menuHeading = document.createElement('div');
+			menuHeading.className = 'menu-heading title-style';
+			headerSection.appendChild(menuHeading);
+			let sectionHeader = document.createElement('h2');
+			sectionHeader.innerText = section.replace(/([A-Z])/g, ` $1`); //Formatting of category name
+			sectionHeader.className = 'section-title';
+
+			menuHeading.appendChild(sectionHeader);
+			let itemsContainer = document.createElement('div');
+			itemsContainer.className = 'items-container';
+			headerSection.appendChild(itemsContainer);
+
+			StoredLosPollosCaterMenu[section].forEach((item) => {
+				let itemCard = document.createElement('div');
+				itemCard.className = 'item-card';
+				let ItemImgDiv = document.createElement('div');
+				ItemImgDiv.className = 'item-img';
+				let ItemImage = document.createElement('img');
+				ItemImage.src = item.image;
+				ItemImage.alt = item.Name;
+				ItemImgDiv.appendChild(ItemImage);
+
+				let ItemInfoDiv = document.createElement('div');
+				ItemInfoDiv.className = 'item-info';
+
+				let ItemName = document.createElement('h4');
+				ItemName.className = 'item-header';
+				ItemName.innerText = item.Name;
+
+				let priceDiv = document.createElement('div');
+				priceDiv.className = 'price';
+				priceDiv.innerHTML = `$<span>${item.Price}</span`;
+
+				let itemDescription = document.createElement('p');
+				itemDescription.innerText = item.Description;
+
+				let cardBottom = document.createElement('div');
+				cardBottom.className = 'card-bottom';
+				let menuAddBtn = document.createElement('button');
+				menuAddBtn.className = 'btn menu-add';
+				menuAddBtn.innerHTML = 'Order Now';
+
+				itemCard.appendChild(ItemImgDiv);
+				ItemInfoDiv.appendChild(ItemName);
+				ItemInfoDiv.appendChild(priceDiv);
+				ItemInfoDiv.appendChild(itemDescription);
+				ItemInfoDiv.appendChild(cardBottom);
+				cardBottom.appendChild(menuAddBtn);
+				itemCard.appendChild(ItemInfoDiv);
+				itemsContainer.appendChild(itemCard);
+				menuContainer.appendChild(bttBtn);
+			});
+		}
+	} else {
+		console.log('No More Items Found In Storage');
 	}
-	
+}
 
-	let bttBtn = document.createElement("button");
-	bttBtn.id = "topBtn";
-	bttBtn.title = "Back To Top";
-	bttBtn.innerHTML = "&uarr;";
-
-	for (let section in StoredLosPollosCaterMenu) {
-	  let headerSection = document.createElement("section");
-	  headerSection.id = section
-		.replace(/\$1/g, "")
-		.replace(/([A-Z])/g, `$1`)
-		.trim("");
-	  
-	  if(document.getElementById("CaterMenuPage")){
-		menuContainer.appendChild(headerSection);
-		
-	  }
-	  else if (document.getElementById("ManagerPage")){
-		menuContainer.insertAdjacentElement("afterbegin", headerSection);
-	  }
-	  let menuHeading = document.createElement("div");
-	  menuHeading.className = "menu-heading title-style";
-	  headerSection.appendChild(menuHeading);
-	  let sectionHeader = document.createElement("h2");
-	  sectionHeader.innerText = section.replace(/([A-Z])/g, ` $1`); //Formatting of category name
-	  sectionHeader.className = "section-title";
-	  
-	  menuHeading.appendChild(sectionHeader);
-	  let itemsContainer = document.createElement("div");
-	  itemsContainer.className = "items-container";
-	  headerSection.appendChild(itemsContainer);
-
-	  StoredLosPollosCaterMenu[section].forEach((item) => {
-		let itemCard = document.createElement("div");
-		itemCard.className = "item-card";
-		let ItemImgDiv = document.createElement("div");
-		ItemImgDiv.className = "item-img";
-		let ItemImage = document.createElement("img");
-		ItemImage.src = item.image;
-		ItemImage.alt = item.Name;
-		ItemImgDiv.appendChild(ItemImage);
-
-		let ItemInfoDiv = document.createElement("div");
-		ItemInfoDiv.className = "item-info";
-
-		let ItemName = document.createElement("h4");
-		ItemName.className = "item-header";
-		ItemName.innerText = item.Name;
-
-		let priceDiv = document.createElement("div");
-		priceDiv.className = "price";
-		priceDiv.innerHTML = `$<span>${item.Price}</span`;
-
-		let itemDescription = document.createElement("p");
-		itemDescription.innerText = item.Description;
-
-		let cardBottom = document.createElement("div");
-		cardBottom.className = "card-bottom";
-		let menuAddBtn = document.createElement("button");
-		menuAddBtn.className = "btn menu-add";
-		menuAddBtn.innerHTML = "Order Now";
-
-		itemCard.appendChild(ItemImgDiv);
-		ItemInfoDiv.appendChild(ItemName);
-		ItemInfoDiv.appendChild(priceDiv);
-		ItemInfoDiv.appendChild(itemDescription);
-		ItemInfoDiv.appendChild(cardBottom);
-		cardBottom.appendChild(menuAddBtn);
-		itemCard.appendChild(ItemInfoDiv);
-		itemsContainer.appendChild(itemCard);
-		menuContainer.appendChild(bttBtn);
-	  });
-	}
-  } else {
-	console.log("No More Items Found In Storage");
-  }
-	
-  }
-
-document.addEventListener("DOMContentLoaded", ready);
+document.addEventListener('DOMContentLoaded', ready);
 //  -----------------------------------------------------------------------
-  //                                Nav logo
-  //  -----------------------------------------------------------------------
-  let LogoDiv = document.getElementsByClassName("logo")[0]
-  console.log(LogoDiv)
-  LogoDiv.addEventListener("click",function(){
-    location.replace("index.html");
-  })
-  
+//                                Nav logo
+//  -----------------------------------------------------------------------
+let LogoDiv = document.getElementsByClassName('logo')[0];
+console.log(LogoDiv);
+LogoDiv.addEventListener('click', function () {
+	location.replace('index.html');
+});
 
 function ready() {
-    StoredLosPollosCaterMenu = JSON.parse(localStorage.getItem("LosPollosCaterMenu"))|| {};
-    caterDisplay();
-    // makes sure the each add to cart buttons work
-    let AddtoCart = document.getElementsByClassName("menu-add");
-    for (let i = 0; i < AddtoCart.length; i++) {
-      let AddtoCartBtn = AddtoCart[i];
-      AddtoCartBtn.addEventListener("click", addToCartClicked);
-	  
-    }
+	StoredLosPollosCaterMenu =
+		JSON.parse(localStorage.getItem('LosPollosCaterMenu')) || {};
+	caterDisplay();
+	// makes sure the each add to cart buttons work
+	let AddtoCart = document.getElementsByClassName('menu-add');
+	for (let i = 0; i < AddtoCart.length; i++) {
+		let AddtoCartBtn = AddtoCart[i];
+		AddtoCartBtn.addEventListener('click', addToCartClicked);
+	}
+}
 
-  }
-  
-  function addToCartClicked(event) {
-    let button = event.target;
-    console.log(button);
-    let shopItem = button.parentElement.parentElement.parentElement;
-    console.log(shopItem);
-    let Title = shopItem.getElementsByClassName("item-header")[0].innerText;
-    console.log(Title);
+function addToCartClicked(event) {
+	let button = event.target;
+	console.log(button);
+	let shopItem = button.parentElement.parentElement.parentElement;
+	console.log(shopItem);
+	let Title = shopItem.getElementsByClassName('item-header')[0].innerText;
+	console.log(Title);
 
-    let Price = shopItem
-      .getElementsByClassName("price")[0]
-      .getElementsByTagName("span")[0].innerText;
-    console.log(Price);
-    let foodImage = shopItem
-      .getElementsByClassName("item-img")[0]
-      .getElementsByTagName("img")[0].src;
-    console.log(foodImage);
+	let Price = shopItem
+		.getElementsByClassName('price')[0]
+		.getElementsByTagName('span')[0].innerText;
+	console.log(Price);
+	let foodImage = shopItem
+		.getElementsByClassName('item-img')[0]
+		.getElementsByTagName('img')[0].src;
+	console.log(foodImage);
 
-    let ItemInfo = {
-      foodTitle: Title,
-      foodPrice: Price,
-      foodImg: foodImage,
-      foodquantity: 1,
-    };
-    let existingItems = JSON.parse(localStorage.getItem("StoredItems")) || [];
+	let ItemInfo = {
+		foodTitle: Title,
+		foodPrice: Price,
+		foodImg: foodImage,
+		foodquantity: 1,
+	};
+	let existingItems = JSON.parse(localStorage.getItem('StoredItems')) || [];
 
-    let existingItemsindex = existingItems.findIndex(
-      (item) => item.foodTitle === Title
-    );
-    if (existingItemsindex > -1) {
-      existingItems[existingItemsindex].foodquantity += 1;
-      console.log(existingItems[existingItemsindex].foodquantity);
-      // alert("Item is already in cart")
-    } else {
-      existingItems.push(ItemInfo);
-      // localStorage.setItem("StoredItems", JSON.stringify(existingItems));
-    }
-    localStorage.setItem("StoredItems", JSON.stringify(existingItems));
-  }
+	let existingItemsindex = existingItems.findIndex(
+		(item) => item.foodTitle === Title
+	);
+	if (existingItemsindex > -1) {
+		existingItems[existingItemsindex].foodquantity += 1;
+		console.log(existingItems[existingItemsindex].foodquantity);
+		// alert("Item is already in cart")
+	} else {
+		existingItems.push(ItemInfo);
+		// localStorage.setItem("StoredItems", JSON.stringify(existingItems));
+	}
+	localStorage.setItem('StoredItems', JSON.stringify(existingItems));
+}
 
-
-
-
-
-
-
-
-
-  
- 
-  let modalBtn = document.getElementsByClassName("Modalbutton")[0];
-  modalBtn.addEventListener("click", function(){
-    let deliveryForm = document.getElementsByClassName("form-container")[0];
-    if(!modalClicked){
-      modalClicked = true
-      deliveryForm.innerHTML = `<div class="Main Loc-container">
+let modalBtn = document.getElementsByClassName('Modalbutton')[0];
+modalBtn.addEventListener('click', function () {
+	let deliveryForm = document.getElementsByClassName('form-container')[0];
+	if (!modalClicked) {
+		modalClicked = true;
+		deliveryForm.innerHTML = `<div class="Main Loc-container">
     <div class="Address-Container">
       <div class="Address">
         <h6>Street Address <span class="star">*</span></h6>
@@ -705,14 +694,14 @@ function ready() {
       <option value="1:30pm">1:30pm</option>
     </select>
   </div>`;
-    }
-    delOrPickModal()
+	}
+	delOrPickModal();
 });
 //  -----------------------------------------------------------------------
-  //                                OnScroll Function
-  //  -----------------------------------------------------------------------
-  let topButton = document.getElementById('topBtn');
-  window.onscroll = function () {
+//                                OnScroll Function
+//  -----------------------------------------------------------------------
+let topButton = document.getElementById('topBtn');
+window.onscroll = function () {
 	scrollFunction();
 };
 function scrollFunction() {
@@ -726,4 +715,3 @@ topButton.addEventListener('click', backToTop);
 function backToTop() {
 	window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-  
