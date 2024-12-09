@@ -41,13 +41,6 @@
 			href="https://blogfonts.com/css/aWQ9MTM4MzY5JnN1Yj0zNjkmYz1zJnR0Zj1TaGFubm9uLUJvbGQub3RmJm49c2hhbm5vbg/Shannon.otf"
 			rel="stylesheet"
 			type="text/css" />
-		<script>
-			$(function () {
-				$('#svgIncludes').load(
-					'https://s3-us-west-2.amazonaws.com/s.cdpn.io/40839/svgdefs-2_copy.svg'
-				);
-			});
-		</script>
 	</head>
 	<body>
 		<!-- ----------------------------------------------------------------------- -->
@@ -127,6 +120,7 @@
 									<div class="nameEmailcard">
 										<h6>Name <span class="star">*</span></h6>
 										<input
+											id="FirstName"
 											class="Name"
 											type="text"
 											placeholder="First Name"
@@ -135,6 +129,7 @@
 									<div class="nameEmailcard">
 										<h6>Last Name <span class="star">*</span></h6>
 										<input
+											id="LastName"
 											class="Name Last"
 											type="text"
 											placeholder="Last Name" />
@@ -293,6 +288,7 @@
 								<p id="TotalPrice">Total:</p>
 								<p id="tax">Tax:</p>
 								<p id="tip">Tip:</p>
+								<p id="Discount">Discount:</p>
 								<h4 id="FinalTotal">Order Total</h4>
 							</div>
 						</div>
@@ -478,9 +474,9 @@
 		<footer>
 			<div class="footer-container">
 				<div class="about">
-					<a href="#">Services</a>
-					<a href="#">Testimonials</a>
-					<a href="#">Contact us</a>
+					<a href="Services.html">Services</a>
+					
+					<a href="Contact.html">Contact us</a>
 				</div>
 				<div class="icon-footer">
 					<a href="http://"><ion-icon name="logo-facebook"></ion-icon></a>
