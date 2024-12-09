@@ -21,7 +21,7 @@
 <body>
   
   <header
-  id="Page1"
+  id="IncomingPage"
   class="header">
   <div class="logo">
     <img
@@ -86,20 +86,20 @@
     <h1>Incoming Items</h1>
     
     <div class="container">
-        <div class = "Fish">
+        <div class = "IncomingCard">
             <img src = "https://assets.bonappetit.com/photos/5b084e259570db5acbd02557/master/pass/fried-fish-sandwiches-with-cucumbers-and-tartar-sauce.jpg" alt = "Fish">
             <h3>Fried Fish Sandwich</h3>
             <p>Looking for a crunchy fish sandwich<br> that delivers on flavor? Then our Crispy<br> Fried Fish Sandwich recipe is what you crave! Breaded fish fillets made extra crispy.</p>
             <h4>$4.99</h4>
         </div>
-        <div class = "OreoMilkshake">
+        <div class = "IncomingCard">
             <img src = "https://funmoneymom.com/wp-content/uploads/2021/02/LR-9671b-scaled.jpg" alt = "Milkshake">
             <h3>Oreo Milkshake</h3>
             <p>This Oreo Milkshake is a creamy<br> blend of vanilla ice cream, Oreo cookies,<br> and whipped cream. This is a great treat for<br> any time of the year.Try it Today!</p>
             <h4>$3.19</h4>
         </div>
 
-        <div class = "SugarCookie">
+        <div class = "IncomingCard">
             <img src = "https://brownedbutterblondie.com/wp-content/uploads/2022/09/SugarCookiesRecipe.jpg" alt = "Cookie">
             <h3>Sugar Cookies</h3>
             <p>Our brand new sugar cookies are a delicious<br> treat that will satisfy your sweet tooth<br> everytime. The soft sweet bite of these cookies<br> are made with only the finest ingredients.</p>
@@ -108,6 +108,30 @@
         
 
     </div>
+    <section class="modal Who">
+      <div class="popup-container">
+        <div id="Main-Delivery-modal" class="popup-card">
+          <div class="popup-head">
+            <h5>ORDER DETAILS</h5>
+            <button class="Closebtn Who">&times;</button>
+          </div>
+
+          <div class="P-D-btns-container">
+            <input type="checkbox" id="toggle" class="toggleCheckbox" />
+            <label for="toggle" class="toggleContainer">
+              <div class="DeliveryDiv Who">Delivery</div>
+              <div class="PickupDiv Who">Pickup</div>
+            </label>
+          </div>
+          <p class="info-txt">Set a Delivery Address or Schedule Pickup</p>
+          <div class="form-container">
+            
+          </div>
+          <button id="UpdateBtn" class="Update-Btn">Update</button>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="script.js"></script>
     <script
     type="module"
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
