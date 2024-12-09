@@ -487,6 +487,11 @@ button:hover {
 	color: #b3b2b2;
 }
 
+.Closebtn:hover {
+	background-color: transparent;
+	cursor: pointer;
+}
+
 .P-D-btns {
 	background-color: transparent;
 	border: none;
