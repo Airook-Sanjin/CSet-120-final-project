@@ -137,79 +137,56 @@
 								<button class="Closebtn Menu">&times;</button>
 							</div>
 
-							<div class="P-D-btns-container">
-								<input
-									type="checkbox"
-									id="toggle"
-									class="toggleCheckbox" />
-								<label
-									for="toggle"
-									class="toggleContainer">
-									<div class="DeliveryDiv Menu">Delivery</div>
-									<div class="PickupDiv Menu">Pickup</div>
-								</label>
-							</div>
-							<p class="info-txt">Set a Delivery Address or Schedule Pickup</p>
-							<div class="form-container"></div>
-							<button
-								id="UpdateBtn"
-								class="Update-Btn">
-								Update
-							</button>
-						</div>
-					</div>
-				</section>
 
-				<!-- ----------------------------------------------------------------------- -->
-				<!--                            Footer Section                           -->
-				<!-- ----------------------------------------------------------------------- -->
-				<footer>
-					<div class="footer-container">
-						<div class="about">
-							<a href="Services.html">Services</a>
-							<a href="Contact.html">Contact us</a>
-						</div>
-						<div class="icon-footer">
-							<a href="http://"><ion-icon name="logo-facebook"></ion-icon></a>
-							<a href="http://"><ion-icon name="logo-twitter"></ion-icon></a>
-							<a
-								href="https://www.instagram.com/eatlospolloshermanos/"
-								target="_blank"
-								><ion-icon name="logo-instagram"></ion-icon
-							></a>
-						</div>
-						<section class="secret">
-							<img
-								id="SecretGus"
-								src="LosPollosImages-gif/Gus Frank Icon.svg"
-								alt="GusSecret" />
-							<audio
-								src="LosPollosImages-gif/Gustavo Frank saying hello.mp3"></audio>
-						</section>
-					</div>
-				</footer>
-				<script
-					type="module"
-					src="script.js"></script>
-				<script
-					type="module"
-					src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-				<script
-					nomodule
-					src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-				<script>
-					document.addEventListener('DOMContentLoaded', function () {
-						const userStatus = localStorage.getItem('userStatus');
-						if (userStatus == 'guest') {
-							document.getElementById('Rewards').style.display = 'none';
-							document.getElementById('UserProf').style.display = 'none';
-						} else {
-							document.getElementById('Rewards').style.display = 'block';
-							document.getElementById('UserProf').style.display = 'block';
-						}
-					});
-				</script>
-			</nav>
-		</div>
-	</body>
+              <div class="P-D-btns-container">
+                <input
+							type="checkbox"
+							id="toggle"
+							class="toggleCheckbox" />
+						<label
+							for="toggle"
+							class="toggleContainer">
+							<div class="DeliveryDiv Menu">Delivery</div>
+							<div class="PickupDiv Menu">Pickup</div>
+						</label>
+              </div>
+              <p class = "info-txt">Set a Delivery Address or Schedule Pickup</p>
+              <div class="form-container">
+                
+              </div>
+              <button id="UpdateBtn" class="Update-Btn">Update</button>
+            </div>
+          </div>
+        </section>
+        <script type="module" src="script.js"></script>
+        <script
+          type="module"
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+          nomodule
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        ></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+        const userStatus = localStorage.getItem("userStatus");
+        if (userStatus === "guest") {
+            document.getElementById("Rewards").style.display = "none";
+          
+        }
+        else if (userStatus === "logged-in") {
+            document.getElementById("UserProf").style.display = "block";
+        document.getElementById("Rewards").style.display = "none";
+        }
+      else {
+        document.getElementById("Rewards").style.display = "block";
+        document.getElementById("UserProf").style.display = "block";
+      }
+    });
+  
+    
+        </script>
+      </nav>
+    </div>
+  </body>
 </html>

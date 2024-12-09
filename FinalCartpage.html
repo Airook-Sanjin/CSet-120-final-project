@@ -120,6 +120,7 @@
 									<div class="nameEmailcard">
 										<h6>Name <span class="star">*</span></h6>
 										<input
+
 											id="FirstName"
 											class="Name"
 											type="text"
@@ -130,6 +131,7 @@
 										<h6>Last Name <span class="star">*</span></h6>
 										<input
 											id="LastName"
+
 											class="Name Last"
 											type="text"
 											placeholder="Last Name" />
@@ -445,21 +447,7 @@
 							<h4 id="P">Price</h4>
 						</div>
 						<div class="Item-Qty-Price-List">
-							<!-- <div class="Item-Container">
-                <img id="Item-img" src="" alt="ItemImg" />
-                <p>Itemname</p>
-              </div>
-              <div class="Qty-Container">
-                <input
-                  type="number"
-                  name="Quantity-Counter"
-                  id="Quantity"
-                  value="1"
-                />
-              </div>
-              <div class="Price-Container">
-                <p>Price</p>
-              </div> -->
+							
 						</div>
 					</div>
 
@@ -475,7 +463,6 @@
 			<div class="footer-container">
 				<div class="about">
 					<a href="Services.html">Services</a>
-					
 					<a href="Contact.html">Contact us</a>
 				</div>
 				<div class="icon-footer">
@@ -492,6 +479,8 @@
 						id="SecretGus"
 						src="LosPollosImages-gif/Gus Frank Icon.svg"
 						alt="GusSecret" />
+					<audio
+						src="LosPollosImages-gif/Gustavo Frank saying hello.mp3"></audio>
 				</section>
 			</div>
 		</footer>
@@ -502,5 +491,24 @@
 			nomodule
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 		<script src="script.js"></script>
+		<script>
+        document.addEventListener("DOMContentLoaded", function () {
+      const userStatus = localStorage.getItem("userStatus");
+      if (userStatus === "guest") {
+          document.getElementById("Rewards").style.display = "none";
+        
+      }
+      else if (userStatus === "logged-in") {
+          document.getElementById("UserProf").style.display = "block";
+		  document.getElementById("Rewards").style.display = "none";
+      }
+	  else {
+		  document.getElementById("Rewards").style.display = "block";
+		  document.getElementById("UserProf").style.display = "block";
+	  }
+  });
+
+  
+      </script>
 	</body>
 </html>

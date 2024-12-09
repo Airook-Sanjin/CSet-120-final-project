@@ -148,7 +148,6 @@
 						<a
 							class="btn"
 							href="MenuPage.html"
-							target="_blank"
 							rel="noopener noreferrer"
 							>Let's Eat</a
 						>
@@ -166,7 +165,6 @@
 						<a
 							class="btn"
 							href="Sign-in.html"
-							target="_blank"
 							rel="noopener noreferrer"
 							>Join Now</a
 						>
@@ -434,19 +432,25 @@
 		<script
 			nomodule
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-			  const userStatus = localStorage.getItem("userStatus");
-			  if (userStatus == "guest") {
-				  document.getElementById("Rewards").style.display = "none";
-				  document.getElementById("UserProf").style.display = "none";
-			  }
-			  else {
-				  document.getElementById("Rewards").style.display = "block";
-				  document.getElementById("UserProf").style.display = "block";
-			  }
-		  });
-		  
-			  </script>
+			
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+      const userStatus = localStorage.getItem("userStatus");
+      if (userStatus === "guest") {
+          document.getElementById("Rewards").style.display = "none";
+        
+      }
+      else if (userStatus === "logged-in") {
+          document.getElementById("UserProf").style.display = "block";
+		  document.getElementById("Rewards").style.display = "none";
+      }
+	  else {
+		  document.getElementById("Rewards").style.display = "block";
+		  document.getElementById("UserProf").style.display = "block";
+	  }
+  });
+
+  
+      </script>
 	</body>
 </html>

@@ -155,69 +155,34 @@
 				</section>
 			</div>
 		</footer>
-		<!-- ----------------------------------------------------------------------- -->
-		<!--                                Modal Boxes                                -->
-		<!-- ----------------------------------------------------------------------- -->
-		<section class="SecretModal Main">
-			<div class="secretpopup-container">
-				<div class="SecretCard">
-					<h3>Take this code</h3>
-					<p>RESTGUS</p>
-				</div>
-			</div>
-		</section>
-		<section class="modal Main">
-			<div class="popup-container">
-				<div
-					id="Main-Delivery-modal"
-					class="popup-card">
-					<div class="popup-head">
-						<h5>ORDER DETAILS</h5>
-						<button class="Closebtn Main">&times;</button>
-					  </div>
-		
-					  <div class="P-D-btns-container">
-						<input
-									type="checkbox"
-									id="toggle"
-									class="toggleCheckbox" />
-								<label
-									for="toggle"
-									class="toggleContainer">
-									<div class="DeliveryDiv Main">Delivery</div>
-									<div class="PickupDiv Main">Pickup</div>
-								</label>
-					  </div>
-					  <p class = "info-txt">Set a Delivery Address or Schedule Pickup</p>
-					  <div class="form-container">
-						
-					  </div>
-					  <button id="UpdateBtn" class="Update-Btn">Update</button>
-				  </div>
-			</div>
-		</section>
-		<script
-			type="module"
-			src="script.js"></script>
-		<script
-			type="module"
-			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-		<script
-			nomodule
-			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-			  const userStatus = localStorage.getItem("userStatus");
-			  if (userStatus == "guest") {
-				  document.getElementById("Rewards").style.display = "none";
-				  document.getElementById("UserProf").style.display = "none";
-			  }
-			  else {
-				  document.getElementById("Rewards").style.display = "block";
-				  document.getElementById("UserProf").style.display = "block";
-			  }
-		  });
-		  
-			  </script>
-	</body>
+
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const userStatus = localStorage.getItem("userStatus");
+  if (userStatus === "guest") {
+      document.getElementById("Rewards").style.display = "none";
+    
+  }
+  else if (userStatus === "logged-in") {
+      document.getElementById("UserProf").style.display = "block";
+  document.getElementById("Rewards").style.display = "none";
+  }
+else {
+  document.getElementById("Rewards").style.display = "block";
+  document.getElementById("UserProf").style.display = "block";
+}
+});
+
+
+  </script>
+    
+</body>
 </html>

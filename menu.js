@@ -1,8 +1,22 @@
-let StoredLosPollosCaterMenu = JSON.parse(
-	localStorage.getItem('LosPollosCaterMenu')
-);
-if (!StoredLosPollosCaterMenu) {
-	let InitialLosPollosCaterMenu = {
+
+
+function joinAsGuest() {
+  let hasJoinedAsGuest = false;
+  let status = localStorage.getItem("userStatus");
+  if(!status || !status.includes("guest")){
+    console.log("Logged as guest")
+  localStorage.setItem("userStatus", "guest");
+    hasJoinedAsGuest = true
+  }
+
+}
+joinAsGuest;
+
+let StoredLosPollosCaterMenu = JSON.parse(localStorage.getItem("LosPollosCaterMenu"));
+	if(!StoredLosPollosCaterMenu){
+		let InitialLosPollosCaterMenu = 
+	{
+
 		SandwichPartyPackage: [
 			{
 				Itemid: 1,
