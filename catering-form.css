@@ -1,22 +1,30 @@
 * {
-	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
-html,
-body {
+html {
 	width: 100%;
 	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+/* --------------------------------- colors --------------------------------- */
+:root {
+	--dark-blue: #021f59;
+	--teal: #05c7f2;
+	--warm-blue: #4aa3e3;
+	--main-red: #f20519;
+	--secondary-red: #f20530;
+	--main-yellow: #f2e205;
+	--warm-yellow: #f0af02;
+	--light-grey: #666;
 }
 
-/* h3 {
-	font-family: 'Goblin One', serif;
-	font-weight: 400;
-	font-style: normal;
-	color: #f20530;
-} */
-
+body {
+	height: 100vh;
+	background-color: whitesmoke;
+}
 h3 {
 	font-family: 'Arvo', serif;
 	font-weight: 700;
@@ -24,16 +32,16 @@ h3 {
 	font-style: normal;
 	color: #f20530;
 }
-
 p {
 	font-family: 'Lato', serif;
 	font-weight: 400;
 	font-style: normal;
 }
-a {
-	font-family: 'Lato', serif;
+.menu-nav a {
+	font-family: 'Arvo', serif;
 	font-weight: 600;
 	font-style: normal;
+	font-size: 1.2rem;
 }
 
 /* ------------------------------- CTA Section ------------------------------ */
@@ -105,9 +113,9 @@ a {
 	transition: 0s;
 }
 
-/* ---------------------------------------------------- */
-/* ------               Header Section       ----------*/
-/* ---------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                Sticky header                               */
+/* -------------------------------------------------------------------------- */
 
 #logo {
 	width: 100px;
@@ -130,6 +138,11 @@ a {
 	display: flex;
 	align-items: center;
 	gap: 40px;
+}
+
+.nav a {
+	font-family: 'Lato', serif;
+	font-weight: 600;
 }
 
 .nav a:hover,
@@ -167,6 +180,7 @@ a {
 #Searchbar:focus {
 	outline: none;
 	border: none;
+	/* background-color: none; */
 }
 #UserProf,
 #Cart {
@@ -182,6 +196,7 @@ a {
 	padding: 3%;
 	color: rgb(205, 89, 0);
 	font-weight: 900;
+	font-family: 'Lato', serif;
 }
 #Navbtn:hover {
 	color: rgb(205, 89, 0);
@@ -941,3 +956,4 @@ footer ion-icon {
 	text-align: center;
 	color: #850e19;
 }
+

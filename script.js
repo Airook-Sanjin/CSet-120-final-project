@@ -697,6 +697,10 @@ function initializeSignInPage() {
 }
   document.getElementById("Signup-btn").addEventListener("click", signup);
   document.getElementById("Login-btn").addEventListener("click", login);
+  document.getElementById("Guest-btn").addEventListener("click",function(){
+    joinAsGuest;
+    location.replace("index.html")
+  })
 }
 
 function joinAsGuest() {
