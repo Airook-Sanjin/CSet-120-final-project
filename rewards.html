@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="rewards.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="losPollosHermanoMain.css" />
-    <link
-      rel="icon"
-      type="Image/x-icon"
-      href="LosPollosImages-gif/LosPollosHermanosLogo1.png"
-    />
-    <title>Rewards</title>
-</head>
-<body>
-  <div class="wrapper">
-    <header
-			
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="rewards.css" />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="losPollosHermanoMain.css" />
+		<link
+			rel="icon"
+			type="Image/x-icon"
+			href="LosPollosImages-gif/LosPollosHermanosLogo1.png" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet" />
+		<title>Rewards</title>
+	</head>
+	<body>
+		<header
+			id="Page1"
 			class="header">
 			<div class="logo">
 				<img
@@ -45,7 +59,6 @@
 				<a
 					id="Rewards"
 					href="rewards.html"
-					
 					rel="noopener noreferrer"
 					>Rewards</a
 				>
@@ -84,49 +97,144 @@
 				>
 			</div>
 		</header>
-      
-    <h1>Rewards</h1>
-    
-<div class = "rewards-container">
-    <div class = "reward">
-        <h2>40% OFF YOUR FIRST ORDER</h2>
-        <img src = "https://okdiario.com/look/img/2017/04/17/pollos-hermanos.jpg" alt = "reward1">
-        <button>CLAIM</button>
-    </div>
-    <div class = "reward2">
-        <h2>20% OFF ANY ORDER</h2>
-        <img src = "https://www.nme.com/wp-content/uploads/2021/08/Los-Pollos-Hermanos.jpg" alt = "reward2">
-        <button>CLAIM</button>
-    </div>
-  </div>
-    </div>
+		<div class="rewards-container">
+			<h3>Rewards</h3>
+			<hr />
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    
-    <script src="rewards.js"></script>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    const userStatus = localStorage.getItem("userStatus");
-    if (userStatus == "guest") {
-        document.getElementById("Rewards").style.display = "none";
-        document.getElementById("UserProf").style.display = "none";
-    }
-    else {
-        document.getElementById("Rewards").style.display = "block";
-        document.getElementById("UserProf").style.display = "block";
-    }
-});
+			<div class="imgimg">
+				<img
+					src="https://okdiario.com/look/img/2017/04/17/pollos-hermanos.jpg"
+					alt="reward1" />
+			</div>
 
-    </script>
-	
-    
-</body>
+			<div class="rewards-container">
+				<div class="reward">
+					<div class="main">
+						<div class="coupon-img">
+							<img
+								src="LosPollosHermanosLogo2.webp"
+								alt="" />
+						</div>
+						<div class="content">
+							<h2>First Order Discount</h2>
+							<h1>40% <span>Off Coupon</span></h1>
+							<p>Valid till 9 December 2025</p>
+							<button>CLAIM</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="reward2">
+				<div class="main">
+					<div class="coupon-img">
+						<img
+							src="LosPollosHermanosLogo2.webp"
+							alt="" />
+					</div>
+					<div class="content">
+						<h2>DISCOUNT ON ANY ORDER</h2>
+						<h1>20% <span>Off Coupon</span></h1>
+						<p>Valid till 9 December 2025</p>
+						<button>CLAIM</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                            Footer Section                           -->
+		<!-- ----------------------------------------------------------------------- -->
+		<footer>
+			<div class="footer-container">
+				<div class="about">
+					<a href="#">Services</a>
+					<a href="#">Contact us</a>
+				</div>
+				<div class="icon-footer">
+					<a href="http://"><ion-icon name="logo-facebook"></ion-icon></a>
+					<a href="http://"><ion-icon name="logo-twitter"></ion-icon></a>
+					<a
+						href="https://www.instagram.com/eatlospolloshermanos/"
+						target="_blank"
+						><ion-icon name="logo-instagram"></ion-icon
+					></a>
+				</div>
+				<section class="secret">
+					<img
+						id="SecretGus"
+						src="LosPollosImages-gif/Gus Frank Icon.svg"
+						alt="GusSecret" />
+					<audio
+						src="LosPollosImages-gif/Gustavo Frank saying hello.mp3"></audio>
+				</section>
+			</div>
+		</footer>
+
+		<!-- ----------------------------------------------------------------------- -->
+		<!--                                Modal Boxes                                -->
+		<!-- ----------------------------------------------------------------------- -->
+		<section class="SecretModal Main">
+			<div class="secretpopup-container">
+				<div class="SecretCard">
+					<h3>Take this code</h3>
+					<p>RESTGUS</p>
+				</div>
+			</div>
+		</section>
+		<section class="modal Who">
+			<div class="popup-container">
+				<div
+					id="Main-Delivery-modal"
+					class="popup-card">
+					<div class="popup-head">
+						<h5>ORDER DETAILS</h5>
+						<button class="Closebtn Who">&times;</button>
+					</div>
+
+					<div class="P-D-btns-container">
+						<input
+							type="checkbox"
+							id="toggle"
+							class="toggleCheckbox" />
+						<label
+							for="toggle"
+							class="toggleContainer">
+							<div class="DeliveryDiv Who">Delivery</div>
+							<div class="PickupDiv Who">Pickup</div>
+						</label>
+					</div>
+					<p class="info-txt">Set a Delivery Address or Schedule Pickup</p>
+					<div class="form-container"></div>
+					<button
+						id="UpdateBtn"
+						class="Update-Btn">
+						Update
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+		<script src="rewards.js"></script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const userStatus = localStorage.getItem('userStatus');
+				if (userStatus == 'guest') {
+					document.getElementById('Rewards').style.display = 'none';
+					document.getElementById('UserProf').style.display = 'none';
+				} else {
+					document.getElementById('Rewards').style.display = 'block';
+					document.getElementById('UserProf').style.display = 'block';
+				}
+			});
+		</script>
+	</body>
 </html>
