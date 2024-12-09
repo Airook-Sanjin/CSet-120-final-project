@@ -74,7 +74,7 @@
 					rel="noopener noreferrer"
 					>Rewards</a
 				>
-        <a
+				<a
 					id="Incoming"
 					href="features.html"
 					rel="noopener noreferrer"
@@ -362,8 +362,8 @@
 		<footer>
 			<div class="footer-container">
 				<div class="about">
-					<a href="#">Services</a>
-					<a href="#">Contact us</a>
+					<a href="Services.html">Services</a>
+					<a href="Contact.html">Contact us</a>
 				</div>
 				<div class="icon-footer">
 					<a href="http://"><ion-icon name="logo-facebook"></ion-icon></a>
@@ -403,64 +403,26 @@
 					<div class="popup-head">
 						<h5>ORDER DETAILS</h5>
 						<button class="Closebtn Main">&times;</button>
-					</div>
-
-					<div class="P-D-btns-container">
-						<!-- <button
-							class="P-D-btns Delivery-Main"
-							id="Main-Deliverybtn">
-							Delivery
-						</button>
-						<button
-							class="P-D-btns Pickup-Main"
-							id="Main-Pickupbtn">
-							Pickup
-						</button> -->
+					  </div>
+		
+					  <div class="P-D-btns-container">
 						<input
-							type="checkbox"
-							id="toggle"
-							class="toggleCheckbox" />
-						<label
-							for="toggle"
-							class="toggleContainer">
-							<div class="Main-Deliverybtn">Delivery</div>
-							<div class="Main-Pickupbtn">Pickup</div>
-						</label>
-					</div>
-					<p class="info-txt">Set a Delivery Address or Schedule Pickup</p>
-					<div class="form-container">
-						<div class="Main-in-container">
-							<label for="Location"><h4>Deliver To:</h4></label>
-							<input
-								name="location"
-								type="text"
-								placeholder="Enter Location" />
-						</div>
-						<div class="Main-in-container">
-							<label for="Date"><h4>Choose Date:</h4></label>
-							<select
-								name="Date"
-								id="Date-Dropdown">
-								<option value="option1">Today</option>
-								<option value="option2">tomorrow</option>
-								<option value="option3">11/10</option>
-								<option value="option4">11/11</option>
-							</select>
-						</div>
-						<div class="Main-in-container">
-							<label for="Time"><h4>Choose Time:</h4></label>
-							<select
-								name="Date"
-								id="time-Dropdown">
-								<option value="option1">12:00pm</option>
-								<option value="option2">12:30pm</option>
-								<option value="option3">1:00pm</option>
-								<option value="option4">1:30pm</option>
-							</select>
-						</div>
-					</div>
-					<button class="Update-btn">Update</button>
-				</div>
+									type="checkbox"
+									id="toggle"
+									class="toggleCheckbox" />
+								<label
+									for="toggle"
+									class="toggleContainer">
+									<div class="DeliveryDiv Main">Delivery</div>
+									<div class="PickupDiv Main">Pickup</div>
+								</label>
+					  </div>
+					  <p class = "info-txt">Set a Delivery Address or Schedule Pickup</p>
+					  <div class="form-container">
+						
+					  </div>
+					  <button id="UpdateBtn" class="Update-Btn">Update</button>
+				  </div>
 			</div>
 		</section>
 		<script
@@ -472,19 +434,19 @@
 		<script
 			nomodule
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-      const userStatus = localStorage.getItem("userStatus");
-      if (userStatus == "guest") {
-          document.getElementById("Rewards").style.display = "none";
-          document.getElementById("UserProf").style.display = "none";
-      }
-      else {
-          document.getElementById("Rewards").style.display = "block";
-          document.getElementById("UserProf").style.display = "block";
-      }
-  });
-  
-      </script>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+			  const userStatus = localStorage.getItem("userStatus");
+			  if (userStatus == "guest") {
+				  document.getElementById("Rewards").style.display = "none";
+				  document.getElementById("UserProf").style.display = "none";
+			  }
+			  else {
+				  document.getElementById("Rewards").style.display = "block";
+				  document.getElementById("UserProf").style.display = "block";
+			  }
+		  });
+		  
+			  </script>
 	</body>
 </html>

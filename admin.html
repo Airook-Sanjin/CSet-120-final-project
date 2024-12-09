@@ -37,35 +37,37 @@
         />
       </div>
       <div class="nav">
-        <a id="Menu" href="MenuPage.html"  rel="noopener noreferrer"
-          >Menu</a
-        >
-        <a
-          id="Who we are"
-          href="Who.html"
-          
-          rel="noopener noreferrer"
+        <a id="Menu" href="MenuPage.html" rel="noopener noreferrer">Menu</a>
+        <a id="Who we are" href="Who.html" rel="noopener noreferrer"
           >Who we are</a
         >
-        <a id="Rewards" href="rewards.html"  rel="noopener noreferrer"
+        <a id="Rewards" href="rewards.html" rel="noopener noreferrer"
           >Rewards</a
         >
-       
+
+        <a id="Incoming" href="features.html" rel="noopener noreferrer"
+          >Incoming Items</a
+        >
+        <input
+          type="search"
+          autocomplete="off"
+          name="Searchbar"
+          id="Searchbar"
+          placeholder="Search"
+        />
       </div>
       <div class="userNav">
-        <a
-          id="Set-a-location"
-          href="http://"
-          
-          rel="noopener noreferrer"
-          >Set a Location</a
-        >
-        <ion-icon id="UserProf" name="person-circle-outline"></ion-icon>
-        <a
-          class="btnLink"
-          href="MenuPage.html"
-          
-          rel="noopener noreferrer"
+        <button class="Modalbutton Menu">
+          <ion-icon name="location"></ion-icon>Set a Location
+        </button>
+
+        <a href="Sign-in.html"
+          ><ion-icon id="UserProf" name="person-circle-outline"></ion-icon
+        ></a>
+        <a href="FinalCartpage.html"
+          ><ion-icon id="Cart" name="cart"></ion-icon
+        ></a>
+        <a id="Navbtn" href="MenuPage.html" rel="noopener noreferrer"
           >Order Now</a
         >
       </div>
@@ -104,7 +106,7 @@
         <div class="items-container">
             <button id ="AddItemsButton">Add Item</button>
         </div>
-        <div class = "items-container">
+        <!-- <div class = "items-container">
 <form id="addItemForm">
     <label for="itemName">Item Name:</label>
     <input type="text" id="itemName" name="itemName"><br><br>
@@ -123,10 +125,10 @@
     </select><br><br>
     <label for="itemImage">Item Image:</label>
     <input type="text" id="itemImage" name="itemImage"><br><br>
-    <input type="submit" value="Add Item">
+    <button id = "">Add Item</button>
     <button onclick ="event.preventDefault(); clearForm()" id = "clearBtn" title = "Clear form">Clear</button>
   </form>
-  </div>
+  </div> -->
       </div>
     </div>
 

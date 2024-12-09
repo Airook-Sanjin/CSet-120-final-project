@@ -1,6 +1,13 @@
 // const { json } = require("stream/consumers");
 
 let storedLosPollosMenu = JSON.parse(localStorage.getItem('LosPollosMenu'));
+for (let category in storedLosPollosMenu) {
+	//
+	storedLosPollosMenu[category].forEach((item, index) => {
+		//this will asign items based on the index
+		item.Itemid = index + 1;
+	});
+}
 if (!storedLosPollosMenu) {
 	let InititalLosPollosMenu = {
 		BreakfastSpecialties: [
@@ -104,7 +111,7 @@ if (!storedLosPollosMenu) {
 				Name: 'Chicken Nuggets',
 				Price: 4.99,
 				Description:
-					'Crispy, tender chicken bites served with your choice of dipping sauce (6Pc)',
+					'Cripsy, tender chicken bites served with your choice of dipping sauce (6Pc)',
 				image: 'LosPollosImages-gif/nuggets.png',
 			},
 			{
@@ -119,18 +126,18 @@ if (!storedLosPollosMenu) {
 		Sandwiches: [
 			{
 				Itemid: 1,
-				Name: 'Crispy Chicken Sandwich',
+				Name: 'Cripsy Chicken Sandwich',
 				Price: 5.99,
 				Description:
 					'Juicy, crispy chicken breast on a soft bun with lettuce, tomato, and your choice of sauce',
-				image: 'LosPollosImages-gif/crispysando.png',
+				image: 'LosPollosImages-gif/ChickenSandwich.png',
 			},
 			{
 				Itemid: 2,
 				Name: 'Grilled Chicken Sandwich',
 				Price: 5.99,
 				Description:
-					'Tender, seasoned grilled chicken breast with lettue, tomato, and your choice of sauce on a soft bun',
+					'Tender, seasoned grilled chicken breaast with lettue, tomato, and your choice of sauce on a soft bun',
 				image: 'LosPollosImages-gif/grilledsandwich.png',
 			},
 			{
@@ -165,7 +172,7 @@ if (!storedLosPollosMenu) {
 				Name: 'French Toast Stix',
 				Price: 4.99,
 				Description:
-					'Golden, crispy sticks of cinnamon-sugar French Toast, served with warm syrup for dipping',
+					'Golden, cripsy sticks of cinnamon-sugar French Toast, served with warm syrup for dipping',
 				image: 'LosPollosImages-gif/frenchstix.png',
 			},
 			{
@@ -204,8 +211,272 @@ if (!storedLosPollosMenu) {
 			},
 		],
 	};
+
 	localStorage.setItem('LosPollosMenu', JSON.stringify(InititalLosPollosMenu));
 	storedLosPollosMenu = InititalLosPollosMenu;
+	console.log(storedLosPollosMenu.length);
+}
+
+function search_Items() {
+	// item-header
+	let input = document.getElementById('Searchbar').value;
+	input = input.toLowerCase();
+	console.log(input);
+	let items = document.getElementsByClassName('item-header');
+	for (let item of items) {
+		if (!item.innerHTML.toLowerCase().includes(input) && input !== '') {
+			item
+				.closest('.items-container')
+				.parentElement.querySelectorAll('.title-style')[0].style.display =
+				'none';
+			item.closest('.items-container').style.display = 'flex';
+			item.closest('.items-container').style.flexWrap = 'wrap';
+			item.closest('.items-container').style.marginTop = '2%';
+			item.closest('.items-container').style.paddingBottom = '.25rem';
+			item.parentElement.parentElement.style.display = 'none';
+			console.log('Item NOT FOUND', item.innerText);
+		} else if (item.innerHTML.toLowerCase().includes(input) && input !== '') {
+			item
+				.closest('.items-container')
+				.parentElement.querySelectorAll('.title-style')[0].style.display =
+				'none';
+			item.closest('.items-container').style.display = 'flex';
+			item.closest('.items-container').style.flexWrap = 'wrap';
+			item.closest('.items-container').style.marginTop = '2%';
+			item.closest('.items-container').style.paddingBottom = '.25rem';
+			item.parentElement.parentElement.style.display = 'flex';
+			console.log('Item FOUND', item.innerText);
+		} else if (input === '') {
+			console.log('MENU RESET');
+			item
+				.closest('.items-container')
+				.parentElement.querySelectorAll('.title-style')[0].style.display =
+				'flex';
+			item.closest('.items-container').style.display = 'grid';
+
+			item.closest('.items-container').style.marginTop = '10%';
+			item.closest('.items-container').style.paddingBottom = '1rem';
+			item.parentElement.parentElement.style.display = 'flex';
+		}
+	}
+}
+function delOrPickModal() {
+	let deliveryForm = document.getElementsByClassName('form-container')[0];
+	window.onclick = function (event) {
+		if (event.target == modal) {
+			modal.style.display = 'none';
+		}
+	};
+	let Deliverybtn = document.getElementsByClassName('DeliveryDiv')[0];
+	let Pickupbtn = document.getElementsByClassName('PickupDiv')[0];
+	let indicator = document.getElementsByClassName('location-button')[0];
+
+	console.log(deliveryForm);
+	Deliverybtn.addEventListener('click', function () {
+		if (indicator) {
+			indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Delivery`;
+		}
+
+		deliveryForm.innerHTML = `<div class="Main Loc-container">
+                  <div class="Address-Container">
+                    <div class="Address">
+                      <h6>Street Address <span class="star">*</span></h6>
+                      <input
+                        type="text"
+                        placeholder="123 Main St"
+                        id="StreetAddress"
+                        required
+                      />
+                    </div>
+                    <div class="AddressLine2">
+                      <h6>Address Line 2</h6>
+                      <input
+                        type="text"
+                        placeholder="Apt, Suite, Unit, etc."
+                        id="AddressLine2"
+                      />
+                    </div>
+                  </div>
+                  <div class="City-State">
+                    <div class="City-Container">
+                      <h6>City <span class="star">*</span></h6>
+                      <input
+                        type="text"
+                        placeholder="City"
+                        id="City"
+                        required
+                      />
+                    </div>
+
+                    <div class="State-Container">
+                      <h6>State/Province/Region <span class="star">*</span></h6>
+                      <select id="State" required>
+                        <option value="" disabled selected>
+                          Select State/Province
+                        </option>
+                        <option value="">Select State</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="Zip-Container">
+                    <h6>ZIP/Postal Code <span class="star">*</span></h6>
+                    <input
+                      type="text"
+                      placeholder="ZIP/Postal Code"
+                      id="ZipCode"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="Menu in-container">
+                  <label for="Date"><h4>Choose Date:</h4></label>
+                  <select name="Date" id="Date-Dropdown">
+                    <option value="Today">Today</option>
+                    <option value="tomorrow">tomorrow</option>
+                    <option value="11/10">11/10</option>
+                    <option value="11/11">11/11</option>
+                  </select>
+                </div>
+                <div class="Menu in-container">
+                  <label for="Time"><h4>Choose Time:</h4></label>
+                  <select name="Date" id="time-Dropdown">
+                    <option value="12:00pm">12:00pm</option>
+                    <option value="12:30pm">12:30pm</option>
+                    <option value="1:00pm">1:00pm</option>
+                    <option value="1:30pm">1:30pm</option>
+                  </select>
+                </div>`;
+	});
+	Pickupbtn.addEventListener('click', function () {
+		if (indicator) {
+			indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Pick Up`;
+		}
+
+		deliveryForm.innerHTML = `
+    <div class="Address-Container">
+                    <div class="Address">
+                      <h6>Store Address <span class="star">*</span></h6>
+                      <input
+                        type="text"
+                        placeholder="123 Main St"
+                        id="StreetAddress"
+                        required
+                      />
+                    </div>
+                    </div>
+                    <div class="Menu in-container">
+                  <label for="Date"><h4>Choose Date:</h4></label>
+                  <select name="Date" id="Date-Dropdown">
+                    <option value="Today">Today</option>
+                    <option value="tomorrow">tomorrow</option>
+                    <option value="11/10">11/10</option>
+                    <option value="11/11">11/11</option>
+                  </select>
+                </div>
+                <div class="Menu in-container">
+                  <label for="Time"><h4>Choose Time:</h4></label>
+                  <select name="Date" id="time-Dropdown">
+                    <option value="12:00pm">12:00pm</option>
+                    <option value="12:30pm">12:30pm</option>
+                    <option value="1:00pm">1:00pm</option>
+                    <option value="1:30pm">1:30pm</option>
+                  </select>
+                </div>`;
+	});
+	let closebtn = document.getElementsByClassName('Closebtn')[0];
+	let modal = document.getElementsByClassName('modal')[0];
+	modal.style.display = 'block';
+	closebtn.addEventListener('click', function () {
+		modal.style.display = 'none';
+	});
+
+	let CustomerLocInfo = [];
+	let cStreet = document.getElementById('StreetAddress');
+	let cStreet2 = document.getElementById('AddressLine2');
+	let cCity = document.getElementById('City');
+	let cSPR = document.getElementById('State');
+	let cZIP = document.getElementById('ZipCode');
+	let cDate = document.getElementById('Date-Dropdown');
+	let cTime = document.getElementById('time-Dropdown');
+	let Updatebtn = document.getElementsByClassName('Update-Btn')[0];
+
+	Updatebtn.addEventListener('click', function () {
+		if (CustomerLocInfo.length > 0) {
+			CustomerLocInfo.pop();
+		} else {
+			console.log(
+				cStreet.value,
+				cStreet2.value,
+				cCity.value,
+				cSPR.value,
+				cZIP.value,
+				cDate.value,
+				cTime.value
+			);
+			CustomerLocInfo.push({
+				StreetA: cStreet.value,
+				Street2: cStreet2.value,
+				City: cCity.value,
+				SPR: cSPR.value,
+				ZIP: cZIP.value,
+				date: cDate.value,
+				Time: cTime.value,
+			});
+			localStorage.setItem('CustomerLocInfos', JSON.stringify(CustomerLocInfo));
+		}
+		modal.style.display = 'none';
+	});
 }
 
 function menuDisplay() {
@@ -221,7 +492,7 @@ function menuDisplay() {
         </div>
         <section class = "Modal Manager">
         <div class="popup-container">
-<form id="addItemForm" class="popup-card">
+<div id="addItemForm" class="popup-card">
     <label for="itemName">Item Name:</label>
     <input required placeholder="Enter Item Name" type="text" id="itemName" name="itemName"><br><br>
     <label  for="itemPrice">Item Price:</label>
@@ -241,14 +512,14 @@ function menuDisplay() {
     <label for="itemImage">Item Image:</label>
     <input required placeholder="Enter Image url" type="text" id="itemImage" name="itemImage"><br><br>
     <img class ="PlaceholderImage" src=""/><br><br>
-    <input id ="SubmitItem" type="submit" value="Add Item">
+    <button id ="SubmitItem">Add Item</button>
     
-  </form>
+  </div>
   </div>
   </section>
   <section class = "Modal ManagerEDIT">
         <div class="popup-container">
-<form id="addItemForm" class="popup-card">
+<div id="addItemForm" class="popup-card">
     <label for="itemName">Item Name:</label>
     <input required placeholder="Enter Item Name" type="text" id="EDITitemName" name="itemName"><br><br>
     <label for="itemPrice">Item Price:</label>
@@ -268,9 +539,9 @@ function menuDisplay() {
     <label for="itemImage">Item Image:</label>
     <input required placeholder="Enter Image url" type="text" id="EDITitemImage" name="itemImage"><br><br>
     <img class ="PlaceholderImage" src=""/><br><br>
-    <input id ="UpdateItem" type="submit" value="Update Item">
+   <button id ="UpdateItem">Update Item</button>
     
-  </form>
+  </div>
   </div>
   </section>
   `;
@@ -291,7 +562,7 @@ function menuDisplay() {
 			if (document.getElementById('MenuPage')) {
 				menuContainer.appendChild(headerSection);
 			} else if (document.getElementById('ManagerPage')) {
-				menuContainer.insertAdjacentElement('afterbegin', headerSection);
+				menuContainer.appendChild(headerSection);
 			}
 			let menuHeading = document.createElement('div');
 			menuHeading.className = 'menu-heading title-style';
@@ -377,7 +648,7 @@ function initializeSignInPage() {
 	}
 	const managerInfo = {
 		email: 'LosPollosManager81@gmail.com',
-		password: 'GusFring2425',
+		password: 'GusFring2425!',
 	};
 
 	function login() {
@@ -408,44 +679,150 @@ function joinAsGuest() {
 	localStorage.setItem('userStatus', 'guest');
 	window.location.replace('index.html');
 }
-
+let modalClicked = false;
 // ----------------------------------------------------------------------------------------------------------
 function initializeMainPage() {
 	//  -----------------------------------------------------------------------
-	//                                Modal Boxes
+	//                                Nav logo
 	//  -----------------------------------------------------------------------
-	let MainmodalBtn = document.getElementsByClassName('Modalbutton Main')[0];
-
-	let Mainmodal = document.getElementsByClassName('modal Main')[0];
-	let Mainclosebtn = document.getElementsByClassName('Closebtn Main')[0];
-	console.log;
-	MainmodalBtn.addEventListener('click', function () {
-		console.log(MainmodalBtn);
-		Mainmodal.style.display = 'block';
-	});
-	Mainclosebtn.addEventListener('click', function () {
-		Mainmodal.style.display = 'none';
-	});
-	window.onclick = function (event) {
-		if (event.target == Mainmodal) {
-			Mainmodal.style.display = 'none';
-		}
-	};
-	let logo = document.getElementById('logo');
-	logo.addEventListener('click', function () {
+	let LogoDiv = document.getElementsByClassName('logo')[0];
+	console.log(LogoDiv);
+	LogoDiv.addEventListener('click', function () {
 		location.replace('index.html');
 	});
-	let mainDeliverybtn = document.getElementsByClassName('Main-Deliverybtn')[0];
-	let mainPickupbtn = document.getElementsByClassName('Main-Pickupbtn')[0];
+	//  -----------------------------------------------------------------------
+	//                                Modal Boxes
+	//  -----------------------------------------------------------------------
+	let modalBtn = document.getElementsByClassName('Modalbutton')[0];
+	modalBtn.addEventListener('click', function () {
+		let deliveryForm = document.getElementsByClassName('form-container')[0];
+		if (!modalClicked) {
+			modalClicked = true;
+			deliveryForm.innerHTML = `<div class="Main Loc-container">
+    <div class="Address-Container">
+      <div class="Address">
+        <h6>Street Address <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="123 Main St"
+          id="StreetAddress"
+          required
+        />
+      </div>
+      <div class="AddressLine2">
+        <h6>Address Line 2</h6>
+        <input
+          type="text"
+          placeholder="Apt, Suite, Unit, etc."
+          id="AddressLine2"
+        />
+      </div>
+    </div>
+    <div class="City-State">
+      <div class="City-Container">
+        <h6>City <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="City"
+          id="City"
+          required
+        />
+      </div>
+  
+      <div class="State-Container">
+        <h6>State/Province/Region <span class="star">*</span></h6>
+        <select id="State" required>
+          <option value="" disabled selected>
+            Select State/Province
+          </option>
+          <option value="">Select State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="Zip-Container">
+      <h6>ZIP/Postal Code <span class="star">*</span></h6>
+      <input
+        type="text"
+        placeholder="ZIP/Postal Code"
+        id="ZipCode"
+        required
+      />
+    </div>
+  </div>
+  <div class="Menu in-container">
+    <label for="Date"><h4>Choose Date:</h4></label>
+    <select name="Date" id="Date-Dropdown">
+      <option value="Today">Today</option>
+      <option value="tomorrow">tomorrow</option>
+      <option value="11/10">11/10</option>
+      <option value="11/11">11/11</option>
+    </select>
+  </div>
+  <div class="Menu in-container">
+    <label for="Time"><h4>Choose Time:</h4></label>
+    <select name="Date" id="time-Dropdown">
+      <option value="12:00pm">12:00pm</option>
+      <option value="12:30pm">12:30pm</option>
+      <option value="1:00pm">1:00pm</option>
+      <option value="1:30pm">1:30pm</option>
+    </select>
+  </div>`;
+		}
 
-	let maindeliveryForm =
-		document.getElementsByClassName('Main-in-container')[0];
-	mainDeliverybtn.addEventListener('click', function () {
-		maindeliveryForm.style.display = 'block';
+		delOrPickModal();
 	});
-	mainPickupbtn.addEventListener('click', function () {
-		maindeliveryForm.style.display = 'none';
-	});
+
 	//  -----------------------------------------------------------------------
 	//                                Testimonial Carousel
 	//  -----------------------------------------------------------------------
@@ -478,10 +855,12 @@ function initializeMainPage() {
 			'.Testimonial-Container'
 		);
 
-		let testOffset = -currentTestimonialIndex * (700 + 450);
+		let testOffset = -currentTestimonialIndex * (700 + 465);
 		TestimonialContainers.style.transform = `translateX(${testOffset}px)`;
 	}
-	// --------------------gus--------------------------------------
+	//  -----------------------------------------------------------------------
+	//                                Secret Gus
+	//  -----------------------------------------------------------------------
 	let Footer = document.getElementsByTagName('footer')[0];
 	let secretGus = document.getElementById('SecretGus');
 	let SecretModal = document.getElementsByClassName('SecretModal Main')[0];
@@ -507,9 +886,18 @@ function initializeMainPage() {
 // ---------------------------------------------------------------------------------------------------------
 function initializeMenuPage() {
 	document.addEventListener('DOMContentLoaded', ready);
+	//  -----------------------------------------------------------------------
+	//                                Nav logo
+	//  -----------------------------------------------------------------------
+	let LogoDiv = document.getElementsByClassName('logo')[0];
+	console.log(LogoDiv);
+	LogoDiv.addEventListener('click', function () {
+		location.replace('index.html');
+	});
 
 	ready();
 
+	search_Items;
 	function ready() {
 		storedLosPollosMenu =
 			JSON.parse(localStorage.getItem('LosPollosMenu')) || {};
@@ -520,10 +908,10 @@ function initializeMenuPage() {
 			let AddtoCartBtn = AddtoCart[i];
 			AddtoCartBtn.addEventListener('click', addToCartClicked);
 		}
-		//  -----------------------------------------------------------------------
-		//                                Adding to Cart
-		//  -----------------------------------------------------------------------
 	}
+	//  -----------------------------------------------------------------------
+	//                                Adding to Cart
+	//  -----------------------------------------------------------------------
 	function addToCartClicked(event) {
 		let button = event.target;
 		console.log(button);
@@ -560,76 +948,140 @@ function initializeMenuPage() {
 			existingItems.push(ItemInfo);
 			// localStorage.setItem("StoredItems", JSON.stringify(existingItems));
 		}
+
 		localStorage.setItem('StoredItems', JSON.stringify(existingItems));
 	}
 	//  -----------------------------------------------------------------------
 	//                                Modal Boxes
 	//  -----------------------------------------------------------------------
-	let modalBtn = document.getElementsByClassName('Modalbutton Menu')[0];
-	let modal = document.getElementsByClassName('modal Menu')[0];
-	let closebtn = document.getElementsByClassName('Closebtn Menu')[0];
+	let modalBtn = document.getElementsByClassName('Modalbutton')[0];
 	modalBtn.addEventListener('click', function () {
-		modal.style.display = 'block';
-	});
-	closebtn.addEventListener('click', function () {
-		modal.style.display = 'none';
-	});
-	window.onclick = function (event) {
-		if (event.target == modal) {
-			modal.style.display = 'none';
+		let deliveryForm = document.getElementsByClassName('form-container')[0];
+		if (!modalClicked) {
+			modalClicked = true;
+			deliveryForm.innerHTML = `<div class="Main Loc-container">
+    <div class="Address-Container">
+      <div class="Address">
+        <h6>Street Address <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="123 Main St"
+          id="StreetAddress"
+          required
+        />
+      </div>
+      <div class="AddressLine2">
+        <h6>Address Line 2</h6>
+        <input
+          type="text"
+          placeholder="Apt, Suite, Unit, etc."
+          id="AddressLine2"
+        />
+      </div>
+    </div>
+    <div class="City-State">
+      <div class="City-Container">
+        <h6>City <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="City"
+          id="City"
+          required
+        />
+      </div>
+  
+      <div class="State-Container">
+        <h6>State/Province/Region <span class="star">*</span></h6>
+        <select id="State" required>
+          <option value="" disabled selected>
+            Select State/Province
+          </option>
+          <option value="">Select State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="Zip-Container">
+      <h6>ZIP/Postal Code <span class="star">*</span></h6>
+      <input
+        type="text"
+        placeholder="ZIP/Postal Code"
+        id="ZipCode"
+        required
+      />
+    </div>
+  </div>
+  <div class="Menu in-container">
+    <label for="Date"><h4>Choose Date:</h4></label>
+    <select name="Date" id="Date-Dropdown">
+      <option value="Today">Today</option>
+      <option value="tomorrow">tomorrow</option>
+      <option value="11/10">11/10</option>
+      <option value="11/11">11/11</option>
+    </select>
+  </div>
+  <div class="Menu in-container">
+    <label for="Time"><h4>Choose Time:</h4></label>
+    <select name="Date" id="time-Dropdown">
+      <option value="12:00pm">12:00pm</option>
+      <option value="12:30pm">12:30pm</option>
+      <option value="1:00pm">1:00pm</option>
+      <option value="1:30pm">1:30pm</option>
+    </select>
+  </div>`;
 		}
-	};
-	let logo = document.getElementById('logo');
-	logo.addEventListener('click', function () {
-		location.replace('index.html');
-	});
-	let CustomerLocInfo = [];
-	let cStreet = document.getElementById('StreetAddress');
-	let cStreet2 = document.getElementById('AddressLine2');
-	let cCity = document.getElementById('City');
-	let cSPR = document.getElementById('State');
-	let cZIP = document.getElementById('ZipCode');
-	let cDate = document.getElementById('Date-Dropdown');
-	let cTime = document.getElementById('time-Dropdown');
-	let Updatebtn = document.getElementById('UpdateBtn');
 
-	Updatebtn.addEventListener('click', function () {
-		if (CustomerLocInfo.length > 0) {
-			CustomerLocInfo.pop();
-		} else {
-			console.log(
-				cStreet.value,
-				cStreet2.value,
-				cCity.value,
-				cSPR.value,
-				cZIP.value,
-				cDate.value,
-				cTime.value
-			);
-			CustomerLocInfo.push({
-				StreetA: cStreet.value,
-				Street2: cStreet2.value,
-				City: cCity.value,
-				SPR: cSPR.value,
-				ZIP: cZIP.value,
-				date: cDate.value,
-				Time: cTime.value,
-			});
-			localStorage.setItem('CustomerLocInfos', JSON.stringify(CustomerLocInfo));
-		}
-		modal.style.display = 'none';
-	});
-	let Deliverybtn = document.getElementsByClassName('Delivery-Menu')[0];
-	let Pickupbtn = document.getElementsByClassName('Pickup-Menu')[0];
-	let indicator = document.getElementById('Main-D-P-Indicator');
-	let deliveryForm = document.getElementsByClassName('in-container')[0];
-	Deliverybtn.addEventListener('click', function () {
-		indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Delivery`;
-		deliveryForm.style.display = 'block';
-	});
-	Pickupbtn.addEventListener('click', function () {
-		indicator.innerHTML = `<ion-icon name="pin"></ion-icon> Pick Up`;
-		deliveryForm.style.display = 'none';
+		delOrPickModal();
 	});
 
 	//  -----------------------------------------------------------------------
@@ -657,8 +1109,21 @@ function initializeMenuPage() {
 	//  -----------------------------------------------------------------------
 	//                            Onscroll function end
 	//  -----------------------------------------------------------------------
+	//  -----------------------------------------------------------------------
+	//                                SearchBar function
+	//  -----------------------------------------------------------------------
+	let input = document.getElementById('Searchbar');
+	input.addEventListener('input', search_Items);
 }
 function initializeCheckoutPage() {
+	//  -----------------------------------------------------------------------
+	//                                Nav logo
+	//  -----------------------------------------------------------------------
+	let LogoDiv = document.getElementsByClassName('logo')[0];
+	console.log(LogoDiv);
+	LogoDiv.addEventListener('click', function () {
+		location.replace('index.html');
+	});
 	function ready() {
 		let quantityInputs = document.getElementsByClassName('Cart-Quantity');
 		for (let i = 0; i < quantityInputs.length; i++) {
@@ -691,9 +1156,135 @@ function initializeCheckoutPage() {
 			mZIP.value = '';
 		}
 	}
-	//  -----------------------------------------------------------------------
-	//                            retrieving and applying Coupons
-	//  -----------------------------------------------------------------------
+	let modalBtn = document.getElementsByClassName('Modalbutton')[0];
+	modalBtn.addEventListener('click', function () {
+		let deliveryForm = document.getElementsByClassName('form-container')[0];
+		if (!modalClicked) {
+			modalClicked = true;
+			deliveryForm.innerHTML = `<div class="Main Loc-container">
+    <div class="Address-Container">
+      <div class="Address">
+        <h6>Street Address <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="123 Main St"
+          id="StreetAddress"
+          required
+        />
+      </div>
+      <div class="AddressLine2">
+        <h6>Address Line 2</h6>
+        <input
+          type="text"
+          placeholder="Apt, Suite, Unit, etc."
+          id="AddressLine2"
+        />
+      </div>
+    </div>
+    <div class="City-State">
+      <div class="City-Container">
+        <h6>City <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="City"
+          id="City"
+          required
+        />
+      </div>
+  
+      <div class="State-Container">
+        <h6>State/Province/Region <span class="star">*</span></h6>
+        <select id="State" required>
+          <option value="" disabled selected>
+            Select State/Province
+          </option>
+          <option value="">Select State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="Zip-Container">
+      <h6>ZIP/Postal Code <span class="star">*</span></h6>
+      <input
+        type="text"
+        placeholder="ZIP/Postal Code"
+        id="ZipCode"
+        required
+      />
+    </div>
+  </div>
+  <div class="Menu in-container">
+    <label for="Date"><h4>Choose Date:</h4></label>
+    <select name="Date" id="Date-Dropdown">
+      <option value="Today">Today</option>
+      <option value="tomorrow">tomorrow</option>
+      <option value="11/10">11/10</option>
+      <option value="11/11">11/11</option>
+    </select>
+  </div>
+  <div class="Menu in-container">
+    <label for="Time"><h4>Choose Time:</h4></label>
+    <select name="Date" id="time-Dropdown">
+      <option value="12:00pm">12:00pm</option>
+      <option value="12:30pm">12:30pm</option>
+      <option value="1:00pm">1:00pm</option>
+      <option value="1:30pm">1:30pm</option>
+    </select>
+  </div>`;
+		}
+
+		delOrPickModal();
+	});
 
 	//  -----------------------------------------------------------------------
 	//                            retrieving Item info
@@ -988,6 +1579,7 @@ function initializeCheckoutPage() {
 		console.log('tipdeduction', TipTotal);
 		document.getElementById('tip').innerText = `Tip: $${TipTotal.toFixed(2)}`;
 		document.getElementById('tax').innerText = `Tax: $${Taxtotal.toFixed(2)}`;
+		CurrentTaxTotal = Taxtotal;
 		console.log(orderTotal);
 		document.getElementById(
 			'FinalTotal'
@@ -1104,8 +1696,14 @@ function initializeCheckoutPage() {
 					}
 				}
 				applyCoupon(DiscountElement, CurrentTaxTotal, discount, Coupon);
-			} else if (Coupon === '') {
-				resetCoupon();
+			} else if (
+				!couponIdRetrieved.map((coupon) => coupon.code).includes('TWENTYOFF') &&
+				!couponIdRetrieved.map((coupon) => coupon.code).includes('FIRSTTIME')
+			) {
+				let Coupon = CouponID.value;
+				if (Coupon === '') {
+					resetCoupon();
+				}
 			}
 		}
 		CouponID.addEventListener('input', function () {
@@ -1196,7 +1794,7 @@ function initializeCheckoutPage() {
 			} else {
 				FinalOrderTransfer.push({
 					subtotal: CurrentSubTotal,
-					tax: CurrentTaxTotal,
+					tax: CurrentTaxTotal.toFixed(2),
 					discount: currentDiscountAmount,
 					tip: CurrentTipTotal,
 					orderTotal: CurrentOrderTotal,
@@ -1211,6 +1809,147 @@ function initializeCheckoutPage() {
 }
 
 function initializeRecieptPage() {
+	//  -----------------------------------------------------------------------
+	//                                Nav logo
+	//  -----------------------------------------------------------------------
+	let LogoDiv = document.getElementsByClassName('logo')[0];
+	console.log(LogoDiv);
+	LogoDiv.addEventListener('click', function () {
+		location.replace('index.html');
+	});
+	//  -----------------------------------------------------------------------
+	//                                Modal
+	//  -----------------------------------------------------------------------
+	let modalBtn = document.getElementsByClassName('Modalbutton')[0];
+	modalBtn.addEventListener('click', function () {
+		let deliveryForm = document.getElementsByClassName('form-container')[0];
+		if (!modalClicked) {
+			modalClicked = true;
+			deliveryForm.innerHTML = `<div class="Main Loc-container">
+    <div class="Address-Container">
+      <div class="Address">
+        <h6>Street Address <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="123 Main St"
+          id="StreetAddress"
+          required
+        />
+      </div>
+      <div class="AddressLine2">
+        <h6>Address Line 2</h6>
+        <input
+          type="text"
+          placeholder="Apt, Suite, Unit, etc."
+          id="AddressLine2"
+        />
+      </div>
+    </div>
+    <div class="City-State">
+      <div class="City-Container">
+        <h6>City <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="City"
+          id="City"
+          required
+        />
+      </div>
+  
+      <div class="State-Container">
+        <h6>State/Province/Region <span class="star">*</span></h6>
+        <select id="State" required>
+          <option value="" disabled selected>
+            Select State/Province
+          </option>
+          <option value="">Select State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="Zip-Container">
+      <h6>ZIP/Postal Code <span class="star">*</span></h6>
+      <input
+        type="text"
+        placeholder="ZIP/Postal Code"
+        id="ZipCode"
+        required
+      />
+    </div>
+  </div>
+  <div class="Menu in-container">
+    <label for="Date"><h4>Choose Date:</h4></label>
+    <select name="Date" id="Date-Dropdown">
+      <option value="Today">Today</option>
+      <option value="tomorrow">tomorrow</option>
+      <option value="11/10">11/10</option>
+      <option value="11/11">11/11</option>
+    </select>
+  </div>
+  <div class="Menu in-container">
+    <label for="Time"><h4>Choose Time:</h4></label>
+    <select name="Date" id="time-Dropdown">
+      <option value="12:00pm">12:00pm</option>
+      <option value="12:30pm">12:30pm</option>
+      <option value="1:00pm">1:00pm</option>
+      <option value="1:30pm">1:30pm</option>
+    </select>
+  </div>`;
+		}
+
+		delOrPickModal();
+	});
+
 	let retrievedItems = JSON.parse(localStorage.getItem(`StoredItems`)) || [];
 
 	let itemList = document.getElementsByClassName('item-list')[0];
@@ -1316,8 +2055,17 @@ function initializeRecieptPage() {
 }
 
 function initiateManagerPage() {
+	//  -----------------------------------------------------------------------
+	//                                Nav logo
+	//  -----------------------------------------------------------------------
+	let LogoDiv = document.getElementsByClassName('logo')[0];
+	console.log(LogoDiv);
+	LogoDiv.addEventListener('click', function () {
+		location.replace('index.html');
+	});
 	//MANAGER
-	storedLosPollosMenu = JSON.parse(localStorage.getItem('LosPollosMenu')) || {};
+	search_Items;
+	console.log(storedLosPollosMenu);
 	ready();
 	function ready() {
 		menuDisplay();
@@ -1336,24 +2084,22 @@ function initiateManagerPage() {
 			EditBtn.innerText = 'Edit Item';
 			cardBottom.appendChild(EditBtn);
 			EditBtn.addEventListener('click', editItem);
+			let AddBtn = document.getElementById('AddItemsButton');
+			AddBtn.addEventListener('click', function () {
+				let Addmodal = document.getElementsByClassName('Modal Manager')[0];
+				Addmodal.style.display = 'block';
+
+				window.onclick = function (event) {
+					if (event.target == modal) {
+						Addmodal.style.display = 'none';
+					}
+				};
+			});
+			let AddItemBtn = document.getElementById('SubmitItem');
+			AddItemBtn.addEventListener('click', addItem);
 		});
 	}
-	function modal() {
-		console.log('MODAL');
-		let modal = document.getElementsByClassName('Modal Manager')[0];
-		modal.style.display = 'block';
 
-		window.onclick = function (event) {
-			if (event.target == modal) {
-				modal.style.display = 'none';
-			}
-		};
-	}
-
-	let AddBtn = document.getElementById('AddItemsButton');
-	AddBtn.addEventListener('click', modal);
-	let AddItemBtn = document.getElementById('SubmitItem');
-	AddItemBtn.addEventListener('click', addItem);
 	function addItem() {
 		let ItemName = document.getElementById('itemName').value;
 		let ItemPrice = parseFloat(
@@ -1396,10 +2142,17 @@ function initiateManagerPage() {
 			let items = storedLosPollosMenu[category];
 			for (let i = 0; i < items.length; i++) {
 				let item = items[i];
-				if (item.Name === itemName) {
+				if (item.Name.replace(/\s+/g, '') === itemName.replace(/\s+/g, '')) {
 					console.log(item.Itemid);
 					console.log(item);
 					items.splice(i, 1);
+
+					//
+					storedLosPollosMenu[category].forEach((item, index) => {
+						//this will asign items based on the index
+						item.Itemid = index + 1;
+					});
+
 					localStorage.setItem(
 						'LosPollosMenu',
 						JSON.stringify(storedLosPollosMenu)
@@ -1410,8 +2163,73 @@ function initiateManagerPage() {
 			}
 		}
 	}
+	function itemUpdate(item) {
+		let UpdatedItemName = document.getElementById('EDITitemName').value;
+		let UpdatedItemPrice = parseFloat(
+			document.getElementById('EDITitemPrice').value
+		).toFixed(2);
+		let UpdatedItemDescription = document.getElementById(
+			'EDITitemDescription'
+		).value;
+		let UpdatedItemImage = document.getElementById('EDITitemImage').value;
+		let UpdatedItemCategory = document.getElementById('EDITItemCategory').value;
+
+		item.Name = UpdatedItemName;
+		item.Price = UpdatedItemPrice;
+		item.Description = UpdatedItemDescription;
+		item.image = UpdatedItemImage;
+
+		console.log(UpdatedItemName);
+		let currentCategory = null;
+		for (let category in storedLosPollosMenu) {
+			let items = storedLosPollosMenu[category];
+			let itemIndex = items.findIndex((i) => i.Itemid === item.Itemid);
+			console.log(itemIndex);
+			console.log(item.Itemid + 1);
+			console.log(item);
+
+			if (itemIndex > -1) {
+				//Checks for the item
+				currentCategory = category;
+				break;
+			}
+		} //Updates the Item Properties
+
+		console.log('Item UPDATED');
+
+		if (UpdatedItemCategory !== currentCategory) {
+			if (currentCategory) {
+				let oldcatItems = storedLosPollosMenu[currentCategory];
+				console.log(oldcatItems);
+				let itemIndex = oldcatItems.findIndex((i) => i.Itemid === item.Itemid);
+				if (itemIndex > -1) {
+					oldcatItems.splice(itemIndex, 1);
+				}
+			}
+			//checks if the category has changed and if the category even exists
+			if (!storedLosPollosMenu[UpdatedItemCategory]) {
+				storedLosPollosMenu[UpdatedItemCategory] = [];
+			}
+		} else {
+			if (currentCategory) {
+				let items = storedLosPollosMenu[currentCategory];
+				let itemIndex = items.findIndex((i) => i.Itemid === item.Itemid);
+				if (itemIndex > -1) {
+					items[itemIndex] = item;
+				}
+			}
+		}
+
+		console.log(storedLosPollosMenu);
+
+		localStorage.setItem('LosPollosMenu', JSON.stringify(storedLosPollosMenu));
+		let modal = document.getElementsByClassName('Modal ManagerEDIT')[0];
+		modal.style.display = 'none';
+		ready();
+	}
 	function editItem(event) {
 		let buttonClicked = event.target;
+		console.log(buttonClicked);
 
 		// editModal()
 		let ItemCard = buttonClicked.closest('.item-card');
@@ -1420,15 +2238,12 @@ function initiateManagerPage() {
 			let items = storedLosPollosMenu[category];
 			for (let i = 0; i < items.length; i++) {
 				let item = items[i];
-				if (item.Name === itemName) {
-					console.log(item.Itemid);
-					console.log(item);
-					console.log('EDIT');
 
+				if (item.Name.replace(/\s+/g, '') === itemName.replace(/\s+/g, '')) {
+					console.log('EDIT');
 					document.getElementById('EDITitemName').value = item.Name;
 
 					let PriceNum = item.Price;
-					console.log(PriceNum);
 					document.getElementById('EDITitemPrice').value = PriceNum;
 					document.getElementById('EDITitemDescription').value =
 						item.Description;
@@ -1450,6 +2265,7 @@ function initiateManagerPage() {
 					modal.style.display = 'block';
 					let Updatebtn = document.getElementById('UpdateItem');
 					Updatebtn.addEventListener('click', function () {
+						//prevents the form to really submit
 						itemUpdate(item);
 					});
 
@@ -1464,44 +2280,439 @@ function initiateManagerPage() {
 		}
 	}
 
-	function itemUpdate(item) {
-		let UpdatedItemName = document.getElementById('EDITitemName').value;
-		let UpdatedItemPrice = parseFloat(
-			document.getElementById('EDITitemPrice').value
-		).toFixed(2);
-		let UpdatedItemDescription = document.getElementById(
-			'EDITitemDescription'
-		).value;
-		let UpdatedItemImage = document.getElementById('EDITitemImage').value;
-		let UpdatedItemCategory = document.getElementById('EDITItemCategory').value;
-
-		for (let category in storedLosPollosMenu) {
-			let items = storedLosPollosMenu[category];
-			let itemIndex = items.findIndex((i) => i.Itemid === item.Itemid);
-			if (item.Name !== -1) {
-				items.splice(itemIndex, 1);
-				break;
-			}
-			item.Name = UpdatedItemName;
-			item.Price = UpdatedItemPrice;
-			item.Description = UpdatedItemDescription;
-			item.image = UpdatedItemImage;
-
-			if (!storedLosPollosMenu[UpdatedItemCategory]) {
-				storedLosPollosMenu[UpdatedItemCategory] = [];
-			}
-			storedLosPollosMenu[UpdatedItemCategory].push(item);
-
-			localStorage.setItem(
-				'LosPollosMenu',
-				JSON.stringify(storedLosPollosMenu)
-			);
-			let modal = document.getElementsByClassName('Modal Manager')[0];
-			modal.style.display = 'none';
-		}
-	}
+	//  -----------------------------------------------------------------------
+	//                                SearchBar function
+	//  -----------------------------------------------------------------------
+	let input = document.getElementById('Searchbar');
+	input.addEventListener('input', search_Items);
 }
 
+function initializeWhoPage() {
+	//  -----------------------------------------------------------------------
+	//                                Nav logo
+	//  -----------------------------------------------------------------------
+	let LogoDiv = document.getElementsByClassName('logo')[0];
+	console.log(LogoDiv);
+	LogoDiv.addEventListener('click', function () {
+		location.replace('index.html');
+	});
+	//  -----------------------------------------------------------------------
+	//                                Modal
+	//  -----------------------------------------------------------------------
+	let modalBtn = document.getElementsByClassName('Modalbutton')[0];
+	modalBtn.addEventListener('click', function () {
+		let deliveryForm = document.getElementsByClassName('form-container')[0];
+		if (!modalClicked) {
+			modalClicked = true;
+			deliveryForm.innerHTML = `<div class="Main Loc-container">
+    <div class="Address-Container">
+      <div class="Address">
+        <h6>Street Address <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="123 Main St"
+          id="StreetAddress"
+          required
+        />
+      </div>
+      <div class="AddressLine2">
+        <h6>Address Line 2</h6>
+        <input
+          type="text"
+          placeholder="Apt, Suite, Unit, etc."
+          id="AddressLine2"
+        />
+      </div>
+    </div>
+    <div class="City-State">
+      <div class="City-Container">
+        <h6>City <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="City"
+          id="City"
+          required
+        />
+      </div>
+  
+      <div class="State-Container">
+        <h6>State/Province/Region <span class="star">*</span></h6>
+        <select id="State" required>
+          <option value="" disabled selected>
+            Select State/Province
+          </option>
+          <option value="">Select State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="Zip-Container">
+      <h6>ZIP/Postal Code <span class="star">*</span></h6>
+      <input
+        type="text"
+        placeholder="ZIP/Postal Code"
+        id="ZipCode"
+        required
+      />
+    </div>
+  </div>
+  <div class="Menu in-container">
+    <label for="Date"><h4>Choose Date:</h4></label>
+    <select name="Date" id="Date-Dropdown">
+      <option value="Today">Today</option>
+      <option value="tomorrow">tomorrow</option>
+      <option value="11/10">11/10</option>
+      <option value="11/11">11/11</option>
+    </select>
+  </div>
+  <div class="Menu in-container">
+    <label for="Time"><h4>Choose Time:</h4></label>
+    <select name="Date" id="time-Dropdown">
+      <option value="12:00pm">12:00pm</option>
+      <option value="12:30pm">12:30pm</option>
+      <option value="1:00pm">1:00pm</option>
+      <option value="1:30pm">1:30pm</option>
+    </select>
+  </div>`;
+		}
+
+		delOrPickModal();
+	});
+}
+function initiateCaterFormPage() {
+	//  -----------------------------------------------------------------------
+	//                                Nav logo
+	//  -----------------------------------------------------------------------
+	let LogoDiv = document.getElementsByClassName('logo')[0];
+	console.log(LogoDiv);
+	LogoDiv.addEventListener('click', function () {
+		location.replace('index.html');
+	});
+	//  -----------------------------------------------------------------------
+	//                                Modal
+	//  -----------------------------------------------------------------------
+	let modalBtn = document.getElementsByClassName('Modalbutton')[0];
+	modalBtn.addEventListener('click', function () {
+		let deliveryForm = document.getElementsByClassName('form-container')[0];
+		if (!modalClicked) {
+			modalClicked = true;
+			deliveryForm.innerHTML = `<div class="Main Loc-container">
+    <div class="Address-Container">
+      <div class="Address">
+        <h6>Street Address <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="123 Main St"
+          id="StreetAddress"
+          required
+        />
+      </div>
+      <div class="AddressLine2">
+        <h6>Address Line 2</h6>
+        <input
+          type="text"
+          placeholder="Apt, Suite, Unit, etc."
+          id="AddressLine2"
+        />
+      </div>
+    </div>
+    <div class="City-State">
+      <div class="City-Container">
+        <h6>City <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="City"
+          id="City"
+          required
+        />
+      </div>
+  
+      <div class="State-Container">
+        <h6>State/Province/Region <span class="star">*</span></h6>
+        <select id="State" required>
+          <option value="" disabled selected>
+            Select State/Province
+          </option>
+          <option value="">Select State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="Zip-Container">
+      <h6>ZIP/Postal Code <span class="star">*</span></h6>
+      <input
+        type="text"
+        placeholder="ZIP/Postal Code"
+        id="ZipCode"
+        required
+      />
+    </div>
+  </div>
+  <div class="Menu in-container">
+    <label for="Date"><h4>Choose Date:</h4></label>
+    <select name="Date" id="Date-Dropdown">
+      <option value="Today">Today</option>
+      <option value="tomorrow">tomorrow</option>
+      <option value="11/10">11/10</option>
+      <option value="11/11">11/11</option>
+    </select>
+  </div>
+  <div class="Menu in-container">
+    <label for="Time"><h4>Choose Time:</h4></label>
+    <select name="Date" id="time-Dropdown">
+      <option value="12:00pm">12:00pm</option>
+      <option value="12:30pm">12:30pm</option>
+      <option value="1:00pm">1:00pm</option>
+      <option value="1:30pm">1:30pm</option>
+    </select>
+  </div>`;
+		}
+
+		delOrPickModal();
+	});
+}
+function inititalizeIncomingPage() {
+	//  -----------------------------------------------------------------------
+	//                                Nav logo
+	//  -----------------------------------------------------------------------
+	let LogoDiv = document.getElementsByClassName('logo')[0];
+	console.log(LogoDiv);
+	LogoDiv.addEventListener('click', function () {
+		location.replace('index.html');
+	});
+	//  -----------------------------------------------------------------------
+	//                                Modal
+	//  -----------------------------------------------------------------------
+	let modalBtn = document.getElementsByClassName('Modalbutton')[0];
+	modalBtn.addEventListener('click', function () {
+		let deliveryForm = document.getElementsByClassName('form-container')[0];
+		if (!modalClicked) {
+			modalClicked = true;
+			deliveryForm.innerHTML = `<div class="Main Loc-container">
+    <div class="Address-Container">
+      <div class="Address">
+        <h6>Street Address <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="123 Main St"
+          id="StreetAddress"
+          required
+        />
+      </div>
+      <div class="AddressLine2">
+        <h6>Address Line 2</h6>
+        <input
+          type="text"
+          placeholder="Apt, Suite, Unit, etc."
+          id="AddressLine2"
+        />
+      </div>
+    </div>
+    <div class="City-State">
+      <div class="City-Container">
+        <h6>City <span class="star">*</span></h6>
+        <input
+          type="text"
+          placeholder="City"
+          id="City"
+          required
+        />
+      </div>
+  
+      <div class="State-Container">
+        <h6>State/Province/Region <span class="star">*</span></h6>
+        <select id="State" required>
+          <option value="" disabled selected>
+            Select State/Province
+          </option>
+          <option value="">Select State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="Zip-Container">
+      <h6>ZIP/Postal Code <span class="star">*</span></h6>
+      <input
+        type="text"
+        placeholder="ZIP/Postal Code"
+        id="ZipCode"
+        required
+      />
+    </div>
+  </div>
+  <div class="Menu in-container">
+    <label for="Date"><h4>Choose Date:</h4></label>
+    <select name="Date" id="Date-Dropdown">
+      <option value="Today">Today</option>
+      <option value="tomorrow">tomorrow</option>
+      <option value="11/10">11/10</option>
+      <option value="11/11">11/11</option>
+    </select>
+  </div>
+  <div class="Menu in-container">
+    <label for="Time"><h4>Choose Time:</h4></label>
+    <select name="Date" id="time-Dropdown">
+      <option value="12:00pm">12:00pm</option>
+      <option value="12:30pm">12:30pm</option>
+      <option value="1:00pm">1:00pm</option>
+      <option value="1:30pm">1:30pm</option>
+    </select>
+  </div>`;
+		}
+
+		delOrPickModal();
+	});
+}
 //  -----------------------------------------------------------------------
 //                  Checks for Id to Load the right Functions
 //  -----------------------------------------------------------------------
@@ -1524,5 +2735,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	} else if (document.getElementById('ManagerPage')) {
 		console.log('ManagerPage Opening');
 		initiateManagerPage();
+	} else if (document.getElementById('WhoPage')) {
+		initializeWhoPage();
+	} else if (document.getElementById('CaterFormPage')) {
+		initiateCaterFormPage();
+	} else if (document.getElementById('IncomingPage')) {
+		inititalizeIncomingPage();
 	}
 });

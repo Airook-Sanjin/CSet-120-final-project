@@ -83,14 +83,15 @@ body {
 	border: none;
 	color: white;
 	padding: 10px;
-	font-family: 'Lato', serif;
-	font-weight: 600;
 }
 #Searchbar::placeholder {
-	/* color: hsl(0, 0%, 70%); */
-	color: white;
+	color: hsl(0, 0%, 70%);
 }
-
+#Searchbar:focus {
+	outline: none;
+	border: none;
+	/* background-color: none; */
+}
 #UserProf,
 #Cart {
 	font-size: 30px;
@@ -201,7 +202,10 @@ ion-icon {
 /* -------------------------------------------------------------------------- */
 /*                                 Card Styles                                */
 /* -------------------------------------------------------------------------- */
-
+.selection {
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
 .section-title {
 	text-transform: uppercase;
 	display: flex;
@@ -216,18 +220,7 @@ ion-icon {
 	color: var(--main-red);
 }
 
-/* *.title-style {
-	content: '';
-	background-image: url(LosPollosImages-gif/zigzag.svg);
-	background-position: 0 200%;
-	background-repeat: repeat-x;
-	background-size: contain;
-	width: fit-content;
-} */
-
 .title-style {
-	/* display: block;
-	transform: translatey(200%); */
 	display: flex;
 	justify-content: left;
 	margin-left: 11%;
@@ -237,10 +230,6 @@ ion-icon {
 #tenders img[src^='LosPoillosImages/chicken-tenders.webp'] {
 	height: 10rem;
 }
-
-/* .item-card [src^='media/applepie.png'] {
-	height: 10rem;
-} */
 
 .items-container {
 	display: grid;
@@ -385,7 +374,7 @@ ion-icon {
 /* -------------------------------------------------------------------------- */
 @keyframes animateTop {
 	from {
-		top: -18.75rem;
+		top: -300px;
 		opacity: 0;
 	}
 	to {
@@ -409,44 +398,44 @@ ion-icon {
 	height: 100%;
 	background-color: hsl(0, 0%, 0%, 0.4);
 }
-.Main-Loc-container {
-	display: flex;
-	flex-direction: column;
-	height: 8rem;
-}
-.Address-Container,
-.City-State {
-	display: flex;
-	column-gap: 5%;
-	height: 3rem;
-}
-
-.Zip-Container {
-	flex-direction: column;
-}
 .popup-card {
 	display: flex;
+	/* overflow: scroll; */
 	flex-direction: column;
 	align-items: center;
 	margin: 5% auto;
 	background-color: hsl(0, 0%, 97%);
-	height: 31.25rem;
-	width: 25rem;
+	height: 41.25rem;
+	width: 350px;
 	padding: 6%;
 	border-radius: 20px;
 	row-gap: 20px;
 }
 .popup-head {
 	display: flex;
+	justify-content: center;
 	flex-direction: row;
 	gap: 200px;
 }
+.popup-head h5 {
+	font-family: 'Arvo', 'Lato', serif;
+	justify-self: center;
+	transform: translate(7rem, 0%);
+	font-size: 1.6rem;
+	font-weight: 600;
+	width: max-content;
+	text-transform: uppercase;
+}
+
 .Closebtn {
 	background-color: transparent;
 	border: none;
 	width: 20px;
 	font-size: 30px;
+	transform: translate(-3.5rem, -1rem);
+	color: #b3b2b2;
 }
+
 .P-D-btns {
 	background-color: transparent;
 	border: none;
@@ -459,13 +448,87 @@ ion-icon {
 	justify-content: space-between;
 	width: 100%;
 	padding: 3%;
-	background-color: hsl(0, 0%, 70%);
+	/* background-color: hsl(0, 0%, 70%); */
 	border-radius: 20px;
 }
+
+.P-D-btns-container::after {
+	background-color: yellow;
+}
+
+.info-txt {
+	color: #333;
+	font-family: 'Lato', serif;
+}
+
+/* -------------------------------- ToggleBtn ------------------------------- */
+.toggleCheckbox {
+	display: none;
+}
+
+.toggleContainer {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 100%;
+	height: 2.5rem;
+	border: 3px solid red;
+	border-radius: 20px;
+	background: white;
+	padding-bottom: 5%;
+	font-weight: bold;
+	color: #343434;
+	cursor: pointer;
+	font-family: 'Arvo', serif;
+	text-transform: uppercase;
+}
+
+.toggleContainer::before {
+	content: '';
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	left: 0%;
+	border-radius: 20px;
+	background: #f2022f;
+	transition: all 0.3s;
+}
+
+.toggleContainer div {
+	padding: 6px;
+	text-align: center;
+	z-index: 1;
+}
+
+.toggleCheckbox:checked + .toggleContainer::before {
+	left: 50%;
+}
+
+.toggleCheckbox:checked + .toggleContainer div:first-child {
+	color: #f2022f;
+	transition: color 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer div:last-child {
+	color: white;
+	transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:first-child {
+	color: white;
+	transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:last-child {
+	color: #f2022f;
+	transition: color 0.3s;
+}
+
+/* ------------------------------ ToggleBtn End ----------------------------- */
+
 .form-container {
 	display: flex;
 	flex-direction: column;
 	row-gap: 20px;
+	font-family: 'Lato', serif;
+
 	/* height:100%; */
 }
 .form-container input,
@@ -475,20 +538,54 @@ ion-icon {
 	width: 100%;
 	border-radius: 20px;
 	padding: 2%;
+	font-family: 'Lato', serif;
+	margin-top: 5px;
+	color: grey;
 }
+
+.form-container input {
+	font-size: 1.15rem;
+}
+
+.form-container select {
+	font-size: 1rem;
+}
+input[type='text'] {
+	font-size: 1rem;
+}
+
+.form-container h4 {
+	color: #333;
+}
+
 option:value {
 	color: hsl(0, 0%, 70%);
 }
-.Update-btn {
+.Update-Btn {
 	/* display: flex; */
-
-	background-color: #f2e205;
+	/* background-color: #f2e205; */
+	background-color: #f2022f;
+	color: white;
+	font-family: 'Arvo', serif;
+	margin-top: 1rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1rem;
+	padding: 5%;
 	width: 80%;
-
 	height: fit-content;
 	padding: 3%;
 	border: none;
 	border-radius: 20px;
+}
+
+.Update-Btn:hover {
+	/* background-color: #ddcf07; */
+	background-color: #d20329;
+}
+.Update-Btn:active {
+	/* background-color: #ccbf08; */
+	background-color: #99041f;
 }
 /* ---------------------------------------------------- */
 /* ------               Footer Section       ---------- */
