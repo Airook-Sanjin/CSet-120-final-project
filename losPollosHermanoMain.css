@@ -145,11 +145,7 @@ a {
 	height: 50vh;
 }
 
-/* .circle {
-	background-color: yellow;
-	border-radius: 50%;
-	width: 100%;
-} */
+
 
 .video img {
 	width: 550px;
@@ -438,14 +434,6 @@ span {
 #Prev-TestBtn {
 	margin-left: 70%;
 }
-
-/* mark {
-	display: inline-block;
-	line-height: 1px;
-	padding-bottom: 0.5em;
-	background-color: #2d50a9;
-	color: white;
-} */
 
 hr {
 	border: 3px solid red;
