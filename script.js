@@ -681,7 +681,7 @@ function initializeSignInPage() {
     email = email.toLowerCase()
     
     for (let user of storedUsers){
-    if (email === managerInfo.email && pass === managerInfo.password) {
+    if (email === managerInfo.email.toLowerCase() && pass === managerInfo.password) {
       location.replace("admin.html");
       alert("Logged in as manager");
     } else if (email === user.UserEmail && pass === user.Password){
@@ -1162,6 +1162,7 @@ function initializeMenuPage() {
 }
 function initializeCheckoutPage() {
   joinAsGuest;
+  delOrPickModal;
   //  -----------------------------------------------------------------------
   //                                Nav logo
   //  -----------------------------------------------------------------------
@@ -2253,6 +2254,7 @@ function initiateManagerPage() {
         let itemIndex = oldcatItems.findIndex(i => i.Itemid === item.Itemid)
         if(itemIndex > -1){
           oldcatItems.splice(itemIndex, 1)
+          console.log("OldCAtItem Disappeared")
         }
       }
       //checks if the category has changed and if the category even exists
@@ -2315,7 +2317,7 @@ function initiateManagerPage() {
           modal.style.display = "block";
           let Updatebtn = document.getElementById("UpdateItem");
           Updatebtn.addEventListener("click", function () {
-            //prevents the form to really submit
+           
             itemUpdate(item);
           });
 
