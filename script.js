@@ -621,76 +621,85 @@ function menuDisplay() {
 }
 
 function initializeSignInPage() {
-	let storedUsers = JSON.parse(localStorage.getItem('Users'));
-	if (!storedUsers) {
-		let users = [];
+  let storedUsers = JSON.parse(localStorage.getItem("Users"));
+  if(!storedUsers){
+    let users = []
+  
+  localStorage.setItem("Users",JSON.stringify(users));
+  storedUsers = users
+  }else{
+    users=storedUsers
+  }
+  
+  
+  
+  let status = localStorage.getItem("userStatus")
+    console.log(status)
+  function signup() {
+    
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+    const passwordRequirements =
+      /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}(?=.*[@$!%*#?&])/;
+    
+    email = email.toLowerCase()
+    
+    if (!passwordRequirements.test(pass)) {
+      alert(
+        "Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special character."
+      );
+      return;
+    }
+  
+    let UserExists=false   
+        for(let user of storedUsers){
+          if (user.UserEmail === email){
+            UserExists = true;
+            break;
+          }
+        }
+        if(!UserExists){
+          status="logged-in"
+          storedUsers.push({UserEmail: email, Password:pass})
+          localStorage.setItem("userStatus",status)
+          localStorage.setItem("Users",JSON.stringify(storedUsers))
+        location.replace("index.html");
+        }else{
+          alert("User exists")
+        }
+  }
+  const managerInfo = {
+    email: "LosPollosManager81@gmail.com",
+    password: "GusFring2425!",
+  };
 
-		localStorage.setItem('Users', JSON.stringify(users));
-		storedUsers = users;
-	} else {
-		users = storedUsers;
-	}
+  function login() {
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+    email = email.toLowerCase()
+    
+    for (let user of storedUsers){
+    if (email === managerInfo.email.toLowerCase() && pass === managerInfo.password) {
+      location.replace("admin.html");
+      alert("Logged in as manager");
+    } else if (email === user.UserEmail && pass === user.Password){
+      status = "logged-in";
+      localStorage.setItem("userStatus", status)
+      alert(status)
+      return;
+    }
+     else {
+      alert("User does not exist");
+    }
+  }
+}
+  document.getElementById("Signup-btn").addEventListener("click", signup);
+  document.getElementById("Login-btn").addEventListener("click", login);
+  document.getElementById("Guest-btn").addEventListener("click",function(){
+    joinAsGuest;
+    location.replace("index.html")
+  })
 
-	let status = localStorage.getItem('userStatus');
-	console.log(status);
-	function signup() {
-		let email = document.getElementById('email').value;
-		let pass = document.getElementById('password').value;
-		const passwordRequirements =
-			/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}(?=.*[@$!%*#?&])/;
-
-		email = email.toLowerCase();
-
-		if (!passwordRequirements.test(pass)) {
-			alert(
-				'Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special character.'
-			);
-			return;
-		}
-
-		let UserExists = false;
-		for (let user of storedUsers) {
-			if (user.UserEmail === email) {
-				UserExists = true;
-				break;
-			}
-		}
-		if (!UserExists) {
-			status = 'logged-in';
-			storedUsers.push({ UserEmail: email, Password: pass });
-			localStorage.setItem('userStatus', status);
-			localStorage.setItem('Users', JSON.stringify(storedUsers));
-			location.replace('index.html');
-		} else {
-			alert('User exists');
-		}
-	}
-	const managerInfo = {
-		email: 'LosPollosManager81@gmail.com',
-		password: 'GusFring2425!',
-	};
-
-	function login() {
-		let email = document.getElementById('email').value;
-		let pass = document.getElementById('password').value;
-		email = email.toLowerCase();
-
-		for (let user of storedUsers) {
-			if (email === managerInfo.email && pass === managerInfo.password) {
-				location.replace('admin.html');
-				alert('Logged in as manager');
-			} else if (email === user.UserEmail && pass === user.Password) {
-				status = 'logged-in';
-				localStorage.setItem('userStatus', status);
-				alert(status);
-				return;
-			} else {
-				alert('User does not exist');
-			}
-		}
-	}
-	document.getElementById('Signup-btn').addEventListener('click', signup);
-	document.getElementById('Login-btn').addEventListener('click', login);
 }
 
 function joinAsGuest() {
@@ -1148,54 +1157,55 @@ function initializeMenuPage() {
 	input.addEventListener('input', search_Items);
 }
 function initializeCheckoutPage() {
-	joinAsGuest;
-	delOrPickModal;
-	//  -----------------------------------------------------------------------
-	//                                Nav logo
-	//  -----------------------------------------------------------------------
-	let LogoDiv = document.getElementsByClassName('logo')[0];
-	console.log(LogoDiv);
-	LogoDiv.addEventListener('click', function () {
-		location.replace('index.html');
-	});
-	function ready() {
-		let quantityInputs = document.getElementsByClassName('Cart-Quantity');
-		for (let i = 0; i < quantityInputs.length; i++) {
-			let input = quantityInputs[i];
-			input.addEventListener('change', quantityChanged);
-		}
-		let mStreet = document.getElementById('StreetAddress');
-		let mStreet2 = document.getElementById('AddressLine2');
-		let mCity = document.getElementById('City');
-		let mSPR = document.getElementById('State');
-		let mZIP = document.getElementById('ZipCode');
-		let TransferedCustomLocInfo = JSON.parse(
-			localStorage.getItem('CustomerLocInfos')
-		);
-		console.log(TransferedCustomLocInfo);
-		if (TransferedCustomLocInfo) {
-			console.log(TransferedCustomLocInfo[0].StreetA);
-			if (TransferedCustomLocInfo.length > -1) {
-				mStreet.value = TransferedCustomLocInfo[0].StreetA;
-				mStreet2.value = TransferedCustomLocInfo[0].Street2;
-				mCity.value = TransferedCustomLocInfo[0].City;
-				mSPR.value = TransferedCustomLocInfo[0].SPR;
-				mZIP.value = TransferedCustomLocInfo[0].ZIP;
-			}
-		} else if (!TransferedCustomLocInfo) {
-			mStreet.value = '';
-			mStreet2.value = '';
-			mCity.value = '';
-			mSPR.value = '';
-			mZIP.value = '';
-		}
-	}
-	let modalBtn = document.getElementsByClassName('Modalbutton')[0];
-	modalBtn.addEventListener('click', function () {
-		let deliveryForm = document.getElementsByClassName('form-container')[0];
-		if (!modalClicked) {
-			modalClicked = true;
-			deliveryForm.innerHTML = `<div class="Main Loc-container">
+  joinAsGuest;
+  delOrPickModal;
+  //  -----------------------------------------------------------------------
+  //                                Nav logo
+  //  -----------------------------------------------------------------------
+  let LogoDiv = document.getElementsByClassName("logo")[0];
+  console.log(LogoDiv);
+  LogoDiv.addEventListener("click", function () {
+    location.replace("index.html");
+  });
+  function ready() {
+    let quantityInputs = document.getElementsByClassName("Cart-Quantity");
+    for (let i = 0; i < quantityInputs.length; i++) {
+      let input = quantityInputs[i];
+      input.addEventListener("change", quantityChanged);
+    }
+    let mStreet = document.getElementById("StreetAddress");
+    let mStreet2 = document.getElementById("AddressLine2");
+    let mCity = document.getElementById("City");
+    let mSPR = document.getElementById("State");
+    let mZIP = document.getElementById("ZipCode");
+    let TransferedCustomLocInfo = JSON.parse(
+      localStorage.getItem("CustomerLocInfos")
+    );
+    console.log(TransferedCustomLocInfo);
+    if (TransferedCustomLocInfo) {
+      console.log(TransferedCustomLocInfo[0].StreetA);
+      if (TransferedCustomLocInfo.length > -1) {
+        mStreet.value = TransferedCustomLocInfo[0].StreetA;
+        mStreet2.value = TransferedCustomLocInfo[0].Street2;
+        mCity.value = TransferedCustomLocInfo[0].City;
+        mSPR.value = TransferedCustomLocInfo[0].SPR;
+        mZIP.value = TransferedCustomLocInfo[0].ZIP;
+      }
+    } else if (!TransferedCustomLocInfo) {
+      mStreet.value = "";
+      mStreet2.value = "";
+      mCity.value = "";
+      mSPR.value = "";
+      mZIP.value = "";
+    }
+  }
+  let modalBtn = document.getElementsByClassName("Modalbutton")[0];
+  modalBtn.addEventListener("click", function () {
+    let deliveryForm = document.getElementsByClassName("form-container")[0];
+    if (!modalClicked) {
+      modalClicked = true;
+      deliveryForm.innerHTML = `<div class="Main Loc-container">
+
     <div class="Address-Container">
       <div class="Address">
         <h6>Street Address <span class="star">*</span></h6>
@@ -2232,96 +2242,99 @@ function initiateManagerPage() {
 			}
 		} //Updates the Item Properties
 
-		console.log('Item UPDATED');
+    console.log("Item UPDATED");
 
-		if (UpdatedItemCategory !== currentCategory) {
-			if (currentCategory) {
-				let oldcatItems = storedLosPollosMenu[currentCategory];
-				console.log(oldcatItems);
-				let itemIndex = oldcatItems.findIndex((i) => i.Itemid === item.Itemid);
-				if (itemIndex > -1) {
-					oldcatItems.splice(itemIndex, 1);
-				}
-			}
-			//checks if the category has changed and if the category even exists
-			if (!storedLosPollosMenu[UpdatedItemCategory]) {
-				storedLosPollosMenu[UpdatedItemCategory] = [];
-			}
-		} else {
-			if (currentCategory) {
-				let items = storedLosPollosMenu[currentCategory];
-				let itemIndex = items.findIndex((i) => i.Itemid === item.Itemid);
-				if (itemIndex > -1) {
-					items[itemIndex] = item;
-				}
-			}
-		}
+    if (UpdatedItemCategory !== currentCategory) {
+      if(currentCategory){
+        let oldcatItems = storedLosPollosMenu[currentCategory];
+        console.log(oldcatItems)
+        let itemIndex = oldcatItems.findIndex(i => i.Itemid === item.Itemid)
+        if(itemIndex > -1){
+          oldcatItems.splice(itemIndex, 1)
+          console.log("OldCAtItem Disappeared")
+        }
+      }
+      //checks if the category has changed and if the category even exists
+      if (!storedLosPollosMenu[UpdatedItemCategory]) {
+        storedLosPollosMenu[UpdatedItemCategory] = [];
+      }
+    }else{
+      if(currentCategory){
+        let items = storedLosPollosMenu[currentCategory];
+        let itemIndex = items.findIndex(i => i.Itemid === item.Itemid)
+        if(itemIndex > -1){
+          items[itemIndex] = item
+        }
+      }
+    }
 
-		console.log(storedLosPollosMenu);
+    console.log(storedLosPollosMenu);
+  
+    localStorage.setItem("LosPollosMenu", JSON.stringify(storedLosPollosMenu));
+    let modal = document.getElementsByClassName("Modal ManagerEDIT")[0];
+    modal.style.display = "none";
+    ready();
+  }
+  function editItem(event) {
+    let buttonClicked = event.target;
+    console.log(buttonClicked);
 
-		localStorage.setItem('LosPollosMenu', JSON.stringify(storedLosPollosMenu));
-		let modal = document.getElementsByClassName('Modal ManagerEDIT')[0];
-		modal.style.display = 'none';
-		ready();
-	}
-	function editItem(event) {
-		let buttonClicked = event.target;
-		console.log(buttonClicked);
+    // editModal()
+    let ItemCard = buttonClicked.closest(".item-card");
+    let itemName = ItemCard.querySelector(".item-header").innerText;
+    for (let category in storedLosPollosMenu) {
+      let items = storedLosPollosMenu[category];
+      for (let i = 0; i < items.length; i++) {
+       
+        let item = items[i];
+        
+        if (item.Name.replace(/\s+/g, "") === itemName.replace(/\s+/g, "")) {
+          console.log("EDIT");
+          document.getElementById("EDITitemName").value = item.Name;
 
-		// editModal()
-		let ItemCard = buttonClicked.closest('.item-card');
-		let itemName = ItemCard.querySelector('.item-header').innerText;
-		for (let category in storedLosPollosMenu) {
-			let items = storedLosPollosMenu[category];
-			for (let i = 0; i < items.length; i++) {
-				let item = items[i];
+          let PriceNum = item.Price;
+          document.getElementById("EDITitemPrice").value = PriceNum;
+          document.getElementById("EDITitemDescription").value =
+            item.Description;
 
-				if (item.Name.replace(/\s+/g, '') === itemName.replace(/\s+/g, '')) {
-					console.log('EDIT');
-					document.getElementById('EDITitemName').value = item.Name;
+          let IMGInput = document.getElementById("EDITitemImage");
+          let IMGprev = document.querySelector(".PlaceholderImage");
+          IMGInput.value = item.image;
 
-					let PriceNum = item.Price;
-					document.getElementById('EDITitemPrice').value = PriceNum;
-					document.getElementById('EDITitemDescription').value =
-						item.Description;
+          IMGInput.addEventListener("input", function () {
+            let IMGurl = IMGInput.value;
+            IMGprev.src = IMGurl || "default.jpg";
+            console.log(IMGurl);
+          });
+          console.log(IMGprev.src);
 
-					let IMGInput = document.getElementById('EDITitemImage');
-					let IMGprev = document.querySelector('.PlaceholderImage');
-					IMGInput.value = item.image;
+          document.getElementById("EDITItemCategory").value = category;
+          console.log(category);
+          let modal = document.getElementsByClassName("Modal ManagerEDIT")[0];
+          modal.style.display = "block";
+          let Updatebtn = document.getElementById("UpdateItem");
+          Updatebtn.addEventListener("click", function () {
+           
+            itemUpdate(item);
+          });
 
-					IMGInput.addEventListener('input', function () {
-						let IMGurl = IMGInput.value;
-						IMGprev.src = IMGurl || 'default.jpg';
-						console.log(IMGurl);
-					});
-					console.log(IMGprev.src);
+          window.onclick = function (event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          };
+          break;
+        }
+      }
+    }
+  }
+  
+  //  -----------------------------------------------------------------------
+  //                                SearchBar function
+  //  -----------------------------------------------------------------------
+  let input = document.getElementById("Searchbar");
+  input.addEventListener("input", search_Items);
 
-					document.getElementById('EDITItemCategory').value = category;
-					console.log(category);
-					let modal = document.getElementsByClassName('Modal ManagerEDIT')[0];
-					modal.style.display = 'block';
-					let Updatebtn = document.getElementById('UpdateItem');
-					Updatebtn.addEventListener('click', function () {
-						//prevents the form to really submit
-						itemUpdate(item);
-					});
-
-					window.onclick = function (event) {
-						if (event.target == modal) {
-							modal.style.display = 'none';
-						}
-					};
-					break;
-				}
-			}
-		}
-	}
-
-	//  -----------------------------------------------------------------------
-	//                                SearchBar function
-	//  -----------------------------------------------------------------------
-	let input = document.getElementById('Searchbar');
-	input.addEventListener('input', search_Items);
 }
 
 function initializeWhoPage() {
